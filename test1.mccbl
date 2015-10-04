@@ -1,0 +1,5 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+scoreboard players set @e[type=Item] mine -1 {Item:{id:minecraft:record_11}}
+execute @e[type=Item,score_mine=-1] ~ ~ ~ 

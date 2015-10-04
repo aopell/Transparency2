@@ -11,13 +11,11 @@
 testfor @a
 //Conditional - will only run if command before it runs successfully
 ?give @a[r=3] minecraft:stone 1 0 {display:{Name:Hello}}
-//To create a scoreboard objective, place a '!' before it
-//scoreboard objectives add !objectiveName dummy
-//However, do not use '!' in a target selector as they are interpereted literally
-//testfor @a[score_objectiveName_min=1]
+testfor @a[score_objectiveName_min=1]
 //ERROR
 //Text that is red, bold, italicized, and underlined is out of syntax
 //Example: This text is out of syntax
 //Out of syntax text will result in interpereting errors and your script may not import as intended
 //The only command without syntax highlighting is say
-//say Hello there!
+say Hello there!
+scoreboard objectives add thisobjective dummy
