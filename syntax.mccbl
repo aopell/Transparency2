@@ -1,0 +1,23 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+//First line must be script type: either @TYPE ONCE or @TYPE REPEAT
+//If ONCE: The first command block will be an impulse command block
+//If REPEAT: The first command block will be a repeat command block
+//Second line must be chain type: either @CHAIN ON or @CHAIN OFF
+//If ON: All command blocks in the chain will be always on
+//If OFF: All command blocks in the chain will need to be powered individually to run
+//Third line must be version number @VERSION x.y.z but not a snapshot. So 15w37a would be 1.9
+testfor @a
+//Conditional - will only run if command before it runs successfully
+?give @a[r=3] minecraft:stone 1 0 {display:{Name:Hello}}
+//To create a scoreboard objective, place a '!' before it
+//scoreboard objectives add !objectiveName dummy
+//However, do not use '!' in a target selector as they are interpereted literally
+//testfor @a[score_objectiveName_min=1]
+//ERROR
+//Text that is red, bold, italicized, and underlined is out of syntax
+//Example: This text is out of syntax
+//Out of syntax text will result in interpereting errors and your script may not import as intended
+//The only command without syntax highlighting is say
+//say Hello there!
