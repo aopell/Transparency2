@@ -1,0 +1,14 @@
+@TYPE ONCE
+@CHAIN ON
+@VERSION 1.9
+execute @a[score_lives_min=1,team=Red] ~ ~ ~ tellraw @a ["",{"selector":"@p","color":"red","bold":true},{"text":" wins!","color":"white","italic":true,"bold":false}]
+execute @a[score_lives_min=1,team=Orange] ~ ~ ~ tellraw @a ["",{"selector":"@p","color":"gold","bold":true},{"text":" wins!","color":"white","italic":true,"bold":false}]
+execute @a[score_lives_min=1,team=Yellow] ~ ~ ~ tellraw @a ["",{"selector":"@p","color":"yellow","bold":true},{"text":" wins!","color":"white","italic":true,"bold":false}]
+execute @a[score_lives_min=1,team=Green] ~ ~ ~ tellraw @a ["",{"selector":"@p","color":"green","bold":true},{"text":" wins!","color":"white","italic":true,"bold":false}]
+execute @a[score_lives_min=1,team=Blue] ~ ~ ~ tellraw @a ["",{"selector":"@p","color":"blue","bold":true},{"text":" wins!","color":"white","italic":true,"bold":false}]
+execute @a[score_lives_min=1,team=Purple] ~ ~ ~ tellraw @a ["",{"selector":"@p","color":"dark_purple","bold":true},{"text":" wins!","color":"white","italic":true,"bold":false}]
+execute @a[score_lives_min=1,team=LBlue] ~ ~ ~ tellraw @a ["",{"selector":"@p","color":"aqua","bold":true},{"text":" wins!","color":"white","italic":true,"bold":false}]
+execute @a[score_lives_min=1,team=Pink] ~ ~ ~ tellraw @a ["",{"selector":"@p","color":"light_purple","bold":true},{"text":" wins!","color":"white","italic":true,"bold":false}]
+scoreboard teams leave @a
+scoreboard players set @e[type=ArmorStand,name=GK,score_count_min=600,score_counting_min=0] count 0
+?setblock -2 3 -16 minecraft:air
