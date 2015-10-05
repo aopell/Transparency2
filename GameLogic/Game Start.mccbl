@@ -2,6 +2,7 @@
 @CHAIN ON
 @VERSION 1.9
 tp @a[team=] 0 65 0 0 -90
+scoreboard players set @e[type=ArmorStand,name=GK] counting 0
 testfor @a[team=!Lobby,c=2]
 ?execute @e[type=ArmorStand,name=GK,score_count=0] tellraw @a ["",{"text":"The Game is starting in","color":"white","italic":true},{"text":" 30","color":"dark_red","italic":false},{"text":" seconds!","color":"white","italic":true}]
 scoreboard players set @e[type=ArmorStand,name=GK,score_counting=0,score_count=0] counting 1
@@ -15,6 +16,7 @@ execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=540,scor
 execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=560,score_count=560] ~ ~ ~ /tellraw @a ["",{"text":"2","color":"dark_red","bold":true,"underlined":true}]
 execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=580,score_count=580] ~ ~ ~ /tellraw @a ["",{"text":"1","color":"dark_red","bold":true,"underlined":true}]
 //good shit
-execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=600] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] gameInProgress 1
+scoreboard players set @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=600] gameInProgress 1
+execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=600,score_gameInProgress_min=1] ~ ~ ~ /scoreboard players operation @a lives = @e[type=ArmorStand,name=GK] lives
 //kill counter
 scoreboard players set @e[type=ArmorStand,name=TK,score_count_min=600,score_counting_min=1] counting 0
