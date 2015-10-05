@@ -1,6 +1,0 @@
-@TYPE REPEAT
-@CHAIN ON
-@VERSION 1.9
-say 1
-say 2
-say 3
