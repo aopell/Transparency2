@@ -1,0 +1,14 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+//test thing goes here
+execute @a[score_lives_min=1,team=Red] ~ ~ ~
+execute @a[score_lives_min=1,team=Orange] ~ ~ ~
+execute @a[score_lives_min=1,team=Yellow] ~ ~ ~
+execute @a[score_lives_min=1,team=Green] ~ ~ ~
+execute @a[score_lives_min=1,team=Blue] ~ ~ ~
+execute @a[score_lives_min=1,team=Purple] ~ ~ ~
+execute @a[score_lives_min=1,team=LBlue] ~ ~ ~
+execute @a[score_lives_min=1,team=Pink] ~ ~ ~
+scoreboard teams leave @a
+scoreboard players set @e[type=ArmorStand,name=TK,score_count_min=600,score_counting_min=0] count 0
