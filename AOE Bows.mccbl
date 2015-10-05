@@ -1,7 +1,7 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
-scoreboard players reset @e[type=TippedArrow]
+scoreboard players set @e[type=TippedArrow] inGround 1 {inGround:1b}
 scoreboard players set @e[type=TippedArrow] sickness 1 {inGround:1b,Item:{tag:{CustomPotionEffects:[{Id:9}]}}}
 scoreboard players set @e[type=TippedArrow] deathness 1 {inGround:1b,Item:{tag:{CustomPotionEffects:[{Id:20}]}}}
 scoreboard players set @e[type=TippedArrow] upness 1 {inGround:1b,Item:{tag:{CustomPotionEffects:[{Id:25}]}}}
@@ -11,15 +11,9 @@ scoreboard players set @e[type=TippedArrow] weakness 1 {inGround:1b,Item:{tag:{C
 scoreboard players set @e[type=TippedArrow] groundness 1 {inGround:1b,Item:{tag:{CustomPotionEffects:[{Id:8}]}}}
 execute @e[type=TippedArrow,score_sickness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:400,Amplifier:9,ShowParticles:0,Id:9}]}
 execute @e[type=TippedArrow,score_deathness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:1,ShowParticles:0,Id:20}]}
-execute @e[type=TippedArrow,score_upness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:29,ShowParticles:0,Id:25}]}
+execute @e[type=TippedArrow,score_upness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:100,Amplifier:29,ShowParticles:0,Id:25}]}
 execute @e[type=TippedArrow,score_slowness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:1,ShowParticles:0,Id:2}]}
 execute @e[type=TippedArrow,score_blindness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:1,ShowParticles:0,Id:15}]}
-execute @e[type=TippedArrow,score_weakness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:1,ShowParticles:0,Id:18}]}
-execute @e[type=TippedArrow,score_groundness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:128,ShowParticles:0,Id:8}]}
-kill @e[type=TippedArrow,score_sickness_min=1]
-kill @e[type=TippedArrow,score_deathness_min=1]
-kill @e[type=TippedArrow,score_upness_min=1]
-kill @e[type=TippedArrow,score_slowness_min=1]
-kill @e[type=TippedArrow,score_slowness_min=1]
-kill @e[type=TippedArrow,score_slowness_min=1]
-kill @e[type=TippedArrow,score_groundness_min=1]
+execute @e[type=TippedArrow,score_weakness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:600,Amplifier:1,ShowParticles:0,Id:18}]}
+execute @e[type=TippedArrow,score_groundness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:400,Amplifier:128,ShowParticles:0,Id:8}]}
+kill @e[type=TippedArrow,score_inGround_min=1]
