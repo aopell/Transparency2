@@ -1,13 +1,14 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
+tp @a[team=] 0 65 0 0 -90
 testfor @a[team=!Lobby,c=2]
-?execute @e[type=ArmorStand,name=GK,score_count=0] tellraw @a ["",{"text":"The Game is starting in","color":"aqua","italic":true},{"text":" 30","color":"dark_red","italic":false},{"text":" seconds!","color":"aqua","italic":true}]
+?execute @e[type=ArmorStand,name=GK,score_count=0] tellraw @a ["",{"text":"The Game is starting in","color":"white","italic":true},{"text":" 30","color":"dark_red","italic":false},{"text":" seconds!","color":"white","italic":true}]
 scoreboard players set @e[type=ArmorStand,name=GK,score_counting=0,score_count=0] counting 1
 scoreboard players add @e[type=ArmorStand,name=GK,score_counting=1] count 1
 //Counting
-execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=300,score_count=300] ~ ~ ~ /tellraw @a ["",{"text":" 15","color":"dark_red"},{"text":" seconds","color":"aqua","italic":true},{"text":" to game start","color":"aqua","italic":true}]
-execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=400,score_count=400] ~ ~ ~ /tellraw @a ["",{"text":" 10","color":"dark_red"},{"text":" seconds","color":"aqua","italic":true}]
+execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=300,score_count=300] ~ ~ ~ /tellraw @a ["",{"text":" 15","color":"dark_red"},{"text":" seconds","color":"white","italic":true},{"text":" to game start","color":"white","italic":true}]
+execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=400,score_count=400] ~ ~ ~ /tellraw @a ["",{"text":" 10","color":"dark_red"},{"text":" seconds","color":"white","italic":true}]
 execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=500,score_count=500] ~ ~ ~ /tellraw @a ["",{"text":"5","color":"dark_red","bold":true,"underlined":true}]
 execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=520,score_count=520] ~ ~ ~ /tellraw @a ["",{"text":"4","color":"dark_red","bold":true,"underlined":true}]
 execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=540,score_count=540] ~ ~ ~ /tellraw @a ["",{"text":"3","color":"dark_red","bold":true,"underlined":true}]
