@@ -2,7 +2,7 @@
 @CHAIN ON
 @VERSION 1.9
 scoreboard players set @e[type=ArmorStand,name=GK] win 0
-execute @a[team=!Lobby] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] win 1
+execute @a[score_inGame_min=1] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] win 1
 
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] gameInProgress 0
 //I won
@@ -15,6 +15,7 @@ execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,team=LBlue] ~ ~ ~ tellraw @a ["",{"selector":"@p","color":"aqua","bold":true},{"text":" wins!","color":"white","italic":true,"bold":false}]
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,team=Pink] ~ ~ ~ tellraw @a ["",{"selector":"@p","color":"light_purple","bold":true},{"text":" wins!","color":"white","italic":true,"bold":false}]
 //finalize finish
+execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @a inGame -1
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard teams leave @a
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ tp @a 0 65 0
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_count_min=600,score_counting_min=0] count 0
