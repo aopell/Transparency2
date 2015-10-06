@@ -1,6 +1,6 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
-execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ scoreboard players set @a[score_inGame_min=1] inGame 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ scoreboard players set @a inGame 0
 testfor @e[type=ArmorStand,name=GK,score_gameInProgress_min=1]
 ?blockdata -8 3 -15 {auto:1b}
