@@ -11,7 +11,7 @@ scoreboard players set @e[type=TippedArrow] weakness 1 {inGround:1b,Item:{tag:{C
 scoreboard players set @e[type=TippedArrow] groundness 1 {inGround:1b,Item:{tag:{CustomPotionEffects:[{Id:8}]}}}
 execute @e[type=TippedArrow,score_sickness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:400,Amplifier:9,ShowParticles:0,Id:9}]}
 execute @e[type=TippedArrow,score_deathness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:1,ShowParticles:0,Id:20}]}
-execute @e[type=TippedArrow,score_upness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:100,Amplifier:29,ShowParticles:0,Id:25}]}
+execute @e[type=TippedArrow,score_upness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:20,Amplifier:90,ShowParticles:0,Id:25}]}
 execute @e[type=TippedArrow,score_slowness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:1,ShowParticles:0,Id:2}]}
 execute @e[type=TippedArrow,score_blindness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:1,ShowParticles:0,Id:15}]}
 execute @e[type=TippedArrow,score_weakness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:600,Amplifier:1,ShowParticles:0,Id:18}]}
