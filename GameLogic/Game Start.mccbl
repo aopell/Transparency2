@@ -10,16 +10,16 @@ execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=Arm
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_counting=0,score_count=0] counting 1
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,score_counting=1] count 1
 //Counting
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=300,score_count=300] ~ ~ ~ tellraw @a ["",{"text":" 15","color":"dark_red"},{"text":" seconds","color":"white","italic":true},{"text":" to game start","color":"white","italic":true}]
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=400,score_count=400] ~ ~ ~ tellraw @a ["",{"text":" 10","color":"dark_red"},{"text":" seconds","color":"white","italic":true}]
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=500,score_count=500] ~ ~ ~ tellraw @a ["",{"text":"5","color":"dark_red","bold":true,"underlined":true}]
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=520,score_count=520] ~ ~ ~ tellraw @a ["",{"text":"4","color":"dark_red","bold":true,"underlined":true}]
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=540,score_count=540] ~ ~ ~ tellraw @a ["",{"text":"3","color":"dark_red","bold":true,"underlined":true}]
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=560,score_count=560] ~ ~ ~ tellraw @a ["",{"text":"2","color":"dark_red","bold":true,"underlined":true}]
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=580,score_count=580] ~ ~ ~ tellraw @a ["",{"text":"1","color":"dark_red","bold":true,"underlined":true}]
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=300,score_count=300] ~ ~ ~ tellraw @a ["",{"text":" 15","color":"dark_red"},{"text":" seconds","color":"white","italic":true},{"text":" to game start","color":"white","italic":true}]
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=400,score_count=400] ~ ~ ~ tellraw @a ["",{"text":" 10","color":"dark_red"},{"text":" seconds","color":"white","italic":true}]
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=500] ~ ~ ~ tellraw @a ["",{"text":"5","color":"dark_red","bold":true,"underlined":true}]
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=520,score_count=520] ~ ~ ~ tellraw @a ["",{"text":"4","color":"dark_red","bold":true,"underlined":true}]
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=540,score_count=540] ~ ~ ~ tellraw @a ["",{"text":"3","color":"dark_red","bold":true,"underlined":true}]
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=560,score_count=560] ~ ~ ~ tellraw @a ["",{"text":"2","color":"dark_red","bold":true,"underlined":true}]
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ tellraw @a ["",{"text":"1","color":"dark_red","bold":true,"underlined":true}]
 //good shit
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=600] gameInProgress 1
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ scoreboard players operation @a lives = @e[type=ArmorStand,name=GK] livesGK
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_counting_min=1,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ spawnpoint @a[team=!Lobby] 0 256 0
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_count_min=600] gameInProgress 1
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ scoreboard players operation @a lives = @e[type=ArmorStand,name=GK] livesGK
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ spawnpoint @a[team=!Lobby] 0 256 0
 //kill counter
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=TK,score_count_min=600,score_counting_min=1] counting 0
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=TK,score_count_min=600] counting 0
