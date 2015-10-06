@@ -1,0 +1,38 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+scoreboard players set @a[score_inGame_min=0] inGame 0 
+scoreboard teams join Lobby @a[score_lives=0]
+scoreboard players set @a[team=!Lobby] inGame 1
+execute @e[type=ArmorStand,name=GK,score_gameInProgress=1] gamemode 3 @a[score_inGame=0]
+tp @a[score_inGame=0] 0 150 0 0 90
+scoreboard players set @a[score_inGame=0] inGame -1
+spawnpoint @a[score_onceOver=0] 0 256 0
+//end once over
+scoreboard players set @a[score_onceOver=0] onceOver 1
+//respawn
+scoreboard players set @a[score_health=0] died 1
+scoreboard players remove @a[score_died_min=1] lives 1
+//Items
+replaceitem entity @a[0,256,0,3,score_died_min=1] slot.hotbar.0 minecraft:bow 1 0 {ench:[{id:19,lvl:3},{id:48,lvl:2}],CanDestroy:["minecraft:fire"],HideFlags:23,AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:0,Operation:2,UUIDMost:75315,UUIDLeast:166040}],display:{Name:"UAW",Lore:["Useless Attack Weapon","Knocks people around and shoots things"]},Unbreakable:1}
+//player color
+replaceitem entity @a[0,256,0,3,score_died_min=1,team=Red] slot.armor.head minecraft:stained_glass 1 14
+replaceitem entity @a[0,256,0,3,score_died_min=1,team=Orange] slot.armor.head minecraft:stained_glass 1 1
+replaceitem entity @a[0,256,0,3,score_died_min=1,team=Yellow] slot.armor.head minecraft:stained_glass 1 4
+replaceitem entity @a[0,256,0,3,score_died_min=1,team=Green] slot.armor.head minecraft:stained_glass 1 5
+replaceitem entity @a[0,256,0,3,score_died_min=1,team=Blue] slot.armor.head minecraft:stained_glass 1 11
+replaceitem entity @a[0,256,0,3,score_died_min=1,team=Purple] slot.armor.head minecraft:stained_glass 1 10
+replaceitem entity @a[0,256,0,3,score_died_min=1,team=LBlue] slot.armor.head minecraft:stained_glass 1 3
+replaceitem entity @a[0,256,0,3,score_died_min=1,team=Pink] slot.armor.head minecraft:stained_glass 1 6
+//put players in right place
+tp @a[0,256,0,3,score_died_min=1,team=Red] 18 148 6 90 0
+tp @a[0,256,0,3,score_died_min=1,team=Orange] 18 148 -7 90 0
+tp @a[0,256,0,3,score_died_min=1,team=Yellow] 6 148 -18 0 0
+tp @a[0,256,0,3,score_died_min=1,team=Green] -7 148 -18 0 0
+tp @a[0,256,0,3,score_died_min=1,team=Blue] -19 148 -7 -90 0
+tp @a[0,256,0,3,score_died_min=1,team=Purple] -19 148 6 -90 0
+tp @a[0,256,0,3,score_died_min=1,team=LBlue] -7 148 18 180 0
+tp @a[0,256,0,3,score_died_min=1,team=Pink] 6 148 18 180 0
+effect @a[0,256,0,3,score_died_min=1] minecraft:resistance 7 4 true
+scoreboard players set @a[score_died_min=1] died 0
+blockdata -8 3 -15 {auto:0b}
