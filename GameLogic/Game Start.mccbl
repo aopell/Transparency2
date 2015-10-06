@@ -3,5 +3,7 @@
 @VERSION 1.9
 tp @a[team=] 0 65 0 0 -90
 scoreboard players set @e[type=ArmorStand,name=GK] counting 0
-testfor @a[team=!Lobby,c=2]
-?setblock -14 3 -16 minecraft:redstone_block
+scoreboard players set @e[type=ArmorStand,name=GK] onTeam 0
+execute @a[team=!Lobby] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK] onTeam 1
+testfor @e[type=ArmorStand,name=GK,score_onTeam_min=2]
+?blockdata -14 3 -15 {auto:1b}

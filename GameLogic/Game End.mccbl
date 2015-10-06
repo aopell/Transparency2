@@ -4,4 +4,4 @@
 scoreboard players set @e[type=ArmorStand,name=GK] win 0
 execute @a[team=!Lobby] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] win 1
 testfor @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_win=1]
-?setblock -2 3 -16 minecraft:redstone_block
+?blockdata -2 3 -15 {auto:1b}

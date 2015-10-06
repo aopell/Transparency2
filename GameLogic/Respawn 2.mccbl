@@ -1,4 +1,4 @@
-@TYPE ONCE
+@TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
 scoreboard players set @a[score_inGame_min=0] inGame 0 
@@ -35,4 +35,4 @@ tp @a[0,256,0,3,score_died_min=1,team=LBlue] -7 148 18 180 0
 tp @a[0,256,0,3,score_died_min=1,team=Pink] 6 148 18 180 0
 effect @a[0,256,0,3,score_died_min=1] minecraft:resistance 7 4 true
 scoreboard players set @a[score_died_min=1] died 0
-setblock -8 3 -16 minecraft:air
+blockdata -8 3 -15 {auto:0b}
