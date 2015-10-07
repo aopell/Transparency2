@@ -14,5 +14,5 @@ execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:slime 0 /effect @p minecraft:jump_boos
 execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane 9 /effect @p minecraft:speed 1 10 true
 effect @a minecraft:speed 1 0 true
 //string clear
-execute @a ~ ~ ~ detect ~ ~ ~ minecraft:tripwire -1 /clear @p minecraft:speed
-execute @a ~ ~ ~ detect ~ ~ ~ minecraft:tripwire -1 /clear @p minecraft:jump_boost
+execute @a ~ ~ ~ detect ~ ~ ~ minecraft:tripwire -1 effect @p clear minecraft:speed
+execute @a ~ ~ ~ detect ~ ~ ~ minecraft:tripwire -1 effect @p clear minecraft:jump_boost
