@@ -2,16 +2,16 @@
 @CHAIN ON
 @VERSION 1.9
 tp @a[team=] 0 65 0 0 -90
-scoreboard players set @e[type=ArmorStand,name=GK] counting 0
-scoreboard players set @e[type=ArmorStand,name=GK] onTeam 0
-execute @a[team=!Lobby] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK] onTeam 1
+scoreboard players set @e[type=ArmorStand,name=GK] @!counting 0
+scoreboard players set @e[type=ArmorStand,name=GK] @!onTeam 0
+execute @a[team=!Lobby] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK] @!onTeam 1
 //kill counter
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] counting 0
-execute @e[type=ArmorStand,name=GK,score_onTeam=0] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=0] count 0
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] count 0
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] @!counting 0
+execute @e[type=ArmorStand,name=GK,score_onTeam=0] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=0] @!count 0
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] @!count 0
 //sudo condition start
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_counting=0,score_count=0] counting 1
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,score_counting=1,score_gameInProgress=0] count 1
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_counting=0,score_count=0] @!counting 1
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,score_counting=1,score_gameInProgress=0] @!count 1
 //Counting
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=1] ~ ~ ~ tellraw @a ["",{"text":"The Game is starting in","color":"white","italic":true},{"text":" 30","color":"dark_red","italic":false},{"text":" seconds!","color":"white","italic":true}]
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=300,score_count=300] ~ ~ ~ tellraw @a ["",{"text":" 15","color":"dark_red"},{"text":" seconds","color":"white","italic":true},{"text":" to game start","color":"white","italic":true}]
@@ -22,8 +22,8 @@ execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=Arm
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=560,score_count=560] ~ ~ ~ tellraw @a ["",{"text":"2","color":"dark_red","bold":true,"underlined":true}]
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ tellraw @a ["",{"text":"1","color":"dark_red","bold":true,"underlined":true}]
 //good shit
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_count_min=600] gameInProgress 1
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ scoreboard players operation @a lives = @e[type=ArmorStand,name=GK] livesGK
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_count_min=600] @!gameInProgress 1
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ scoreboard players operation @a @!lives = @e[type=ArmorStand,name=GK] @!livesGK
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ spawnpoint @a[team=!Lobby] 0 1 20
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[team=!Lobby] died 1
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[team=!Lobby] @!died 1
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ tp @a[team=!Lobby] 0 1 20

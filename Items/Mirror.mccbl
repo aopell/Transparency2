@@ -2,10 +2,10 @@
 @CHAIN ON
 @VERSION 1.9
 execute @a[score_mirror_min=1] ~ ~ ~ summon ArmorStand 0 1 20 {CustomName:"mirror",Invisible:1b,NoGravity:1b}
-execute @a[score_mirror_min=1] ~ ~ ~ scoreboard players set @a[rm=1] mirrorRecip 1
+execute @a[score_mirror_min=1] ~ ~ ~ scoreboard players set @a[rm=1] @!mirrorRecip 1
 tp @e[type=ArmorStand,name=mirror,c=1] @a[score_mirror_min=1,c=1]
 tp @a[score_mirror_min=1,c=1] @a[score_mirrorRecip_min=1,c=1]
 tp @a[score_mirrorRecip_min=1,c=1] @e[type=ArmorStand,name=mirror,c=1]
-scoreboard players set @a[score_mirrorRecip_min=1,c=1] mirrorRecip 0
-scoreboard players set @a[score_mirror_min=1,c=1] mirror 0
+scoreboard players set @a[score_mirrorRecip_min=1,c=1] @!mirrorRecip 0
+scoreboard players set @a[score_mirror_min=1,c=1] @!mirror 0
 kill @e[type=ArmorStand,name=mirror]
