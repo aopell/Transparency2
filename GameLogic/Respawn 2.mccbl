@@ -2,6 +2,7 @@
 @CHAIN ON
 @VERSION 1.9
 scoreboard players set @a[score_inGame_min=0] @!inGame 0
+clear @a[-200,106,-200,dx=400,dy=4,dz=400,m=2]
 kill @a[-200,106,-200,dx=400,dy=4,dz=400,m=2]
 scoreboard teams join @!Lobby @a[score_lives=0]
 scoreboard players set @a[team=!Lobby,score_inGame_min=0] @!inGame 1

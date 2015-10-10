@@ -28,3 +28,4 @@ execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=Arm
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[team=!Lobby] @!died 1
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ scoreboard objectives setdisplay sidebar @!lives
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ tp @a[team=!Lobby] 0 1 20
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ gamerule keepInventory false
