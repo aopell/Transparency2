@@ -2,10 +2,13 @@
 @CHAIN ON
 @VERSION 1.9
 //lobby things
-execute @a[dx=1,dy=2,dz=1] ~ ~ ~ scoreboard teams join Lobby @p
+execute @a[-1,65,-1,dx=1,dy=2,dz=1] ~ ~ ~ scoreboard teams join Lobby @p
 effect @a minecraft:saturation 1 0 true
 execute @a[-15,65,-15,dx=33,dy=2,dz=33] ~ ~ ~ effect @p minecraft:resistance 1 4 true
-execute @a[dx=1,dy=2,dz=1] ~ ~ ~ gamemode 2 @p
+execute @a[-1,65,-1,dx=1,dy=2,dz=1,m=0] ~ ~ ~ gamemode 2 @p
+execute @a[-1,65,-1,dx=1,dy=2,dz=1,m=1] ~ ~ ~ gamemode 2 @p
+execute @a[-1,65,-1,dx=1,dy=2,dz=1,m=3] ~ ~ ~ gamemode 2 @p
+execute @a[-1,65,-1,dx=1,dy=2,dz=1] ~ ~ ~ clear @p
 execute @a[-15,50,-15,dx=33,dy=2,dz=33,m=2] ~ ~ ~ tp @p 0 65 0
 //other things
 execute @e[type=ArmorStand,name=ItemSpawner] ~ ~ ~ particle portal ~ ~0.1 ~ 0 0 0 .25 5

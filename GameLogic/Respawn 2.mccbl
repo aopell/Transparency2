@@ -28,6 +28,7 @@ replaceitem entity @a[0,1,20,3,score_died_min=1,team=LBlue] slot.armor.head mine
 replaceitem entity @a[0,1,20,3,score_died_min=1,team=Pink] slot.armor.head minecraft:stained_glass 1 6
 //put players in right place
 effect @a[0,1,20,3,score_died_min=1] minecraft:resistance 5 4 true
+effect @a[0,1,20,3,score_died_min=1] minecraft:instant_health 5 4 true
 tp @a[0,1,20,3,score_died_min=1,team=Red] 18 148 6 90 0
 tp @a[0,1,20,3,score_died_min=1,team=Orange] 18 148 -7 90 0
 tp @a[0,1,20,3,score_died_min=1,team=Yellow] 6 148 -18 0 0
