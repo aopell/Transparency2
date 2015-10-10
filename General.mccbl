@@ -14,6 +14,8 @@ execute @a[-15,50,-15,dx=33,dy=2,dz=33,m=2] ~ ~ ~ tp @p 0 65 0
 scoreboard players set @e[type=Item] toKill 1 {Item:{id:minecraft:bow}}
 scoreboard players set @e[type=Item] toKill 1 {Item:{id:minecraft:stained_glass}}
 kill @e[score_toKill_min=1]
+execute @a[m=2] ~ ~ ~ fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air 0 replace minecraft:ice 0
+execute @a[m=2] ~ ~ ~ fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air 0 replace minecraft:stained_glass_pane 0
 execute @e[type=ArmorStand,name=ItemSpawner] ~ ~ ~ particle portal ~ ~0.1 ~ 0 0 0 .25 5
 execute @e[type=ArmorStand,name=VTHRUST] ~ ~ ~ particle cloud ~ ~ ~ .2 4 .2 0 5
 execute @e[type=ArmorStand,name=VTHRUST] ~ ~-10 ~ effect @a[dy=15] minecraft:levitation 3 6 true
