@@ -3,7 +3,6 @@
 @VERSION 1.9
 scoreboard players add @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] itemTimer 1
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_itemTimer_min=200] ~ ~ ~ execute @r[type=ArmorStand,name=Item,c=2] ~ ~ ~ blockdata ~ ~-1 ~ {auto:1b}
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_itemTimer_min=200] ~ ~ ~ entitydata 3 1 20 {Age:5600}
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_itemTimer_min=200] ~ ~ ~ scoreboard teams join justSpawned @e[3,1,20,1,type=Item]
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_itemTimer_min=200] ~ ~ ~ entitydata 3 1 20 {Age:5600,Silent:1b}
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_itemTimer_min=200] ~ ~ ~ tp @e[3,1,20,1,type=Item] @r[type=ArmorStand,name=ItemSpawner]
 scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_itemTimer_min=200] itemTimer 0

@@ -2,8 +2,8 @@
 @CHAIN ON
 @VERSION 1.9
 scoreboard players set @a[score_inGame_min=0] @!inGame 0
-clear @a[-200,106,-200,dx=400,dy=4,dz=400,m=2]
-kill @a[-200,106,-200,dx=400,dy=4,dz=400,m=2]
+clear @e[-200,106,-200,dx=400,dy=4,dz=400]
+kill @e[-200,106,-200,dx=400,dy=4,dz=400]
 scoreboard teams join @!Lobby @a[score_lives=0]
 scoreboard players set @a[team=!Lobby,score_inGame_min=0] @!inGame 1
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ gamemode 3 @a[score_inGame=0,score_inGame_min=0]
