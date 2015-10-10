@@ -2,16 +2,17 @@
 @CHAIN ON
 @VERSION 1.9
 execute @e[type=ArmorStand,name=ItemSpawner] ~ ~ ~ particle portal ~ ~0.1 ~ 0 0 0 .25 5
-execute @e[type=ArmorStand,name=VTHRUST] ~ ~ ~ /particle cloud ~ ~ ~ .2 4 .2 0 5
-execute @e[type=ArmorStand,name=VTHRUST] ~ ~-10 ~ /effect @a[dy=15] minecraft:levitation 3 6 true
-execute @e[type=ArmorStand,name=VTHRUST] ~ ~-10 ~ /effect @a[dy=15] minecraft:speed 3 5 true
-execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass 12 /effect @p minecraft:speed 1 75 true
-execute @e[type=ArmorStand,name=East] ~ ~ ~ /spreadplayers 21 0 1 21 false @p[r=1]
-execute @e[type=ArmorStand,name=West] ~ ~ ~ /spreadplayers -22 0 1 21 false @p[r=1]
-execute @e[type=ArmorStand,name=North] ~ ~ ~ /spreadplayers 0 -22 1 21 false @p[r=1]
-execute @e[type=ArmorStand,name=South] ~ ~ ~ /spreadplayers 0 21 1 21 false @p[r=1]
-execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:slime 0 /effect @p minecraft:jump_boost 1 5 true
-execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane 9 /effect @p minecraft:speed 1 10 true
+execute @e[type=ArmorStand,name=VTHRUST] ~ ~ ~ particle cloud ~ ~ ~ .2 4 .2 0 5
+execute @e[type=ArmorStand,name=VTHRUST] ~ ~-10 ~ effect @a[dy=15] minecraft:levitation 3 6 true
+execute @e[type=ArmorStand,name=VTHRUST] ~ ~-10 ~ effect @a[dy=15] minecraft:speed 3 5 true
+execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass 12 effect @p minecraft:speed 1 75 true
+execute @e[type=ArmorStand,name=East] ~ ~ ~ spreadplayers 21 0 1 21 false @p[r=1]
+execute @e[type=ArmorStand,name=West] ~ ~ ~ spreadplayers -22 0 1 21 false @p[r=1]
+execute @e[type=ArmorStand,name=North] ~ ~ ~ spreadplayers 0 -22 1 21 false @p[r=1]
+execute @e[type=ArmorStand,name=South] ~ ~ ~ spreadplayers 0 21 1 21 false @p[r=1]
+execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ scoreboard teams leave @a[m=3]
+execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:slime 0 effect @p minecraft:jump_boost 1 5 true
+execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane 9 effect @p minecraft:speed 1 10 true
 effect @a minecraft:speed 1 0 true
 //string clear
 execute @a ~ ~ ~ detect ~ ~ ~ minecraft:tripwire -1 effect @p clear minecraft:speed
