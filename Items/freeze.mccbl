@@ -1,11 +1,11 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
-execute @a[score_freeze_min=1] ~ ~ ~ scoreboard players set @a[rm=1] freeze -1
-execute @a[score_freeze=-1,score_freeze_min=-1] ~ ~ ~ summon ArmorStand -3 1 20 {Invisible:1b,NoGravity:1b,CustomName:freeze}
-execute @a[score_freeze=-1,score_freeze_min=-1] ~ ~ ~ tp @r[-3,1,20,1,type=ArmorStand,name=freeze] @p
-execute @a[score_freeze=-1] ~ ~ ~ tp @p @e[type=ArmorStand,name=freeze,c=1]
-scoreboard players remove @a[score_freeze=-1] freeze 1
-scoreboard players set @a[score_freeze_min=1] freeze 0
-execute @a[score_freeze=-200] ~ ~ ~ kill @e[type=ArmorStand,name=freeze,c=1]
-scoreboard players set @a[score_freeze=-200] freeze 0
+execute @a[score_freeze_min=1,m=2] ~ ~ ~ scoreboard players set @a[rm=1] freeze -1
+execute @a[score_freeze=-1,score_freeze_min=-1,m=2] ~ ~ ~ summon ArmorStand -3 1 20 {Invisible:1b,NoGravity:1b,CustomName:freeze}
+execute @a[score_freeze=-1,score_freeze_min=-1,m=2] ~ ~ ~ tp @r[-3,1,20,1,type=ArmorStand,name=freeze] @p
+execute @a[score_freeze=-1,m=2] ~ ~ ~ tp @p @e[type=ArmorStand,name=freeze,c=1]
+scoreboard players remove @a[score_freeze=-1,m=2] freeze 1
+scoreboard players set @a[score_freeze_min=1,m=2] freeze 0
+execute @a[score_freeze=-200,m=2] ~ ~ ~ kill @e[type=ArmorStand,name=freeze,c=1]
+scoreboard players set @a[score_freeze=-200,m=2] freeze 0

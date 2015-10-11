@@ -3,7 +3,7 @@
 @VERSION 1.9
 //lobby things
 execute @a[-1,65,-1,dx=1,dy=2,dz=1] ~ ~ ~ scoreboard teams join Lobby @p
-effect @a minecraft:saturation 1 0 true
+effect @a minecraft:saturation 2 0 true
 execute @a[-15,65,-15,dx=33,dy=2,dz=33] ~ ~ ~ effect @p minecraft:resistance 1 4 true
 execute @a[-1,65,-1,dx=1,dy=2,dz=1,m=0] ~ ~ ~ gamemode 2 @p
 execute @a[-1,65,-1,dx=1,dy=2,dz=1,m=1] ~ ~ ~ gamemode 2 @p
@@ -16,7 +16,7 @@ scoreboard players set @e[type=Item] toKill 1 {Item:{id:minecraft:stained_glass}
 kill @e[score_toKill_min=1]
 execute @a[m=2] ~ ~ ~ fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air 0 replace minecraft:ice 0
 execute @a[m=2] ~ ~ ~ fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air 0 replace minecraft:stained_glass_pane 0
-execute @e[type=ArmorStand,name=ItemSpawner] ~ ~ ~ particle portal ~ ~0.1 ~ 0 0 0 .25 5
+execute @e[type=ArmorStand,name=ItemSpawner] ~ ~ ~ particle portal ~ ~1.1 ~ 0 0 0 .25 5
 execute @e[type=ArmorStand,name=VTHRUST] ~ ~ ~ particle cloud ~ ~ ~ .2 4 .2 0 5
 execute @e[type=ArmorStand,name=VTHRUST] ~ ~-10 ~ effect @a[dy=15] minecraft:levitation 3 6 true
 execute @e[type=ArmorStand,name=VTHRUST] ~ ~-10 ~ effect @a[dy=15] minecraft:speed 3 5 true
@@ -29,6 +29,8 @@ execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ scoreboard team
 execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:slime 0 effect @p minecraft:jump_boost 1 5 true
 execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane 9 effect @p minecraft:speed 1 10 true
 effect @a minecraft:speed 1 0 true
+scoreboard players set @e[type=Item] justSpawned 1 {Invulnerable:1b}
+execute @e[type=Item,score_justSpawned_min=1] ~ ~ ~ particle reddust ~ ~0.25 ~ 0.25 0.25 0.25 .25 5
 //string clear
 execute @a ~ ~ ~ detect ~ ~ ~ minecraft:tripwire -1 effect @p clear minecraft:speed
 execute @a ~ ~ ~ detect ~ ~ ~ minecraft:tripwire -1 effect @p clear minecraft:jump_boost
