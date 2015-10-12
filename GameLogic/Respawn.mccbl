@@ -3,4 +3,38 @@
 @VERSION 1.9
 execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ scoreboard players set @a @!inGame 0
 testfor @e[type=ArmorStand,name=GK,score_gameInProgress_min=1]
-?blockdata -8 3 -15 {auto:1b}
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[score_inGame_min=0] @!inGame 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ kill @e[312,106,312,dx=400,dy=4,dz=400]
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard teams join @!Lobby @a[score_lives=0]
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[team=!Lobby,score_inGame_min=0] @!inGame 1
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ gamemode 3 @a[score_inGame=0,score_inGame_min=0]
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ spawnpoint @a[score_inGame=0,score_inGame_min=0,m=3] 0 150 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[score_inGame=0,m=3] @!inGame -1
+//respawn
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players remove @a[score_deaths_min=1] @!lives 1
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[score_deaths_min=1] @!died 1
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a @!deaths 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[team=Lobby] @!lives 0
+//Items
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1] slot.hotbar.0 minecraft:bow 1 0 {ench:[{id:19,lvl:2},{id:48,lvl:2}],CanDestroy:["minecraft:fire"],HideFlags:23,AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:0,Operation:2,UUIDMost:75315,UUIDLeast:166040}],display:{Name:"UAW",Lore:["Useless Attack Weapon","Knocks people around and shoots things"]},Unbreakable:1}
+//player color
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Red] slot.armor.head minecraft:stained_glass 1 14
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Orange] slot.armor.head minecraft:stained_glass 1 1
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Yellow] slot.armor.head minecraft:stained_glass 1 4
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Green] slot.armor.head minecraft:stained_glass 1 5
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Blue] slot.armor.head minecraft:stained_glass 1 11
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Purple] slot.armor.head minecraft:stained_glass 1 10
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=LBlue] slot.armor.head minecraft:stained_glass 1 3
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Pink] slot.armor.head minecraft:stained_glass 1 6
+//put players in right place
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ effect @a[0,1,20,3,score_died_min=1] minecraft:resistance 5 4 true
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ effect @a[0,1,20,3,score_died_min=1] minecraft:instant_health 5 4 true
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Red] 531 148 519 90 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Orange] 531 148 506 90 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Yellow] 519 148 495 0 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Green] 506 148 495 0 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Blue] 494 148 506 -90 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Purple] 494 148 519 -90 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=LBlue] 506 148 531 180 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Pink] 519 148 531 180 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[score_tsd_min=1] @!died 0

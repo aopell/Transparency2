@@ -8,8 +8,6 @@ scoreboard teams join @!Lobby @a[score_lives=0]
 scoreboard players set @a[team=!Lobby,score_inGame_min=0] @!inGame 1
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ gamemode 3 @a[score_inGame=0,score_inGame_min=0]
 spawnpoint @a[score_inGame=0,score_inGame_min=0,m=3] 0 150 0
-execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ tp @a[score_inGame=-1,m=3] 0 65 0
-execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ gamemode 2 @a[score_inGame=-1,m=3]
 scoreboard players set @a[score_inGame=0,m=3] @!inGame -1
 //respawn
 scoreboard players remove @a[score_deaths_min=1] @!lives 1
