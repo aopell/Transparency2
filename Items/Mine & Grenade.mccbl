@@ -9,3 +9,7 @@ execute @a[m=2] ~ ~ ~ execute @e[type=AreaEffectCloud,name=Mine,r=0] ~ ~ ~ score
 execute @e[score_mine_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,powered:1b,CustomName:Land Mine}
 kill @e[type=AreaEffectCloud,score_mine_min=1]
 execute @e[type=AreaEffectCloud,name=Mine] ~ ~ ~ particle reddust ~ ~ ~ 1 1 1 1
+//Grenade
+scoreboard players set @e[type=AreaEffectCloud] @!grenade 1 {Effects:[{Id:12b}]}
+execute @e[type=AreaEffectCloud,score_grenade_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,powered:1b,CustomName:Grenade}
+kill @e[score_grenade_min=1,type=AreaEffectCloud]
