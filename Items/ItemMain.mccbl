@@ -2,6 +2,6 @@
 @CHAIN ON
 @VERSION 1.9
 scoreboard players add @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] itemTimer 1
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_itemTimer_min=200] ~ ~ ~ execute @r[type=ArmorStand,name=Item,c=3] ~ ~ ~ blockdata ~ ~-1 ~ {auto:1b}
-execute @e[type=ArmorStand,name=ItemSpawner] ~ ~1 ~ tp @r[3,1,20,1,type=Item,score_justSpawned_min=1,c=1] @e[type=ArmorStand,name=ItemSpawner,r=0]
-scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_itemTimer_min=200] itemTimer 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_itemTimer_min=100] ~ ~ ~ execute @r[type=ArmorStand,name=Item,c=3] ~ ~ ~ blockdata ~ ~-1 ~ {auto:1b}
+execute @e[type=ArmorStand,name=ItemSpawner] ~ ~ ~ tp @r[3,1,20,1,type=Item,score_justSpawned_min=1,c=1] @e[type=ArmorStand,name=ItemSpawner,r=0]
+scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_itemTimer_min=100] itemTimer 0

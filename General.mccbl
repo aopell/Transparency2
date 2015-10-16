@@ -17,14 +17,17 @@ scoreboard players set @e[type=Item] toKill 1 {Item:{id:minecraft:stained_glass}
 kill @e[score_toKill_min=1]
 execute @a[m=2] ~ ~ ~ fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air 0 replace minecraft:ice 0
 execute @a[m=2] ~ ~ ~ fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air 0 replace minecraft:stained_glass_pane 0
-execute @e[type=ArmorStand,name=ItemSpawner] ~ ~ ~ particle portal ~ ~-1.1 ~ 0 0 0 .25 5
-execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ scoreboard teams leave @a[m=3]
+execute @a[m=2] ~ ~ ~ fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air 0 replace minecraft:glass_pane 0
+scoreboard players set @e[type=ArmorStand,name=ItemSpawner] hasItem 0
+execute @e[type=Item,score_justSpawned_min=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=ItemSpawner,r=1] hasItem 1
+execute @e[type=ArmorStand,name=ItemSpawner,score_hasItem=0] ~ ~ ~ particle portal ~ ~-1.1 ~ 0 0 0 .25 5
+execute @e[type=ArmorStand,name=ItemSpawner,score_hasItem_min=1] ~ ~ ~ particle reddust ~ ~0.3 ~ 0.25 0.25 0.25 .25 8
+execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ scoreboard teams leave @a[m=3,tag=!dev]
 execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:slime 0 effect @p minecraft:jump_boost 1 5 true
 execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane 9 effect @p minecraft:speed 1 10 true
 effect @a minecraft:speed 1 0 true
 effect @a[512,129,512,dx=1,dy=1,dz=1] minecraft:jump_boost 1 10 true
 scoreboard players set @e[type=Item] justSpawned 1 {Invulnerable:1b}
-execute @e[type=Item,score_justSpawned_min=1] ~ ~ ~ particle reddust ~ ~0.25 ~ 0.25 0.25 0.25 .25
 //string clear
 execute @a ~ ~ ~ detect ~ ~ ~ minecraft:tripwire -1 effect @p minecraft:speed 0 0
 execute @a ~ ~ ~ detect ~ ~ ~ minecraft:tripwire -1 effect @p minecraft:jump_boost 0 0
