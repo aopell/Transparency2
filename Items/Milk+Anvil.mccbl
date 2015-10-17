@@ -1,0 +1,16 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+//Milk
+execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:resistance 20 4 true
+execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:slowness 20 0 true
+execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:weakness 20 0 true
+execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:wither 20 1 true
+execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:glowing 20 0 true
+execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:mining_fatigue 20 0 true
+scoreboard players set @a[score_muscleMilk_min=1] @!muscleMilk 0
+//Anvil
+scoreboard players remove @e[type=Item] anvil 1 {Item:{id:minecraft:anvil},Invulnerable:0b}
+entitydata @e[type=Item,score_anvil=-1] {PickupDelay:32767}
+execute @e[type=Item,score_anvil=-30] ~ ~ ~ fill ~-2 255 ~-2 ~2 255 ~2 minecraft:anvil 8
+kill @e[type=Item,score_anvil=-30]

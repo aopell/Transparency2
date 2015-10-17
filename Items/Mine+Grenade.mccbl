@@ -1,6 +1,7 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
+//Mine
 scoreboard players remove @e[type=Item] mine 1 {Item:{id:minecraft:record_11},Invulnerable:0b}
 entitydata @e[type=Item,score_mine=-1] {PickupDelay:32767}
 execute @e[type=Item,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,Duration:1000000,Particle:take,CustomName:Mine}
