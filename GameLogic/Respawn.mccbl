@@ -16,6 +16,7 @@ execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard 
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a @!deaths 0
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[team=Lobby] @!lives 0
 //Items
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1] slot.armor.chest minecraft:chainmail_chestplate 1 0 {ench:[{id:2,lvl:4}],Unbreakable:1,HideFlags:5,display:{Name:"THE Chestplate",Lore:["Get out of your inventory!"]}}
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1] slot.hotbar.0 minecraft:bow 1 0 {ench:[{id:19,lvl:2},{id:48,lvl:2}],CanDestroy:["minecraft:fire"],HideFlags:23,AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:0,Operation:2,UUIDMost:75315,UUIDLeast:166040}],display:{Name:"UAW",Lore:["Useless Attack Weapon","Knocks people around and shoots things"]},Unbreakable:1}
 //player color
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Red] slot.armor.head minecraft:stained_glass 1 14
