@@ -1,0 +1,16 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+//Death Boom
+scoreboard players set @e[type=Cow] @!punched 1 {HurtTime:1s}
+execute @e[type=Cow,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Premature Cowmageddon}
+//Big Boom
+//cowntdown
+scoreboard players add @e[type=Cow] @!cowntDown 1
+//sound
+execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=0,score_cowntDown=60] ~ ~ ~ playsound mob.cow.say @a ~ ~ ~ 256 0 1
+//explosion
+execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=100,score_cowntDown=104] ~ ~ ~ summon Cow ~ ~ ~ {Age:-2000,CustomName:G1}
+execute @e[type=Cow,name=G1,score_cowntDown_min=0,score_cowntDown=4] ~ ~ ~ summon Cow ~ ~ ~ {Age:-2000,CustomName:G2}
+execute @e[type=Cow,name=G1,score_cowntDown_min=0,score_cowntDown=4] ~ ~ ~ summon Cow ~ ~ ~ {Age:-2000,CustomName:G3}
+execute @e[type=Cow,name=!Cowmageddon] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Cowmageddon}

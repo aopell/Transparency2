@@ -1,7 +1,0 @@
-@TYPE REPEAT
-@CHAIN ON
-@VERSION 1.9
-//Basic Boom
-scoreboard players set @e[type=Cow] @!punched 1 {HurtTime:1s}
-execute @e[type=Cow,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Cowmageddon}
-//Big Boom
