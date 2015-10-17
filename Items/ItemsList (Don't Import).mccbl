@@ -1,0 +1,15 @@
+//List of Items
+summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:9,Duration:600,Amplifier:9}],display:{Name:"Arrow of Sickness"}}},Invulnerable:1b,Age:5600}
+summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:20,Duration:400,Amplifier:1}],display:{Name:"Arrow of Deathness"}}},Invulnerable:1b,Age:5600}
+summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:25,Duration:20,Amplifier:90}],display:{Name:"Arrow of Upness"}}},Invulnerable:1b,Age:5600}
+summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:2,Duration:300,Amplifier:2}],display:{Name:"Arrow of Slowness"}}},Invulnerable:1b,Age:5600}
+summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:15,Duration:600,Amplifier:1}],display:{Name:"Arrow of Blindness"}}},Invulnerable:1b,Age:5600}
+summon Item 3 1 20 {Item:{id:minecraft:lingering_potion,Count:1,tag:{display:{Name:Grenade,Lore:[BOOM.,Throw to use]},CustomPotionEffects:[{Id:12b,Duration:1,Amplifier:1b}]}},Invulnerable:1b,Age:5600}
+summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:8,Duration:400,Amplifier:128}],display:{Name:"Arrow of Groundness"}}},Invulnerable:1b,Age:5600}
+summon Item 3 1 20 {Item:{id:minecraft:record_11,Count:1,tag:{display:{Name:"Landmine",Lore:["Watch your step!","Drop on the ground to use"]}}},Invulnerable:1b,Age:5600}
+summon Item 3 1 20 {Item:{id:minecraft:ice,Count:1,tag:{display:{Name:"Freeze Frame",Lore:["Freezes everyone else","Place block to use"]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime]}},Invulnerable:1b,Age:5600}
+summon Item 3 1 20 {Item:{id:minecraft:stained_glass_pane,Damage:0,Count:1,tag:{display:{Name:"Mirror",Lore:["Swap position with another player","Place block to use"]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime]}},Invulnerable:1b,Age:5600}
+summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:24,Duration:1200,Amplifier:0}],display:{Name:"Arrow of Glowness"}}},Invulnerable:1b,Age:5600}
+summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Speedy Cat,Lore:[Makes nearby players run VERY fast,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime],EntityTag:{id:Ozelot}}},Invulnerable:1b,Age:5600}
+summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Air Strike,Lore:[Drops a constant stream of Instant Damage Potions,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime],EntityTag:{id:Bat,Invulnerable:1b}}},Invulnerable:1b,Age:5600}
+summon Item 3 1 20 {Item:{id:minecraft:glass_pane,Count:1,tag:{display:{Name:Clear Inventory,Lore:[Clears a random player's inventory,Place to use]}}},Invulnerable:1b,Age:5600}
