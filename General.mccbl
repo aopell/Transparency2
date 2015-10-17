@@ -11,6 +11,18 @@ execute @a[-1,65,-1,dx=1,dy=2,dz=1,m=1] ~ ~ ~ gamemode 2 @p
 execute @a[-1,65,-1,dx=1,dy=2,dz=1,m=3] ~ ~ ~ gamemode 2 @p
 execute @a[-1,65,-1,dx=1,dy=2,dz=1] ~ ~ ~ clear @p
 execute @a[-15,50,-15,dx=33,dy=2,dz=33,m=2] ~ ~ ~ tp @p 0 65 0
+//team join announcements
+execute @a[tag=onTeam,team=Lobby] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=onTeam,team=Lobby]"},{"text":" left their team.","color":"gray","bold":true}]
+scoreboard players tag @a[team=Lobby] remove onTeam
+execute @a[tag=!onTeam,team=Red] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Red]"},{"text":" joined the Red Team.","color":"red","bold":true}]
+execute @a[tag=!onTeam,team=Blue] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Blue]"},{"text":" joined the Blue Team.","color":"blue","bold":true}]
+execute @a[tag=!onTeam,team=Yellow] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Yellow]"},{"text":" joined the Yellow Team.","color":"yellow","bold":true}]
+execute @a[tag=!onTeam,team=Green] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Green]"},{"text":" joined the Green Team.","color":"green","bold":true}]
+execute @a[tag=!onTeam,team=LBlue] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=LBlue]"},{"text":" joined the Light Blue Team.","color":"aqua","bold":true}]
+execute @a[tag=!onTeam,team=Pink] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Pink]"},{"text":" joined the Pink Team.","color":"light_purple","bold":true}]
+execute @a[tag=!onTeam,team=Purple] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Purple]"},{"text":" joined the Purple Team.","color":"dark_purple","bold":true}]
+execute @a[tag=!onTeam,team=Orange] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Orange]"},{"text":" joined the Orange Team.","color":"gold","bold":true}]
+scoreboard players tag @a[team=!Lobby,m=2] add onTeam
 //other things
 scoreboard players set @e[type=Item] toKill 1 {Item:{id:minecraft:bow}}
 scoreboard players set @e[type=Item] toKill 1 {Item:{id:minecraft:stained_glass}}
@@ -28,6 +40,9 @@ execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane 9 effect @p minecra
 effect @a minecraft:speed 1 0 true
 effect @a[512,129,512,dx=1,dy=1,dz=1] minecraft:jump_boost 1 10 true
 scoreboard players set @e[type=Item] justSpawned 1 {Invulnerable:1b}
+scoreboard players enable @a[team=!Lobby,m=2] leaveTeam
+scoreboard teams leave @a[score_leaveTeam_min=1]
+scoreboard players set @a leaveTeam 0
 //string clear
 execute @a ~ ~ ~ detect ~ ~ ~ minecraft:tripwire -1 effect @p minecraft:speed 0 0
 execute @a ~ ~ ~ detect ~ ~ ~ minecraft:tripwire -1 effect @p minecraft:jump_boost 0 0
