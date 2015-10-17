@@ -44,6 +44,7 @@ scoreboard players set @e[type=Item] justSpawned 1 {Invulnerable:1b}
 scoreboard players enable @a[team=!Lobby,m=2] leaveTeam
 scoreboard teams leave @a[score_leaveTeam_min=1]
 scoreboard players set @a leaveTeam 0
+execute @e[type=TippedArrow] ~ ~ ~ particle mobSpell ~ ~ ~ 0 0 0 1 3
 //string clear
 execute @a ~ ~ ~ detect ~ ~ ~ minecraft:tripwire -1 effect @p minecraft:speed 0 0
 execute @a ~ ~ ~ detect ~ ~ ~ minecraft:tripwire -1 effect @p minecraft:jump_boost 0 0
