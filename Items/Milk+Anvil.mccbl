@@ -4,7 +4,6 @@
 //Milk
 execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:resistance 20 4 true
 execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:slowness 20 0 true
-execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:weakness 20 0 true
 execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:wither 20 1 true
 execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:glowing 20 0 true
 execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:mining_fatigue 20 0 true

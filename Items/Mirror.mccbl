@@ -1,6 +1,7 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
+//Mirror
 execute @a[score_mirror_min=1] ~ ~ ~ summon ArmorStand -3 1 20 {CustomName:"mirror",Invisible:1b,NoGravity:1b}
 execute @a[score_mirror_min=1] ~ ~ ~ scoreboard players set @r[rm=1,m=2,score_health_min=1] @!mirrorRecip 1
 execute @a[score_mirror_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1]","italic":true},{"text":" was position swapped with ","color":"gold","italic":true},{"selector":"@a[score_mirrorRecip_min=1]","italic":true,"color":"none"}]

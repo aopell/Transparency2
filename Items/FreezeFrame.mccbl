@@ -1,9 +1,0 @@
-@TYPE REPEAT
-@CHAIN ON
-@VERSION 1.9
-execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ scoreboard players set @a[rm=1,m=2] freeze -1
-execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ tellraw @a[score_freeze=-1] ["",{"text":"You were frozen in your tracks","color":"aqua","italic":true}]
-execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ execute @a ~ ~ ~ playsound dig.glass @p
-effect @a[score_freeze=-1,m=2] minecraft:slowness 15 127 true
-effect @a[score_freeze=-1,m=2] minecraft:jump_boost 15 200 true
-scoreboard players set @a freeze 0
