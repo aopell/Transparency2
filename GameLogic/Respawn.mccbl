@@ -33,8 +33,8 @@ execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ effect @a[0
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ effect @a[0,1,20,3,score_died_min=1] minecraft:instant_health 5 4 true
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Red] 531 148 519 90 0
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Orange] 531 148 506 90 0
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Yellow] 519 148 495 0 0
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Green] 506 148 495 0 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Yellow] 519 148 494 0 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Green] 506 148 494 0 0
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Blue] 494 148 506 -90 0
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Purple] 494 148 519 -90 0
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=LBlue] 506 148 531 180 0
