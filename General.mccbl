@@ -9,7 +9,6 @@ execute @a[-15,65,-15,dx=33,dy=2,dz=33] ~ ~ ~ effect @p minecraft:resistance 1 4
 //center square
 execute @a[-1,65,-1,dx=1,dy=2,dz=1,m=0] ~ ~ ~ gamemode 2 @p
 execute @a[-1,65,-1,dx=1,dy=2,dz=1,m=1] ~ ~ ~ gamemode 2 @p
-execute @a[-1,65,-1,dx=1,dy=2,dz=1,m=3] ~ ~ ~ gamemode 2 @p
 execute @a[-1,65,-1,dx=1,dy=2,dz=1] ~ ~ ~ clear @p
 //other things
 //kill items
@@ -27,8 +26,10 @@ scoreboard players set @e[type=AreaEffectCloud,name=ItemSpawner] @!hasItem 0
 execute @e[type=Item,score_justSpawned_min=1] ~ ~ ~ scoreboard players set @e[type=AreaEffectCloud,name=ItemSpawner,r=1] @!hasItem 1
 execute @e[type=AreaEffectCloud,name=ItemSpawner,score_hasItem=0] ~ ~ ~ particle portal ~ ~-1.1 ~ 0 0 0 .25 5
 execute @e[type=AreaEffectCloud,name=ItemSpawner,score_hasItem_min=1] ~ ~ ~ particle reddust ~ ~-1.1 ~ 0.25 0.25 0.25 .25 5
-
+//Safety features
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ gamemode 3 @a[m=2,team=Lobby]
 execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ scoreboard teams leave @a[m=3,tag=!dev]
+execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ gamemode 2 @a[m=3,tag=!dev]
 //effects
 effect @a minecraft:saturation 2 0 true
 execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:slime 0 effect @p minecraft:jump_boost 1 5 true

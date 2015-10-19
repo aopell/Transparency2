@@ -18,7 +18,8 @@ scoreboard players tag @a[team=!Lobby,m=2] add @!onTeam
 //leave team trigger
 scoreboard players enable @a[team=!Lobby,m=2] @!leaveTeam
 scoreboard teams leave @a[score_leaveTeam_min=1]
-scoreboard players set @a @!leaveTeam
+scoreboard players set @a @!leaveTeam 0
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=1] ~ ~ ~ scoreboard players enable @a @!skipCount
 //start game
 scoreboard players set @e[type=ArmorStand,name=GK] @!counting 0
 scoreboard players set @e[type=ArmorStand,name=GK] @!onTeam 0

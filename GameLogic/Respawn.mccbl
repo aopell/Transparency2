@@ -39,4 +39,4 @@ execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,2
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Purple] 494 148 519 -90 0
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=LBlue] 506 148 531 180 0
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Pink] 519 148 531 180 0
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[score_tsd_min=1] @!died 0e
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[score_tsd_min=1] @!died 0
