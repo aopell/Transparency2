@@ -16,7 +16,7 @@ execute @e[type=TippedArrow,score_upness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ 
 execute @e[type=TippedArrow,score_slowness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:2,ShowParticles:0,Id:2}]}
 execute @e[type=TippedArrow,score_blindness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:1,ShowParticles:0,Id:15}]}
 execute @e[type=TippedArrow,score_weakness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:600,Amplifier:1,ShowParticles:0,Id:18}]}
-execute @e[type=TippedArrow,score_groundness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:200,Amplifier:128,ShowParticles:0,Id:8}]}
+execute @e[type=TippedArrow,score_groundness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:200,Amplifier:200,ShowParticles:0,Id:8}]}
 execute @e[type=TippedArrow,score_glowness_min=1] ~ ~ ~ /summon AreaEffectCloud ~ ~ ~ {Duration:200,Radius:1,Effects:[{Duration:600,Amplifier:0,ShowParticles:0,Id:24}]}
 execute @e[type=TippedArrow,score_inGround_min=1] ~ ~ ~ playsound dig.glass @a ~ ~ ~
 kill @e[type=TippedArrow,score_inGround_min=1]

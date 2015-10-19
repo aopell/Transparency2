@@ -29,6 +29,7 @@ scoreboard players set @e[type=Item] toKill 1 {Item:{id:minecraft:bow}}
 scoreboard players set @e[type=Item] toKill 1 {Item:{id:minecraft:stained_glass}}
 kill @e[score_toKill_min=1]
 clear @a minecraft:bucket
+entitydata @e[type=Item,score_justSpawned_min=1] {Glowing:1b}
 execute @a[m=2] ~ ~ ~ fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air 0 replace minecraft:ice 0
 execute @a[m=2] ~ ~ ~ fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air 0 replace minecraft:stained_glass_pane 0
 execute @a[m=2] ~ ~ ~ fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air 0 replace minecraft:glass_pane 0

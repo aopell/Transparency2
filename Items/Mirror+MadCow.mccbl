@@ -13,3 +13,10 @@ tp @a[score_mirrorRecip_min=1,c=1] @e[type=ArmorStand,name=mirror,c=1]
 scoreboard players set @a[score_mirrorRecip_min=1,c=1] @!mirrorRecip 0
 scoreboard players set @a[score_mirror_min=1,c=1] @!mirror 0
 kill @e[type=ArmorStand,name=mirror]
+//Mad Cow
+scoreboard players add @e[type=Zombie] @!ticks 1
+scoreboard players add @e[type=MushroomCow] @!ticks 1
+execute @e[type=Zombie] ~ ~ ~ particle angryVillager ~ ~ ~ .3 .3 .3 1 4
+entitydata @e[type=Zombie,score_ticks_min=60] {NoAI:0b}
+kill @e[type=MushroomCow,score_ticks_min=660]
+kill @e[type=Zombie,score_ticks_min=660]

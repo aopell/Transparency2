@@ -16,17 +16,19 @@ execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard 
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a @!deaths 0
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[team=Lobby] @!lives 0
 //Items
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1] slot.armor.chest minecraft:chainmail_chestplate 1 0 {ench:[{id:2,lvl:4}],Unbreakable:1,HideFlags:4,display:{Name:"THE Chestplate",Lore:["Get out of your inventory! You're playing a game!"]}}
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1] slot.hotbar.0 minecraft:bow 1 0 {ench:[{id:19,lvl:2},{id:48,lvl:2}],CanDestroy:["minecraft:fire"],HideFlags:22,AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:0,Operation:2,UUIDMost:75315,UUIDLeast:166040}],display:{Name:"The Bop Bow",Lore:["Knocks people around and shoots things"]},Unbreakable:1}
+scoreboard players tag @a remove holdingBow
+scoreboard players tag @a[m=2] add holdingBow {SelectedItem:{id:minecraft:bow}}
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[m=2,team=!Lobby] slot.armor.chest minecraft:chainmail_chestplate 1 0 {ench:[{id:2,lvl:4}],Unbreakable:1,HideFlags:4,display:{Name:"THE Chestplate",Lore:["Get out of your inventory! You're playing a game!"]}}
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[m=2,team=!Lobby,tag=!holdingBow] slot.hotbar.0 minecraft:bow 1 0 {ench:[{id:19,lvl:2},{id:48,lvl:2}],CanDestroy:["minecraft:fire"],HideFlags:22,AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:0,Operation:2,UUIDMost:75315,UUIDLeast:166040}],display:{Name:"The Bop Bow",Lore:["Knocks people around and shoots things"]},Unbreakable:1}
 //player color
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Red] slot.armor.head minecraft:stained_glass 1 14
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Orange] slot.armor.head minecraft:stained_glass 1 1
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Yellow] slot.armor.head minecraft:stained_glass 1 4
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Green] slot.armor.head minecraft:stained_glass 1 5
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Blue] slot.armor.head minecraft:stained_glass 1 11
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Purple] slot.armor.head minecraft:stained_glass 1 10
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=LBlue] slot.armor.head minecraft:stained_glass 1 3
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[0,1,20,3,score_died_min=1,team=Pink] slot.armor.head minecraft:stained_glass 1 6
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[team=Red] slot.armor.head minecraft:stained_glass 1 14
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[team=Orange] slot.armor.head minecraft:stained_glass 1 1
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[team=Yellow] slot.armor.head minecraft:stained_glass 1 4
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[team=Green] slot.armor.head minecraft:stained_glass 1 5
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[team=Blue] slot.armor.head minecraft:stained_glass 1 11
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[team=Purple] slot.armor.head minecraft:stained_glass 1 10
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[team=LBlue] slot.armor.head minecraft:stained_glass 1 3
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[team=Pink] slot.armor.head minecraft:stained_glass 1 6
 //put players in right place
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ effect @a[0,1,20,3,score_died_min=1] minecraft:resistance 5 4 true
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ effect @a[0,1,20,3,score_died_min=1] minecraft:instant_health 5 4 true
@@ -38,4 +40,4 @@ execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,2
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Purple] 494 148 519 -90 0
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=LBlue] 506 148 531 180 0
 execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Pink] 519 148 531 180 0
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[score_tsd_min=1] @!died 0
+execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a[score_tsd_min=1] @!died 0e
