@@ -4,7 +4,7 @@
 //lobby things
 execute @a[-1,65,-1,dx=1,dy=2,dz=1] ~ ~ ~ scoreboard teams join Lobby @p
 execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ execute @a[512,128,512,300,team=!Lobby] ~ ~ ~ scoreboard teams leave @p
-execute @a[-15,50,-15,dx=33,dy=2,dz=33,m=2] ~ ~ ~ tp @p 0 65 0
+execute @a[-32,41,-32,dx=63,dy=2,dz=63,m=2] ~ ~ ~ tp @p 0 65 0
 execute @a[-15,65,-15,dx=33,dy=2,dz=33] ~ ~ ~ effect @p minecraft:resistance 1 4 true
 //center square
 execute @a[-1,65,-1,dx=1,dy=2,dz=1,m=0] ~ ~ ~ gamemode 2 @p
