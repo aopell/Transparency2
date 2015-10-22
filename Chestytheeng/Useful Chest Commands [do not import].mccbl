@@ -1,0 +1,4 @@
+//some useful commands. Really just one.
+//old: summon Bat ~ ~3 ~ {ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1},{Id:1,Amplifier:20,Duration:1000000,Ambient:1}],Passengers:[{id:"ArmorStand",ArmorItems:[{},{},{},{id:"chest",Count:1b}],Invisible:1b,CustomName:chest}],CustomName:chest,Invisible:1b}
+//summon the chest:
+summon Bat ~ ~3 ~ {ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1},{Id:1,Amplifier:20,Duration:1000000,Ambient:1}],Passengers:[{id:"Slime",CustomName:chest,Size:4,ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1}]},{id:"ArmorStand",ArmorItems:[{},{},{},{id:"chest",Count:1b}],Invisible:1b,CustomName:chest}],CustomName:chest,Invisible:1b}

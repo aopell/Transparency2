@@ -1,0 +1,31 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+//particles:
+execute @e[type=ArmorStand,name=chest] ~ ~ ~ particle happyVillager ~ ~1 ~ 2 2 2 0.1 2
+execute @e[type=ArmorStand,name=chest] ~ ~ ~ particle cloud ~ ~0.8 ~ 0.25 0.3 0.25 .03 4
+//todo: I want the chest slime to make large explosion particles when it is punched, and make that noise
+
+//kills chests after 15 seconds
+scoreboard players add @e[type=ArmorStand,name=chest] ticks 1
+kill @e[name=chest,score_ticks_min=300]
+
+//random prize selector
+scoreboard players add @e[name=chest,type=Slime] zPrize 1
+scoreboard players set @e[name=chest,type=Slime,score_zPrize_min=10] 1
+
+//kills extra slimes spawned
+kill @e[type=Slime,name=!chest]
+
+//tells if chest is punched
+//I decided to do this with a giant invisible slime. Could not think of a better way. It's good...it makes the chest punch back.
+scoreboard players set @e[type=Slime,name=chest] punched 1 {HurtTime:1s}
+
+//give items
+//template: execute @e[name=chest,type=Slime,score_punched_min=1,score_zPrize_min=?,score_zPrize=?] ~ ~ ~ 
+
+//death
+execute @e[name=chest,type=Slime,score_punched_min=1] ~ ~ ~ kill @e[name=chest]
+
+//scoreboards created: zPrize
+//current scoreboards used: punched, ticks
