@@ -20,7 +20,7 @@ scoreboard players set @e[type=Zombie,name=chest] punched 1 {HurtTime:1s}
 
 //give items
 //template: execute @e[name=chest,type=Slime,score_punched_min=1,score_zPrize_min=?,score_zPrize=?] ~ ~ ~ 
-execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=1,score_zPrize=1] ~ ~ ~ summon Item ~ ~ ~ {Item:{count:6,id:minecraft:lingering_potion,Count:1,tag:{display:{Name:Grenade,Lore:[BOOM.,Throw to use]},CustomPotionEffects:[{Id:12b,Duration:1,Amplifier:1b}]}},Invulnerable:1b,Age:5600}
+execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=1,score_zPrize=1] ~ ~ ~ summon Item ~ ~ ~ {Item:{Count:6,id:minecraft:lingering_potion,Count:1,tag:{display:{Name:Grenade,Lore:[BOOM.,Throw to use]},CustomPotionEffects:[{Id:12b,Duration:1,Amplifier:1b}]}},Invulnerable:1b,Age:5600}
 execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=2,score_zPrize=2] ~ ~ ~ say Prize 2
 execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=3,score_zPrize=3] ~ ~ ~ say Prize 3
 execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=4,score_zPrize=4] ~ ~ ~ say Prize 4
