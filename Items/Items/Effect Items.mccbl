@@ -21,4 +21,9 @@
 	effect @a[score_freeze=-1,m=2] minecraft:slowness 15 127 true
 	effect @a[score_freeze=-1,m=2] minecraft:jump_boost 15 200 true
 	scoreboard players set @a freeze 0
-	
+//Pig
+	scoreboard players add @e[type=Pig] @!ticks 1
+	execute @e[type=Pig] ~ ~ ~ effect @a[m=2,r=3] minecraft:absorption 10 4
+	scoreboard players set @e[type=Pig] @!punched 1 {HurtTime:1s}
+	execute @e[type=Pig,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Some Pig}
+	kill @e[type=Pig,score_ticks_min=600]
