@@ -1,3 +1,11 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
+##region "Rubber Arm"
+	tp @a[m=2] @a[score_fishing_min=1]
+	execute @a[score_fishing_min=1] ~ ~ ~ playsound entity.endermen.teleport @a ~ ~ ~ 1000000 2
+	scoreboard players set @a @!fishing 0
+##endregion
+//Teleport Map
+	
+	?spreadplayers 512 512 5 20 true @a[m=2,team=!Lobby,r=100] @e[type=!AreaEffectCloud,r=100]
