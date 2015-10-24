@@ -1,0 +1,24 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+//Cat
+	scoreboard players add @e[type=Ozelot] @!ticks 1
+	execute @e[type=Ozelot] ~ ~ ~ effect @a[r=2] minecraft:speed 1 127 true
+	scoreboard players set @e[type=Ozelot] @!punched 1 {HurtTime:1s}
+	execute @e[type=Ozelot,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Speedy Cat}
+	kill @e[type=Ozelot,score_ticks_min=600]
+//Milk
+	execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:resistance 20 4 true
+	execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:slowness 20 0 true
+	execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:wither 20 1 true
+	execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:glowing 20 0 true
+	execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:mining_fatigue 20 0 true
+	scoreboard players set @a[score_muscleMilk_min=1] @!muscleMilk 0
+//Freeze
+	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ scoreboard players set @a[rm=1,m=2] freeze -1
+	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ tellraw @a[score_freeze=-1] ["",{"text":"You were frozen in your tracks","color":"aqua","italic":true}]
+	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ execute @a ~ ~ ~ playsound block.glass.break @p
+	effect @a[score_freeze=-1,m=2] minecraft:slowness 15 127 true
+	effect @a[score_freeze=-1,m=2] minecraft:jump_boost 15 200 true
+	scoreboard players set @a freeze 0
+	

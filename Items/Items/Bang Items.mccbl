@@ -1,0 +1,22 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+//Mine
+	scoreboard players remove @e[type=Item] mine 1 {Item:{id:minecraft:record_11},Invulnerable:0b}
+	entitydata @e[type=Item,score_mine=-1] {PickupDelay:32767}
+	execute @e[type=Item,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,Duration:1000000,Particle:take,CustomName:Mine}
+	kill @e[type=Item,score_mine=-60]
+	execute @a[m=2] ~ ~ ~ execute @e[type=AreaEffectCloud,name=Mine,r=0] ~ ~ ~ scoreboard players set @e[type=AreaEffectCloud,name=Mine,r=0] mine 1
+	execute @e[score_mine_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,powered:1b,CustomName:Land Mine}
+	kill @e[type=AreaEffectCloud,score_mine_min=1]
+	execute @e[type=AreaEffectCloud,name=Mine] ~ ~ ~ particle reddust ~ ~ ~ 1 1 1 1
+//Grenade
+	scoreboard players set @e[type=AreaEffectCloud] @!grenade 1 {Effects:[{Id:12b}]}
+	execute @e[type=AreaEffectCloud,score_grenade_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Grenade}
+	kill @e[score_grenade_min=1,type=AreaEffectCloud]
+//Lightning
+	scoreboard players remove @e[type=Item] lightning 1 {Item:{id:minecraft:prismarine_shard},Invulnerable:0b}
+	execute @a[score_lightning_min=1] ~ ~ ~ execute @a[m=2,rm=1] ~ ~ ~ summon LightningBolt
+	execute @a[score_lightning_min=1] ~ ~ ~ tellraw @a ["",{"text":"Lightning struck ","color":"gold","italic":true,"clickEvent":{"action":"run_command","value":"/tp @p 0.0 60 0.0 90 0"}},{"selector":"@a[m=2,rm=1]","color":"none","italic":false}]
+	kill @e[type=Item,score_lightning=-1]
+	scoreboard players set @a lightning 0
