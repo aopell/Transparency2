@@ -15,15 +15,24 @@
 	execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:mining_fatigue 20 0 true
 	scoreboard players set @a[score_muscleMilk_min=1] @!muscleMilk 0
 //Freeze
-	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ scoreboard players set @a[rm=1,m=2] freeze -1
+	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ scoreboard players set @a[rm=1,m=2] @!freeze -1
 	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ tellraw @a[score_freeze=-1] ["",{"text":"You were frozen in your tracks","color":"aqua","italic":true}]
 	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ execute @a ~ ~ ~ playsound block.glass.break @p
 	effect @a[score_freeze=-1,m=2] minecraft:slowness 15 127 true
 	effect @a[score_freeze=-1,m=2] minecraft:jump_boost 15 200 true
-	scoreboard players set @a freeze 0
+	scoreboard players set @a @!freeze 0
 //Pig
 	scoreboard players add @e[type=Pig] @!ticks 1
 	execute @e[type=Pig] ~ ~ ~ effect @a[m=2,r=3] minecraft:absorption 10 4
 	scoreboard players set @e[type=Pig] @!punched 1 {HurtTime:1s}
 	execute @e[type=Pig,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Some Pig}
 	kill @e[type=Pig,score_ticks_min=600]
+//Firework
+//summon Item 3 1 20 {Item:{id:minecraft:firework,Count:1,tag:{display:{Lore:["Makes you feel like a plastic bag","Launches other players into the air","Place on ground to use"]}},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:string]},Invulnerable:1b,Age:5600}
+	execute @a[score_firework_min=1] ~ ~ ~ effect @a[score_firework_min=0,m=2] minecraft:levitation 1 127 true
+	scoreboard players set @a @!firework 0
+//Weakness Apple
+//summon Item 3 1 20 {Item:{id:minecraft:apple,Count:1,tag:{display:{Name:"'Friendship' Apple",Lore:["Be friendly!","Eat to use"]}}},Invulnerable:1b,Age:5600}
+	execute @a[score_apple_min=1] ~ ~ ~ effect @a[score_apple=0] minecraft:weakness 15 20 true
+	scoreboard players set @a @!apple 0
+	
