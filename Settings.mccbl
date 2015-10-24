@@ -1,0 +1,31 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+//NON-IMPORT FRIENDLY
+//Contains conditionals at bad positions
+//
+//RespawnTokens
+//+1
+testforblock -2 62 1 minecraft:stone_button 9
+?setblock -2 62 1 minecraft:stone_button 1 replace
+?scoreboard players add @!RespawnTokens @!gameSettings 1
+//-1
+testforblock -2 60 1 minecraft:stone_button 9
+?setblock -2 60 1 minecraft:stone_button 1 replace
+?scoreboard players remove @!RespawnTokens @!gameSettings 1
+//+5
+testforblock -2 62 0 minecraft:stone_button 9
+?setblock -2 62 0 minecraft:stone_button 1 replace
+?scoreboard players add @!RespawnTokens @!gameSettings 5
+//-5
+testforblock -2 60 0 minecraft:stone_button 9
+?setblock -2 60 0 minecraft:stone_button 1 replace
+?scoreboard players remove @!RespawnTokens @!gameSettings 5
+//+10
+testforblock -2 62 -1 minecraft:stone_button 9
+?setblock -2 62 -1 minecraft:stone_button 1 replace
+?scoreboard players add @!RespawnTokens @!gameSettings 10
+//-10
+testforblock -2 60 -1 minecraft:stone_button 9
+?setblock -2 60 -1 minecraft:stone_button 1 replace
+?scoreboard players remove @!RespawnTokens @!gameSettings 10

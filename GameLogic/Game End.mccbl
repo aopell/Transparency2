@@ -12,6 +12,7 @@ execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a
 //finalize finish
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @a @!inGame -1
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard teams leave @a
+execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard objectives setdisplay sidebar @!gameSettings
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ tp @a 0 65 0
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ gamerule keepInventory true
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Mine]
