@@ -11,7 +11,7 @@ execute @e[type=Cow,name=Cowmageddon,tag=currentCow] ~ ~ ~ kill @e[type=Cow,name
 scoreboard players add @e[type=Cow,name=Cowmageddon] @!cowntDown 1
 scoreboard players tag @e[type=Cow,name=Cowmageddon] add currentCow
 //sound
-execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=0,score_cowntDown=60] ~ ~ ~ playsound mob.cow.say @a ~ ~ ~ 256 0 1
+execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=0,score_cowntDown=60] ~ ~ ~ playsound entity.cow.ambient @a ~ ~ ~ 256 0 1
 //explosion
 execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=100,score_cowntDown=101] ~ ~ ~ summon Cow ~ ~ ~ {Age:-2000,CustomName:G1}
 execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=100,score_cowntDown=102] ~ ~ ~ execute @e[type=Cow,name=G1] ~ ~ ~ summon Cow ~ ~ ~ {Age:-2000,CustomName:G1}

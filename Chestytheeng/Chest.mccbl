@@ -2,8 +2,8 @@
 @CHAIN ON
 @VERSION 1.9
 //particles:
-execute @e[type=Zombie,name=chest] ~ ~ ~ particle happyVillager ~ ~1 ~ 2 2 2 0.1 2
-execute @e[type=Zombie,name=chest] ~ ~ ~ particle cloud ~ ~0.8 ~ 0.25 0.3 0.25 .03 4
+scoreboard players add @e[type=Zombie,name=chest] punched 1 {HurtTime:1s}
+execute @e[type=Zombie,name=chest] ~ ~ ~ particle cloud ~ ~0.8 ~ 0.25 0.3 0.25 .03 2
 //todo: I want the chest slime to make large explosion particles when it is punched, and make that noise
 
 //kills chests after 15 seconds
