@@ -3,22 +3,27 @@
 @VERSION 1.9
 :: "Cowmageddon"
 //summon Item 3 1 20 {Item:{id:"minecraft:spawn_egg",Count:1,tag:{display:{Name:Cowmageddon,Lore:["MROOOOOOOO","Boom."]},EntityTag:{id:Cow,CustomName:Cowmageddon},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}
-	//Death Boom
-	scoreboard players set @e[type=Cow] @!punched 1 {HurtTime:1s}
-	execute @e[type=Cow,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Premature Cowmageddon}
-	//Big Boom
-	//cowntdown
-	execute @e[type=Cow,name=Cowmageddon,tag=currentCow] ~ ~ ~ execute @e[type=Cow,name=Cowmageddon,tag=!currentCow] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,powered:1b,CustomName:Faulty Cowmageddon}
-	execute @e[type=Cow,name=Cowmageddon,tag=currentCow] ~ ~ ~ kill @e[type=Cow,name=Cowmageddon,tag=!currentCow]
-	scoreboard players add @e[type=Cow,name=Cowmageddon] @!cowntDown 1
-	scoreboard players tag @e[type=Cow,name=Cowmageddon] add currentCow
-	//sound
-	execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=0,score_cowntDown=60] ~ ~ ~ playsound entity.cow.ambient @a ~ ~ ~ 256 0 1
-	//explosion
-	execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=100,score_cowntDown=101] ~ ~ ~ summon Cow ~ ~ ~ {Age:-2000,CustomName:G1}
-	execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=100,score_cowntDown=102] ~ ~ ~ execute @e[type=Cow,name=G1] ~ ~ ~ summon Cow ~ ~ ~ {Age:-2000,CustomName:G1}
-	execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=100,score_cowntDown=102] ~ ~ ~ effect @e[type=Cow] minecraft:resistance 1 5 true
-	execute @e[type=Cow,name=!Cowmageddon] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Cowmageddon}
+	:: "Death Boom"
+		scoreboard players set @e[type=Cow] @!punched 1 {HurtTime:1s}
+		execute @e[type=Cow,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Premature Cowmageddon}
+	;;
+	:: "BIG Boom"
+		:: "COWntdown"
+			execute @e[type=Cow,name=Cowmageddon,tag=currentCow] ~ ~ ~ execute @e[type=Cow,name=Cowmageddon,tag=!currentCow] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,powered:1b,CustomName:Faulty Cowmageddon}
+			execute @e[type=Cow,name=Cowmageddon,tag=currentCow] ~ ~ ~ kill @e[type=Cow,name=Cowmageddon,tag=!currentCow]
+			scoreboard players add @e[type=Cow,name=Cowmageddon] @!cowntDown 1
+			scoreboard players tag @e[type=Cow,name=Cowmageddon] add currentCow
+			:: "Sound"
+				execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=0,score_cowntDown=60] ~ ~ ~ playsound entity.cow.ambient @a ~ ~ ~ 256 0 1
+			;;
+		;;
+		:: "Explosion"
+			execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=100,score_cowntDown=101] ~ ~ ~ summon Cow ~ ~ ~ {Age:-2000,CustomName:G1}
+			execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=100,score_cowntDown=102] ~ ~ ~ execute @e[type=Cow,name=G1] ~ ~ ~ summon Cow ~ ~ ~ {Age:-2000,CustomName:G1}
+			execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=100,score_cowntDown=102] ~ ~ ~ effect @e[type=Cow] minecraft:resistance 1 5 true
+			execute @e[type=Cow,name=!Cowmageddon] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Cowmageddon}
+		;;
+	;;
 ;;
 :: "Mad Cow"
 	scoreboard players add @e[type=Zombie] @!ticks 1
@@ -27,3 +32,4 @@
 	entitydata @e[type=Zombie,score_ticks_min=60] {NoAI:0b}
 	kill @e[type=MushroomCow,score_ticks_min=660]
 	kill @e[type=Zombie,score_ticks_min=660]
+;;

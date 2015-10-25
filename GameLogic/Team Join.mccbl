@@ -14,24 +14,24 @@ execute @a[tag=!onTeam,team=Purple] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!on
 execute @a[tag=!onTeam,team=Orange] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Orange]"},{"text":" joined the Orange Team.","color":"gold","bold":true}]
 tellraw @a[tag=!onTeam,team=!Lobby] ["",{"text":"[Click here to leave your team]","color":"dark_aqua","italic":true,"clickEvent":{"action":"run_command","value":"/trigger leaveTeam set 1"}}]
 scoreboard players tag @a[team=!Lobby,m=2] add @!onTeam
-//Leave Team Trigger
-scoreboard players enable @a[team=!Lobby,m=2] @!leaveTeam
-scoreboard teams leave @a[score_leaveTeam_min=1]
-scoreboard players set @a @!leaveTeam 0
+	:: "Leave Team"
+		scoreboard players enable @a[team=!Lobby,m=2] @!leaveTeam
+		scoreboard teams leave @a[score_leaveTeam_min=1]
+		scoreboard players set @a @!leaveTeam 0
+	;;
 ;;
 :: "Team joining"
 	:: "Glass"
-	execute @e[-7,65,-7,dx=13,dz=13,type=ArmorStand] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ air
-	execute @a[team=Red] ~ ~ ~ execute @e[type=ArmorStand,name=Red] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 14
-	execute @a[team=Orange] ~ ~ ~ execute @e[type=ArmorStand,name=Orange] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 1
-	execute @a[team=Yellow] ~ ~ ~ execute @e[type=ArmorStand,name=Yellow] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 4
-	execute @a[team=Green] ~ ~ ~ execute @e[type=ArmorStand,name=Green] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 5
-	execute @a[team=Blue] ~ ~ ~ execute @e[type=ArmorStand,name=Blue] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 11
-	execute @a[team=Purple] ~ ~ ~ execute @e[type=ArmorStand,name=Purple] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 10
-	execute @a[team=LBlue] ~ ~ ~ execute @e[type=ArmorStand,name=Light Blue] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 3
-	execute @a[team=Pink] ~ ~ ~ execute @e[type=ArmorStand,name=Pink] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 6
+		execute @e[-7,65,-7,dx=13,dz=13,type=ArmorStand] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ air
+		execute @a[team=Red] ~ ~ ~ execute @e[type=ArmorStand,name=Red] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 14
+		execute @a[team=Orange] ~ ~ ~ execute @e[type=ArmorStand,name=Orange] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 1
+		execute @a[team=Yellow] ~ ~ ~ execute @e[type=ArmorStand,name=Yellow] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 4
+		execute @a[team=Green] ~ ~ ~ execute @e[type=ArmorStand,name=Green] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 5
+		execute @a[team=Blue] ~ ~ ~ execute @e[type=ArmorStand,name=Blue] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 11
+		execute @a[team=Purple] ~ ~ ~ execute @e[type=ArmorStand,name=Purple] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 10
+		execute @a[team=LBlue] ~ ~ ~ execute @e[type=ArmorStand,name=Light Blue] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 3
+		execute @a[team=Pink] ~ ~ ~ execute @e[type=ArmorStand,name=Pink] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 6
 	;;
-	
 	:: "Red"
 		scoreboard teams join Red @p[6,64,2,0,tag=Red]
 		tp @p[4,64,2,0] 6 67 2 90 0
@@ -40,7 +40,6 @@ scoreboard players set @a @!leaveTeam 0
 		scoreboard teams join Orange @p[4,64,-3,0,tag=Orange]
 		tp @p[4,64,-3,0] 6 67 -3 90 0
 	;;
-	
 	:: "Yellow"
 		scoreboard teams join Yellow @p[2,64,-7,0,tag=Yellow]
 		tp @p[2,64,-7,0] 2 67 -7 90 0
@@ -49,7 +48,6 @@ scoreboard players set @a @!leaveTeam 0
 		scoreboard teams join Green @p[-3,64,-7,0,tag=Green]
 		tp @p[-3,64,-7,0] -3 67 -7 90 0
 	;;
-	
 	:: "Blue"
 		scoreboard teams join Blue @p[-7,64,-3,0,tag=Blue]
 		tp @p[-7,64,-3,0] -7 67 -3 90 0
@@ -57,8 +55,7 @@ scoreboard players set @a @!leaveTeam 0
 	:: "Purple"
 		scoreboard teams join Purple @p[-7,64,2,0,tag=Purple]
 		tp @p[-7,64,2,0] -7 67 2 90 0
-	;;
-	
+	;;	
 	:: "LBlue"
 		scoreboard teams join LBlue @p[-3,64,6,0,tag=LBlue]
 		tp @p[-3,64,6,0] -3 67 6 90 0
@@ -67,7 +64,6 @@ scoreboard players set @a @!leaveTeam 0
 		scoreboard teams join Pink @p[2,64,6,0,tag=Pink]
 		tp @p[2,64,6,0] 2 67 6 90 0
 	;;
-	
 	:: "Preventative measures"
 		scoreboard players tag @a add Red
 		scoreboard players tag @a add Orange
