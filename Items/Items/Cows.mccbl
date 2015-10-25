@@ -1,7 +1,7 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
-##region "Cowmageddon"
+:: "Cowmageddon"
 //summon Item 3 1 20 {Item:{id:"minecraft:spawn_egg",Count:1,tag:{display:{Name:Cowmageddon,Lore:["MROOOOOOOO","Boom."]},EntityTag:{id:Cow,CustomName:Cowmageddon},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}
 	//Death Boom
 	scoreboard players set @e[type=Cow] @!punched 1 {HurtTime:1s}
@@ -19,8 +19,8 @@
 	execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=100,score_cowntDown=102] ~ ~ ~ execute @e[type=Cow,name=G1] ~ ~ ~ summon Cow ~ ~ ~ {Age:-2000,CustomName:G1}
 	execute @e[type=Cow,name=Cowmageddon,score_cowntDown_min=100,score_cowntDown=102] ~ ~ ~ effect @e[type=Cow] minecraft:resistance 1 5 true
 	execute @e[type=Cow,name=!Cowmageddon] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Cowmageddon}
-##endregion
-##region "Mad Cow"
+;;
+:: "Mad Cow"
 	scoreboard players add @e[type=Zombie] @!ticks 1
 	scoreboard players add @e[type=MushroomCow] @!ticks 1
 	execute @e[type=Zombie,name=!chest] ~ ~ ~ particle angryVillager ~ ~ ~ .3 .3 .3 1 4

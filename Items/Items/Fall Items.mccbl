@@ -1,16 +1,16 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
-##region "Anvil"
+:: "Anvil"
 //summon Item 3 1 20 {Item:{id:minecraft:anvil,Count:1,tag:{display:{Name:Falling Anvils,Lore:[Creates a 5x5 area of falling anvils,The anvils spawn above where item is dropped,Drop on the ground to use]}}},Invulnerable:1b,Age:5600}
 	scoreboard players remove @e[type=Item,tag=!disp] anvil 1 {Item:{id:minecraft:anvil},Invulnerable:0b}
 	entitydata @e[type=Item,score_anvil=-1] {PickupDelay:32767}
 	execute @e[type=Item,score_anvil=-30] ~ ~ ~ fill ~-2 255 ~-2 ~2 255 ~2 minecraft:anvil 8
 	kill @e[type=Item,score_anvil=-30]
-##endregion
-##region "Bat"
+;;
+:: "Bat"
 //summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Air Strike,Lore:[Drops a constant stream of Instant Damage Potions,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Bat,Invulnerable:1b}}},Invulnerable:1b,Age:5600}
 	scoreboard players add @e[type=Bat] @!ticks 1
 	execute @e[type=Bat,name=!chest] ~ ~ ~ summon ThrownPotion ~ ~-0.25 ~ {CustomName:Airstrike,Potion:{id:minecraft:potion,Count:1,tag:{CustomPotionEffects:[{Id:7b,Duration:1,Amplifier:0b}]}}}
 	kill @e[type=Bat,score_ticks_min=600,name=!chest]
-##endregion
+;;

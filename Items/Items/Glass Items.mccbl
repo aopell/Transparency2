@@ -1,7 +1,7 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
-##region "Mirror"
+:: "Mirror"
 //summon Item 3 1 20 {Item:{id:minecraft:stained_glass_pane,Damage:0,Count:1,tag:{display:{Name:"Mirror",Lore:["Swap position with another player","Place block to use"]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}
 	execute @a[score_mirror_min=1] ~ ~ ~ summon ArmorStand -3 1 20 {CustomName:"mirror",Invisible:1b,NoGravity:1b}
 	execute @a[score_mirror_min=1] ~ ~ ~ scoreboard players set @r[rm=1,m=2,score_health_min=1] @!mirrorRecip 1
@@ -14,12 +14,12 @@
 	scoreboard players set @a[score_mirrorRecip_min=1,c=1] @!mirrorRecip 0
 	scoreboard players set @a[score_mirror_min=1,c=1] @!mirror 0
 	kill @e[type=ArmorStand,name=mirror]
-##endregion
-##region "Clear"
+;;
+:: "Clear"
 //summon Item 3 1 20 {Item:{id:minecraft:glass_pane,Count:1,tag:{display:{Name:Clear Inventory,Lore:[Clears a random player's inventory,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}
 	execute @e[score_clear_min=1] ~ ~ ~ scoreboard players set @r[rm=1,m=2] clear -1
 	clear @a[score_clear=-1]
 	execute @a[score_clear_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear=-1]","italic":true},{"text":"'s inventory was cleared","color":"gold","italic":true}]
 	execute @a[score_clear_min=1] ~ ~ ~ execute @a ~ ~ ~ playsound entity.experience_orb.pickup @p
 	scoreboard players set @a clear 0
-##endregion
+;;

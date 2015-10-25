@@ -1,18 +1,18 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
-##region "Teleport Map"
+:: "Teleport Map"
 //summon Item 3 1 20 {Item:{id:minecraft:map,Count:1,tag:{display:{Name:Teleport Map,Lore:["Teleports EVERYTHING (including you)","around the map randomly","Right click while holding to use"]}}},Invulnerable:1b,Age:5600}
 	clear @a[m=2,team=!Lobby] minecraft:filled_map -1 1
 	?spreadplayers 512 512 5 20 true @a[m=2,team=!Lobby,r=100] @e[type=!AreaEffectCloud,r=100]
 	?playsound entity.endermen.teleport @a ~ ~ ~ 1000000 0
 	?tellraw @a ["",{"text":"Everything was teleported to a random location!","color":"gold","italic":true}]
-##endregion
-##region "Sticky Arm"
+;;
+:: "Sticky Arm"
 //summon Item 3 1 20 {Item:{id:minecraft:fishing_rod,Count:1,Damage:64,tag:{display:{Name:Sticky Arm,Lore:["Reaches out and grabs all players","Teleports all players to you","Right click while holding to use"]}}},Invulnerable:1b,Age:5600}
 	tp @a[m=2] @a[score_fishing_min=1]
 	execute @a[score_fishing_min=1] ~ ~ ~ playsound entity.endermen.teleport @a ~ ~ ~ 1000000 2
 	execute @a[score_fishing_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_fishing_min=1]"},{"text":" teleported all players to themselves!","color":"gold","italic":true}]
 	scoreboard players set @a @!fishing 0
-##endregion
+;;
 	

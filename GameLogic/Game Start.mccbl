@@ -2,25 +2,6 @@
 @CHAIN ON
 @VERSION 1.9
 tp @a[team=] 0 65 0 0 -90
-##region "Team Join Messages"
-execute @a[tag=onTeam,team=Lobby] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=onTeam,team=Lobby]"},{"text":" left their team.","color":"gray","bold":true}]
-scoreboard players tag @a[team=Lobby] remove @!onTeam
-execute @a[tag=!onTeam,team=Red] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Red]"},{"text":" joined the Red Team.","color":"red","bold":true}]
-execute @a[tag=!onTeam,team=Blue] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Blue]"},{"text":" joined the Blue Team.","color":"blue","bold":true}]
-execute @a[tag=!onTeam,team=Yellow] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Yellow]"},{"text":" joined the Yellow Team.","color":"yellow","bold":true}]
-execute @a[tag=!onTeam,team=Green] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Green]"},{"text":" joined the Green Team.","color":"green","bold":true}]
-execute @a[tag=!onTeam,team=LBlue] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=LBlue]"},{"text":" joined the Light Blue Team.","color":"aqua","bold":true}]
-execute @a[tag=!onTeam,team=Pink] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Pink]"},{"text":" joined the Pink Team.","color":"light_purple","bold":true}]
-execute @a[tag=!onTeam,team=Purple] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Purple]"},{"text":" joined the Purple Team.","color":"dark_purple","bold":true}]
-execute @a[tag=!onTeam,team=Orange] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Orange]"},{"text":" joined the Orange Team.","color":"gold","bold":true}]
-tellraw @a[tag=!onTeam,team=!Lobby] ["",{"text":"[Click here to leave your team]","color":"dark_aqua","italic":true,"clickEvent":{"action":"run_command","value":"/trigger leaveTeam set 1"}}]
-scoreboard players tag @a[team=!Lobby,m=2] add @!onTeam
-//Leave Team Trigger
-scoreboard players enable @a[team=!Lobby,m=2] @!leaveTeam
-scoreboard teams leave @a[score_leaveTeam_min=1]
-scoreboard players set @a @!leaveTeam 0
-execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=1] ~ ~ ~ scoreboard players enable @a @!skipCount
-##endregion
 //Game Starting Logic
 scoreboard players set @e[type=ArmorStand,name=GK] @!counting 0
 scoreboard players set @e[type=ArmorStand,name=GK] @!onTeam 0
@@ -30,10 +11,11 @@ execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players 
 execute @e[type=ArmorStand,name=GK,score_onTeam=0] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=0] @!count 0
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] @!count 0
 //Skip Counter
+execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=1] ~ ~ ~ scoreboard players enable @a @!skipCount
 execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!count 500
 execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ tellraw @a ["",{"text":"Countdown Skipped! Game starting in 5 seconds!","color":"gold"}}]
 execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ scoreboard players set @a @!skipCount 5
-##region "Counting"
+:: "Counting"
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_counting=0,score_count=0] @!counting 1
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,score_counting=1,score_gameInProgress=0] @!count 1
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=1] ~ ~ ~ tellraw @a ["",{"text":" The game begins in"},{"text":" 30 ","color":"red","clickEvent":{"action":"run_command","value":"/trigger skipCount set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Skip countdown","color":"gold"}]}}},{"text":"seconds.","clickEvent":{"action":"run_command","value":"/trigger skipCount set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Skip countdown","color":"gold"}]}},"color":"none"}]
@@ -57,8 +39,8 @@ execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=Arm
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600] ~ ~ ~ title @a subtitle ["",{"text":""}]
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600] ~ ~ ~ title @a title ["",{"text":"Go!","color":"green","italic":"true"}]
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=599] ~ ~ ~ title @a title [{"text":"Game starting in","color":"yellow","italic":"true"}]
-##endregion
-##region "Pre-Start Actions"
+;;
+:: "Pre-Start Actions"
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_count_min=600] @!gameInProgress 1
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ scoreboard players reset * @!lives
 execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ scoreboard players set @a @!deaths 0
