@@ -13,4 +13,4 @@
 	scoreboard players add @e[type=Bat] @!ticks 1
 	execute @e[type=Bat,name=!chest] ~ ~ ~ summon ThrownPotion ~ ~-0.25 ~ {CustomName:Airstrike,Potion:{id:minecraft:potion,Count:1,tag:{CustomPotionEffects:[{Id:7b,Duration:1,Amplifier:0b}]}}}
 	kill @e[type=Bat,score_ticks_min=600,name=!chest]
-	
+##endregion
