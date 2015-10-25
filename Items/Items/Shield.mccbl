@@ -26,5 +26,5 @@
 	entitydata @e[type=Item,name=Shield,score_ticks_min=40,score_ticks=40] {Item:{tag:{BlockEntityTag:{Base:12}}}}
 	entitydata @e[type=Item,name=Shield,score_ticks_min=45,score_ticks=45] {Item:{tag:{BlockEntityTag:{Base:13}}}}
 	entitydata @e[type=Item,name=Shield,score_ticks_min=50,score_ticks=50] {Item:{tag:{BlockEntityTag:{Base:5}}}}
-	scoreboard players set @a[type=Item,name=Shield,score_ticks_min=50] @!ticks 0
+	scoreboard players set @e[type=Item,name=Shield,score_ticks_min=50] @!ticks 0
 ##endregion
