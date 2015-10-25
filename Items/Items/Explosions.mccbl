@@ -1,9 +1,8 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
-##region "Mine"
-//summon Item 3 1 20 {Item:{id:minecraft:record_11,Count:1,tag:{display:{Name:"Landmine",Lore:["Watch your step!","Drop on the ground to use"]}}},Invulnerable:1b,Age:5600}
-	scoreboard players remove @e[type=Item] mine 1 {Item:{id:minecraft:record_11},Invulnerable:0b}
+//Mine
+	scoreboard players remove @e[type=Item,tag=!disp] mine 1 {Item:{id:minecraft:record_11},Invulnerable:0b}
 	entitydata @e[type=Item,score_mine=-1] {PickupDelay:32767}
 	execute @e[type=Item,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,Duration:1000000,Particle:take,CustomName:Mine}
 	kill @e[type=Item,score_mine=-60]
@@ -11,16 +10,12 @@
 	execute @e[score_mine_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,powered:1b,CustomName:Land Mine}
 	kill @e[type=AreaEffectCloud,score_mine_min=1]
 	execute @e[type=AreaEffectCloud,name=Mine] ~ ~ ~ particle reddust ~ ~ ~ 1 1 1 1
-##endregion
-##region "Grenade"
-//summon Item 3 1 20 {Item:{id:minecraft:lingering_potion,Count:1,tag:{display:{Name:Grenade,Lore:[BOOM.,Throw to use]},CustomPotionEffects:[{Id:12b,Duration:1,Amplifier:1b}]}},Invulnerable:1b,Age:5600}
+//Grenade
 	scoreboard players set @e[type=AreaEffectCloud] @!grenade 1 {Effects:[{Id:12b}]}
 	execute @e[type=AreaEffectCloud,score_grenade_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Grenade}
 	kill @e[score_grenade_min=1,type=AreaEffectCloud]
-##endregion
-##region "Lightning"
-//summon Item 3 1 20 {Item:{id:minecraft:prismarine_shard,Count:1,tag:{display:{Name:Lightning Shard,Lore:[Strikes everyone but you with a lightning bolt,Drop on the ground to use]}}},Invulnerable:1b,Age:5600}
-	scoreboard players remove @e[type=Item] lightning 1 {Item:{id:minecraft:prismarine_shard},Invulnerable:0b}
+//Lightning
+	scoreboard players remove @e[type=Item,tag=!disp] lightning 1 {Item:{id:minecraft:prismarine_shard},Invulnerable:0b}
 	execute @a[score_lightning_min=1] ~ ~ ~ execute @a[m=2,rm=1] ~ ~ ~ summon LightningBolt
 	execute @a[score_lightning_min=1] ~ ~ ~ tellraw @a ["",{"text":"Lightning struck ","color":"gold","italic":true,"clickEvent":{"action":"run_command","value":"/tp @p 0.0 60 0.0 90 0"}},{"selector":"@a[m=2,rm=1]","color":"none","italic":false}]
 	kill @e[type=Item,score_lightning=-1]
