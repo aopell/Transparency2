@@ -26,9 +26,14 @@
 	;;
 ;;
 :: "Mad Cow"
-	scoreboard players add @e[type=Zombie] @!ticks 1
-	scoreboard players add @e[type=MushroomCow] @!ticks 1
-	execute @e[type=Zombie,name=!chest] ~ ~ ~ particle angryVillager ~ ~ ~ .3 .3 .3 1 4
+//summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Mad Cow,Lore:[Summons a VERY mad cow,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime],EntityTag:{id:MushroomCow,Tags:[justSpawned]}}},Invulnerable:1b,Age:5600}
+	execute @e[type=MushroomCow,tag=justSpawned] ~ ~ ~ summon Zombie summon  ~ ~ ~ {CustomName:Mad Cow,CustomNameVisible:1b,Invulnerable:1b,Anger:32767,Silent:1b,IsBaby:1b,Tags:[isCow],Passengers:[{id:MushroomCow,Invulnerable:1b}]}
+	kill @e[type=MushroomCow,tag=justSpawned]
+	scoreboard players add @e[type=Zombie,tag=isCow] @!ticks 1
+	scoreboard players add @e[type=MushroomCow,tag=!justSpawned] @!ticks 1
+	effect @e[type=Zombie,tag=isCow] minecraft:speed 1 6 true
+	effect @e[type=Zombie,tag=isCow] minecraft:invisibility 30 0 true
+	execute @e[type=Zombie,tag=isCow] ~ ~ ~ particle angryVillager ~ ~ ~ .3 .3 .3 1 4
 	entitydata @e[type=Zombie,score_ticks_min=60] {NoAI:0b}
 	kill @e[type=MushroomCow,score_ticks_min=660]
 	kill @e[type=Zombie,score_ticks_min=660]
