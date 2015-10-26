@@ -7,7 +7,7 @@
 	execute @e[type=Ozelot] ~ ~ ~ effect @a[r=2] minecraft:speed 1 127 true
 	scoreboard players set @e[type=Ozelot] @!punched 1 {HurtTime:1s}
 	execute @e[type=Ozelot,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Speedy Cat}
-	kill @e[type=Ozelot,score_ticks_min=600]
+	kill @e[type=Ozelot,score_ticks_min=400]
 ;;
 :: "Muscle Milk"
 //summon Item 3 1 20 {Item:{id:minecraft:milk_bucket,Count:1,tag:{display:{Name:"Muscle Milk",Lore:["Be a strongman!","Drink to use"]}}},Invulnerable:1b,Age:5600}
@@ -44,4 +44,27 @@
 //summon Item 3 1 20 {Item:{id:minecraft:apple,Count:1,tag:{display:{Name:"'Friendship' Apple",Lore:["Be friendly!","Eat to use"]}}},Invulnerable:1b,Age:5600}
 	execute @a[score_apple_min=1] ~ ~ ~ effect @a[score_apple=0] minecraft:weakness 15 20 true
 	scoreboard players set @a @!apple 0
+;;
+:: "Bouncin' Bunny"
+//summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Bouncin' Bunny,Lore:["'You can reach great heights'","'In fact, you can soar!'",Gives players insane jump boost,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Rabbit,RabbitType:1}}},Invulnerable:1b,Age:5600}
+	execute @e[type=Rabbit] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Age:0,Duration:0,Radius:1.2,Particle:"endRod"}
+	execute @e[type=Rabbit] ~ ~ ~ effect @e[r=2] minecraft:jump_boost 2 75 true
+	scoreboard players set @e[type=Rabbit] @!punched 1 {HurtTime:1s}
+	execute @e[type=Rabbit,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Boomin' Bunny}
+	scoreboard players add @e[type=Rabbit] @!ticks 1
+	kill @e[type=Rabbit,score_ticks_min=600]
+;;
+:: "Spy Chicken"
+//summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Spy Chicken,Lore:["Mr. Enderson...",Makes player invisible,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Chicken,Silent:1b}}},Invulnerable:1b,Age:5600}
+	execute @e[type=Chicken] ~ ~ ~ scoreboard players tag @a[r=1] add @!invis
+	scoreboard players add @a[tag=invis] @!invisCount 1
+	scoreboard players tag @a[score_invisCount_min=400] remove @!invis
+	scoreboard players set @a[tag=!invis] @!invisCount 0
+	clear @a[tag=invis] minecraft:chainmail_chestplate
+	clear @a[tag=invis] minecraft:stained_glass
+	effect @e[r=1,tag=invis] minecraft:invisibility 1 1 true
+	scoreboard players set @e[type=Chicken] @!punched 1 {HurtTime:1s}
+	execute @e[type=Chicken,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Jihadist Chicken}
+	scoreboard players add @e[type=Chicken] @!ticks 1
+	kill @e[type=Chicken,score_ticks_min=600]
 ;;
