@@ -37,12 +37,14 @@
 ;;
 :: "Firework"
 //summon Item 3 1 20 {Item:{id:minecraft:firework,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:4,Trail:1b}]},display:{Name:"Firework",Lore:["Makes you feel like a plastic bag","Launches other players into the air","Place on ground to use"]}},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]},Invulnerable:1b,Age:5600}
-	execute @a[score_firework_min=1] ~ ~ ~ effect @a[score_firework_min=0,m=2] minecraft:levitation 1 127 true
+	execute @a[score_firework_min=1] ~ ~ ~ effect @a[rm=1,m=2] minecraft:levitation 1 127 true
 	scoreboard players set @a @!firework 0
 ;;
 :: "Apple"
 //summon Item 3 1 20 {Item:{id:minecraft:apple,Count:1,tag:{display:{Name:"'Friendship' Apple",Lore:["Be friendly!","Eat to use"]}}},Invulnerable:1b,Age:5600}
-	execute @a[score_apple_min=1] ~ ~ ~ effect @a[score_apple=0] minecraft:weakness 15 20 true
+	execute @a[score_apple_min=1] ~ ~ ~ effect @a[rm=1] minecraft:weakness 10 20 true
+	execute @a[score_apple_min=1] ~ ~ ~ playsound entity.irongolem.death @a[rm=1] ~ ~ ~ 1000000 0
+	execute @a[score_apple_min=1] ~ ~ ~ tellraw @a[rm=1] ["",{"text":"You can't attack for 10 seconds","color":"gold","italic":true}]
 	scoreboard players set @a @!apple 0
 ;;
 :: "Bouncin' Bunny"
