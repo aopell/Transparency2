@@ -4,7 +4,7 @@
 :: "Teleport Map"
 //summon Item 3 1 20 {Item:{id:minecraft:map,Count:1,tag:{display:{Name:Teleport Map,Lore:["Teleports EVERYTHING (including you)","around the map randomly","Right click while holding to use"]}}},Invulnerable:1b,Age:5600}
 	clear @a[m=2,team=!Lobby] minecraft:filled_map -1 1
-	?spreadplayers 512 512 5 20 true @a[512,128,512,150,m=2,team=!Lobby] @e[512,128,512,150,type=!AreaEffectCloud]
+	?spreadplayers 512 512 5 20 false @a[512,128,512,150,m=2,team=!Lobby] @e[512,128,512,150,type=!AreaEffectCloud]
 	?playsound entity.endermen.teleport @a ~ ~ ~ 1000000 0
 	?tellraw @a ["",{"text":"Everything was teleported to a random location!","color":"gold","italic":true}]
 ;;
