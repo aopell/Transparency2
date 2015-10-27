@@ -13,7 +13,7 @@ execute @a[tag=!onTeam,team=Pink] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTe
 execute @a[tag=!onTeam,team=Purple] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Purple]"},{"text":" joined the Purple Team.","color":"dark_purple","bold":true}]
 execute @a[tag=!onTeam,team=Orange] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Orange]"},{"text":" joined the Orange Team.","color":"gold","bold":true}]
 tellraw @a[tag=!onTeam,team=!Lobby] ["",{"text":"[Click here to leave your team]","color":"dark_aqua","italic":true,"clickEvent":{"action":"run_command","value":"/trigger leaveTeam set 1"}}]
-scoreboard players tag @a[team=!Lobby,m=2] add @!onTeam
+scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 	:: "Leave Team"
 		scoreboard players enable @a[team=!Lobby,m=2] @!leaveTeam
 		scoreboard teams leave @a[score_leaveTeam_min=1]

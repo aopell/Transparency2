@@ -10,7 +10,7 @@
 		scoreboard teams join @!Lobby @a[-1,65,-1,dx=1,dy=2,dz=1]
 		gamemode 2 @a[-1,65,-1,dx=1,dy=2,dz=1,m=0]
 		gamemode 2 @a[-1,65,-1,dx=1,dy=2,dz=1,m=1]
-		clear @a[-1,65,-1,dx=1,dy=2,dz=1,tag=!dev]
+		clear @a[-1,65,-1,dx=1,dy=2,dz=1]
 	;;
 ;;
 :: "Not Lobby"

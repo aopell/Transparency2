@@ -40,13 +40,6 @@
 	execute @a[score_firework_min=1] ~ ~ ~ effect @a[rm=1,m=2] minecraft:levitation 1 127 true
 	scoreboard players set @a @!firework 0
 ;;
-:: "Apple"
-//summon Item 3 1 20 {Item:{id:minecraft:apple,Count:1,tag:{display:{Name:"'Friendship' Apple",Lore:["Be friendly!","Eat to use"]}}},Invulnerable:1b,Age:5600}
-	execute @a[score_apple_min=1] ~ ~ ~ effect @a[rm=1] minecraft:weakness 10 20 true
-	execute @a[score_apple_min=1] ~ ~ ~ playsound entity.irongolem.death @a[rm=1] ~ ~ ~ 1000000 0
-	execute @a[score_apple_min=1] ~ ~ ~ tellraw @a[rm=1] ["",{"text":"You can't attack for 10 seconds","color":"gold","italic":true}]
-	scoreboard players set @a @!apple 0
-;;
 :: "Bouncin' Bunny"
 //summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Bouncin' Bunny,Lore:["'You can reach great heights'","'In fact, you can soar!'",Gives players insane jump boost,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Rabbit,RabbitType:1}}},Invulnerable:1b,Age:5600}
 	execute @e[type=Rabbit] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Age:0,Duration:0,Radius:1.2,Particle:"endRod"}
@@ -58,13 +51,15 @@
 ;;
 :: "Spy Chicken"
 //summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Spy Chicken,Lore:["Mr. Enderson...",Makes player invisible,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Chicken,Silent:1b}}},Invulnerable:1b,Age:5600}
-	execute @e[type=Chicken] ~ ~ ~ scoreboard players tag @a[r=1] add @!invis
+	execute @e[type=Chicken] ~ ~ ~ scoreboard players tag @a[r=2] add @!invis
+	scoreboard players add @e[type=Chicken] @!ticks 1
+	scoreboard players set @e[type=Chicken,score_ticks_min=100] @!punched 1
 	scoreboard players add @a[tag=invis] @!invisCount 1
 	scoreboard players tag @a[score_invisCount_min=400] remove @!invis
 	scoreboard players set @a[tag=!invis] @!invisCount 0
 	clear @a[tag=invis] minecraft:chainmail_chestplate
 	clear @a[tag=invis] minecraft:stained_glass
-	effect @e[r=1,tag=invis] minecraft:invisibility 1 1 true
+	effect @a[tag=invis] minecraft:invisibility 1 0 true
 	scoreboard players set @e[type=Chicken] @!punched 1 {HurtTime:1s}
 	execute @e[type=Chicken,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Jihadist Chicken}
 	scoreboard players add @e[type=Chicken] @!ticks 1

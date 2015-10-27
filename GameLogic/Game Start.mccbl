@@ -14,7 +14,7 @@ tp @a[team=] 0 65 0 0 -90
 	:: "Skip Countdown"
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=1] ~ ~ ~ scoreboard players enable @a @!skipCount
 		execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!count 500
-		execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ tellraw @a ["",{"text":"Countdown Skipped! Game starting in 5 seconds!","color":"gold"}}]
+		execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ tellraw @a ["",{"text":"Countdown Skipped! Game starting in 5 seconds!","color":"gold"}]
 		execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ scoreboard players set @a @!skipCount 5
 	;;
 ;;
@@ -40,7 +40,7 @@ tp @a[team=] 0 65 0 0 -90
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=560,score_count=560] ~ ~ ~ playsound entity.experience_orb.pickup @a ~ ~ ~ 1000000 1 1
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ playsound entity.experience_orb.pickup @a ~ ~ ~ 1000000 1 1
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600] ~ ~ ~ title @a subtitle ["",{"text":""}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600] ~ ~ ~ title @a title ["",{"text":"Go!","color":"green","italic":"true"}]
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600] ~ ~ ~ title @a title ["",{"text":""}]
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=599] ~ ~ ~ title @a title [{"text":"Game starting in","color":"yellow","italic":"true"}]
 	;;
 ;;
@@ -53,6 +53,8 @@ tp @a[team=] 0 65 0 0 -90
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ scoreboard objectives setdisplay sidebar @!lives
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ playsound entity.player.levelup @a ~ ~ ~ 1000000 1 1
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ effect @a minecraft:resistance 5 4 true
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ gamemode 2 @a[team=!Lobby]
+				execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ clear @a[team=!Lobby]
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ tp @a[team=!Lobby] 0 1 20
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ tp @a[team=Red] 531 148 519 90 0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,score_gameInProgress_min=1] ~ ~ ~ tp @a[team=Orange] 531 148 506 90 0
