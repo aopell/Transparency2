@@ -34,11 +34,11 @@ scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 	;;
 	:: "Red"
 		scoreboard teams join Red @p[6,64,2,0,tag=Red]
-		tp @p[4,64,2,0] 6 67 2 90 0
+		tp @p[6,64,2,0] 6 67 2 90 0
 	;;
 	:: "Orange"
-		scoreboard teams join Orange @p[4,64,-3,0,tag=Orange]
-		tp @p[4,64,-3,0] 6 67 -3 90 0
+		scoreboard teams join Orange @p[6,64,-3,0,tag=Orange]
+		tp @p[6,64,-3,0] 6 67 -3 90 0
 	;;
 	:: "Yellow"
 		scoreboard teams join Yellow @p[2,64,-7,0,tag=Yellow]

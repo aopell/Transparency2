@@ -33,6 +33,7 @@
 	scoreboard players add @e[type=MushroomCow,tag=!justSpawned] @!ticks 1
 	effect @e[type=Zombie,tag=isCow] minecraft:speed 1 6 true
 	effect @e[type=Zombie,tag=isCow] minecraft:invisibility 30 0 true
+	effect @e[type=Zombie,tag=isCow] minecraft:strength 5 127
 	execute @e[type=Zombie,tag=isCow] ~ ~ ~ particle angryVillager ~ ~ ~ .3 .3 .3 1 4
 	entitydata @e[type=Zombie,score_ticks_min=60] {NoAI:0b}
 	kill @e[type=MushroomCow,score_ticks_min=660]
