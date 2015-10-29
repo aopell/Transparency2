@@ -1,0 +1,9 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+:: "+3 Tokens"
+//summon Item ~ ~ ~ {Item:{id:minecraft:emerald,Count:1,tag:{display:{Name:+3 Tokens,Lore:["Gives you three tokens"]}}},Invulnerable:1b,Age:5600}
+	scoreboard players add @a[score_plusThree_min=1] @!lives 3
+	clear @a minecraft:emerald
+	scoreboard players set @a @!plusThree 0
+;;
