@@ -4,6 +4,7 @@
 //particles:
 scoreboard players add @e[type=Zombie,name=chest] punched 1 {HurtTime:1s}
 execute @e[type=Zombie,name=chest] ~ ~ ~ particle cloud ~ ~0.8 ~ 0.25 0.3 0.25 .03 2
+execute @e[type=Zombie,name=chest,score_min_punched=1] ~ ~ ~ particle hugeexplosion ~ ~1 ~ 0 0 0 1 0
 //todo: I want the chest slime to make large explosion particles when it is punched, and make that noise
 
 //kills chests after 15 seconds
@@ -31,7 +32,6 @@ execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=7,score_z
 execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=8,score_zPrize=8] ~ ~ ~ say Prize 8
 execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=9,score_zPrize=9] ~ ~ ~ say Prize 9
 execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=10,score_zPrize=10] ~ ~ ~ say Prize 10
-
 
 //death
 execute @e[name=chest,type=Zombie,score_punched_min=1] ~ ~ ~ kill @e[name=chest]
