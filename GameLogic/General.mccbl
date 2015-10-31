@@ -4,7 +4,8 @@
 :: "Lobby"
 	execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ execute @a[512,128,512,300,team=!Lobby,tag=!dev] ~ ~ ~ scoreboard teams leave @p
 	tp @a[-32,41,-32,dx=63,dy=2,dz=63,m=2] 0 65 0
-	effect @a[-15,65,-15,dx=33,dy=2,dz=33] minecraft:resistance 1 4 true
+	effect @a[-15,65,-15,dx=33,dy=2,dz=33,team=Lobby] minecraft:resistance 1 4 true
+	effect @a[-15,65,-15,dx=33,dy=2,dz=33,team=Lobby] minecraft:instant_health 1 4 true
 	replaceitem entity @a[m=2,team=Lobby] slot.hotbar.8 minecraft:written_book 1 0 {author:"Transparency",title:"Game Settings",pages:["{text:\"Settings Book\\n-----------------\\nWelcome to the Transparency settings book. Each page has a different setting that controls some part of the game with a description of what it does. Try messing around with the different settings!\"}","{text:\"Respawn Tokens:\\n-----------------\\nWhenever a player dies, they lose one respawn token. When a player reaches 0 respawn tokens, they lose the game. This setting controls the length of the game.\\n\",extra:[{text:\"\\nCurrent Value: \",color:\"dark_purple\",extra:[{score:{name:\"RespawnTokens\",objective:\"gameSettings\"},color:\"red\"}]},{text:\"\\n[Change Value]\",bold:\"true\",color:\"dark_aqua\",clickEvent:{action:\"run_command\",value:\"/tp @p 0.0 60 0.0\"}}]}","{text:\"Items\\n----------------\\nItems spawn randomly in set locations around the map. They are all very crazy and fun. Turning off items is like turning off items in Mario Kart or Super Smash Bros. leading to more skill based play.\\n\",extra:[{text:\"[Enable] \",color:\"dark_green\",clickEvent:{action:\"run_command\",value:\"/scoreboard players set Items gameSettings 1\"}},{text:\" [Disable]\",color:\"dark_red\",clickEvent:{action:\"run_command\",value:\"/scoreboard players set Items gameSettings 0\"}}]}"]}
 	:: "Center"
 		scoreboard teams join @!Lobby @a[-1,65,-1,dx=1,dy=2,dz=1]
