@@ -17,7 +17,7 @@
 	scoreboard players set @a @!fishing 0
 ;;
 :: "Infinite Improbability Drive"
-summon Item 3 1 20 {Item:{id:minecraft:end_crystal,Count:1,tag:{display:{Name:Infinite Improbability Drive,Lore:["Makes you feel like a bowl of petunias","Teleports you through every entity","Drop to use"]}}},Invulnerable:1b,Age:5600}
+//summon Item 3 1 20 {Item:{id:minecraft:end_crystal,Count:1,tag:{display:{Name:Infinite Improbability Drive,Lore:["Makes you feel like a bowl of petunias","Teleports you through every entity","Drop to use"]}}},Invulnerable:1b,Age:5600}
 	scoreboard players add @a[score_improb_min=1] @!improb 1
 	scoreboard players set @a[score_improb_min=30] @!improb 0
 	tp @a[score_improb_min=1] @r[512,128,512,128,type=!ArmorStand]
