@@ -9,7 +9,7 @@
 	execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=600] ~ ~ ~ tellraw @a ["",{"text":"An item chest has spawned on the map! Puch it to obtain a rare item!","color":"gold","italic":true}]
 	scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] @!chestTimer 0
 ;;
-:: "Item Logic"
+:: "Generic Logic"
 	//particles:
 	scoreboard players add @e[type=Zombie,name=chest] @!punched 1 {HurtTime:1s}
 	execute @e[type=Zombie,name=chest] ~ ~ ~ particle cloud ~ ~0.8 ~ 0.25 0.3 0.25 .03 2
@@ -21,7 +21,8 @@
 	execute @e[type=Zombie,name=chest,score_ticks_min=300] ~ ~ ~ particle smoke ~ ~1 ~ 0 0 0 0.1 250
 	execute @e[type=Zombie,name=chest,score_ticks_min=300] ~ ~ ~ playsound entity.generic.burn @a ~ ~ ~
 	tp @e[name=chest,score_ticks_min=300] ~ ~-100 ~
-
+;;
+:: "Item Logic"
 	//random prize selector
 	scoreboard players add @e[name=chest,type=Zombie] @!zPrize 1
 	scoreboard players set @e[name=chest,type=Zombie,score_zPrize_min=11] @!zPrize 1
@@ -31,9 +32,10 @@
 	scoreboard players set @e[type=Zombie,name=chest] @!punched 1 {HurtTime:1s}
 
 	//give items
-	//template: execute @e[name=chest,type=Slime,score_punched_min=1,score_zPrize_min=?,score_zPrize=?] ~ ~ ~ 
+	//template: execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=?,score_zPrize=?] ~ ~ ~ 
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=1,score_zPrize=1] ~ ~ ~ summon Item ~ ~ ~ {Item:{Count:6,id:minecraft:lingering_potion,tag:{display:{Name:Grenade,Lore:[BOOM.,Throw to use]},CustomPotionEffects:[{Id:12b,Duration:1,Amplifier:1b}]}},Invulnerable:1b,Age:5600}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=1,score_zPrize=1] ~ ~ ~ say Prize 1
+	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=2,score_zPrize=2] ~ ~ ~ summon Item ~ ~ ~ {Item:{id:minecraft:golden_apple,Count:1,tag:{display:{Name:Apple of pacifism,Lore:["Makes other players unable to do damage","Eat to use"]}}},Invulnerable:1b,Age:5600}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=2,score_zPrize=2] ~ ~ ~ say Prize 2
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=3,score_zPrize=3] ~ ~ ~ say Prize 3
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=4,score_zPrize=4] ~ ~ ~ say Prize 4
@@ -43,8 +45,8 @@
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=8,score_zPrize=8] ~ ~ ~ say Prize 8
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=9,score_zPrize=9] ~ ~ ~ say Prize 9
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=10,score_zPrize=10] ~ ~ ~ say Prize 10
-
-	//death
+;;
+:: "Death"
 	execute @e[name=chest,type=Zombie,score_punched_min=1] ~ ~ ~ tp @e[name=chest] ~ ~-100 ~
 	execute @e[name=chest,type=Zombie,score_punched_min=1] ~ ~ ~ kill @e[name=chest]
 	//scoreboards created: zPrize
