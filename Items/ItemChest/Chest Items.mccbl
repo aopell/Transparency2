@@ -13,4 +13,8 @@
 	tp @e[type=Endermite,tag=wither] ~ ~-64 ~
 	scoreboard players add @e[type=WitherBoss] @!ticks 1
 	kill @e[type=WitherBoss,score_ticks_min=600]
+:: "Apple"
+//summon Item ~ ~ ~ {Item:{id:minecraft:golden_apple,Count:1,tag:{display:{Name:Apple of pacifism,Lore:["Makes other players unable to do damage","Eat to use"]}}},Invulnerable:1b,Age:5600}
+	execute @a[score_apple_min=1] ~ ~ ~ effect @a[score_apple=0] minecraft:weakness 20 9 true
+	scoreboard players set @a apple 0
 ;;
