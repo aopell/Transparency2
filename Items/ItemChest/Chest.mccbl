@@ -3,23 +3,23 @@
 @VERSION 1.9
 :: "Spawn Logic"
 	scoreboard players add @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] @!chestTimer 1
-	execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=600] ~ ~ ~ summon Bat -3 1 20 {Silent:1b,ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1},{Id:1,Amplifier:20,Duration:1000000,Ambient:1}],Passengers:[{id:"Zombie",ArmorItems:[{},{},{},{id:minecraft:chest}],CustomName:chest,ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1}],Silent:1b}],CustomName:chest,Invisible:1b}
-	execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=600] ~ ~ ~ spreadplayers 512 512 5 20 false @e[-3,1,20,5,name=chest]
-	execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=600] ~ ~ ~ playsound entity.player.levelup @a ~ ~ ~ 1000000 2
-	execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=600] ~ ~ ~ tellraw @a ["",{"text":"An item chest has spawned on the map! Puch it to obtain a rare item!","color":"gold","italic":true}]
-	scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] @!chestTimer 0
+	execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=1500] ~ ~ ~ summon Bat -3 1 20 {Silent:1b,ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1},{Id:1,Amplifier:20,Duration:1000000,Ambient:1}],Passengers:[{id:"Zombie",ArmorItems:[{},{},{},{id:minecraft:chest}],CustomName:chest,ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1}],Silent:1b}],CustomName:chest,Invisible:1b}
+	execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=1500] ~ ~ ~ spreadplayers 512 512 5 20 false @e[-3,1,20,5,name=chest]
+	execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=1500] ~ ~ ~ playsound entity.player.levelup @a ~ ~ ~ 1000000 2
+	execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=1500] ~ ~ ~ tellraw @a ["",{"text":"An item chest has spawned on the map! Puch it to obtain a rare item!","color":"gold","italic":true}]
+	scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=1500] @!chestTimer 0
 ;;
 :: "Item Logic"
 	//particles:
 	scoreboard players add @e[type=Zombie,name=chest] @!punched 1 {HurtTime:1s}
 	execute @e[type=Zombie,name=chest] ~ ~ ~ particle cloud ~ ~0.8 ~ 0.25 0.3 0.25 .03 2
 	execute @e[type=Zombie,name=chest,score_punched_min=1] ~ ~ ~ particle hugeexplosion ~ ~1 ~ 0 0 0 1 0
-	execute @e[type=Zombie,name=chest,score_punched_min=1] ~ ~ ~ playsound entity.generic.explode @a ~ ~ ~
+	execute @e[type=Zombie,name=chest,score_punched_min=1] ~ ~ ~ playsound entity.generic.explode @a ~ ~ ~ 25
 
 	//kills chests after 15 seconds
 	scoreboard players add @e[type=Zombie,name=chest] @!ticks 1
 	execute @e[type=Zombie,name=chest,score_ticks_min=300] ~ ~ ~ particle smoke ~ ~1 ~ 0 0 0 0.1 250
-	execute @e[type=Zombie,name=chest,score_ticks_min=300] ~ ~ ~ playsound entity.generic.burn @a ~ ~ ~
+	execute @e[type=Zombie,name=chest,score_ticks_min=300] ~ ~ ~ playsound entity.generic.burn @a ~ ~ ~ 25
 	tp @e[name=chest,score_ticks_min=300] ~ ~-100 ~
 
 	//random prize selector
@@ -33,9 +33,8 @@
 	//give items
 	//template: execute @e[name=chest,type=Slime,score_punched_min=1,score_zPrize_min=?,score_zPrize=?] ~ ~ ~ 
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=1,score_zPrize=1] ~ ~ ~ summon Item ~ ~ ~ {Item:{Count:6,id:minecraft:lingering_potion,tag:{display:{Name:Grenade,Lore:[BOOM.,Throw to use]},CustomPotionEffects:[{Id:12b,Duration:1,Amplifier:1b}]}},Invulnerable:1b,Age:5600}
-	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=1,score_zPrize=1] ~ ~ ~ say Prize 1
-	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=2,score_zPrize=2] ~ ~ ~ say Prize 2
-	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=3,score_zPrize=3] ~ ~ ~ say Prize 3
+	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=2,score_zPrize=2] ~ ~ ~ summon Item ~ ~ ~ {Item:{id:minecraft:emerald,Count:1,tag:{display:{Name:+3 Tokens,Lore:["Gives you three tokens"]}}},Invulnerable:1b,Age:5600}
+	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=3,score_zPrize=3] ~ ~ ~ summon Item ~ ~ ~ {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Spawn Wither,Lore:[Spawns a wither for 30 seconds,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Endermite,Tags:[wither],Silent:1b,NoAI:1b}}},Invulnerable:1b,Age:5600}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=4,score_zPrize=4] ~ ~ ~ say Prize 4
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=5,score_zPrize=5] ~ ~ ~ say Prize 5
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=6,score_zPrize=6] ~ ~ ~ say Prize 6

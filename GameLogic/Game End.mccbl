@@ -7,7 +7,7 @@ execute @a[score_inGame_min=1] ~ ~ ~ scoreboard players add @e[type=ArmorStand,n
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!gameInProgress 0
 //I won
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,score_inGame_min=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!timing 0
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,score_inGame_min=1] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold","bold":true},{"score":{"name":"8bda4740-ceb0-41f2-b82a-b5c25da378c6","objective":"minutes"},"color":"aqua","bold":false},{"text":":","color":"gold"},{"score":{"name":"8bda4740-ceb0-41f2-b82a-b5c25da378c6","objective":"seconds"},"color":"aqua"}]
+execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,score_inGame_min=1] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold","bold":true},{"score":{"name":"Minutes","objective":"timer"},"color":"aqua","bold":false},{"text":":","color":"gold"},{"score":{"name":"Seconds","objective":"t"},"color":"aqua"}]
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,score_inGame_min=1] ~ ~ ~ title @a times 0 100 20
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,score_inGame_min=1] ~ ~ ~ title @a subtitle [{"selector":"@p"},{"text":" wins!"}]
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,score_inGame_min=1] ~ ~ ~ title @a title [{"text":""}]

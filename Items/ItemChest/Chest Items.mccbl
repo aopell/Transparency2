@@ -7,3 +7,10 @@
 	clear @a minecraft:emerald
 	scoreboard players set @a @!plusThree 0
 ;;
+:: "Wither Spawn Egg"
+//summon Item ~ ~ ~ {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Spawn Wither,Lore:[Spawns a wither for 30 seconds,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Endermite,Silent:1b,NoAI:1b,Tags:[wither]}}},Invulnerable:1b,Age:5600}
+	execute @e[type=Endermite,tag=wither] ~ ~ ~ summon WitherBoss ~ ~ ~
+	tp @e[type=Endermite,tag=wither] ~ ~-64 ~
+	scoreboard players add @e[type=WitherBoss] @!ticks 1
+	kill @e[type=WitherBoss,score_ticks_min=600]
+;;

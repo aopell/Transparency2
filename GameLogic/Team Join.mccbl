@@ -33,36 +33,36 @@ scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 		execute @a[team=Pink] ~ ~ ~ execute @e[type=ArmorStand,name=Pink] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 6
 	;;
 	:: "Red"
-		scoreboard teams join Red @p[6,64,2,0,tag=Red]
-		tp @p[6,64,2,0] 6 67 2 90 0
+		scoreboard teams join Red @p[6,65,2,0,tag=Red]
+		tp @p[6,65,2,0] 6 67 2 90 0
 	;;
 	:: "Orange"
-		scoreboard teams join Orange @p[6,64,-3,0,tag=Orange]
-		tp @p[6,64,-3,0] 6 67 -3 90 0
+		scoreboard teams join Orange @p[6,65,-3,0,tag=Orange]
+		tp @p[6,65,-3,0] 6 67 -3 90 0
 	;;
 	:: "Yellow"
-		scoreboard teams join Yellow @p[2,64,-7,0,tag=Yellow]
-		tp @p[2,64,-7,0] 2 67 -7 90 0
+		scoreboard teams join Yellow @p[2,65,-7,0,tag=Yellow]
+		tp @p[2,65,-7,0] 2 67 -7 90 0
 	;;
 	:: "Green"
-		scoreboard teams join Green @p[-3,64,-7,0,tag=Green]
-		tp @p[-3,64,-7,0] -3 67 -7 90 0
+		scoreboard teams join Green @p[-3,65,-7,0,tag=Green]
+		tp @p[-3,65,-7,0] -3 67 -7 90 0
 	;;
 	:: "Blue"
-		scoreboard teams join Blue @p[-7,64,-3,0,tag=Blue]
-		tp @p[-7,64,-3,0] -7 67 -3 90 0
+		scoreboard teams join Blue @p[-7,65,-3,0,tag=Blue]
+		tp @p[-7,65,-3,0] -7 67 -3 90 0
 	;;
 	:: "Purple"
-		scoreboard teams join Purple @p[-7,64,2,0,tag=Purple]
-		tp @p[-7,64,2,0] -7 67 2 90 0
+		scoreboard teams join Purple @p[-7,65,2,0,tag=Purple]
+		tp @p[-7,65,2,0] -7 67 2 90 0
 	;;	
 	:: "LBlue"
-		scoreboard teams join LBlue @p[-3,64,6,0,tag=LBlue]
-		tp @p[-3,64,6,0] -3 67 6 90 0
+		scoreboard teams join LBlue @p[-3,65,6,0,tag=LBlue]
+		tp @p[-3,65,6,0] -3 67 6 90 0
 	;;
 	:: "Pink"
-		scoreboard teams join Pink @p[2,64,6,0,tag=Pink]
-		tp @p[2,64,6,0] 2 67 6 90 0
+		scoreboard teams join Pink @p[2,65,6,0,tag=Pink]
+		tp @p[2,65,6,0] 2 67 6 90 0
 	;;
 	:: "Preventative measures"
 		scoreboard players tag @a add Red
