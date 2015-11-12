@@ -4,27 +4,43 @@
 :: "Firebreath"
 	scoreboard players tag @a remove breathingFire
 	scoreboard players tag @a add breathingFire {SelectedItem:{id:minecraft:skull}}
+	replaceitem entity @a slot.armor.head minecraft:air
 	replaceitem entity @a[tag=breathingFire] slot.armor.head minecraft:skull 5
 	:: "0"
 		execute @a[score_facing=15,score_facing_min=0,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~.7 {Motion:[0.0,0.1,0.9],Fire:1000000,Tags:["isFire"],damage:0}
 		execute @a[score_facing=360,score_facing_min=345,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~.7 {Motion:[0.0,0.1,0.9],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
-	:: "45"
-	
+	:: "30"
+		execute @a[score_facing=45,score_facing_min=15,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[-0.9,0.1,([0.9*3^(1/2)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "60"
+		execute @a[score_facing=75,score_facing_min=45,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[([-0.9*3^(1/2)]),0.1,0.9],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "90"
 		execute @a[score_facing=105,score_facing_min=75,tag=breathingFire] ~ ~ ~ summon Arrow ~-0.7 ~.8 ~ {Motion:[-0.9,0.1,0.0],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
-	:: "135"
-	
+	:: "120"
+		execute @a[score_facing=135,score_facing_min=105,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[([-0.9*3^(1/2)]),0.1,-0.9],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "150"
+		execute @a[score_facing=165,score_facing_min=135,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[-0.9,0.1,([-0.9*3^(1/2)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "180"
 		execute @a[score_facing=195,score_facing_min=165,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~-0.7 {Motion:[0.0,0.1,-0.9],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
-	:: "225"
-	
+	:: "210"
+		execute @a[score_facing=225,score_facing_min=195,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[0.9,0.1,([-0.9*3^(1/2)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "240"
+		execute @a[score_facing=255,score_facing_min=225,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[([-0.9*3^(1/2)]),0.1,-0.9])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "270"
 		execute @a[score_facing=285,score_facing_min=255,tag=breathingFire] ~ ~ ~ summon Arrow ~.7 ~.8 ~ {Motion:[0.9,0.1,0.0],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "300"
+		execute @a[score_facing=315,score_facing_min=285,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[([0.9*3^(1/2)]),0.1,0.9],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "330"
+		execute @a[score_facing=345,score_facing_min=315,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[0.9,0.1,([0.9*3^(1/2)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 ;;
