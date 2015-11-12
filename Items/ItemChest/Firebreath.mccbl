@@ -4,7 +4,7 @@
 :: "Firebreath"
 	scoreboard players tag @a remove breathingFire
 	scoreboard players tag @a add breathingFire {SelectedItem:{id:minecraft:skull}}
-	replaceitem entity @a[tag=breathingFire] slot.armor.head {id:minecraft:skull,Damage:5s}
+	replaceitem entity @a[tag=breathingFire] slot.armor.head minecraft:skull 5
 	:: "0"
 		execute @a[score_facing=15,score_facing_min=0,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~.7 {Motion:[0.0,0.1,0.9],Fire:1000000,Tags:["isFire"],damage:0}
 		execute @a[score_facing=360,score_facing_min=345,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~.7 {Motion:[0.0,0.1,0.9],Fire:1000000,Tags:["isFire"],damage:0}
@@ -13,18 +13,18 @@
 	
 	;;
 	:: "90"
-		execute @a[score_facing=105,score_facing_min=75,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~.7 {Motion:[-0.9,0.1,0.0],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing=105,score_facing_min=75,tag=breathingFire] ~ ~ ~ summon Arrow ~-0.7 ~.8 ~ {Motion:[-0.9,0.1,0.0],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "135"
 	
 	;;
 	:: "180"
-		execute @a[score_facing=195,score_facing_min=165,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~.7 {Motion:[0.0,0.1,-0.9],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing=195,score_facing_min=165,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~-0.7 {Motion:[0.0,0.1,-0.9],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "225"
 	
 	;;
 	:: "270"
-		execute @a[score_facing=285,score_facing_min=255,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~.7 {Motion:[0.9,0.1,0.0],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing=285,score_facing_min=255,tag=breathingFire] ~ ~ ~ summon Arrow ~.7 ~.8 ~ {Motion:[0.9,0.1,0.0],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 ;;

@@ -28,7 +28,7 @@ execute @e[type=Arrow,score_groundness_min=1] ~ ~ ~ summon AreaEffectCloud ~ ~0.
 execute @e[type=Arrow,score_glowness_min=1] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:600,Amplifier:0,ShowParticles:0,Id:24}]}
 ;;
 //fancy
-execute @e[type=Arrow] ~ ~ ~ particle mobSpell ~ ~ ~ 0 0 0 1 3
-execute @e[type=Arrow,score_inGround_min=1] ~ ~ ~ playsound block.glass.break @a ~ ~ ~
+execute @e[type=Arrow,tag=!isFire] ~ ~ ~ particle mobSpell ~ ~ ~ 0 0 0 1 3
+execute @e[type=Arrow,score_inGround_min=1,tag=!isFire] ~ ~ ~ playsound block.glass.break @a ~ ~ ~
 //die
 kill @e[type=Arrow,score_inGround_min=1]
