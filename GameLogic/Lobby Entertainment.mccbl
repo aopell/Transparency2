@@ -1,0 +1,5 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+//i plan on doing something good with this...
+//execute @a[x=-28,y=40,z=-16,dx=45,dy=45,dz=40,score_particle=,score_particle_min=] ~ ~ ~ particle 
