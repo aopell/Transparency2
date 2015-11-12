@@ -58,4 +58,30 @@
 			scoreboard players set @a @!damageTaken 0
 		;;
 	;;
+	:: "Direction Scoreboard"
+		scoreboard objectives set @a[rym=353,ry=7] @!facing 0
+		scoreboard objectives set @a[rym=8,ry=22] @!facing 15
+		scoreboard objectives set @a[rym=23,ry=37] @!facing 30
+		scoreboard objectives set @a[rym=38,ry=52] @!facing 45
+		scoreboard objectives set @a[rym=53,ry=67] @!facing 60
+		scoreboard objectives set @a[rym=68,ry=82] @!facing 75
+		scoreboard objectives set @a[rym=83,ry=97] @!facing 90
+		scoreboard objectives set @a[rym=98,ry=112] @!facing 105
+		scoreboard objectives set @a[rym=113,ry=127] @!facing 120
+		scoreboard objectives set @a[rym=128,ry=142] @!facing 135
+		scoreboard objectives set @a[rym=143,ry=157] @!facing 150
+		scoreboard objectives set @a[rym=158,ry=172] @!facing 165
+		scoreboard objectives set @a[rym=173,ry=187] @!facing 180
+		scoreboard objectives set @a[rym=188,ry=202] @!facing 195
+		scoreboard objectives set @a[rym=203,ry=217] @!facing 210
+		scoreboard objectives set @a[rym=218,ry=232] @!facing 225
+		scoreboard objectives set @a[rym=233,ry=247] @!facing 240
+		scoreboard objectives set @a[rym=248,ry=262] @!facing 255
+		scoreboard objectives set @a[rym=263,ry=277] @!facing 270
+		scoreboard objectives set @a[rym=278,ry=292] @!facing 285
+		scoreboard objectives set @a[rym=293,ry=307] @!facing 300
+		scoreboard objectives set @a[rym=308,ry=322] @!facing 315
+		scoreboard objectives set @a[rym=323,ry=337] @!facing 330
+		scoreboard objectives set @a[rym=338,ry=352] @!facing 345
+	;;
 ;;
