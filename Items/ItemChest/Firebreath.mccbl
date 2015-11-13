@@ -12,6 +12,7 @@
 	clear @a[tag=breathingFire,lm=50] minecraft:skull 5
 	replaceitem entity @a slot.armor.head minecraft:air
 	replaceitem entity @a[tag=breathingFire] slot.armor.head minecraft:skull 1 5
+	execute @a[score_facing_min=##,score_facing=##,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~ ~ {Motion:[([.9*cos(##*3.14159266/180)]),0.1,([.9*sin(##*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	:: "0"
 		execute @a[score_facing=15,score_facing_min=0,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~.7 {Motion:[0.0,0.1,0.9],Fire:1000000,Tags:["isFire"],damage:0}
 		execute @a[score_facing=360,score_facing_min=345,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~.7 {Motion:[0.0,0.1,0.9],Fire:1000000,Tags:["isFire"],damage:0}
