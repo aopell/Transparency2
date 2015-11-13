@@ -7,47 +7,85 @@
 	scoreboard players add @a[tag=breathingFire] @!firebreath 1
 	xp 49L @a[tag=breathingFire,score_firebreath=1]
 	xp 1 @a[tag=breathingFire]
-	scoreboard players set @a[tag=!breathingFire] @!firebreath 0
-	xp -50L @a[tag=!breathingFire]
+	scoreboard players set @a[tag=!breathingFire,lm=50] @!firebreath 0
+	xp -50L @a[tag=!breathingFire,score_firebreath_min=1]
 	clear @a[tag=breathingFire,lm=50] minecraft:skull 5
 	replaceitem entity @a slot.armor.head minecraft:air
 	replaceitem entity @a[tag=breathingFire] slot.armor.head minecraft:skull 1 5
-	execute @a[score_facing_min=##,score_facing=##,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~ ~ {Motion:[([.9*cos(##*3.14159266/180)]),0.1,([.9*sin(##*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+		//execute @a[score_facing_min=##,score_facing=##,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(##*3.14159266/180)]) ~ ~([.7*sin(##*3.14159266/180)]) {Motion:[([.9*cos(##*3.14159266/180)]),0.1,([.9*sin(##*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	:: "0"
-		execute @a[score_facing=15,score_facing_min=0,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~.7 {Motion:[0.0,0.1,0.9],Fire:1000000,Tags:["isFire"],damage:0}
-		execute @a[score_facing=360,score_facing_min=345,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~.7 {Motion:[0.0,0.1,0.9],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing_min=0,score_facing=0,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(0*3.14159266/180)]) ~ ~([.7*sin(0*3.14159266/180)]) {Motion:[([.9*cos(0*3.14159266/180)]),0.1,([.9*sin(0*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "15"
+		execute @a[score_facing_min=15,score_facing=15,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(15*3.14159266/180)]) ~ ~([.7*sin(15*3.14159266/180)]) {Motion:[([.9*cos(15*3.14159266/180)]),0.1,([.9*sin(15*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "30"
-		execute @a[score_facing=44,score_facing_min=15,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[-0.9,0.1,([0.9*3^(1/2)])],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing_min=30,score_facing=30,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(30*3.14159266/180)]) ~ ~([.7*sin(30*3.14159266/180)]) {Motion:[([.9*cos(30*3.14159266/180)]),0.1,([.9*sin(30*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "45"
+		execute @a[score_facing_min=45,score_facing=45,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(45*3.14159266/180)]) ~ ~([.7*sin(45*3.14159266/180)]) {Motion:[([.9*cos(45*3.14159266/180)]),0.1,([.9*sin(45*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "60"
-		execute @a[score_facing=74,score_facing_min=45,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[([-0.9*3^(1/2)]),0.1,0.9],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing_min=60,score_facing=60,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(60*3.14159266/180)]) ~ ~([.7*sin(60*3.14159266/180)]) {Motion:[([.9*cos(60*3.14159266/180)]),0.1,([.9*sin(60*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "75"
+		execute @a[score_facing_min=75,score_facing=75,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(75*3.14159266/180)]) ~ ~([.7*sin(75*3.14159266/180)]) {Motion:[([.9*cos(75*3.14159266/180)]),0.1,([.9*sin(75*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "90"
-		execute @a[score_facing=104,score_facing_min=75,tag=breathingFire] ~ ~ ~ summon Arrow ~-0.7 ~.8 ~ {Motion:[-0.9,0.1,0.0],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing_min=90,score_facing=90,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(90*3.14159266/180)]) ~ ~([.7*sin(90*3.14159266/180)]) {Motion:[([.9*cos(90*3.14159266/180)]),0.1,([.9*sin(90*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "105"
+		execute @a[score_facing_min=105,score_facing=105,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(105*3.14159266/180)]) ~ ~([.7*sin(105*3.14159266/180)]) {Motion:[([.9*cos(105*3.14159266/180)]),0.1,([.9*sin(105*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "120"
-		execute @a[score_facing=134,score_facing_min=105,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[([-0.9*3^(1/2)]),0.1,-0.9],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing_min=120,score_facing=120,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(120*3.14159266/180)]) ~ ~([.7*sin(120*3.14159266/180)]) {Motion:[([.9*cos(120*3.14159266/180)]),0.1,([.9*sin(120*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "135"
+		execute @a[score_facing_min=135,score_facing=135,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(135*3.14159266/180)]) ~ ~([.7*sin(135*3.14159266/180)]) {Motion:[([.9*cos(135*3.14159266/180)]),0.1,([.9*sin(135*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "150"
-		execute @a[score_facing=164,score_facing_min=135,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[-0.9,0.1,([-0.9*3^(1/2)])],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing_min=150,score_facing=150,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(150*3.14159266/180)]) ~ ~([.7*sin(150*3.14159266/180)]) {Motion:[([.9*cos(150*3.14159266/180)]),0.1,([.9*sin(150*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "165"
+		execute @a[score_facing_min=165,score_facing=165,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(165*3.14159266/180)]) ~ ~([.7*sin(165*3.14159266/180)]) {Motion:[([.9*cos(165*3.14159266/180)]),0.1,([.9*sin(165*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "180"
-		execute @a[score_facing=194,score_facing_min=165,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~-0.7 {Motion:[0.0,0.1,-0.9],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing_min=180,score_facing=180,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(180*3.14159266/180)]) ~ ~([.7*sin(180*3.14159266/180)]) {Motion:[([.9*cos(180*3.14159266/180)]),0.1,([.9*sin(180*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "195"
+		execute @a[score_facing_min=195,score_facing=195,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(195*3.14159266/180)]) ~ ~([.7*sin(195*3.14159266/180)]) {Motion:[([.9*cos(195*3.14159266/180)]),0.1,([.9*sin(195*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "210"
-		execute @a[score_facing=224,score_facing_min=195,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[0.9,0.1,([-0.9*3^(1/2)])],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing_min=210,score_facing=210,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(210*3.14159266/180)]) ~ ~([.7*sin(210*3.14159266/180)]) {Motion:[([.9*cos(210*3.14159266/180)]),0.1,([.9*sin(210*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "225"
+		execute @a[score_facing_min=225,score_facing=225,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(225*3.14159266/180)]) ~ ~([.7*sin(225*3.14159266/180)]) {Motion:[([.9*cos(225*3.14159266/180)]),0.1,([.9*sin(225*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "240"
-		execute @a[score_facing=254,score_facing_min=225,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[([0.9*3^(1/2)]),0.1,-0.9])],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing_min=240,score_facing=240,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(240*3.14159266/180)]) ~ ~([.7*sin(240*3.14159266/180)]) {Motion:[([.9*cos(240*3.14159266/180)]),0.1,([.9*sin(240*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "255"
+		execute @a[score_facing_min=255,score_facing=255,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(255*3.14159266/180)]) ~ ~([.7*sin(255*3.14159266/180)]) {Motion:[([.9*cos(255*3.14159266/180)]),0.1,([.9*sin(255*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "270"
-		execute @a[score_facing=284,score_facing_min=255,tag=breathingFire] ~ ~ ~ summon Arrow ~.7 ~.8 ~ {Motion:[0.9,0.1,0.0],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing_min=270,score_facing=270,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(270*3.14159266/180)]) ~ ~([.7*sin(270*3.14159266/180)]) {Motion:[([.9*cos(270*3.14159266/180)]),0.1,([.9*sin(270*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "285"
+		execute @a[score_facing_min=285,score_facing=285,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(285*3.14159266/180)]) ~ ~([.7*sin(285*3.14159266/180)]) {Motion:[([.9*cos(285*3.14159266/180)]),0.1,([.9*sin(285*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "300"
-		execute @a[score_facing=314,score_facing_min=285,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[([0.9*3^(1/2)]),0.1,0.9],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing_min=300,score_facing=300,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(300*3.14159266/180)]) ~ ~([.7*sin(300*3.14159266/180)]) {Motion:[([.9*cos(300*3.14159266/180)]),0.1,([.9*sin(300*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	:: "315"
+		execute @a[score_facing_min=315,score_facing=315,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(315*3.14159266/180)]) ~ ~([.7*sin(315*3.14159266/180)]) {Motion:[([.9*cos(315*3.14159266/180)]),0.1,([.9*sin(315*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
 	:: "330"
-		execute @a[score_facing=344,score_facing_min=315,tag=breathingFire] ~ ~ ~ summon Arrow ~ ~.8 ~ {Motion:[0.9,0.1,([0.9*3^(1/2)])],Fire:1000000,Tags:["isFire"],damage:0}
+		execute @a[score_facing_min=330,score_facing=330,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(330*3.14159266/180)]) ~ ~([.7*sin(330*3.14159266/180)]) {Motion:[([.9*cos(330*3.14159266/180)]),0.1,([.9*sin(330*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	;;
+	:: "345"
+		execute @a[score_facing_min=345,score_facing=345,tag=breathingFire] ~ ~ ~ summon Arrow ~([.7*cos(345*3.14159266/180)]) ~ ~([.7*sin(345*3.14159266/180)]) {Motion:[([.9*cos(345*3.14159266/180)]),0.1,([.9*sin(345*3.14159266/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+	;;
+	
 ;;
+
+
