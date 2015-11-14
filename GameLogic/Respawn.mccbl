@@ -31,6 +31,8 @@
 		execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[team=Purple,tag=!invis] slot.armor.head minecraft:stained_glass 1 10
 		execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[team=LBlue,tag=!invis] slot.armor.head minecraft:stained_glass 1 3
 		execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[team=Pink,tag=!invis] slot.armor.head minecraft:stained_glass 1 6
+		
+		execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ replaceitem entity @a[tag=breathingFire] slot.armor.head minecraft:skull 1 5
 	;;
 ;;
 //put players in right place
