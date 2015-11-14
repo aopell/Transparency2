@@ -3,3 +3,12 @@
 @VERSION 1.9
 //i plan on doing something good with this...
 //execute @a[x=-28,y=40,z=-16,dx=45,dy=45,dz=40,score_particle=,score_particle_min=] ~ ~ ~ particle 
+
+//rainbow particle [particle 1]
+execute @a[r=20,score_particle=1,score_particle_min=1] ~ ~ ~ particle iconcrack_35_14 ~ ~1.9 ~ 0 0.05 0 0 3
+execute @a[r=20,score_particle=1,score_particle_min=1] ~ ~ ~ particle iconcrack_35_1 ~ ~1.6 ~ 0 0.05 0 0 3
+execute @a[r=20,score_particle=1,score_particle_min=1] ~ ~ ~ particle iconcrack_35_4 ~ ~1.3 ~ 0 0.05 0 0 3
+execute @a[r=20,score_particle=1,score_particle_min=1] ~ ~ ~ particle blockdust_81 ~ ~1 ~ 0 0.05 0 0 3
+execute @a[r=20,score_particle=1,score_particle_min=1] ~ ~ ~ particle blockdust_22 ~ ~0.7 ~ 0 0.05 0 0 3
+execute @a[r=20,score_particle=1,score_particle_min=1] ~ ~ ~ particle blockdust_22 ~ ~0.7 ~ 0 0.05 0 0 3
+
