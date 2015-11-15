@@ -29,7 +29,7 @@ scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 		execute @a[team=Green] ~ ~ ~ execute @e[type=ArmorStand,name=Green] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 5
 		execute @a[team=Blue] ~ ~ ~ execute @e[type=ArmorStand,name=Blue] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 11
 		execute @a[team=Purple] ~ ~ ~ execute @e[type=ArmorStand,name=Purple] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 10
-		execute @a[team=LBlue] ~ ~ ~ execute @e[type=ArmorStand,name=Light Blue] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 3
+		execute @a[team=LBlue] ~ ~ ~ execute @e[type=ArmorStand,name=LightBlue] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 3
 		execute @a[team=Pink] ~ ~ ~ execute @e[type=ArmorStand,name=Pink] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 6
 	;;
 	:: "Red"

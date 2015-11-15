@@ -4,17 +4,21 @@
 :: "+3 Tokens"
 //summon Item ~ ~ ~ {Item:{id:minecraft:emerald,Count:1,tag:{display:{Name:+3 Tokens,Lore:["Gives you three tokens"]}}},Invulnerable:1b,Age:5600}
 	scoreboard players add @a[score_plusThree_min=1] @!lives 3
+	execute @a[score_plusThree_min=1,m=2] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_plusThree_min=1]"},{"text":" gained 3 tokens!","color":"green","italic":true}]
+	playsound entity.player.levelup @a[score_plusThree_min=1] ~ ~ ~ 1000000 0
 	clear @a minecraft:emerald
 	scoreboard players set @a @!plusThree 0
 ;;
 :: "Wither Spawn Egg"
 //summon Item ~ ~ ~ {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Spawn Wither,Lore:[Spawns a wither for 30 seconds,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Endermite,Silent:1b,NoAI:1b,Tags:[wither]}}},Invulnerable:1b,Age:5600}
 	execute @e[type=Endermite,tag=wither] ~ ~ ~ summon WitherBoss ~ ~ ~
-	tp @e[type=Endermite,tag=wither] ~ ~-64 ~
+	tp @e[type=Endermite,tag=wither] ~ ~-300 ~
 	scoreboard players add @e[type=WitherBoss] @!ticks 1
 	kill @e[type=WitherBoss,score_ticks_min=600]
 :: "Apple"
 //summon Item ~ ~ ~ {Item:{id:minecraft:golden_apple,Count:1,tag:{display:{Name:Apple of pacifism,Lore:["Makes other players unable to do damage","Eat to use"]}}},Invulnerable:1b,Age:5600}
-	execute @a[score_apple_min=1] ~ ~ ~ effect @a[score_apple=0] minecraft:weakness 20 9 true
-	scoreboard players set @a apple 0
+	execute @a[score_apple_min=1] ~ ~ ~ effect @a[score_apple=0] minecraft:weakness 15 9 true
+	execute @a[score_apple_min=1] ~ ~ ~ playsound entity.irongolem.death @a[rm=1,m=2] ~ ~ ~ 1000000 0
+	execute @a[score_apple_min=1] ~ ~ ~ tellraw @a[rm=1,m=2] ["",{"text":"You cannot attack for 15 seconds!","color":"dark_red","italic":true}]
+	scoreboard players set @a @!apple 0
 ;;

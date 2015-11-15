@@ -23,9 +23,10 @@
 	:: "Cleanup"
 		clear @a minecraft:bucket
 		entitydata @e[type=Item,score_justSpawned_min=1] {Glowing:1b}
-		execute @a[m=2] ~ ~ ~ fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air 0 replace minecraft:ice 0
-		execute @a[m=2] ~ ~ ~ fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air 0 replace minecraft:stained_glass_pane 0
-		execute @a[m=2] ~ ~ ~ fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air 0 replace minecraft:glass_pane 0
+		execute @a[m=2] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:ice 0
+		execute @a[m=2] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:stained_glass_pane 0
+		execute @a[m=2] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:glass_pane 0
+		execute @a[m=2] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:anvil
 	;;
 	:: "Item Spawner Particles"
 		scoreboard players set @e[type=AreaEffectCloud,name=ItemSpawner] @!hasItem 0
