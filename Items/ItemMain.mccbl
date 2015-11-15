@@ -1,8 +1,8 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
-scoreboard players add @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] @!itemTimer 1
+scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!itemTimer 1
 scoreboard players set @e[type=Item] @!justSpawned 1 {Invulnerable:1b}
-execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_itemTimer_min=100] ~ ~ ~ execute @r[type=ArmorStand,name=Item,c=3] ~ ~ ~ blockdata ~ ~-1 ~ {auto:1b}
+execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_itemTimer_min=100] ~ ~ ~ execute @r[type=ArmorStand,name=Item,c=3] ~ ~ ~ blockdata ~ ~-1 ~ {auto:1b}
 tp @r[3,1,20,1,type=Item,score_justSpawned_min=1] @r[type=AreaEffectCloud,name=ItemSpawner]
-scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_itemTimer_min=100] @!itemTimer 0
+scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress,score_itemTimer_min=100] @!itemTimer 0

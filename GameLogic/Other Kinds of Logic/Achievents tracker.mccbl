@@ -1,0 +1,14 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+:: "Parkour"
+	scoreboard players add @a[4,76,-7,dy=1,m=2] @!parkourFinishes 1
+	scoreboard players tag @a[4,76,-7,dy=1,m=2] add @!completedParkour
+	tp @a[4,76,-7,dy=1,m=2] 0.0 65 0.0
+;;
+:: "Playtime"
+
+;;
+:: "Position"
+	
+;;

@@ -2,12 +2,12 @@
 @CHAIN ON
 @VERSION 1.9
 :: "Spawn Logic"
-	scoreboard players add @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] @!chestTimer 1
-	execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=1500] ~ ~ ~ summon Bat -3 1 20 {Silent:1b,ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1},{Id:1,Amplifier:20,Duration:1000000,Ambient:1}],Passengers:[{id:"Zombie",ArmorItems:[{},{},{},{id:minecraft:chest}],CustomName:chest,ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1}],Silent:1b}],CustomName:chest,Invisible:1b}
-	execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=1500] ~ ~ ~ spreadplayers 512 512 5 20 false @e[-3,1,20,5,name=chest]
-	execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=1500] ~ ~ ~ playsound entity.player.levelup @a ~ ~ ~ 1000000 2
-	execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=1500] ~ ~ ~ tellraw @a ["",{"text":"An item chest has spawned on the map! Puch it to obtain a rare item!","color":"gold","italic":true}]
-	scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=1,score_chestTimer_min=1500] @!chestTimer 0
+	scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!chestTimer 1
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=1500] ~ ~ ~ summon Bat -3 1 20 {Silent:1b,ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1},{Id:1,Amplifier:20,Duration:1000000,Ambient:1}],Passengers:[{id:"Zombie",ArmorItems:[{},{},{},{id:minecraft:chest}],CustomName:chest,ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1}],Silent:1b}],CustomName:chest,Invisible:1b}
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=1500] ~ ~ ~ spreadplayers 512 512 5 20 false @e[-3,1,20,5,name=chest]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=1500] ~ ~ ~ playsound entity.player.levelup @a ~ ~ ~ 1000000 2
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=1500] ~ ~ ~ tellraw @a ["",{"text":"An item chest has spawned on the map! Puch it to obtain a rare item!","color":"gold","italic":true}]
+	scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=1500] @!chestTimer 0
 ;;
 :: "Generic Logic"
 	//particles:

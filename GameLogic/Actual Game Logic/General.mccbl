@@ -2,7 +2,7 @@
 @CHAIN ON
 @VERSION 1.9
 :: "Lobby"
-	execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ execute @a[512,128,512,300,team=!Lobby,tag=!dev] ~ ~ ~ scoreboard teams leave @p
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @a[512,128,512,300,team=!Lobby,tag=!dev] ~ ~ ~ scoreboard teams leave @p
 	tp @a[-32,41,-32,dx=63,dy=2,dz=63,m=2] 0 65 0
 	effect @a[-15,65,-15,dx=33,dy=2,dz=33,team=Lobby] minecraft:resistance 1 4 true
 	effect @a[-15,65,-15,dx=33,dy=2,dz=33,team=Lobby] minecraft:instant_health 1 4 true
@@ -34,9 +34,9 @@
 		execute @e[type=AreaEffectCloud,name=ItemSpawner,score_hasItem_min=1] ~ ~ ~ particle reddust ~ ~-1.1 ~ 0.25 0.25 0.25 .25 5
 	;;
 	:: "Saftey Features"
-		execute @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] ~ ~ ~ gamemode 3 @a[m=2,team=Lobby]
-		execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ scoreboard teams leave @a[m=3,tag=!dev]
-		execute @e[type=ArmorStand,name=GK,score_gameInProgress=0] ~ ~ ~ gamemode 2 @a[m=3,tag=!dev]
+		execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ gamemode 3 @a[m=2,team=Lobby]
+		execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ scoreboard teams leave @a[m=3,tag=!dev]
+		execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ gamemode 2 @a[m=3,tag=!dev]
 	;;
 	:: "Effects"
 		effect @a minecraft:saturation 2 0 true

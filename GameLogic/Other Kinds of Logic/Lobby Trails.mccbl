@@ -1,0 +1,53 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+:: "Unlocker"
+	scoreboard players set @a @!unlockedTrails 0
+	//Parkour
+	scoreboard players tag @a[score_parkourWins_min=1] add @!hasTrail_parkour
+	//Deaths
+	scoreboard players tag @a[score_deathsAch_min=150] add @!hasTrail_deaths
+	//5 wins
+	scoreboard players tag @a[score_wins_min=5] add @!hasTrail_win5
+	//15 wins
+	scoreboard players tag @a[score_wins_min=15] add @!hasTrail_win15
+	//final
+	scoreboard players add @a[tag=hasTrail_parkour] @!unlockedTrails 1
+	scoreboard players add @a[tag=hasTrail_deaths] @!unlockedTrails 1
+	scoreboard players add @a[tag=hasTrail_win5] @!unlockedTrails 1
+	scoreboard players add @a[tag=hasTrail_win15] @!unlockedTrails 1
+	scoreboard players tag @a[score_unlockedTrails_min=4] add @!hasTrail_god
+;;
+:: "Informer"
+	
+;;
+:: "Selector"
+	scoreboard players enable @a @!showTrails
+	scoreboard players tag @a[score_showTrails_min=1] add @!clearChat
+	
+	tellraw @a[score_showTrails_min=1] ["",{"text":"Select a trail:","color":"dark_red"}]
+	
+	tellraw @a[score_showTrails_min=1,tag=hasTrail_parkour] ["",{"text":"/ ","color":"light_purple","bold":true},{"text":"Happy feet","color":"green","clickEvent":{"action":"run_command","value":"/trigger equipTrail1 set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Beat the parkour"}]}},"bold":false},{"text":" /","color":"light_purple","bold":true}]
+	
+	tellraw @a[score_showTrails_min=1,tag=hasTrail_deaths] ["",{"text":"/ ","color":"light_purple","bold":true},{"text":":(","color":"green","clickEvent":{"action":"run_command","value":"/trigger equipTrail2 set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Die 1000 times"}]}},"bold":false},{"text":" /","color":"light_purple","bold":true}]
+	
+	tellraw @a[score_showTrails_min=1,tag=hasTrail_win5] ["",{"text":"/ ","color":"light_purple","bold":true},{"text":"Victor","color":"green","clickEvent":{"action":"run_command","value":"/trigger equipTrail3 set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Win 5 games"}]}},"bold":false},{"text":" /","color":"light_purple","bold":true}]
+	
+	tellraw @a[score_showTrails_min=1,tag=hasTrail_win15] ["",{"text":"/ ","color":"light_purple","bold":true},{"text":"Conquestor","color":"green","clickEvent":{"action":"run_command","value":"/trigger equipTrail4 set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Win 15 games"}]}},"bold":false},{"text":" /","color":"light_purple","bold":true}]
+	
+	tellraw @a[score_showTrails_min=1,tag=hasTrail_god] ["",{"text":"/ ","color":"light_purple","bold":true},{"text":"God","color":"green","clickEvent":{"action":"run_command","value":"/trigger equipTrail5 set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Get every other achievement"}]}},"bold":false},{"text":" /","color":"light_purple","bold":true}]
+
+	scoreboard players reset @a @!showTrails
+;;
+:: "Actual Trails"
+	:: "Sad Face"
+		execute @a[score_sadFaceCount_min=2,score_sadFaceCount=2,tag=equipedTrail_deaths] ~ ~ ~ particle depthsuspend ~ ~0.333 ~ 0.05 0.05 0.05 0 50
+		execute @a[score_sadFaceCount_min=2,score_sadFaceCount=2,tag=equipedTrail_deaths] ~ ~ ~ particle depthsuspend ~ ~0.666 ~ 0.05 0.05 0.05 0 50
+		execute @a[score_sadFaceCount_min=2,score_sadFaceCount=2,tag=equipedTrail_deaths] ~ ~ ~ particle depthsuspend ~ ~1.666 ~ 0.05 0.05 0.05 0 50
+		execute @a[score_sadFaceCount_min=3,score_sadFaceCount=4,tag=equipedTrail_deaths] ~ ~ ~ particle depthsuspend ~ ~1 ~ 0.05 0.05 0.05 0 50
+		execute @a[score_sadFaceCount_min=5,score_sadFaceCount=5,tag=equipedTrail_deaths] ~ ~ ~ particle depthsuspend ~ ~0.333 ~ 0.05 0.05 0.05 0 50
+		execute @a[score_sadFaceCount_min=5,score_sadFaceCount=5,tag=equipedTrail_deaths] ~ ~ ~ particle depthsuspend ~ ~0.666 ~ 0.05 0.05 0.05 0 50
+		execute @a[score_sadFaceCount_min=5,score_sadFaceCount=5,tag=equipedTrail_deaths] ~ ~ ~ particle depthsuspend ~ ~1.666 ~ 0.05 0.05 0.05 0 50
+		scoreboard players set @a[score_sadFaceCount_min=7] @!sadFaceCount 0
+	;;
+;;
