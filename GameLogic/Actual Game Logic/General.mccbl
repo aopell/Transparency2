@@ -18,6 +18,7 @@
 	:: "Kill Items"
 		scoreboard players set @e[type=Item] @!toKill 1 {Item:{id:minecraft:bow}}
 		scoreboard players set @e[type=Item] @!toKill 1 {Item:{id:minecraft:stained_glass}}
+		scoreboard players set @e[type=Item] @!toKill 1 {Item:{id:minecraft:chainmail_chestplate}}
 		kill @e[score_toKill_min=1]
 	;;
 	:: "Cleanup"
