@@ -1,0 +1,12 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+:: "Heart Stopper"
+	clear @a[score_heartStopper_min=1] minecraft:barrier
+	gamerule showDeathMessages false
+	gamerule keepInventory false
+	kill @a[score_heartStopper_min=1]
+	gamerule keepInventory true
+	gamerule showDeathMessages true
+	tellraw @a ["",{"selector":"@a[score_heartStopper_min=1]"},{"text":"'s heart suddenly stopped"}]
+;;
