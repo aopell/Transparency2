@@ -38,7 +38,7 @@
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=3,score_zPrize=3] ~ ~ ~ summon Item ~ ~ ~ {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Spawn Wither,Lore:[Spawns a wither for 30 seconds,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Endermite,Tags:[wither],Silent:1b,NoAI:1b}}},Invulnerable:1b,Age:5600}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=4,score_zPrize=4] ~ ~ ~ summon Item ~ ~ ~ {Item:{id:minecraft:golden_apple,Count:1,tag:{display:{Name:Apple of pacifism,Lore:["Makes other players unable to do damage","Eat to use"]}}},Invulnerable:1b,Age:5600}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=5,score_zPrize=5] ~ ~ ~ summon Item ~ ~ ~ {Item:{id:minecraft:end_crystal,Count:1,tag:{display:{Name:Infinite Improbability Drive,Lore:["Makes you feel like a bowl of petunias","Teleports you through every entity","Drop to use"]}}},Invulnerable:1b,Age:5600,Tags:[justSpawned]}
-	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=6,score_zPrize=6] ~ ~ ~ summon Item ~ ~ ~ {Item:{id:#ID_HERE#,Count:1,tag:{display:{Name:#NAME_HERE#,Lore:[#LORE_HERE#]}}},Invulnerable:1b,Age:5600}
+	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=6,score_zPrize=6] ~ ~ ~ summon Item ~ ~ ~ {Item:{id:minecraft:skull,Damage:5s,Count:1,tag:{display:{Name:Fire Breath,Lore:[Shoots fire in the direction you look,Hold to use]}}},Invulnerable:1b,Age:5600}
 ;;
 :: "Death"
 	execute @e[name=chest,type=Zombie,score_punched_min=1] ~ ~ ~ tp @e[name=chest] ~ ~-100 ~
