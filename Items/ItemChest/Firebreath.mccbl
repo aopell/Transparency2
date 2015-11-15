@@ -8,7 +8,7 @@
 	scoreboard players tag @a add @!dragonBreath {Inventory:[{id:minecraft:skull}]}
 	scoreboard players tag @a add @!breathingFire {SelectedItem:{id:minecraft:skull}}
 	scoreboard players add @a[tag=breathingFire] @!fireBreath 1
-	xp 49L @a[tag=dragonBreath,score_fireBreath=1,score_fireBreath_min=1]
+	xp 49L @a[tag=dragonBreath,score_fireBreath=2,score_fireBreath_min=1]
 	xp 1 @a[tag=breathingFire]
 	scoreboard players set @a[tag=!dragonBreath,lm=50] @!fireBreath 0
 	clear @a[tag=breathingFire,lm=50] minecraft:skull 1 5
