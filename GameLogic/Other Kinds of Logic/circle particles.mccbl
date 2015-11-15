@@ -1,3 +1,6 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
 //Example
 //execute @a[r=20] ~ ~ ~ particle reddust ~ ~1 ~ 0.95 0.95 0 1 0
 //execute @a[r=20] ~ ~ ~ particle reddust ~ ~0.8 ~ 0.95 0 0 1 0
@@ -13,9 +16,6 @@
 //execute @a[r=20] ~ ~ ~ particle reddust ~0.8 ~0.2 ~ 0.95 0.95 0 1 0
 //execute @a[r=20] ~ ~ ~ particle reddust ~ ~0.2 ~0.8 0.95 0.95 0 1 0
 //execute @a[r=20] ~ ~ ~ particle reddust ~-0.8 ~0.2 ~ 0.95 0.95 0 1 0
-@TYPE REPEAT
-@CHAIN ON
-@VERSION 1.9
 //execute @a[r=20] ~ ~ ~ particle reddust ~ ~0.2 ~-0.8 0.95 0.95 0 1 0
 
 //@a[score_colorA=,score_colorA_min=]
