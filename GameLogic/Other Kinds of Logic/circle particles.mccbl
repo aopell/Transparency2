@@ -41,14 +41,14 @@ execute @a[score_colorB=1,score_colorB_min=1] ~ ~ ~ particle reddust ~-0.5 ~0.4 
 execute @a[score_colorB=1,score_colorB_min=1] ~ ~ ~ particle reddust ~-0.5 ~0.4 ~-0.5 0.95 0.95 0 1 0
 
 //Red A @a[score_colorA=2,score_colorA_min=2]
-execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~ ~1 ~ 0.95 0.95 0 1 0
-execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~ ~0.6 ~ 0.95 0.95 0 1 0
-execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~ ~0.2 ~ 0.95 0.95 0 1 0
+execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~ ~1 ~ 0.95 0 0 1 0
+execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~ ~0.6 ~ 0.95 0 0 1 0
+execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~ ~0.2 ~ 0.95 0 0 1 0
 
-execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~0.8 ~0.2 ~ 0.95 0.95 0 1 0
-execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~ ~0.2 ~0.8 0.95 0.95 0 1 0
-execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~-0.8 ~0.2 ~ 0.95 0.95 0 1 0
-execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~ ~0.2 ~-0.8 0.95 0.95 0 1 0
+execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~0.8 ~0.2 ~ 0.95 0 0 1 0
+execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~ ~0.2 ~0.8 0.95 0 0 1 0
+execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~-0.8 ~0.2 ~ 0.95 0 0 1 0
+execute @a[score_colorA=2,score_colorA_min=2] ~ ~ ~ particle reddust ~ ~0.2 ~-0.8 0.95 0 0 1 0
 
 //Red B @a[score_colorB=2,score_colorB_min=2]
 execute @a[score_colorB=2,score_colorB_min=2] ~ ~ ~ particle reddust ~ ~0.8 ~ 0.95 0 0 1 0
@@ -77,3 +77,22 @@ execute @a[score_colorB=3,score_colorB_min=3] ~ ~ ~ particle reddust ~0.5 ~0.4 ~
 execute @a[score_colorB=3,score_colorB_min=3] ~ ~ ~ particle reddust ~0.5 ~0.4 ~-0.5 0.1 0.95 0.95 1 0
 execute @a[score_colorB=3,score_colorB_min=3] ~ ~ ~ particle reddust ~-0.5 ~0.4 ~0.5 0.1 0.95 0.95 1 0
 execute @a[score_colorB=3,score_colorB_min=3] ~ ~ ~ particle reddust ~-0.5 ~0.4 ~-0.5 0.1 0.95 0.95 1 0
+
+//Purple A @a[score_colorA=4,score_colorA_min=4]
+execute @a[score_colorA=4,score_colorA_min=4] ~ ~ ~ particle reddust ~ ~1 ~ 0.95 0 0.95 1 0
+execute @a[score_colorA=4,score_colorA_min=4] ~ ~ ~ particle reddust ~ ~0.6 ~ 0.95 0 0.95 1 0
+execute @a[score_colorA=4,score_colorA_min=4] ~ ~ ~ particle reddust ~ ~0.2 ~ 0.95 0 0.95 1 0
+
+execute @a[score_colorA=4,score_colorA_min=4] ~ ~ ~ particle reddust ~0.8 ~0.2 ~ 0.95 0 0.95 1 0
+execute @a[score_colorA=4,score_colorA_min=4] ~ ~ ~ particle reddust ~ ~0.2 ~0.8 0.95 0 0.95 1 0
+execute @a[score_colorA=4,score_colorA_min=4] ~ ~ ~ particle reddust ~-0.8 ~0.2 ~ 0.95 0 0.95 1 0
+execute @a[score_colorA=4,score_colorA_min=4] ~ ~ ~ particle reddust ~ ~0.2 ~-0.8 0.95 0 0.95 1 0
+
+//Purple B @a[score_colorB=4,score_colorB_min=4]
+execute @a[score_colorB=4,score_colorB_min=4] ~ ~ ~ particle reddust ~ ~0.8 ~ 0.1 0.95 0 0.95 1 0
+execute @a[score_colorB=4,score_colorB_min=4] ~ ~ ~ particle reddust ~ ~0.4 ~ 0.1 0.95 0 0.95 1 0
+
+execute @a[score_colorB=4,score_colorB_min=4] ~ ~ ~ particle reddust ~0.5 ~0.4 ~0.5 0.95 0 0.95 1 0
+execute @a[score_colorB=4,score_colorB_min=4] ~ ~ ~ particle reddust ~0.5 ~0.4 ~-0.5 0.95 0 0.95 1 0
+execute @a[score_colorB=4,score_colorB_min=4] ~ ~ ~ particle reddust ~-0.5 ~0.4 ~0.5 0.95 0 0.95 1 0
+execute @a[score_colorB=4,score_colorB_min=4] ~ ~ ~ particle reddust ~-0.5 ~0.4 ~-0.5 0.95 0 0.95 1 0
