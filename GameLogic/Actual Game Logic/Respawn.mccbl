@@ -5,8 +5,8 @@
 	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ scoreboard players set @a @!inGame 0
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_inGame_min=0] @!inGame 0
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ kill @e[312,106,312,dx=400,dy=4,dz=400]
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ execute @a[score_lives=0,score_inGame_min=1] ~ ~ ~ title @a subtitle ["",{"text":" is out of the game!","color":"dark_red","italic":false}]
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ execute @a[score_lives=0,score_inGame_min=1] ~ ~ ~ title @a title ["",{"selector":"@a[score_lives=0,score_inGame_min=1]"}]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ execute @a[score_lives=0,team=!Lobby] ~ ~ ~ title @a subtitle ["",{"text":" is out of the game!","color":"dark_red","italic":false}]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ execute @a[score_lives=0,team=!Lobby] ~ ~ ~ title @a title ["",{"selector":"@a[score_lives=0,score_inGame_min=1]"}]
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard teams join @!Lobby @a[score_lives=0]
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[team=!Lobby,score_inGame_min=0] @!inGame 1
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ gamemode 3 @a[score_inGame=0,score_inGame_min=0]
