@@ -7,12 +7,12 @@
 	scoreboard players tag @a remove @!dragonBreath
 	scoreboard players tag @a add @!dragonBreath {Inventory:[{id:minecraft:skull}]}
 	scoreboard players tag @a add @!breathingFire {SelectedItem:{id:minecraft:skull}}
-	scoreboard players add @a[tag=breathingFire] @!firebreath 1
-	xp 49L @a[tag=dragonBreath,score_firebreath=1]
+	scoreboard players add @a[tag=breathingFire] @!fireBreath 1
+	xp 49L @a[tag=dragonBreath,score_firebreath=1,score_fireBreath_min=1]
 	xp 1 @a[tag=breathingFire]
-	scoreboard players set @a[tag=!dragonBreath,lm=50] @!firebreath 0
+	scoreboard players set @a[tag=!dragonBreath,lm=50] @!fireBreath 0
 	clear @a[tag=breathingFire,lm=50] minecraft:skull 1 5 
-	xp -50L @a[tag=!breathingFire,score_firebreath_min=1]
+	xp -50L @a[tag=!breathingFire,tag=!dragonBreath]
 		//execute @a[score_facing_min=##,score_facing=##,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.7*cos((-##+90)*3.14159265359/180)]) ~ ~([.7*sin((-##+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-##+90)*3.14159265359/180)]),0.1,([.9*sin((-##+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	:: "Angles"
 		:: "0"
