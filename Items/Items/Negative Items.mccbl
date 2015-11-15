@@ -2,11 +2,13 @@
 @CHAIN ON
 @VERSION 1.9
 :: "Heart Stopper"
+	execute @e[type=Item,name=heartStopper,c=-1] ~ ~ ~ kill @e[type=Item,name=heartStopper,rm=1]
 	clear @a[score_heartStopper_min=1] minecraft:barrier
 	gamerule showDeathMessages false
 	gamerule keepInventory false
+	execute @a[score_heartStopper_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_heartStopper_min=1]"},{"text":"'s heart suddenly stopped"}]
 	kill @a[score_heartStopper_min=1]
+	scoreboard players set @a @!heartStopper 0
 	gamerule keepInventory true
 	gamerule showDeathMessages true
-	tellraw @a ["",{"selector":"@a[score_heartStopper_min=1]"},{"text":"'s heart suddenly stopped"}]
 ;;

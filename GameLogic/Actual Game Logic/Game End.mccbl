@@ -2,15 +2,17 @@
 @CHAIN ON
 @VERSION 1.9
 scoreboard players set @e[type=ArmorStand,name=GK] @!win 0
-execute @a[score_inGame_min=1] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,score_gameInProgress_min=1] @!win 1
+execute @a[score_inGame_min=1] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!win 1
 
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!gameInProgress 0
+execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players tag @e[type=ArmorStand,name=GK] remove @!gameInProgress
 //I won
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,score_inGame_min=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!timing 0
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,score_inGame_min=1] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold","bold":true},{"score":{"name":"Minutes","objective":"timer"},"color":"aqua","bold":false},{"text":":","color":"gold"},{"score":{"name":"Seconds","objective":"timer"},"color":"aqua"}]
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,score_inGame_min=1] ~ ~ ~ title @a times 0 100 20
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,score_inGame_min=1] ~ ~ ~ title @a subtitle [{"selector":"@p"},{"text":" wins!"}]
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,score_inGame_min=1] ~ ~ ~ title @a title [{"text":""}]
+execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players add @a[score_lives_min=1,score_inGame_min=1] @!wins 1
+execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[score_lives_min=1,score_inGame_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@p"},{"text":" has won ","color":"gold","bold":true},{"score":{"name":"@p","objective":"wins"},"color":"aqua","bold":true},{"text":" total games","color":"gold","bold":true}]
 //finalize finish
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @a @!inGame -1
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard teams leave @a
