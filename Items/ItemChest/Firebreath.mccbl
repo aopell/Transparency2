@@ -8,11 +8,11 @@
 	scoreboard players tag @a add @!dragonBreath {Inventory:[{id:minecraft:skull}]}
 	scoreboard players tag @a add @!breathingFire {SelectedItem:{id:minecraft:skull}}
 	scoreboard players add @a[tag=breathingFire] @!fireBreath 1
-	xp 49L @a[tag=dragonBreath,score_fireBreath=2,score_fireBreath_min=1]
+	xp 49L @a[tag=dragonBreath,score_fireBreath=1,score_fireBreath_min=1]
 	xp 1 @a[tag=breathingFire]
-	scoreboard players set @a[tag=!dragonBreath,lm=50] @!fireBreath 0
-	clear @a[tag=breathingFire,lm=50] minecraft:skull 1 5
-	xp -50L @a[tag=!breathingFire,tag=!dragonBreath]
+	scoreboard players set @a[tag=dragonBreath,lm=50] @!fireBreath 0
+	clear @a[tag=breathingFire,lm=50] minecraft:skull 5 1
+	xp -51L @a[lm=50,tag=breathingFire,tag=dragonBreath]
 		//execute @a[score_facing_min=##,score_facing=##,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.7*cos((-##+90)*3.14159265359/180)]) ~ ~([.7*sin((-##+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-##+90)*3.14159265359/180)]),0.1,([.9*sin((-##+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	:: "Angles"
 		:: "0"
@@ -25,7 +25,7 @@
 			execute @a[score_facing_min=30,score_facing=30,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.8*cos((-30+90)*3.14159265359/180)]) ~1.56 ~([.8*sin((-30+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-30+90)*3.14159265359/180)]),0.1,([.9*sin((-30+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 		;;
 		:: "45"
-			execute @a[score_facing_min=45,score_facing=45,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.8*cos((-45+90)*3.14159265359/180)]) ~1.56 ~([.8*sin((-45+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-45+90)*3.14159265359/180)]),0.1,([.9*sin((-45+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+			execute @a[score_facing_min=45,score_facing=45,tag=breathingFire] ~ ~ ~ summon Arrow ~-0.7 ~1.56 ~0.7 {Motion:[([-.9*cos((-45+90)*3.14159265359/180)]),0.1,([.9*sin((-45+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 		;;
 		:: "60"
 			execute @a[score_facing_min=60,score_facing=60,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.8*cos((-60+90)*3.14159265359/180)]) ~1.56 ~([.8*sin((-60+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-60+90)*3.14159265359/180)]),0.1,([.9*sin((-60+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
@@ -43,7 +43,7 @@
 			execute @a[score_facing_min=120,score_facing=120,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.8*cos((-120+90)*3.14159265359/180)]) ~1.56 ~([.8*sin((-120+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-120+90)*3.14159265359/180)]),0.1,([.9*sin((-120+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 		;;
 		:: "135"
-			execute @a[score_facing_min=135,score_facing=135,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.8*cos((-135+90)*3.14159265359/180)]) ~1.56 ~([.8*sin((-135+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-135+90)*3.14159265359/180)]),0.1,([.9*sin((-135+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+			execute @a[score_facing_min=135,score_facing=135,tag=breathingFire] ~ ~ ~ summon Arrow ~-0.7 ~1.56 ~-0.7 {Motion:[([-.9*cos((-135+90)*3.14159265359/180)]),0.1,([.9*sin((-135+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 		;;
 		:: "150"
 			execute @a[score_facing_min=150,score_facing=150,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.8*cos((-150+90)*3.14159265359/180)]) ~1.56 ~([.8*sin((-150+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-150+90)*3.14159265359/180)]),0.1,([.9*sin((-150+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
@@ -61,7 +61,7 @@
 			execute @a[score_facing_min=210,score_facing=210,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.8*cos((-210+90)*3.14159265359/180)]) ~1.56 ~([.8*sin((-210+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-210+90)*3.14159265359/180)]),0.1,([.9*sin((-210+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 		;;
 		:: "225"
-			execute @a[score_facing_min=225,score_facing=225,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.8*cos((-225+90)*3.14159265359/180)]) ~1.56 ~([.8*sin((-225+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-225+90)*3.14159265359/180)]),0.1,([.9*sin((-225+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+			execute @a[score_facing_min=225,score_facing=225,tag=breathingFire] ~ ~ ~ summon Arrow ~0.7 ~1.56 ~-0.7 {Motion:[([-.9*cos((-225+90)*3.14159265359/180)]),0.1,([.9*sin((-225+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 		;;
 		:: "240"
 			execute @a[score_facing_min=240,score_facing=240,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.8*cos((-240+90)*3.14159265359/180)]) ~1.56 ~([.8*sin((-240+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-240+90)*3.14159265359/180)]),0.1,([.9*sin((-240+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
@@ -79,7 +79,7 @@
 			execute @a[score_facing_min=300,score_facing=300,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.8*cos((-300+90)*3.14159265359/180)]) ~1.56 ~([.8*sin((-300+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-300+90)*3.14159265359/180)]),0.1,([.9*sin((-300+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 		;;
 		:: "315"
-			execute @a[score_facing_min=315,score_facing=315,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.8*cos((-315+90)*3.14159265359/180)]) ~1.56 ~([.8*sin((-315+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-315+90)*3.14159265359/180)]),0.1,([.9*sin((-315+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
+			execute @a[score_facing_min=315,score_facing=315,tag=breathingFire] ~ ~ ~ summon Arrow ~0.7 ~1.56 ~0.7 {Motion:[([-.9*cos((-315+90)*3.14159265359/180)]),0.1,([.9*sin((-315+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 		;;
 		:: "330"
 			execute @a[score_facing_min=330,score_facing=330,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.8*cos((-330+90)*3.14159265359/180)]) ~1.56 ~([.8*sin((-330+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-330+90)*3.14159265359/180)]),0.1,([.9*sin((-330+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
