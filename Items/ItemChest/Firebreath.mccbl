@@ -7,6 +7,7 @@
 	scoreboard players tag @a remove @!dragonBreath
 	scoreboard players tag @a add @!dragonBreath {Inventory:[{id:minecraft:skull}]}
 	scoreboard players tag @a add @!breathingFire {SelectedItem:{id:minecraft:skull}}
+	effect @a[tag=dragonBreath] minecraft:fire_resistance 1 4 true
 	scoreboard players add @a[tag=breathingFire] @!fireBreath 1
 	xp 49L @a[tag=dragonBreath,score_fireBreath=1,score_fireBreath_min=1]
 	xp 1 @a[tag=breathingFire]
