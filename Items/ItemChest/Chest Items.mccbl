@@ -30,3 +30,10 @@
 	scoreboard players set @a[score_improb_min=30] @!improb 0
 	tp @a[score_improb_min=1] @r[512,128,512,128,type=!ArmorStand,name=!Mine]
 ;;
+:: "Armaggeddon"
+//summon Item ~ ~1 ~ {Item:{id:minecraft:fire_charge,Count:1,tag:{display:{Name:Armaggeddon,Lore:["It's the end of the world as we know it","Kills everything and clears all inventories","Drop to use"]}}},Tags:[justSpawned],Invulnerable:1b,Age:5600}
+	scoreboard players tag @e[type=Item,tag=!justSpawned] add @!arma {Item:{id:minecraft:fire_charge}}
+	execute @e[type=Item,tag=arma] ~ ~ ~ clear @a[m=2]
+	execute @e[type=Item,tag=arma] ~ ~ ~ execute @e[512,128,512,200,team=!Lobby,type=!ArmorStand] ~ ~ ~ summon Fireball ~ ~ ~ {direction:[0.0,-2.0,0.0],ExplosionPower:10}
+	kill @e[tag=arma,type=Item]
+;;
