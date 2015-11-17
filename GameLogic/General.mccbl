@@ -27,6 +27,7 @@
 		execute @a[m=2] ~ ~ ~ fill ~-10 ~-10 ~-10 ~10 ~10 ~10 minecraft:air 0 replace minecraft:ice 0
 		execute @a[m=2] ~ ~ ~ fill ~-10 ~-10 ~-10 ~10 ~10 ~10 minecraft:air 0 replace minecraft:stained_glass_pane 0
 		execute @a[m=2] ~ ~ ~ fill ~-10 ~-10 ~-10 ~10 ~10 ~10 minecraft:air 0 replace minecraft:glass_pane 0
+		execute @a[m=2] ~ ~ ~ fill ~-10 ~-10 ~-10 ~10 ~10 ~10 minecraft:air 0 replace minecraft:hopper 0
 		execute @a[m=2] ~ ~ ~ fill ~-10 ~-10 ~-10 ~10 ~10 ~10 minecraft:air 0 replace minecraft:anvil
 		execute @e[name=GK,tag=gameInProgress] ~ ~ ~ fill 480 123 512 512 152 544 minecraft:air 0 replace minecraft:glass 0
 		execute @e[name=GK,tag=gameInProgress] ~ ~ ~ fill 480 123 480 512 152 512 minecraft:air 0 replace minecraft:glass 0

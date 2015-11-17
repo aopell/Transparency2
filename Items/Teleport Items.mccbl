@@ -23,6 +23,6 @@
 	scoreboard players reset @a @!usedTop
 	//spinnnnnnnnnnn
 	tp @a[tag=spinning] ~ ~ ~ ~2 ~
-	scoreboard players tag @a[topcount_min=200] remove @!spinning
-	scoreboard players reset @a[tag=!spinning] @!topcount
+	scoreboard players tag @a[topCount_min=200] remove @!spinning
+	scoreboard players reset @a[tag=!spinning] @!topCount
 ;;
