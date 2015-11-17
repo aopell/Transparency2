@@ -20,6 +20,25 @@ scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 		scoreboard players set @a @!leaveTeam 0
 	;;
 ;;
+:: "Randomize Teams"
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Red @r[team=Lobby]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Blue @r[team=Lobby]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Yellow @r[team=Lobby]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join LBlue @r[team=Lobby]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Green @r[team=Lobby]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Pink @r[team=Lobby]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Purple @r[team=Lobby]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Orange @r[team=Lobby]
+	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Red] 6 65 2
+	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Blue] -7 65 -3
+	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Yellow] 2 65 -7
+	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=LBlue] -3 65 6
+	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Green] -3 65 -7
+	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Pink] 2 65 6
+	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Purple] -7 65 2
+	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Orange] 6 65 -3
+	scoreboard players tag @e[tag=randomizeTeams] remove @!randomizeTeams
+;;
 :: "Team joining"
 	:: "Glass"
 		execute @e[-7,65,-7,dx=13,dz=13,type=ArmorStand] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ air
