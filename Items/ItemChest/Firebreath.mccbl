@@ -13,7 +13,7 @@
 	xp 1 @a[tag=breathingFire]
 	scoreboard players set @a[tag=dragonBreath,lm=50] @!fireBreath 0
 	clear @a[tag=breathingFire,lm=50] minecraft:skull 5 1
-	xp -51L @a[lm=50,tag=breathingFire,tag=dragonBreath]
+	xp -51L @a[tag=!dragonBreath]
 		//execute @a[score_facing_min=##,score_facing=##,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.7*cos((-##+90)*3.14159265359/180)]) ~ ~([.7*sin((-##+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-##+90)*3.14159265359/180)]),0.1,([.9*sin((-##+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}
 	:: "Angles"
 		:: "0"
