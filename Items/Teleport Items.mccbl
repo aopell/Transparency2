@@ -19,10 +19,10 @@
 :: "Spinning top"
 //summon Item 3 1 20 {Item:{id:minecraft:hopper,Count:1,tag:{display:{Name:"Spinning Top",Lore:["You spin me right round, baby","Makes a player spin around in circles","Place block to use"]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}
 	//start spinnnn
-	//execute @a[score_usedTop_min=1] ~ ~ ~ scoreboard players tag @r[rm=1,m=2,team=!Lobby] add @!spinning
-	//scoreboard players reset @a @!usedTop
+	execute @a[score_usedTop_min=1] ~ ~ ~ scoreboard players tag @r[rm=1,m=2,team=!Lobby] add @!spinning
+	scoreboard players reset @a @!usedTop
 	//spinnnnnnnnnnn
-	//tp @a[tag=spinning] ~ ~ ~ ~2 ~
-	//scoreboard players tag @a[topCount_min=200] remove @!spinning
-	//scoreboard players reset @a[tag=!spinning] @!topCount
+	tp @a[tag=spinning] ~ ~ ~ ~2 ~
+	scoreboard players tag @a[score_topCount_min=200] remove @!spinning
+	scoreboard players reset @a[tag=!spinning] @!topCount
 ;;
