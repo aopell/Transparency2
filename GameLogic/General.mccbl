@@ -27,14 +27,14 @@
 		execute @a[m=2] ~ ~ ~ fill ~-10 ~-10 ~-10 ~10 ~10 ~10 minecraft:air 0 replace minecraft:ice 0
 		execute @a[m=2] ~ ~ ~ fill ~-10 ~-10 ~-10 ~10 ~10 ~10 minecraft:air 0 replace minecraft:stained_glass_pane 0
 		execute @a[m=2] ~ ~ ~ fill ~-10 ~-10 ~-10 ~10 ~10 ~10 minecraft:air 0 replace minecraft:glass_pane 0
-		execute @a[m=2] ~ ~ ~ fill ~-10 ~-10 ~-10 ~10 ~10 ~10 minecraft:air 0 replace minecraft:hopper 0
+		execute @a[m=2] ~ ~ ~ fill ~-10 ~-10 ~-10 ~10 ~10 ~10 minecraft:air 0 replace minecraft:hopper
 		execute @a[m=2] ~ ~ ~ fill ~-10 ~-10 ~-10 ~10 ~10 ~10 minecraft:air 0 replace minecraft:anvil
 		scoreboard players add @e[name=GK,type=ArmorStand] @!glassTimer 1
-		execute @e[name=GK,tag=gameInProgress,score_glassTimer_min=100] ~ ~ ~ fill 480 123 512 512 152 544 minecraft:air 0 replace minecraft:glass 0
-		execute @e[name=GK,tag=gameInProgress,score_glassTimer_min=100] ~ ~ ~ fill 480 123 480 512 152 512 minecraft:air 0 replace minecraft:glass 0
-		execute @e[name=GK,tag=gameInProgress,score_glassTimer_min=100] ~ ~ ~ fill 512 123 480 544 152 512 minecraft:air 0 replace minecraft:glass 0
-		execute @e[name=GK,tag=gameInProgress,score_glassTimer_min=100] ~ ~ ~ fill 512 123 512 544 152 544 minecraft:air 0 replace minecraft:glass 0
-		scoreboard players set @e[name=GK,type=ArmorStand,score_glassTimer_min=100] @!glassTimer 0
+		execute @e[name=GK,tag=gameInProgress,score_glassTimer_min=200,score_glassTimer=200] ~ ~ ~ fill 480 123 512 512 152 544 minecraft:air 0 replace minecraft:glass 0
+		execute @e[name=GK,tag=gameInProgress,score_glassTimer_min=400,score_glassTimer=400] ~ ~ ~ fill 480 123 480 512 152 512 minecraft:air 0 replace minecraft:glass 0
+		execute @e[name=GK,tag=gameInProgress,score_glassTimer_min=600,score_glassTimer=600] ~ ~ ~ fill 512 123 480 544 152 512 minecraft:air 0 replace minecraft:glass 0
+		execute @e[name=GK,tag=gameInProgress,score_glassTimer_min=800] ~ ~ ~ fill 512 123 512 544 152 544 minecraft:air 0 replace minecraft:glass 0
+		scoreboard players set @e[name=GK,type=ArmorStand,score_glassTimer_min=800] @!glassTimer 0
 		execute @e[type=Item,tag=chestItem] ~ ~ ~ setblock ~ ~-1 ~ minecraft:glass 0 keep
 	;;
 	:: "Item Spawner Particles"

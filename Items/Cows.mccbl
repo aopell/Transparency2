@@ -28,6 +28,8 @@
 :: "Mad Cow"
 //summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Mad Cow,Lore:[Summons a VERY mad cow,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime],EntityTag:{id:MushroomCow,Tags:[justSpawned]}}},Invulnerable:1b,Age:5600}
 	execute @e[type=MushroomCow,tag=justSpawned] ~ ~ ~ summon Zombie ~ ~ ~ {CustomName:Mad Cow,CustomNameVisible:1b,Invulnerable:1b,Anger:32767,Silent:1b,IsBaby:1b,Tags:[isCow],Passengers:[{id:MushroomCow,Invulnerable:1b}]}
+	execute @e[type=MushroomCow,tag=justSpawned] ~ ~ ~ summon Zombie ~ ~ ~ {CustomName:Mad Cow,CustomNameVisible:1b,Invulnerable:1b,Anger:32767,Silent:1b,IsBaby:1b,Tags:[isCow],Passengers:[{id:MushroomCow,Invulnerable:1b}]}
+	execute @e[type=MushroomCow,tag=justSpawned] ~ ~ ~ summon Zombie ~ ~ ~ {CustomName:Mad Cow,CustomNameVisible:1b,Invulnerable:1b,Anger:32767,Silent:1b,IsBaby:1b,Tags:[isCow],Passengers:[{id:MushroomCow,Invulnerable:1b}]}
 	tp @e[type=MushroomCow,tag=justSpawned] ~ ~-64 ~
 	scoreboard players add @e[type=Zombie,tag=isCow] @!ticks 1
 	scoreboard players add @e[type=MushroomCow,tag=!justSpawned] @!ticks 1
