@@ -21,8 +21,8 @@
 	execute @e[type=Item,tag=isTrap,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,Duration:1000000,Particle:take,CustomName:Razor,Tags:["razor"]}
 	kill @e[type=Item,score_mine=-60]
 	//trip the thing
-	execute @e[type=AreaEffectCloud,name=Razor] ~ ~ ~ scoreboard players tag @a[r=0] add @!tripper
-	execute @a[tag=tripper] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Razor,r=1] add @!tripped
+	execute @e[type=AreaEffectCloud,name=Razor] ~ ~ ~ scoreboard players tag @a[r=0,m=2] add @!tripper
+	execute @a[tag=tripper,m=2] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Razor,r=1] add @!tripped
 	//counting
 	scoreboard players add @e[name=Razor,tag=tripped] @!razorCount 1
 	//summon the razors
