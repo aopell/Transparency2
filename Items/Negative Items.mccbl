@@ -16,8 +16,8 @@
 :: "Razer trap"
 	//summon the controller
 	scoreboard players remove @e[type=Item,tag=!disp] @!mine 1 {Item:{id:minecraft:record_strad},Invulnerable:0b}
-	entitydata @e[type=Item,score_mine=-1] {PickupDelay:32767}
-	execute @e[type=Item,tag=!toBePickedUp,name=Razor,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,Duration:1000000,Particle:take,CustomName:Razor,Tags:["razor"]}
+	entitydata @e[type=Item,score_mine=-1] {PickupDelay:32767,CustomName:Razor}
+	execute @e[type=Item,name=Razor,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,Duration:1000000,Particle:take,CustomName:Razor,Tags:["razor"]}
 	kill @e[type=Item,score_mine=-60]
 	//trip the thing
 	execute @e[type=AreaEffectCloud,name=Razor] ~ ~ ~ scoreboard players tag @a[r=0] add @!tripper
@@ -26,14 +26,13 @@
 	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:Razor,Tags:["razor","tripped"],Invisible:1b,NoBasePlate:1b,NoGravity:1b,ShowArms:1b,Small:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],Pose:{Head:[230f,96f,216f],LeftArm:[217f,360f,196f],RightArm:[192f,123f,167f]}}
 	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:Razor,Tags:["razor","tripped"],Invisible:1b,NoBasePlate:1b,NoGravity:1b,ShowArms:1b,Small:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],Pose:{Head:[230f,37f,11f],LeftArm:[178f,243f,95f],RightArm:[243f,129f,93f]}}
 	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:Razor,Tags:["razor","tripped"],Invisible:1b,NoBasePlate:1b,NoGravity:1b,ShowArms:1b,Small:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],Pose:{Head:[129f,96f,0f],LeftArm:[343f,360f,196f],RightArm:[192f,123f,167f]}}
-	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:Razor,Tags:["razor","tripped"],Invisible:1b,NoBasePlate:1b,NoGravity:1b,ShowArms:1b,Small:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],Pose:{Head:[230f,96f,216f],LeftArm:[238f,286f,77f],RightArm:[360f,123f,55f]}}
-	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:Razor,Tags:["razor","tripped"],Invisible:1b,NoBasePlate:1b,NoGravity:1b,ShowArms:1b,Small:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],Pose:{Head:[259f,7f,11f],LeftArm:[292f,243f,102f],RightArm:[243f,65f,93f]}}
 	//counting
 	scoreboard players add @e[Name=Razor,tag=tripped] @!razorCount 1
 	//spinny
 	tp @e[type=ArmorStand,tag=razor] ~ ~ ~ ~180 ~
 	//kill the player
 	effect @a[tag=tripper] minecraft:instant_damage 1 3 true
+	scoreboard players tag @a remove @!tripper
 	//kill the razors
-	kill @e[tag=razor,score_razorCount_min=40]
+	kill @e[tag=razor,score_razorCount_min=30]
 ;;

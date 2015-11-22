@@ -3,29 +3,29 @@
 @VERSION 1.9
 :: "Scoreboard distinguishers"
 scoreboard players set @e[type=Arrow] @!inGround 1 {inGround:1b}
-scoreboard players set @e[type=Arrow] @!sickness 1 {inGround:1b,CustomPotionEffects:[{Id:9b}]}
+scoreboard players set @e[type=Arrow,tag=!isFire] @!sickness 1 {inGround:1b,CustomPotionEffects:[{Id:9b}]}
 	//summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:9,Duration:600,Amplifier:9}],display:{Name:"Arrow of Sickness"}}},Invulnerable:1b,Age:5600}
-scoreboard players set @e[type=Arrow] @!deathness 1 {inGround:1b,CustomPotionEffects:[{Id:20b}]}
+scoreboard players set @e[type=Arrow,tag=!isFire] @!deathness 1 {inGround:1b,CustomPotionEffects:[{Id:20b}]}
 	//summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:20,Duration:400,Amplifier:1}],display:{Name:"Arrow of Deathness"}}},Invulnerable:1b,Age:5600}
-scoreboard players set @e[type=Arrow] @!upness 1 {inGround:1b,CustomPotionEffects:[{Id:25b}]}
+scoreboard players set @e[type=Arrow,tag=!isFire] @!upness 1 {inGround:1b,CustomPotionEffects:[{Id:25b}]}
 	//summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:25,Duration:20,Amplifier:90}],display:{Name:"Arrow of Upness"}}},Invulnerable:1b,Age:5600}
-scoreboard players set @e[type=Arrow] @!slowness 1 {inGround:1b,CustomPotionEffects:[{Id:2b}]}
+scoreboard players set @e[type=Arrow,tag=!isFire] @!slowness 1 {inGround:1b,CustomPotionEffects:[{Id:2b}]}
 	//summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:2,Duration:300,Amplifier:2}],display:{Name:"Arrow of Slowness"}}},Invulnerable:1b,Age:5600}
-scoreboard players set @e[type=Arrow] @!blindness 1 {inGround:1b,CustomPotionEffects:[{Id:15b}]}
+scoreboard players set @e[type=Arrow,tag=!isFire] @!blindness 1 {inGround:1b,CustomPotionEffects:[{Id:15b}]}
 	//summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:15,Duration:600,Amplifier:1}],display:{Name:"Arrow of Blindness"}}},Invulnerable:1b,Age:5600}
-scoreboard players set @e[type=Arrow] @!groundness 1 {inGround:1b,CustomPotionEffects:[{Id:8b}]}
+scoreboard players set @e[type=Arrow,tag=!isFire] @!groundness 1 {inGround:1b,CustomPotionEffects:[{Id:8b}]}
 	//summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:8,Duration:400,Amplifier:251}],display:{Name:"Arrow of Groundness"}}},Invulnerable:1b,Age:5600}
-scoreboard players set @e[type=Arrow] @!glowness 1 {inGround:1b,CustomPotionEffects:[{Id:24b}]}
+scoreboard players set @e[type=Arrow,tag=!isFire] @!glowness 1 {inGround:1b,CustomPotionEffects:[{Id:24b}]}
 	//summon Item 3 1 20 {Item:{id:minecraft:tipped_arrow,Count:1,tag:{CustomPotionEffects:[{Id:24,Duration:1200,Amplifier:0}],display:{Name:"Arrow of Glowness"}}},Invulnerable:1b,Age:5600}
 ;;
 :: "Cloud maker"
-execute @e[type=Arrow,score_sickness_min=1] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:9,ShowParticles:0,Id:9}]}
-execute @e[type=Arrow,score_deathness_min=1] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:400,Amplifier:0,ShowParticles:0,Id:20}]}
-execute @e[type=Arrow,score_upness_min=1] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:20,Amplifier:90,ShowParticles:0,Id:25}]}
-execute @e[type=Arrow,score_slowness_min=1] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:2,ShowParticles:0,Id:2}]}
-execute @e[type=Arrow,score_blindness_min=1] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:1,ShowParticles:0,Id:15}]}
-execute @e[type=Arrow,score_groundness_min=1] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:200,Amplifier:251,ShowParticles:0,Id:8}]}
-execute @e[type=Arrow,score_glowness_min=1] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:600,Amplifier:0,ShowParticles:0,Id:24}]}
+execute @e[type=Arrow,score_sickness_min=1,tag=!isFire] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:9,ShowParticles:0,Id:9}]}
+execute @e[type=Arrow,score_deathness_min=1,tag=!isFire] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:400,Amplifier:0,ShowParticles:0,Id:20}]}
+execute @e[type=Arrow,score_upness_min=1,tag=!isFire] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:20,Amplifier:90,ShowParticles:0,Id:25}]}
+execute @e[type=Arrow,score_slowness_min=1,tag=!isFire] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:2,ShowParticles:0,Id:2}]}
+execute @e[type=Arrow,score_blindness_min=1,tag=!isFire] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:300,Amplifier:1,ShowParticles:0,Id:15}]}
+execute @e[type=Arrow,score_groundness_min=1,tag=!isFire] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:200,Amplifier:251,ShowParticles:0,Id:8}]}
+execute @e[type=Arrow,score_glowness_min=1,tag=!isFire] ~ ~ ~ summon AreaEffectCloud ~ ~0.25 ~ {Duration:200,Radius:1,Effects:[{Duration:600,Amplifier:0,ShowParticles:0,Id:24}]}
 ;;
 //fancy
 execute @e[type=Arrow,tag=!isFire] ~ ~ ~ particle mobSpell ~ ~ ~ 0 0 0 1 3

@@ -7,6 +7,10 @@
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ spreadplayers 512 512 5 7 false @e[-3,1,20,5,name=chest]
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ playsound entity.player.levelup @a ~ ~ ~ 1000000 2
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ tellraw @a ["",{"text":"An item chest has spawned on the map! Puch it to obtain a rare item!","color":"gold","italic":true}]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 480 123 512 512 152 544 minecraft:air 0 replace minecraft:glass 0
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 480 123 480 512 152 512 minecraft:air 0 replace minecraft:glass 0
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 512 123 480 544 152 512 minecraft:air 0 replace minecraft:glass 0
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 512 123 512 544 152 544 minecraft:air 0 replace minecraft:glass 0
 	scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] @!chestTimer 0
 ;;
 :: "Generic Logic"
@@ -15,7 +19,9 @@
 	execute @e[type=Zombie,name=chest] ~ ~ ~ particle cloud ~ ~0.8 ~ 0.25 0.3 0.25 .03 2
 	execute @e[type=Zombie,name=chest,score_punched_min=1] ~ ~ ~ particle hugeexplosion ~ ~1 ~ 0 0 0 1 0
 	execute @e[type=Zombie,name=chest,score_punched_min=1] ~ ~ ~ playsound entity.generic.explode @a ~ ~ ~ 25
-
+	
+	entitydata @e[type=Bat,name=chest] {Glowing:1b}
+	
 	//kills chests after 15 seconds
 	scoreboard players add @e[type=Zombie,name=chest] @!ticks 1
 	execute @e[type=Zombie,name=chest,score_ticks_min=300] ~ ~ ~ particle smoke ~ ~1 ~ 0 0 0 0.1 250
@@ -38,7 +44,7 @@
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=5,score_zPrize=5] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:end_crystal,Count:1,tag:{display:{Name:Infinite Improbability Drive,Lore:["Makes you feel like a bowl of petunias","Teleports you through every entity","Drop to use"]}}},Invulnerable:1b,Age:5600,Tags:[justSpawned,chestItem]}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=6,score_zPrize=6] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:skull,Damage:5s,Count:1,tag:{display:{Name:Fire Breath,Lore:[Shoots fire in the direction you look,Hold to use]}}},Tags:[chestItem],Invulnerable:1b,Age:5600}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=7,score_zPrize=7] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:fire_charge,Count:1,tag:{display:{Name:Armaggeddon,Lore:["It's the end of the world as we know it","Kills everything and clears all inventories","Place to use"]}}},Tags:[justSpawned,chestItem],Invulnerable:1b,Age:5600}
-	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=8,score_zPrize=8] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:diamond_sword,Damage:1561s,Count:1,CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],tag:{display:{Name:"Insta-Kill Sword",Lore:["ded."]},AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:100000000,Operation:2,UUIDMost:39750,UUIDLeast:34525}],ench:[{id:61,lvl:5}],HideFlags:3}},Tags:[chestItem],Invulnerable:1b,Age:5600}
+	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=8,score_zPrize=8] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:diamond_sword,Damage:1561s,Count:1,tag:{display:{Name:"Insta-Kill Sword",Lore:["ded."]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:100000000,Operation:2,UUIDMost:39750,UUIDLeast:34525}],ench:[{id:61,lvl:5}],HideFlags:3}},Tags:[chestItem],Invulnerable:1b,Age:5600}
 	//Add chestItem tag to all new chest items
 ;;
 :: "Death"
