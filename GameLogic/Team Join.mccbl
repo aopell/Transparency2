@@ -21,14 +21,14 @@ scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 	;;
 ;;
 :: "Randomize Teams"
-	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Red @r[team=Lobby]
-	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Blue @r[team=Lobby]
-	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Yellow @r[team=Lobby]
-	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join LBlue @r[team=Lobby]
-	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Green @r[team=Lobby]
-	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Pink @r[team=Lobby]
-	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Purple @r[team=Lobby]
-	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Orange @r[team=Lobby]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Red @r[team=Lobby,m=2]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Blue @r[team=Lobby,m=2]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Yellow @r[team=Lobby,m=2]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join LBlue @r[team=Lobby,m=2]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Green @r[team=Lobby,m=2]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Pink @r[team=Lobby,m=2]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Purple @r[team=Lobby,m=2]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Orange @r[team=Lobby,m=2]
 	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Red] 6 65 2
 	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Blue] -7 65 -3
 	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Yellow] 2 65 -7
