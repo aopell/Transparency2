@@ -4,10 +4,10 @@
 :: "Heart Stopper"
 	execute @e[type=Item,name=heartStopper,c=-1] ~ ~ ~ kill @e[type=Item,name=heartStopper,rm=1]
 	clear @a[score_heartStopper_min=1] minecraft:barrier
-	gamerule showDeathMessages false
-	gamerule keepInventory false
+	execute @a[score_heartStopper_min=1] ~ ~ ~ gamerule showDeathMessages false
+	execute @a[score_heartStopper_min=1] ~ ~ ~ gamerule keepInventory false
 	playsound entity.wither.death @a[score_heartStopper_min=1] ~ ~ ~ 1000000 2
-	execute @a[score_heartStopper_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_heartStopper_min=1]"},{"text":"'s heart suddenly stopped"}]
+	execute @a[score_heartStopper_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a"},{"text":"'s heart suddenly stopped"}]
 	kill @a[score_heartStopper_min=1]
 	scoreboard players set @a @!heartStopper 0
 	gamerule keepInventory true
@@ -32,13 +32,16 @@
 	//spinny
 	tp @e[type=ArmorStand,tag=razor] ~ ~ ~ ~55 ~
 	//particles
-	execute @a[tag=tripper] ~ ~ ~ particle @!iconcrack_349_1 ~ ~1 ~ 0.3 0.7 0.3 0 5
-	execute @a[tag=tripper] ~ ~ ~ particle @!iconcrack_423 ~ ~1 ~ 0.3 0.7 0.3 0 5
-	execute @a[tag=tripper] ~ ~ ~ particle @!iconcrack_367 ~ ~1 ~ 0.3 0.7 0.3 0 5
-	execute @a[tag=tripper] ~ ~ ~ particle crit ~ ~0.5 ~ 0.12 0.3 0.12 0 1
+	execute @e[tag=tripped] ~ ~ ~ particle @!iconcrack_349_1 ~ ~1 ~ 0.3 0.7 0.3 0 5
+	execute @e[tag=tripped] ~ ~ ~ particle @!iconcrack_423 ~ ~1 ~ 0.3 0.7 0.3 0 5
+	execute @e[tag=tripped] ~ ~ ~ particle @!iconcrack_367 ~ ~1 ~ 0.3 0.7 0.3 0 5
+	execute @e[tag=tripped] ~ ~ ~ particle crit ~ ~0.5 ~ 0.12 0.3 0.12 0 1
 	execute @e[tag=!tripped,name=Razor] ~ ~ ~ particle reddust ~ ~ ~ .75 .75 1 1
 	//kill the player
 	effect @a[tag=tripper] minecraft:instant_damage 1 3 true
+	execute @a[tag=tripper,score_health=0,score_health_min=0] ~ ~ ~ gamerule showDeathMessages false
+	execute @a[tag=tripper,score_health=0,score_health_min=0] ~ ~ ~ tellraw @a ["",{"selector":"@p"},{"text":" was shredded to bits"}]
+	gamerule showDeathMessages true
 	scoreboard players tag @a remove @!tripper
 	//kill the razors
 	kill @e[name=Razor,type=ArmorStand,score_razorCount_min=30]
