@@ -7,10 +7,10 @@
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ spreadplayers 512 512 5 7 false @e[-3,1,20,5,name=chest]
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ playsound entity.player.levelup @a ~ ~ ~ 1000000 2
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ tellraw @a ["",{"text":"An item chest has spawned on the map! Puch it to obtain a rare item!","color":"gold","italic":true}]
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 480 123 512 512 152 544 minecraft:air 0 replace minecraft:glass 0
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 480 123 480 512 152 512 minecraft:air 0 replace minecraft:glass 0
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 512 123 480 544 152 512 minecraft:air 0 replace minecraft:glass 0
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 512 123 512 544 152 544 minecraft:air 0 replace minecraft:glass 0
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 480 123 512 512 152 544 minecraft:air 0 replace minecraft:glass 0
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 480 123 480 512 152 512 minecraft:air 0 replace minecraft:glass 0
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 512 123 480 544 152 512 minecraft:air 0 replace minecraft:glass 0
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 512 123 512 544 152 544 minecraft:air 0 replace minecraft:glass 0
 	scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] @!chestTimer 0
 ;;
 :: "Generic Logic"
@@ -42,8 +42,8 @@
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=3,score_zPrize=3] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Spawn Wither,Lore:[Spawns a wither for 30 seconds,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Endermite,Tags:[wither],Silent:1b,NoAI:1b}}},Tags:[chestItem],Invulnerable:1b,Age:5600}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=4,score_zPrize=4] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:golden_apple,Count:1,tag:{display:{Name:Apple of pacifism,Lore:["Makes other players unable to do damage","Eat to use"]}}},Tags:[chestItem],Invulnerable:1b,Age:5600}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=5,score_zPrize=5] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:end_crystal,Count:1,tag:{display:{Name:Infinite Improbability Drive,Lore:["Makes you feel like a bowl of petunias","Teleports you through every entity","Drop to use"]}}},Invulnerable:1b,Age:5600,Tags:[justSpawned,chestItem]}
-	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=6,score_zPrize=6] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:skull,Damage:5s,Count:1,tag:{CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],display:{Name:Fire Breath,Lore:[Shoots fire in the direction you look,Hold to use]}}},Tags:[chestItem],Invulnerable:1b,Age:5600}
-	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=7,score_zPrize=7] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:fire_charge,Count:1,tag:{display:{Name:Armaggeddon,Lore:["It's the end of the world as we know it","Kills everything and clears all inventories","Place to use"]}}},Tags:[justSpawned,chestItem],Invulnerable:1b,Age:5600}
+	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=6,score_zPrize=6] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:skull,Damage:5s,Count:1,tag:{display:{Name:Fire Breath,Lore:[Shoots fire in the direction you look,Hold to use]}}},Tags:[chestItem],Invulnerable:1b,Age:5600}
+	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=7,score_zPrize=7] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:fire_charge,Count:1,tag:{CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],display:{Name:Armaggeddon,Lore:["It's the end of the world as we know it","Kills everything and clears all inventories","Place to use"]}}},Tags:[justSpawned,chestItem],Invulnerable:1b,Age:5600}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=8,score_zPrize=8] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:diamond_sword,Damage:1561s,Count:1,tag:{display:{Name:"Insta-Kill Sword",Lore:["ded."]},AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:100000000,Operation:2,UUIDMost:39750,UUIDLeast:34525}],ench:[{id:61,lvl:5}],HideFlags:3}},Tags:[chestItem],Invulnerable:1b,Age:5600}
 	//Add chestItem tag to all new chest items
 ;;
