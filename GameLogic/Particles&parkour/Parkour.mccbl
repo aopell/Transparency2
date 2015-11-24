@@ -26,7 +26,7 @@ tp @a[score_parkourLevel_min=2,x=14,y=65,z=-1,r=1] -12 81 -12
 tp @a[score_parkourLevel_min=3,x=0,y=65,z=14,r=1] -1 98 0
 //prison
 scoreboard players remove @a[score_prison_min=0] prison 1
-tp @a[score_prison_min=3,x=-17,y=66,z=-1,rm=4] -17 66 -1
 tellraw [score_prison_min=4,x=-17,y=66,z=-1,rm=4] ["",{"text":"You have been sent to prison for [CHEATING] on the parkour.","color":"red","clickEvent":{"action":"run_command","value":"me is a cheater because he tried to be in CREATIVE MODE on the parkour!"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Click for more information. [Must be OP]","color":"gold"}]}}}]
+tp @a[score_prison_min=3,x=-17,y=66,z=-1,rm=4] -17 66 -1
 gamemode 2 @a[score_prison_min=0,m=1]
 tp @a[score_prison=3,score_prison_min=0] 0 70 0
