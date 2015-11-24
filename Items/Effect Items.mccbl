@@ -11,12 +11,18 @@
 ;;
 :: "Muscle Milk"
 //summon Item 3 1 20 {Item:{id:minecraft:milk_bucket,Count:1,tag:{display:{Name:"Muscle Milk",Lore:["Be a strongman!","Drink to use"]}}},Invulnerable:1b,Age:5600}
-	execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:resistance 20 4 true
-	execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:slowness 20 0 true
-	execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:wither 20 1 true
-	execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:glowing 20 0 true
-	execute @a[score_muscleMilk_min=1] ~ ~ ~ effect @p minecraft:mining_fatigue 20 0 true
+	execute @a[score_muscleMilk_min=1,score_muscleMilk=1] ~ ~ ~ effect @p minecraft:resistance 20 4 true
+	execute @a[score_muscleMilk_min=1,score_muscleMilk=1] ~ ~ ~ effect @p minecraft:slowness 20 0 true
+	execute @a[score_muscleMilk_min=1,score_muscleMilk=1] ~ ~ ~ effect @p minecraft:wither 20 1 true
+	execute @a[score_muscleMilk_min=1,score_muscleMilk=1] ~ ~ ~ effect @p minecraft:glowing 20 0 true
+	execute @a[score_muscleMilk_min=1,score_muscleMilk=1] ~ ~ ~ effect @p minecraft:mining_fatigue 20 0 true
+	scoreboard players set @a[score_muscleMilk_min=1] @!muscleMilkTimer 1
+	scoreboard players add @a[score_muscleMilkTimer_min=1] @!muscleMilkTimer 1
 	scoreboard players set @a[score_muscleMilk_min=1] @!muscleMilk 0
+	scoreboard players set @a[score_muscleMilkTimer_min=400] @!muscleMilkTimer 0
+	scoreboard players tag @a[score_muscleMilkTimer_min=1] add @!invincible
+	scoreboard players tag @a[score_muscleMilkTimer=0] remove @!invincible
+	scoreboard players set @a[tag=!invincible] @!muscleMilkTimer 0
 ;;
 :: "Freeze"
 //summon Item 3 1 20 {Item:{id:minecraft:ice,Count:1,tag:{display:{Name:"Freeze Frame",Lore:["Freezes everyone else","Place block to use"]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}

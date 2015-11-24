@@ -15,6 +15,7 @@
 ;;
 :: "Respawn Logic"
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players remove @a[score_deaths_min=1] @!lives 1
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_deaths_min=1] @!muscleMilkTimer 0
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players add @a[score_deaths_min=1] @!deathsAch 1
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_deaths_min=1] @!died 1
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a @!deaths 0

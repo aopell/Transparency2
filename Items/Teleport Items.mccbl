@@ -16,6 +16,7 @@
 	execute @a[score_fishing_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_fishing_min=1]"},{"text":" teleported ","color":"gold","italic":true},{"selector":"@a[tag=beingPulled]","color":"none","italic":false},{"text":" to themselves!","color":"gold","italic":true}]
 	clear @a[score_fishing_min=1] minecraft:fishing_rod -1 1
 	scoreboard players set @a @!fishing 0
+	scoreboard players tag @a remove @!beingPulled
 ;;
 :: "Spinning top"
 //summon Item 3 1 20 {Item:{id:minecraft:hopper,Count:1,tag:{display:{Name:"Spinning Top",Lore:["You spin me right round, baby","Makes a player spin around in circles","Place block to use"]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}

@@ -11,6 +11,6 @@
 :: "Bat"
 //summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Air Strike,Lore:[Drops a constant stream of Instant Damage Potions,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Bat,Invulnerable:1b}}},Invulnerable:1b,Age:5600}
 	scoreboard players add @e[type=Bat] @!ticks 1
-	execute @e[type=Bat,name=!chest] ~ ~ ~ summon ThrownPotion ~ ~-0.25 ~ {CustomName:Airstrike,Potion:{id:minecraft:potion,Count:1,tag:{Potion:minecraft:harming}}}
+	execute @e[type=Bat,name=!chest] ~ ~ ~ summon ThrownPotion ~ ~-0.25 ~ {CustomName:Airstrike,Potion:{id:minecraft:splash_potion,Count:1,tag:{Potion:minecraft:harming}}}
 	kill @e[type=Bat,score_ticks_min=600,name=!chest]
 ;;
