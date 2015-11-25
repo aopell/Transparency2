@@ -3,9 +3,9 @@
 @VERSION 1.9
 :: "Lobby"
 	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @a[512,128,512,300,team=!Lobby,tag=!dev] ~ ~ ~ scoreboard teams leave @p
-	tp @a[-32,41,-32,dx=63,dy=2,dz=63,m=2] 0 65 0
-	effect @a[-15,65,-15,dx=33,dy=2,dz=33,team=Lobby] minecraft:resistance 1 4 true
-	effect @a[-15,65,-15,dx=33,dy=2,dz=33,team=Lobby] minecraft:instant_health 25 4 true
+	tp @a[-100,41,-100,dx=199,dy=2,dz=199,m=2] 0 65 0
+	effect @a[m=2,team=Lobby] minecraft:resistance 1 4 true
+	effect @a[m=2,team=Lobby] minecraft:instant_health 25 4 true
 	:: "Center"
 		scoreboard teams join @!Lobby @a[-1,65,-1,dx=1,dy=2,dz=1]
 		gamemode 2 @a[-1,65,-1,dx=1,dy=2,dz=1,m=0]
