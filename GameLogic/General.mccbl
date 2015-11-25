@@ -4,7 +4,7 @@
 :: "Lobby"
 	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @a[512,128,512,300,team=!Lobby,tag=!dev] ~ ~ ~ scoreboard teams leave @p
 	tp @a[-100,41,-100,dx=199,dy=2,dz=199,m=2] 0 65 0
-	effect @a[m=2,team=Lobby] minecraft:resistance 1 4 true
+	effect @a[m=2,team=Lobby] minecraft:resistance 2 4 true
 	effect @a[m=2,team=Lobby] minecraft:instant_health 25 4 true
 	:: "Center"
 		scoreboard teams join @!Lobby @a[-1,65,-1,dx=1,dy=2,dz=1]
