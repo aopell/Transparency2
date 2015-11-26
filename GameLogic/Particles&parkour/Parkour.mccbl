@@ -17,6 +17,14 @@ tp @a[x=37,y=108,z=38,r=1] 3 102 0
 tp @a[x=6,y=103,z=0,r=1,score_parkourLevel_min=4] 13 108 0 -90 0
 scoreboard players set @a[x=64,y=109,z=0,r=1,m=2,score_parkourLevel_min=4,score_parkourLevel=4] parkourLevel 5
 tp @a[x=64,y=109,z=0,r=1] 3 102 0
+//Yeller
+tp @a[x=3,y=103,z=-4,r=1,score_parkourLevel_min=5] 9 108 -10
+scoreboard players set @a[x=18,y=111,z=-18,r=1,m=2,score_parkourLevel_min=5,score_parkourLevel=5] parkourLevel 6
+tp @a[x=18,y=111,z=-18,r=1] 3 102 0
+//Green
+tp @a[x=-1,y=103,z=-7,r=1,score_parkourLevel_min=6] -1 108 -13
+scoreboard players set @a[x=-1,y=108,z=-85,r=1,m=2,score_parkourLevel_min=6,score_parkourLevel=6] parkourLevel 7
+tp @a[x=-1,y=108,z=-85,r=1] -1 102 -4
 //Gold
 tp @a[x=-1,y=149,z=-9,r=2] -1 163 -14
 scoreboard players set @a[x=-1,y=163,z=-14,r=1,m=2] parkourLevel 12
