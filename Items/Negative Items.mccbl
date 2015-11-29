@@ -19,7 +19,7 @@
 	//summon the controller
 	scoreboard players remove @e[type=Item,tag=isTrap] @!mine 1
 	entitydata @e[type=Item,score_mine=-1,tag=isTrap] {PickupDelay:32767}
-	execute @e[type=Item,tag=isTrap,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,Duration:1000000,Particle:take,CustomName:Razor,Tags:["razor"]}
+	execute @e[type=Item,tag=isTrap,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,Duration:1000000,Particle:take,CustomName:Razor,Tags:[razor,noTP]}
 	kill @e[type=Item,score_mine=-60]
 	//trip the thing
 	execute @e[type=AreaEffectCloud,name=Razor] ~ ~ ~ scoreboard players tag @a[r=0,m=2] add @!tripper
@@ -34,9 +34,9 @@
 	execute @e[tag=!tripped,name=Razor] ~ ~ ~ particle reddust ~ ~ ~ .75 .75 1 1
 	//kill the player
 	execute @a[tag=tripper] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Razor,r=2] add @!tripped
-	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped,score_razorCount_min=0,score_razorCount=1] ~ ~ ~ summon ArmorStand ~ ~-0.3 ~ {CustomName:Razor,Tags:["razor","tripped"],Invisible:1b,NoBasePlate:1b,Invulnerable:1b,NoGravity:1b,Small:1b,ShowArms:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],DisabledSlots:2039583,Pose:{Head:[90f,180f,180f],LeftArm:[67f,185f,128f],RightArm:[121f,232f,281f]}}
-	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped,score_razorCount_min=0,score_razorCount=1] ~ ~ ~ summon ArmorStand ~ ~.7 ~ {CustomName:Razor,Tags:["razor","tripped"],Invisible:1b,NoBasePlate:1b,Invulnerable:1b,NoGravity:1b,Small:1b,ShowArms:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],DisabledSlots:2039583,Pose:{Head:[50f,193f,307f],LeftArm:[146f,99f,158f],RightArm:[187f,198f,101f]}}
-	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped,score_razorCount_min=0,score_razorCount=1] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:Razor,Tags:["razor","tripped"],Invisible:1b,NoBasePlate:1b,Invulnerable:1b,NoGravity:1b,Small:1b,ShowArms:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],DisabledSlots:2039583,Pose:{Head:[113f,228f,307f],LeftArm:[96f,195f,191f],RightArm:[239f,85f,150f]}}
+	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped,score_razorCount_min=0,score_razorCount=1] ~ ~ ~ summon ArmorStand ~ ~-0.3 ~ {CustomName:Razor,Tags:[razor,tripped,noTP],Invisible:1b,NoBasePlate:1b,Invulnerable:1b,NoGravity:1b,Small:1b,ShowArms:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],DisabledSlots:2039583,Pose:{Head:[90f,180f,180f],LeftArm:[67f,185f,128f],RightArm:[121f,232f,281f]}}
+	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped,score_razorCount_min=0,score_razorCount=1] ~ ~ ~ summon ArmorStand ~ ~.7 ~ {CustomName:Razor,Tags:[razor,tripped,noTP],Invisible:1b,NoBasePlate:1b,Invulnerable:1b,NoGravity:1b,Small:1b,ShowArms:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],DisabledSlots:2039583,Pose:{Head:[50f,193f,307f],LeftArm:[146f,99f,158f],RightArm:[187f,198f,101f]}}
+	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped,score_razorCount_min=0,score_razorCount=1] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:Razor,Tags:[razor,tripped,noTP],Invisible:1b,NoBasePlate:1b,Invulnerable:1b,NoGravity:1b,Small:1b,ShowArms:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],DisabledSlots:2039583,Pose:{Head:[113f,228f,307f],LeftArm:[96f,195f,191f],RightArm:[239f,85f,150f]}}
 	scoreboard players add @e[name=Razor,tag=tripped] @!razorCount 1
 	execute @a[tag=tripper,score_muscleMilkTimer=0] ~ ~ ~ gamerule showDeathMessages false
 	execute @a[tag=tripper,score_muscleMilkTimer=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=tripper,score_muscleMilkTimer=0,m=2]"},{"text":" was shredded to bits"}]

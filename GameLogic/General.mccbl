@@ -3,7 +3,7 @@
 @VERSION 1.9
 :: "Lobby"
 	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @a[512,128,512,300,team=!Lobby,tag=!dev] ~ ~ ~ scoreboard teams leave @p
-	tp @a[-100,41,-100,dx=199,dy=2,dz=199,m=2] 0 65 0
+	tp @a[-100,41,-100,dx=199,dy=4,dz=199,m=2] 0 65 0
 	effect @a[m=2,team=Lobby] minecraft:resistance 2 4 true
 	effect @a[m=2,team=Lobby] minecraft:instant_health 25 4 true
 	:: "Center"
@@ -36,8 +36,8 @@
 	:: "Item Spawner Particles"
 		scoreboard players set @e[type=AreaEffectCloud,name=ItemSpawner] @!hasItem 0
 		execute @e[type=Item,score_justSpawned_min=1] ~ ~ ~ scoreboard players set @e[type=AreaEffectCloud,name=ItemSpawner,r=1] @!hasItem 1
-		execute @e[type=AreaEffectCloud,name=ItemSpawner,score_hasItem=0] ~ ~ ~ particle portal ~ ~-1.1 ~ 0 0 0 .25 5
-		execute @e[type=AreaEffectCloud,name=ItemSpawner,score_hasItem_min=1] ~ ~ ~ particle reddust ~ ~-1.1 ~ 0.25 0.25 0.25 .25 5
+		execute @e[type=AreaEffectCloud,name=ItemSpawner,score_hasItem=0] ~ ~ ~ particle portal ~ ~-1.1 ~ 0 0 0 .25 5 force
+		execute @e[type=AreaEffectCloud,name=ItemSpawner,score_hasItem_min=1] ~ ~ ~ particle reddust ~ ~-1.1 ~ 0.25 0.25 0.25 .25 5 force
 	;;
 	:: "Saftey Features"
 		execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ gamemode 3 @a[m=2,team=Lobby]

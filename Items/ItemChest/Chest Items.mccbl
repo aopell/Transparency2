@@ -28,7 +28,7 @@
 	kill @e[tag=improb,type=Item]
 	scoreboard players add @a[score_improb_min=1] @!improb 1
 	scoreboard players set @a[score_improb_min=30] @!improb 0
-	tp @a[score_improb_min=1] @r[512,128,512,128,type=!ArmorStand,name=!Mine]
+	tp @a[score_improb_min=1] @r[512,128,512,128,type=!ArmorStand,tag=!noTP]
 ;;
 :: "Armaggeddon"
 //summon Item ~ ~1 ~ {Item:{id:minecraft:fire_charge,Count:1,tag:{display:{Name:Armaggeddon,Lore:["It's the end of the world as we know it","Kills everything and clears all inventories","Drop to use"]}}},Tags:[justSpawned],Invulnerable:1b,Age:5600}

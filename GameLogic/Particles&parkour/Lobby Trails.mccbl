@@ -3,7 +3,19 @@
 @VERSION 1.9
 :: "Unlocker"
 	scoreboard players set @a @!unlockedTrails 0
-	//Parkour
+	//Parkour 1
+	execute @a[score_parkourLevel_min=1,tag=!hasTrail_parkour1] ~ ~ ~ playsound entity.player.levelup @a ~ ~ ~ 1000000 0.7
+	execute @a[score_parkourLevel_min=1,tag=!hasTrail_parkour1] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_parkourLevel_min=1,tag=!hasTrail_parkour1]"},{"text":" has just earned the achievement "},{"text":"[ Baby Steps ]","color":"green","hoverEvent":{"action":"show_text","value":"Make it to the Lobby Parkour Wood Checkpoint"}}]
+	scoreboard players tag @a[score_parkourLevel_min=1,tag=!hasTrail_parkour1] add @!hasTrail_parkour1
+	//Parkour 2
+	execute @a[score_parkourLevel_min=2,tag=!hasTrail_parkour2] ~ ~ ~ playsound entity.player.levelup @a ~ ~ ~ 1000000 0.7
+	execute @a[score_parkourLevel_min=2,tag=!hasTrail_parkour2] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_parkourLevel_min=2,tag=!hasTrail_parkour2]"},{"text":" has just earned the achievement "},{"text":"[ Stepping Stone ]","color":"green","hoverEvent":{"action":"show_text","value":"Make it to the Lobby Parkour Stone Checkpoint"}}]
+	scoreboard players tag @a[score_parkourLevel_min=2,tag=!hasTrail_parkour2] add @!hasTrail_parkour2
+	//Parkour 3
+	execute @a[score_parkourLevel_min=3,tag=!hasTrail_parkour3] ~ ~ ~ playsound entity.player.levelup @a ~ ~ ~ 1000000 0.7
+	execute @a[score_parkourLevel_min=3,tag=!hasTrail_parkour3] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_parkourLevel_min=3,tag=!hasTrail_parkour3]"},{"text":" has just earned the achievement "},{"text":"[ One Small Step ]","color":"green","hoverEvent":{"action":"show_text","value":"Make it to the Lobby Parkour Iron Checkpoint"}}]
+	scoreboard players tag @a[score_parkourLevel_min=3,tag=!hasTrail_parkour3] add @!hasTrail_parkour3
+	//Parkour Finish
 	execute @a[score_parkourLevel_min=12,tag=!hasTrail_parkour] ~ ~ ~ playsound entity.player.levelup @a ~ ~ ~ 1000000 0.7
 	execute @a[score_parkourLevel_min=12,tag=!hasTrail_parkour] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_parkourLevel_min=12,tag=!hasTrail_parkour]"},{"text":" has just earned the achievement "},{"text":"[ Happy Feet ]","color":"green","hoverEvent":{"action":"show_text","value":"Complete the Lobby Parkour"}}]
 	scoreboard players tag @a[score_parkourLevel_min=12,tag=!hasTrail_parkour] add @!hasTrail_parkour
@@ -25,9 +37,6 @@
 	scoreboard players add @a[tag=hasTrail_win5] @!unlockedTrails 1
 	scoreboard players add @a[tag=hasTrail_win15] @!unlockedTrails 1
 	scoreboard players tag @a[score_unlockedTrails_min=4] add @!hasTrail_god
-;;
-:: "Informer"
-	
 ;;
 :: "Selector"
 	scoreboard players enable @a @!changeTrail
@@ -51,6 +60,12 @@
 	//Menu
 	tellraw @a[score_changeTrail_min=1] ["",{"text":"Select a trail:","color":"aqua","bold":"true"}]
 	tellraw @a[score_changeTrail_min=1] {"text":"[ None ]","color":"green","clickEvent":{"action":"run_command","value":"/trigger setTrail set -1"},"hoverEvent":{"action":"show_text","value":"Turn off your trail"}}
+	tellraw @a[score_changeTrail_min=1,tag=hasTrail_parkour1] {"text":"[ Baby Steps ]","color":"green","clickEvent":{"action":"run_command","value":"/trigger setTrail set 5"},"hoverEvent":{"action":"show_text","value":"Make it to the Lobby Parkour Wood Checkpoint"}}	
+	tellraw @a[score_changeTrail_min=1,tag=!hasTrail_parkour1] {"text":"[ Baby Steps ]","color":"gray","hoverEvent":{"action":"show_text","value":"Make it to the Lobby Parkour Wood Checkpoint"}}	
+	tellraw @a[score_changeTrail_min=1,tag=hasTrail_parkour2] {"text":"[ Stepping Stone ]","color":"green","clickEvent":{"action":"run_command","value":"/trigger setTrail set 6"},"hoverEvent":{"action":"show_text","value":"Make it to the Lobby Parkour Stone Checkpoint"}}	
+	tellraw @a[score_changeTrail_min=1,tag=!hasTrail_parkour2] {"text":"[ Stepping Stone	]","color":"gray","hoverEvent":{"action":"show_text","value":"Make it to the Lobby Parkour Stone Checkpoint"}}	
+	tellraw @a[score_changeTrail_min=1,tag=hasTrail_parkour3] {"text":"[ One Small Step ]","color":"green","clickEvent":{"action":"run_command","value":"/trigger setTrail set 7"},"hoverEvent":{"action":"show_text","value":"Make it to the Lobby Parkour Iron Checkpoint"}}	
+	tellraw @a[score_changeTrail_min=1,tag=!hasTrail_parkour3] {"text":"[ One Small Step ]","color":"gray","hoverEvent":{"action":"show_text","value":"Make it to the Lobby Parkour Iron Checkpoint"}}	
 	tellraw @a[score_changeTrail_min=1,tag=hasTrail_parkour] {"text":"[ Happy Feet ]","color":"green","clickEvent":{"action":"run_command","value":"/trigger setTrail set 1"},"hoverEvent":{"action":"show_text","value":"Complete the Lobby Parkour"}}	
 	tellraw @a[score_changeTrail_min=1,tag=!hasTrail_parkour] {"text":"[ Happy Feet ]","color":"gray","hoverEvent":{"action":"show_text","value":"Complete the Lobby Parkour"}}	
 	tellraw @a[score_changeTrail_min=1,tag=hasTrail_deaths] {"text":"[ :( ]","color":"green","clickEvent":{"action":"run_command","value":"/trigger setTrail set 2"},"hoverEvent":{"action":"show_text","value":"Die 150 Times"}}
@@ -69,6 +84,9 @@
 	tellraw @a[score_setTrail_min=2,score_setTrail=2] ["",{"text":"You equipped the trail","italic":true,"color":"gold"},{"text":" :(","italic":true,"color":"green"}]
 	tellraw @a[score_setTrail_min=3,score_setTrail=3] ["",{"text":"You equipped the trail","italic":true,"color":"gold"},{"text":" Victor","italic":true,"color":"green"}]
 	tellraw @a[score_setTrail_min=4,score_setTrail=4] ["",{"text":"You equipped the trail","italic":true,"color":"gold"},{"text":" Champion","italic":true,"color":"green"}]
+	tellraw @a[score_setTrail_min=5,score_setTrail=5] ["",{"text":"You equipped the trail","italic":true,"color":"gold"},{"text":" Baby Steps","italic":true,"color":"green"}]
+	tellraw @a[score_setTrail_min=6,score_setTrail=6] ["",{"text":"You equipped the trail","italic":true,"color":"gold"},{"text":" Stepping Stone","italic":true,"color":"green"}]
+	tellraw @a[score_setTrail_min=7,score_setTrail=7] ["",{"text":"You equipped the trail","italic":true,"color":"gold"},{"text":" One Small Step","italic":true,"color":"green"}]
 	tellraw @a[score_setTrail_min=99,score_setTrail=99] ["",{"text":"You equipped the trail","italic":true,"color":"gold"},{"text":" Almighty","italic":true,"color":"green"}]	
 	
 	scoreboard players set @a @!setTrail 0
@@ -104,5 +122,14 @@
 		execute @a[score_selectedTrail_min=3,score_selectedTrail=3,team=Lobby,m=2] ~ ~ ~ particle reddust ~-0.15 ~2 ~0.15 0.95 0.95 0 1 0
 		execute @a[score_selectedTrail_min=3,score_selectedTrail=3,team=Lobby,m=2] ~ ~ ~ particle reddust ~-0.15 ~2 ~0 0.95 0.95 0 1 0
 		execute @a[score_selectedTrail_min=3,score_selectedTrail=3,team=Lobby,m=2] ~ ~ ~ particle reddust ~-0.15 ~2 ~-0.15 0.95 0.95 0 1 0
+	;;
+	:: "Rainbow Feet"
+		execute @a[score_selectedTrail_min=7,score_selectedTrail=7,team=Lobby,m=2] ~ ~ ~ particle reddust ~ ~ ~ 0.24 0 0.24 1 7
+	;;
+	:: "Enchant"
+		execute @a[score_selectedTrail_min=6,score_selectedTrail=6,team=Lobby,m=2] ~ ~ ~ particle enchantmenttable ~ ~.1 ~ 0.2 0.1 0.2 0 10 force
+	;;
+	:: "Bubble"
+		execute @a[score_selectedTrail_min=5,score_selectedTrail=5,team=Lobby,m=2] ~ ~ ~ particle bubble ~ ~0.05 ~ 0.24 0 0.24 1 50
 	;;
 ;;

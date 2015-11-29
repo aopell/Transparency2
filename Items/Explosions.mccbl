@@ -4,7 +4,7 @@
 :: "Mine"
 	scoreboard players remove @e[type=Item,tag=!disp] @!mine 1 {Item:{id:minecraft:record_11},Invulnerable:0b}
 	entitydata @e[type=Item,score_mine=-1] {PickupDelay:32767}
-	execute @e[type=Item,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,Duration:1000000,Particle:take,CustomName:Mine}
+	execute @e[type=Item,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,Duration:1000000,Particle:take,CustomName:Mine,Tags:[noTP]}
 	kill @e[type=Item,score_mine=-60]
 	execute @a[m=2] ~ ~ ~ execute @e[type=AreaEffectCloud,name=Mine,r=0] ~ ~ ~ scoreboard players set @e[type=AreaEffectCloud,name=Mine,r=0] @!mine 1
 	execute @e[score_mine_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,powered:1b,CustomName:Land Mine}
@@ -13,7 +13,7 @@
 ;;
 :: "Grenade"
 	scoreboard players set @e[type=AreaEffectCloud] @!grenade 1 {Effects:[{Id:12b}]}
-	execute @e[type=AreaEffectCloud,score_grenade_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Grenade}
+	execute @e[type=AreaEffectCloud,score_grenade_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Grenade,Tags:[noTP]}
 	kill @e[score_grenade_min=1,type=AreaEffectCloud]
 ;;
 :: "Lightning"
