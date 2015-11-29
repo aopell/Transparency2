@@ -36,6 +36,7 @@
 :: "Pig"
 //summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Some Pig,Lore:[Gives all nearby players 10 temporary extra hearts,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Pig}}},Invulnerable:1b,Age:5600}
 	scoreboard players add @e[type=Pig] @!ticks 1
+	execute @e[type=Pig] ~ ~ ~ particle heart ~ ~ ~ 1.5 1.5 1.5 0 2 force
 	execute @e[type=Pig] ~ ~ ~ effect @a[m=2,r=3] minecraft:absorption 10 4
 	scoreboard players set @e[type=Pig] @!punched 1 {HurtTime:1s}
 	execute @e[type=Pig,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Some Pig}
@@ -43,14 +44,14 @@
 ;;
 :: "Firework"
 //summon Item 3 1 20 {Item:{id:minecraft:firework,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:4,Trail:1b}]},display:{Name:"Firework",Lore:["Makes you feel like a plastic bag","Launches other players into the air","Place on ground to use"]}},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]},Invulnerable:1b,Age:5600}
-	execute @a[score_firework_min=1] ~ ~ ~ effect @a[rm=1,m=2] minecraft:levitation 1 127 true
+	execute @a[score_firework_min=1] ~ ~ ~ effect @e[rm=1,team=!Lobby,type=!AreaEffectCloud] minecraft:levitation 1 127 true
 	execute @a[score_firework_min=1] ~ ~ ~ playsound entity.firework.launch @a[rm=1,m=2] ~ ~ ~ 1000000
 	execute @a[score_firework_min=1] ~ ~ ~ tellraw @a[rm=1,m=2] ["",{"text":"You were launched into the air","color":"gold","italic":true}]
 	scoreboard players set @a @!firework 0
 ;;
 :: "Bouncin' Bunny"
 //summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Bouncin' Bunny,Lore:["'You can reach great heights'","'In fact, you can soar!'",Gives players insane jump boost,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Rabbit,RabbitType:1}}},Invulnerable:1b,Age:5600}
-	execute @e[type=Rabbit] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Age:0,Duration:0,Radius:1.2,Particle:"endRod"}
+	execute @e[type=Rabbit] ~ ~ ~ particle endRod ~ ~ ~ 1 1 1 0 10 force
 	execute @e[type=Rabbit] ~ ~ ~ effect @e[r=2] minecraft:jump_boost 2 75 true
 	scoreboard players set @e[type=Rabbit] @!punched 1 {HurtTime:1s}
 	execute @e[type=Rabbit,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Boomin' Bunny}
