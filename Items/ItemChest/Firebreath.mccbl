@@ -12,6 +12,10 @@
 	xp 49L @a[tag=dragonBreath,score_fireBreath=1,score_fireBreath_min=1]
 	xp 1 @a[tag=breathingFire]
 	scoreboard players set @a[tag=dragonBreath,lm=50] @!fireBreath 0
+	scoreboard players set @a[tag=!dragonBreath] @!fireBreath 0
+	scoreboard players tag @e[type=Item] add @!isHead {Item:{id:minecraft:skull}}
+	execute @a[score_dropHead_min=1] ~ ~ ~ kill @e[type=Item,tag=isHead]
+	scoreboard players set @a @!dropHead 0
 	clear @a[tag=breathingFire,lm=50] minecraft:skull 5 1
 	xp -51L @a[tag=!dragonBreath]
 		//execute @a[score_facing_min=##,score_facing=##,tag=breathingFire] ~ ~ ~ summon Arrow ~([-.7*cos((-##+90)*3.14159265359/180)]) ~ ~([.7*sin((-##+90)*3.14159265359/180)]) {Motion:[([-.9*cos((-##+90)*3.14159265359/180)]),0.1,([.9*sin((-##+90)*3.14159265359/180)])],Fire:1000000,Tags:["isFire"],damage:0}

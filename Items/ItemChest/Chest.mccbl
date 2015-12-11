@@ -31,7 +31,7 @@
 :: "Item Logic"
 	//random prize selector
 	scoreboard players add @e[name=chest,type=Zombie] @!zPrize 1
-	scoreboard players set @e[name=chest,type=Zombie,score_zPrize_min=8] @!zPrize 1
+	scoreboard players set @e[name=chest,type=Zombie,score_zPrize_min=9] @!zPrize 1
 
 	scoreboard players set @e[type=Zombie,name=chest] @!punched 1 {HurtTime:1s}
 
@@ -42,9 +42,9 @@
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=3,score_zPrize=3] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Spawn Wither,Lore:[Spawns a wither for 30 seconds,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Endermite,Tags:[wither],Silent:1b,NoAI:1b}}},Tags:[chestItem],Invulnerable:1b,Age:5600}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=4,score_zPrize=4] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:golden_apple,Count:1,tag:{display:{Name:Apple of pacifism,Lore:["Makes other players unable to do damage","Eat to use"]}}},Tags:[chestItem],Invulnerable:1b,Age:5600}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=5,score_zPrize=5] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:end_crystal,Count:1,tag:{display:{Name:Infinite Improbability Drive,Lore:["Makes you feel like a bowl of petunias","Teleports you through every entity","Drop to use"]}}},Invulnerable:1b,Age:5600,Tags:[justSpawned,chestItem]}
-	//execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=6,score_zPrize=6] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:skull,Damage:5s,Count:1,tag:{display:{Name:Fire Breath,Lore:[Shoots fire in the direction you look,Hold to use]}}},Tags:[chestItem],Invulnerable:1b,Age:5600}
-	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=6,score_zPrize=6] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:fire_charge,Count:1,tag:{CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],display:{Name:Armaggeddon,Lore:["It's the end of the world as we know it","Kills everything and clears all inventories","Place to use"]}}},Tags:[justSpawned,chestItem],Invulnerable:1b,Age:5600}
-	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=7,score_zPrize=7] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:diamond_sword,Damage:1561s,Count:1,tag:{display:{Name:"Insta-Kill Sword",Lore:["ded."]},AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:100000000,Operation:2,UUIDMost:39750,UUIDLeast:34525}],ench:[{id:61,lvl:5}],HideFlags:3}},Tags:[chestItem],Invulnerable:1b,Age:5600}
+	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=6,score_zPrize=6] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:skull,Damage:5s,Count:1,tag:{display:{Name:Fire Breath,Lore:[Shoots fire in the direction you look,Hold to use]}}},Tags:[chestItem],Invulnerable:1b,Age:5600}
+	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=7,score_zPrize=7] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:fire_charge,Count:1,tag:{CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],display:{Name:Armaggeddon,Lore:["It's the end of the world as we know it","Kills everything and clears all inventories","Place to use"]}}},Tags:[justSpawned,chestItem],Invulnerable:1b,Age:5600}
+	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=8,score_zPrize=8] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:diamond_sword,Damage:1561s,Count:1,tag:{display:{Name:"Insta-Kill Sword",Lore:["ded."]},AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:100000000,Operation:2,UUIDMost:39750,UUIDLeast:34525}],ench:[{id:61,lvl:5}],HideFlags:3}},Tags:[chestItem],Invulnerable:1b,Age:5600}
 	//Add chestItem tag to all new chest items
 ;;
 :: "Death"
