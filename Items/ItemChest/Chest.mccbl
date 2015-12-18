@@ -7,11 +7,16 @@
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ spreadplayers 512 512 5 7 false @e[-3,1,20,5,name=chest]
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ playsound entity.player.levelup @a ~ ~ ~ 1000000 2
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ tellraw @a ["",{"text":"An item chest has spawned on the map! Puch it to obtain a rare item!","color":"gold","italic":true}]
-	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 480 123 512 512 152 544 minecraft:air 0 replace minecraft:glass 0
-	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 480 123 480 512 152 512 minecraft:air 0 replace minecraft:glass 0
-	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 512 123 480 544 152 512 minecraft:air 0 replace minecraft:glass 0
-	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ fill 512 123 512 544 152 544 minecraft:air 0 replace minecraft:glass 0
 	scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] @!chestTimer 0
+;;
+:: "Glass Logic"
+	scoreboard players add @e[type=Item,tag=chestItem] @!ticks 1
+	execute @e[type=Item,tag=chestItem,score_ticks_min=1] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Duration:400,CustomName:glassPlaceholder}
+	scoreboard players set @e[type=Item,tag=chestItem,score_ticks_min=1] @!ticks -500
+	execute @e[name=glassPlaceholder] ~ ~ ~ setblock ~ ~-1 ~ minecraft:glass 0 keep
+	scoreboard players tag @e[type=AreaEffectCloud] add @!killGlassThing {Age:399}
+	execute @e[tag=killGlassThing] ~ ~ ~ fill ~ ~-1 ~ ~ ~-1 ~ minecraft:air 0 replace minecraft:glass
+	kill @e[tag=killGlassThing]
 ;;
 :: "Generic Logic"
 	//particles:

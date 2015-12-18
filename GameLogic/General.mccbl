@@ -24,10 +24,6 @@
 		clear @a minecraft:bucket
 		entitydata @e[type=Item,score_justSpawned_min=1] {Glowing:1b}
 		execute @a[m=2] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:anvil
-		execute @a[m=2] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:glass
-		execute @e[tag=chestItem] ~ ~ ~ setblock ~ ~-1 ~ minecraft:glass 0 keep
-		scoreboard players add @e[name=GK,type=ArmorStand] @!glassTimer 1
-		scoreboard players set @e[name=GK,type=ArmorStand,score_glassTimer_min=800] @!glassTimer 0
 		//execute @e[type=Item,tag=chestItem] ~ ~ ~ setblock ~ ~-1 ~ minecraft:glass 0 keep
 	;;
 	:: "Item Spawner Particles"
