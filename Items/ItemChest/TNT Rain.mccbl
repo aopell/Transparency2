@@ -1,0 +1,34 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+execute @a[score_useTNT_min=1] ~ ~ ~ summon AreaEffectCloud 497 200 497 {Duration:1000000}
+scoreboard players reset @a @!useTNT
+summon Item ~ ~ ~ {Item:{id:minecraft:tnt,Count:1},PickUpDelay:32767,Tags:[toBoom]}
+execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
+execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:slime -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
+execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
+
+//tp @e[497,200,([497+n*(1-1)]),dx=30] ~4 ~ ~
+//tp @e[528,200,([497+n*(1-1)]),0] ~ ~ ~4
+//tp @e[497,200,([497+n*1]),dx=30] ~-4 ~ ~
+//tp @e[497,200,([497+n*1]),0] ~ ~ ~4
+
+tp @e[497,200,([497+4*(1-1)]),dx=30] ~4 ~ ~
+tp @e[528,200,([497+4*(1-1)]),0] ~ ~ ~4
+tp @e[497,200,([497+4*1]),dx=30] ~-4 ~ ~
+tp @e[497,200,([497+4*1]),0] ~ ~ ~4
+
+tp @e[497,200,([497+4*(2-1)]),dx=30] ~4 ~ ~
+tp @e[528,200,([497+4*2-1]),0] ~ ~ ~4
+tp @e[497,200,([497+4*2]),dx=30] ~-4 ~ ~
+tp @e[497,200,([497+4*2]),0] ~ ~ ~4
+
+tp @e[497,200,([497+4*(3-1)]),dx=30] ~4 ~ ~
+tp @e[528,200,([497+4*(3-1)]),0] ~ ~ ~4
+tp @e[497,200,([497+4*3]),dx=30] ~-4 ~ ~
+tp @e[497,200,([497+4*3]),0] ~ ~ ~4
+
+tp @e[497,200,([497+4*(4-1)]),dx=30] ~4 ~ ~
+tp @e[528,200,([497+4*(4-1)]),0] ~ ~ ~4
+tp @e[497,200,([497+4*4]),dx=30] ~-4 ~ ~
+tp @e[497,200,([497+4*4]),0]
