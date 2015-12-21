@@ -15,10 +15,7 @@
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_inGame=0,m=3] @!inGame -1
 ;;
 :: "Respawn Logic"
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players remove @a[score_deaths_min=1,score_tsd_min=100] @!lives 1
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tellraw @a[score_deaths_min=1,score_tsd=100,tag=!voidDie] ["",{"text":"Your life was spared","color":"gold","italic":true}]
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ playsound entity.guardian.death @a[score_deaths_min=1,score_tsd=100,tag=!voidDie] ~ ~ ~ 1000 2
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players remove @a[score_deaths_min=1,score_tsd=100,tag=voidDie] @!lives 1
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players remove @a[score_deaths_min=1] @!lives 1
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @a remove @!voidDie
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_deaths_min=1] @!muscleMilkTimer 0
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players add @a[score_deaths_min=1] @!deathsAch 1
