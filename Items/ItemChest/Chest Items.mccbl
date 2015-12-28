@@ -42,31 +42,30 @@
 	scoreboard players set @a @!arma 0
 ;;
 :: "TNT Rain"
-	execute @a[score_useTNT_min=1] ~ ~ ~ summon AreaEffectCloud 495 200 495 {Duration:1000000,CustomName:TNTRain,Tags:[TNTRain]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ summon AreaEffectCloud 497 200 497 {Duration:1000000}
+	execute @a[score_useTNT_min=1] ~ ~ ~ scoreboard players set @e[type=Item] @!useTNT 1 {Item:{id:minecraft:tnt,Count:1b}}
+	execute @a[score_useTNT_min=1] ~ ~ ~ kill @e[type=Item,score_useTNT_min=1]
 	scoreboard players reset @a @!useTNT
-	execute @e[tag=TNTRain] ~ ~ ~ summon Item ~ ~ ~ {Item:{id:minecraft:tnt,Count:1},PickUpDelay:32767,Tags:[toBoom]}
+	summon Item ~ ~ ~ {Item:{id:minecraft:tnt,Count:1},PickUpDelay:32767,Tags:[toBoom]}
 	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
 	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:slime -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
 	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
-	
-	tp @e[495,200,495,dx=34,type=AreaEffectCloud] ~5 ~ ~
-	tp @e[530,200,495,0,type=AreaEffectCloud] ~ ~ ~5
-	
-	tp @e[495,200,500,dx=34,type=AreaEffectCloud] ~-5 ~ ~
-	tp @e[495,200,500,0,type=AreaEffectCloud] ~ ~ ~5
-	
-	tp @e[495,200,510,dx=34,type=AreaEffectCloud] ~5 ~ ~
-	tp @e[530,200,510,0,type=AreaEffectCloud] ~ ~ ~5
-	
-	tp @e[495,200,515,dx=34,type=AreaEffectCloud] ~-5 ~ ~
-	tp @e[495,200,515,0,type=AreaEffectCloud] ~ ~ ~5
-	
-	tp @e[495,200,520,dx=34,type=AreaEffectCloud] ~5 ~ ~
-	tp @e[530,200,520,0,type=AreaEffectCloud] ~ ~ ~5
-	
-	tp @e[495,200,525,dx=34,type=AreaEffectCloud] ~-5 ~ ~
-	tp @e[495,200,525,0,type=AreaEffectCloud] ~ ~ ~5
-	
-	tp @e[495,200,530,dx=34,type=AreaEffectCloud] ~-5 ~ ~
-	kill @e[530,200,530,0,type=AreaEffectCloud]
+
+	kill @e[530,200,530,1,type=AreaEffectCloud]
+	tp @e[495,200,500,dz=35,type=AreaEffectCloud] ~ ~ ~5
+	tp @e[530,200,495,dz=35,type=AreaEffectCloud] ~ ~ ~5
+
+	tp @e[495,200,495,dx=35,type=AreaEffectCloud] ~5 ~ ~
+
+	tp @e[495,200,500,dx=35,type=AreaEffectCloud] ~-5 ~ ~
+
+	tp @e[495,200,510,dx=35,type=AreaEffectCloud] ~5 ~ ~
+
+	tp @e[495,200,515,dx=35,type=AreaEffectCloud] ~-5 ~ ~
+
+	tp @e[495,200,520,dx=35,type=AreaEffectCloud] ~5 ~ ~
+
+	tp @e[495,200,525,dx=35,type=AreaEffectCloud] ~-5 ~ ~
+
+	tp @e[495,200,530,dx=35,type=AreaEffectCloud] ~-5 ~ ~
 ;;
