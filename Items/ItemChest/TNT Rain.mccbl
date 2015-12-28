@@ -8,27 +8,23 @@ execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass -1
 execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:slime -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
 execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
 
-//tp @e[497,200,([497+n*(1-1)]),dx=30] ~4 ~ ~
-//tp @e[528,200,([497+n*(1-1)]),0] ~ ~ ~4
-//tp @e[497,200,([497+n*1]),dx=30] ~-4 ~ ~
-//tp @e[497,200,([497+n*1]),0] ~ ~ ~4
+tp @e[type=AreaEffectCloud,495,200,495,dx=34] ~5 ~ ~
+tp @e[type=AreaEffectCloud,530,200,495,0] ~ ~ ~5
 
-tp @e[497,200,([497+4*(1-1)]),dx=30] ~4 ~ ~
-tp @e[528,200,([497+4*(1-1)]),0] ~ ~ ~4
-tp @e[497,200,([497+4*1]),dx=30] ~-4 ~ ~
-tp @e[497,200,([497+4*1]),0] ~ ~ ~4
+tp @e[type=AreaEffectCloud,495,200,500,dx=34] ~-5 ~ ~
+tp @e[type=AreaEffectCloud,495,200,500,0] ~ ~ ~5
 
-tp @e[497,200,([497+4*(2-1)]),dx=30] ~4 ~ ~
-tp @e[528,200,([497+4*2-1]),0] ~ ~ ~4
-tp @e[497,200,([497+4*2]),dx=30] ~-4 ~ ~
-tp @e[497,200,([497+4*2]),0] ~ ~ ~4
+tp @e[type=AreaEffectCloud,495,200,510,dx=34] ~5 ~ ~
+tp @e[type=AreaEffectCloud,530,200,510,0] ~ ~ ~5
 
-tp @e[497,200,([497+4*(3-1)]),dx=30] ~4 ~ ~
-tp @e[528,200,([497+4*(3-1)]),0] ~ ~ ~4
-tp @e[497,200,([497+4*3]),dx=30] ~-4 ~ ~
-tp @e[497,200,([497+4*3]),0] ~ ~ ~4
+tp @e[type=AreaEffectCloud,495,200,515,dx=34] ~-5 ~ ~
+tp @e[type=AreaEffectCloud,495,200,515,0] ~ ~ ~5
 
-tp @e[497,200,([497+4*(4-1)]),dx=30] ~4 ~ ~
-tp @e[528,200,([497+4*(4-1)]),0] ~ ~ ~4
-tp @e[497,200,([497+4*4]),dx=30] ~-4 ~ ~
-tp @e[497,200,([497+4*4]),0]
+tp @e[type=AreaEffectCloud,495,200,520,dx=34] ~5 ~ ~
+tp @e[type=AreaEffectCloud,530,200,520,0] ~ ~ ~5
+
+tp @e[type=AreaEffectCloud,495,200,525,dx=34] ~-5 ~ ~
+tp @e[type=AreaEffectCloud,495,200,525,0] ~ ~ ~5
+
+tp @e[type=AreaEffectCloud,495,200,530,dx=34] ~-5 ~ ~
+kill @e[type=AreaEffectCloud,530,200,530,0]
