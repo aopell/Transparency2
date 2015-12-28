@@ -41,3 +41,32 @@
 	execute @a[score_arma_min=1] ~ ~ ~ kill @a[m=2,team=!Lobby]
 	scoreboard players set @a @!arma 0
 ;;
+:: "TNT Rain"
+	execute @a[score_useTNT_min=1] ~ ~ ~ summon AreaEffectCloud 497 200 497 {Duration:1000000}
+	scoreboard players reset @a @!useTNT
+	summon Item ~ ~ ~ {Item:{id:minecraft:tnt,Count:1},PickUpDelay:32767,Tags:[toBoom]}
+	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
+	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:slime -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
+	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
+	
+	tp @e[495,200,495,dx=34,type=AreaEffectCloud] ~5 ~ ~
+	tp @e[530,200,495,0,type=AreaEffectCloud] ~ ~ ~5
+	
+	tp @e[495,200,500,dx=34,type=AreaEffectCloud] ~-5 ~ ~
+	tp @e[495,200,500,0,type=AreaEffectCloud] ~ ~ ~5
+	
+	tp @e[495,200,510,dx=34,type=AreaEffectCloud] ~5 ~ ~
+	tp @e[530,200,510,0,type=AreaEffectCloud] ~ ~ ~5
+	
+	tp @e[495,200,515,dx=34,type=AreaEffectCloud] ~-5 ~ ~
+	tp @e[495,200,515,0,type=AreaEffectCloud] ~ ~ ~5
+	
+	tp @e[495,200,520,dx=34,type=AreaEffectCloud] ~5 ~ ~
+	tp @e[530,200,520,0,type=AreaEffectCloud] ~ ~ ~5
+	
+	tp @e[495,200,525,dx=34,type=AreaEffectCloud] ~-5 ~ ~
+	tp @e[495,200,525,0,type=AreaEffectCloud] ~ ~ ~5
+	
+	tp @e[495,200,530,dx=34,type=AreaEffectCloud] ~-5 ~ ~
+	kill @e[530,200,530,0,type=AreaEffectCloud]
+;;
