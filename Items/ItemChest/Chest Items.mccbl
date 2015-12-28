@@ -6,7 +6,8 @@
 	scoreboard players operation @e[name=GK,type=!Player] @!livesToAdd = @!RespawnTokens @!gameSettings
 	scoreboard players operation @e[name=GK,type=!Player] @!livesToAdd /= @!ten @!ten
 	scoreboard players operation @a[score_plusThree_min=1] @!lives += @e[name=GK,type=!Player] @!livesToAdd
-	execute @a[score_plusThree_min=1,m=2] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_plusThree_min=1]"},{"text":" has gained ","color":"green"},{"score":{"name":"@e[name=GK,type=!Player]","objective":"livesToAdd"},"color":"red"},{"text":" tokens!","color":"green"}]
+	scoreboard players operation @!LivesToAdd @!livesToAdd = @e[name=GK,type=!Player] @!livesToAdd
+	execute @a[score_plusThree_min=1,m=2] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_plusThree_min=1]"},{"text":" has gained ","color":"green"},{"score":{"name":"LivesToAdd","objective":"livesToAdd"},"color":"red"},{"text":" tokens!","color":"green"}]
 	playsound entity.player.levelup @a[score_plusThree_min=1] ~ ~ ~ 1000000 0
 	clear @a minecraft:emerald
 	scoreboard players set @a @!plusThree 0
@@ -36,6 +37,7 @@
 //summon Item ~ ~1 ~ {Item:{id:minecraft:fire_charge,Count:1,tag:{display:{Name:Armaggeddon,Lore:["It's the end of the world as we know it","Kills everything and clears all inventories","Drop to use"]}}},Tags:[justSpawned],Invulnerable:1b,Age:5600}
 	execute @a[score_arma_min=1] ~ ~ ~ clear @a[m=2]
 	execute @a[score_arma_min=1] ~ ~ ~ execute @e[512,128,512,200,team=!Lobby,type=!ArmorStand,tag=!arma] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Armaggeddon,Tags:[arma]}
+	execute @a[score_arma_min=1] ~ ~ ~ tellraw @a ["",{"text":"The world ended.","color":"gold","italic":true}]
 	execute @a[score_arma_min=1] ~ ~ ~ kill @a[m=2,team=!Lobby]
 	scoreboard players set @a @!arma 0
 ;;

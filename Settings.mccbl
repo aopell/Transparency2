@@ -29,3 +29,11 @@ testforblock -2 62 -1 minecraft:stone_button 9
 testforblock -2 60 -1 minecraft:stone_button 9
 ?setblock -2 60 -1 minecraft:stone_button 1 replace
 ?scoreboard players remove @!RespawnTokens @!gameSettings 10
+
+//EstimatedLength
+scoreboard players operation @!Players @!calc = @!Players @!gameSettings
+scoreboard players operation @!Players @!calc += @!Thirty @!calc
+scoreboard players operation @!Tokens @!calc = @!RespawnTokens @!gameSettings
+scoreboard players operation @!Tokens @!calc *= @!Twenty @!calc
+scoreboard players operation @!EstimatedLength @!gameSettings = @!Tokens @!calc
+scoreboard players operation @!EstimatedLength @!gameSettings /= @!Players @!calc
