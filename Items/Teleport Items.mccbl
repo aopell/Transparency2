@@ -3,10 +3,12 @@
 @VERSION 1.9
 :: "Teleport Map"
 //summon Item 3 1 20 {Item:{id:minecraft:map,Count:1,tag:{display:{Name:Teleport Map,Lore:["Teleports EVERYTHING (including you)","around the map randomly","Right click while holding to use"]}}},Invulnerable:1b,Age:5600}
-	clear @a[m=2,team=!Lobby] minecraft:filled_map -1 1
-	?spreadplayers 512 512 5 20 false @a[512,128,512,150,m=2,team=!Lobby] @e[512,128,512,150,type=!AreaEffectCloud]
-	?playsound entity.endermen.teleport @a ~ ~ ~ 1000000 0
-	?tellraw @a ["",{"text":"Everything was teleported to a random location!","color":"gold","italic":true}]
+	scoreboard players set @a[m=2] @!map 1 {Inventory:[{id:minecraft:filled_map}]}
+	execute @a[score_map_min=1] ~ ~ ~ spreadplayers 512 512 5 20 false @a[512,128,512,150,m=2,team=!Lobby] @e[512,128,512,150,type=!AreaEffectCloud,tag=!camera]
+	execute @a[score_map_min=1] ~ ~ ~ playsound entity.endermen.teleport @a ~ ~ ~ 1000000 0
+	execute @a[score_map_min=1] ~ ~ ~ tellraw @a ["",{"text":"Everything was teleported to a random location!","color":"gold","italic":true}]
+	clear @a[m=2,team=!Lobby,score_map_min=1] minecraft:filled_map -1 1
+	scoreboard players set @a @!map 0
 ;;
 :: "Sticky Arm"
 //summon Item 3 1 20 {Item:{id:minecraft:fishing_rod,Count:1,Damage:64,tag:{display:{Name:Sticky Arm,Lore:["Reaches out and grabs all players","Teleports a player to you","Right click while holding to use"]}}},Invulnerable:1b,Age:5600}
