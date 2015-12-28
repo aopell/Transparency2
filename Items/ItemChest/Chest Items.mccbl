@@ -1,10 +1,12 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
-:: "+3 Tokens"
+:: "+n Tokens"
 //summon Item ~ ~ ~ {Item:{id:minecraft:emerald,Count:1,tag:{display:{Name:+3 Tokens,Lore:["Gives you three tokens"]}}},Invulnerable:1b,Age:5600}
-	scoreboard players add @a[score_plusThree_min=1] @!lives 3
-	execute @a[score_plusThree_min=1,m=2] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_plusThree_min=1]"},{"text":" gained 3 tokens!","color":"green","italic":true}]
+	scoreboard players operation @e[name=GK,type=!Player] @!livesToAdd = @!RespawnTokens @!gameSettings
+	scoreboard players operation @e[name=GK,type=!Player] @!livesToAdd /= @!ten @!ten
+	scoreboard players operation @a[score_plusThree_min=1] @!lives += @e[name=GK,type=!Player] @!livesToAdd
+	execute @a[score_plusThree_min=1,m=2] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_plusThree_min=1]"},{"text":" has gained ","color":"green"},{"score":{"name":"@e[name=GK,type=!Player]","objective":"livesToAdd"},"color":"red"},{"text":" tokens!","color":"green"}]
 	playsound entity.player.levelup @a[score_plusThree_min=1] ~ ~ ~ 1000000 0
 	clear @a minecraft:emerald
 	scoreboard players set @a @!plusThree 0
