@@ -42,9 +42,9 @@
 	scoreboard players set @a @!arma 0
 ;;
 :: "TNT Rain"
-	execute @a[score_useTNT_min=1] ~ ~ ~ summon AreaEffectCloud 497 200 497 {Duration:1000000}
+	execute @a[score_useTNT_min=1] ~ ~ ~ summon AreaEffectCloud 495 200 495 {Duration:1000000,CustomName:TNTRain,Tags:[TNTRain]}
 	scoreboard players reset @a @!useTNT
-	summon Item ~ ~ ~ {Item:{id:minecraft:tnt,Count:1},PickUpDelay:32767,Tags:[toBoom]}
+	execute @e[tag=TNTRain] ~ ~ ~ summon Item ~ ~ ~ {Item:{id:minecraft:tnt,Count:1},PickUpDelay:32767,Tags:[toBoom]}
 	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
 	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:slime -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
 	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
