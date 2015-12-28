@@ -12,7 +12,11 @@
 :: "Glass Logic"
 	scoreboard players add @e[type=Item,tag=chestItem] @!ticks 1
 	execute @e[type=Item,tag=chestItem,score_ticks_min=1] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Duration:400,CustomName:glassPlaceholder}
-	scoreboard players set @e[type=Item,tag=chestItem,score_ticks_min=1] @!ticks -500
+	scoreboard players set @e[name=glassPlaceholder,type=AreaEffectCloud] @!removeGlass -1
+	execute @e[type=Item,tag=chestItem] ~ ~ ~ scoreboard players set @e[name=glassPlaceholder,type=AreaEffectCloud,r=1] @!removeGlass -1
+	scoreboard players add @e[name=glassPlaceholder,type=AreaEffectCloud] @!removeGlass 1
+	scoreboard players tag @e[type=AreaEffectCloud,score_removeGlass_min=1] add @!killGlassThing
+	scoreboard players set @e[type=Item,tag=chestItem,score_ticks_min=1] @!ticks -1
 	execute @e[name=glassPlaceholder] ~ ~ ~ setblock ~ ~-1 ~ minecraft:glass 0 keep
 	scoreboard players tag @e[type=AreaEffectCloud] add @!killGlassThing {Age:399}
 	execute @e[tag=killGlassThing] ~ ~ ~ fill ~ ~-1 ~ ~ ~-1 ~ minecraft:air 0 replace minecraft:glass
