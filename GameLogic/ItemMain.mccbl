@@ -3,6 +3,7 @@
 @VERSION 1.9
 scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!itemTimer 1
 scoreboard players set @e[type=Item] @!justSpawned 1 {Invulnerable:1b}
+scoreboard players tag @e[type=Item,score_justSpawned_min=1] add @!justSpawned 
 execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_itemTimer_min=100] ~ ~ ~ execute @r[type=ArmorStand,name=Item,c=3] ~ ~ ~ blockdata ~ ~-1 ~ {auto:1b}
 tp @r[3,1,20,1,type=Item,score_justSpawned_min=1] @r[type=AreaEffectCloud,name=ItemSpawner]
 scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress,score_itemTimer_min=100] @!itemTimer 0
