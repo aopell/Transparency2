@@ -46,7 +46,7 @@
 	execute @a[score_useTNT_min=1] ~ ~ ~ scoreboard players set @e[type=Item] @!useTNT 1 {Item:{id:minecraft:tnt,Count:1b}}
 	execute @a[score_useTNT_min=1] ~ ~ ~ kill @e[type=Item,score_useTNT_min=1]
 	scoreboard players reset @a @!useTNT
-	summon Item ~ ~ ~ {Item:{id:minecraft:tnt,Count:1},PickUpDelay:32767,Tags:[toBoom]}
+	execute @e[type=AreaEffectCloud,tag=TNTRain] ~ ~ ~ summon Item ~ ~ ~ {Item:{id:minecraft:tnt,Count:1},PickUpDelay:32767,Tags:[toBoom]}
 	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
 	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:slime -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
 	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
