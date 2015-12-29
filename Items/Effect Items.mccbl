@@ -17,6 +17,7 @@
 	execute @a[score_muscleMilk_min=1,score_muscleMilk=1] ~ ~ ~ effect @p minecraft:glowing 20 0 true
 	execute @a[score_muscleMilk_min=1,score_muscleMilk=1] ~ ~ ~ effect @p minecraft:mining_fatigue 20 0 true
 	execute @a[score_muscleMilk_min=1,score_muscleMilk=1] ~ ~ ~ scoreboard players tag remove @p @!spinning
+	execute @a[score_muscleMilk_min=1,score_muscleMilk=1] ~ ~ ~ scoreboard players set @p @!freeze 0
 	scoreboard players set @a[score_muscleMilk_min=1] @!muscleMilkTimer 1
 	scoreboard players add @a[score_muscleMilkTimer_min=1] @!muscleMilkTimer 1
 	scoreboard players set @a[score_muscleMilk_min=1] @!muscleMilk 0
