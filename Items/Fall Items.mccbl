@@ -3,7 +3,7 @@
 @VERSION 1.9
 :: "Anvil"
 //summon Item 3 1 20 {Item:{id:minecraft:anvil,Count:1,tag:{display:{Name:Falling Anvils,Lore:[Creates a 5x5 area of falling anvils,The anvils spawn above where item is dropped,Drop on the ground to use]}}},Invulnerable:1b,Age:5600}
-	scoreboard players remove @e[type=Item,tag=!disp] anvil 1 {Item:{id:minecraft:anvil},Invulnerable:0b}
+	scoreboard players remove @e[type=Item,tag=!disp] minecraft:anvil 1 {Item:{id:minecraft:anvil},Invulnerable:0b}
 	entitydata @e[type=Item,score_anvil=-1] {PickupDelay:32767}
 	execute @e[type=Item,score_anvil=-30] ~ ~ ~ fill ~-2 255 ~-2 ~2 255 ~2 minecraft:anvil 8
 	kill @e[type=Item,score_anvil=-30]

@@ -31,6 +31,7 @@
 	kill @e[tag=improb,type=Item]
 	scoreboard players add @a[score_improb_min=1] @!improb 1
 	scoreboard players set @a[score_improb_min=30] @!improb 0
+	execute @a[score_improb_min=1,score_improb=1] ~ ~ ~ playsound minecraft:entity.elder_guardian.curse master @p ~ ~ ~ 50 .2
 	tp @a[score_improb_min=1] @r[512,128,512,128,type=!ArmorStand,tag=!noTP]
 ;;
 :: "Armaggeddon"

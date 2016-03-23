@@ -34,11 +34,11 @@ tp @a[team=] 0.0 65 0.0
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=540,score_count=540] ~ ~ ~ title @a subtitle ["",{"text":"3","color":"red","italic":"true"}]
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=560,score_count=560] ~ ~ ~ title @a subtitle ["",{"text":"2","color":"red","italic":"true"}]
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ title @a subtitle ["",{"text":"1","color":"red","italic":"true"}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=500] ~ ~ ~ playsound entity.experience_orb.pickup master @a ~ ~ ~ 1000000 1 1
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=520,score_count=520] ~ ~ ~ playsound entity.experience_orb.pickup master @a ~ ~ ~ 1000000 1 1
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=540,score_count=540] ~ ~ ~ playsound entity.experience_orb.pickup master @a ~ ~ ~ 1000000 1 1
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=560,score_count=560] ~ ~ ~ playsound entity.experience_orb.pickup master @a ~ ~ ~ 1000000 1 1
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ playsound entity.experience_orb.pickup master @a ~ ~ ~ 1000000 1 1
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=500] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=520,score_count=520] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=540,score_count=540] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=560,score_count=560] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600] ~ ~ ~ title @a subtitle ["",{"text":""}]
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600] ~ ~ ~ title @a title ["",{"text":""}]
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=599] ~ ~ ~ title @a title [{"text":"Game starting in","color":"yellow","italic":"true"}]
