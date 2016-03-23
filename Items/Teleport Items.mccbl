@@ -5,7 +5,7 @@
 //summon Item 3 1 20 {Item:{id:minecraft:map,Count:1,tag:{display:{Name:Teleport Map,Lore:["Teleports EVERYTHING (including you)","around the map randomly","Right click while holding to use"]}}},Invulnerable:1b,Age:5600}
 	scoreboard players set @a[m=2] @!map 1 {Inventory:[{id:minecraft:filled_map}]}
 	execute @a[score_map_min=1] ~ ~ ~ spreadplayers 512 512 5 20 false @a[512,128,512,150,m=2,team=!Lobby] @e[512,128,512,150,type=!AreaEffectCloud,tag=!camera]
-	execute @a[score_map_min=1] ~ ~ ~ playsound entity.endermen.teleport @a ~ ~ ~ 1000000 0
+	execute @a[score_map_min=1] ~ ~ ~ playsound entity.endermen.teleport master @a ~ ~ ~ 1000000 0
 	execute @a[score_map_min=1] ~ ~ ~ tellraw @a ["",{"text":"Everything was teleported to a random location!","color":"gold","italic":true}]
 	clear @a[m=2,team=!Lobby,score_map_min=1] minecraft:filled_map -1 1
 	scoreboard players set @a @!map 0
@@ -14,7 +14,7 @@
 //summon Item 3 1 20 {Item:{id:minecraft:fishing_rod,Count:1,Damage:64,tag:{display:{Name:Sticky Arm,Lore:["Reaches out and grabs all players","Teleports a player to you","Right click while holding to use"]}}},Invulnerable:1b,Age:5600}
 	execute @a[score_fishing_min=1] ~ ~ ~ scoreboard players tag @r[m=2,rm=1] add @!beingPulled
 	execute @a[score_fishing_min=1] ~ ~ ~ tp @a[tag=beingPulled] @a[score_fishing_min=1]
-	execute @a[score_fishing_min=1] ~ ~ ~ playsound entity.endermen.teleport @a ~ ~ ~ 1000000 2
+	execute @a[score_fishing_min=1] ~ ~ ~ playsound entity.endermen.teleport master @a ~ ~ ~ 1000000 2
 	execute @a[score_fishing_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_fishing_min=1]"},{"text":" teleported ","color":"gold","italic":true},{"selector":"@a[tag=beingPulled]","color":"none","italic":false},{"text":" to themselves!","color":"gold","italic":true}]
 	clear @a[score_fishing_min=1] minecraft:fishing_rod -1 1
 	scoreboard players set @a @!fishing 0
@@ -26,7 +26,7 @@
 	execute @a[score_usedTop_min=1] ~ ~ ~ scoreboard players tag @r[rm=1,m=2,team=!Lobby,tag=!spinning] add @!spinning
 	execute @a[score_usedTop_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=spinning,score_topCount_min=0,score_topCount=5]"},{"text":" is feeling a bit dizzy!","color":"gold","italic":true}]
 	execute @a[score_usedTop_min=1] ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:hopper
-	execute @a[score_usedTop_min=1] ~ ~ ~ playsound block.portal.ambient @a ~ ~ ~ 1000 2
+	execute @a[score_usedTop_min=1] ~ ~ ~ playsound block.portal.ambient master @a ~ ~ ~ 1000 2
 	scoreboard players reset @a @!usedTop
 	//spinnnnnnnnnnn
 	tp @a[tag=spinning] ~ ~ ~ ~4 ~

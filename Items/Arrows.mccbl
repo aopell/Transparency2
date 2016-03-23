@@ -29,6 +29,6 @@ execute @e[type=Arrow,score_glowness_min=1,tag=!isFire] ~ ~ ~ summon AreaEffectC
 ;;
 //fancy
 execute @e[type=Arrow,tag=!isFire] ~ ~ ~ particle mobSpell ~ ~ ~ 0 0 0 1 3
-execute @e[type=Arrow,score_inGround_min=1,tag=!isFire] ~ ~ ~ playsound block.glass.break @a ~ ~ ~
+execute @e[type=Arrow,score_inGround_min=1,tag=!isFire] ~ ~ ~ playsound block.glass.break master @a ~ ~ ~
 //die
 kill @e[type=Arrow,score_inGround_min=1]

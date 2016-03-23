@@ -6,9 +6,9 @@
 	execute @a[score_mirror_min=1] ~ ~ ~ summon ArmorStand -3 1 20 {CustomName:"mirror",Invisible:1b,NoGravity:1b}
 	execute @a[score_mirror_min=1] ~ ~ ~ scoreboard players set @r[rm=1,m=2,score_health_min=1] @!mirrorRecip 1
 	execute @a[score_mirror_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1]","italic":true},{"text":" was position swapped with ","color":"gold","italic":true},{"selector":"@a[score_mirrorRecip_min=1]","italic":true,"color":"none"}]
-	execute @a[score_mirror_min=1] ~ ~ ~ playsound mob.endermen.teleport @p
+	execute @a[score_mirror_min=1] ~ ~ ~ playsound mob.endermen.teleport master @p
 	execute @a[score_mirror_min=1] ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:stained_glass_pane 0
-	execute @a[score_mirrorRecip_min=1] ~ ~ ~ playsound mob.endermen.teleport @p
+	execute @a[score_mirrorRecip_min=1] ~ ~ ~ playsound mob.endermen.teleport master @p
 	tp @e[type=ArmorStand,name=mirror,c=1] @a[score_mirror_min=1,c=1]
 	tp @a[score_mirror_min=1,c=1] @a[score_mirrorRecip_min=1,c=1]
 	tp @a[score_mirrorRecip_min=1,c=1] @e[type=ArmorStand,name=mirror,c=1]
@@ -22,6 +22,6 @@
 	execute @e[score_clear_min=1] ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:glass_pane 0
 	clear @a[score_clear=-1]
 	execute @a[score_clear_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear=-1]","italic":true},{"text":"'s inventory was cleared","color":"gold","italic":true}]
-	execute @a[score_clear_min=1] ~ ~ ~ execute @a ~ ~ ~ playsound entity.experience_orb.pickup @p
+	execute @a[score_clear_min=1] ~ ~ ~ execute @a ~ ~ ~ playsound entity.experience_orb.pickup master @p
 	scoreboard players set @a clear 0
 ;;

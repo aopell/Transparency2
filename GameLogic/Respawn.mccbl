@@ -23,7 +23,7 @@
 	//spare lives
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players add @a[score_deaths_min=1,score_spare=100,tag=!voidDie] @!lives 1
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tellraw @a[score_deaths_min=1,score_spare=100,tag=!voidDie] ["",{"text":"Your life was spared","color":"green","italic":true}]
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ playsound entity.guardian.death @a[score_deaths_min=1,score_spare=100,tag=!voidDie] ~ ~ ~ 1000 2
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ playsound entity.guardian.death master @a[score_deaths_min=1,score_spare=100,tag=!voidDie] ~ ~ ~ 1000 2
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @a remove @!voidDie
 	//do some things
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_deaths_min=1] @!muscleMilkTimer 0

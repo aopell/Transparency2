@@ -31,7 +31,7 @@
 	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ scoreboard players set @a[rm=1,m=2] @!freeze -1
 	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ tellraw @a[score_freeze=-1] ["",{"text":"You were frozen in your tracks","color":"aqua","italic":true}]
 	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:ice 0
-	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ execute @a ~ ~ ~ playsound block.glass.break @p
+	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ execute @a ~ ~ ~ playsound block.glass.break master @p
 	scoreboard players remove @a[score_freeze=-1] @!freeze 1
 	effect @a[score_freeze=-1,m=2] minecraft:slowness 1 127 true
 	effect @a[score_freeze=-1,m=2] minecraft:jump_boost 1 200 true
@@ -50,7 +50,7 @@
 :: "Firework"
 //summon Item 3 1 20 {Item:{id:minecraft:firework,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:4,Trail:1b}]},display:{Name:"Firework",Lore:["Makes you feel like a plastic bag","Launches other players into the air","Place on ground to use"]}},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]},Invulnerable:1b,Age:5600}
 	execute @a[score_firework_min=1] ~ ~ ~ effect @e[rm=1,team=!Lobby,type=!ArmorStand] minecraft:levitation 1 127 true
-	execute @a[score_firework_min=1] ~ ~ ~ playsound entity.firework.launch @a[rm=1,m=2] ~ ~ ~ 1000000
+	execute @a[score_firework_min=1] ~ ~ ~ playsound entity.firework.launch master @a[rm=1,m=2] ~ ~ ~ 1000000
 	execute @a[score_firework_min=1] ~ ~ ~ tellraw @a[rm=1,m=2] ["",{"text":"You were launched into the air","color":"gold","italic":true}]
 	scoreboard players set @a @!firework 0
 ;;
