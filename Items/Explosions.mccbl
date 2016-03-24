@@ -4,7 +4,7 @@
 :: "Mine"
 	scoreboard players remove @e[type=Item,tag=!disp] @!mine 1 {Item:{id:minecraft:record_11},Invulnerable:0b}
 	entitydata @e[type=Item,score_mine=-1] {PickupDelay:32767}
-	execute @e[type=Item,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,RadiusOnUse:0f,Duration:1000000,Particle:take,CustomName:Mine,Tags:[noTP]}
+	execute @e[type=Item,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,RadiusOnUse:0f,Duration:1000000,Particle:take,CustomName:Mine,Tags:[noTP],Age:-1000000}
 	kill @e[type=Item,score_mine=-60]
 	execute @a[m=2] ~ ~ ~ execute @e[type=AreaEffectCloud,name=Mine,r=0] ~ ~ ~ scoreboard players set @e[type=AreaEffectCloud,name=Mine,r=0] @!mine 1
 	execute @e[score_mine_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,powered:1b,CustomName:Land Mine}
