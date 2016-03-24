@@ -9,6 +9,7 @@
 	execute @a[score_mirrorRecip_min=1] ~ ~ ~ scoreboard players set @a @!mirrorFailure 0
 	execute @a[score_mirror_min=1,score_mirrorFailure=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1]","italic":true},{"text":" was position swapped with ","color":"gold","italic":true},{"selector":"@a[score_mirrorRecip_min=1]","italic":true,"color":"none"}]
 	execute @a[score_mirror_min=1,score_mirrorFailure_min=1] ~ ~ ~ tellraw @p ["",{"selector":"@a[score_mirror_min=1,score_mirrorFailure_min=1]"},{"text":" broke a mirror","color":"red"}]
+	execute @a[score_mirror_min=1,score_mirrorFailure_min=1] ~ ~ ~ playsound minecraft:block.glass.break master @p
 	execute @a[score_mirror_min=1] ~ ~ ~ playsound minecraft:entity.guardian.hurt master @p ~ ~ ~ 5 1.4
 	execute @a[score_mirror_min=1] ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:stained_glass_pane 0
 	execute @a[score_mirrorRecip_min=1] ~ ~ ~ playsound minecraft:entity.guardian.hurt master @p ~ ~ ~ 5 1.4
