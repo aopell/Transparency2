@@ -22,7 +22,7 @@
 	execute @e[type=Item,tag=isTrap,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,RadiusOnUse:0f,Duration:1000000,Particle:take,CustomName:Razor,Tags:[razor,noTP],Age:-1000000}
 	kill @e[type=Item,score_mine=-60]
 	//trip the thing
-	execute @e[type=AreaEffectCloud,name=Razor] ~ ~ ~ scoreboard players tag @a[r=0,m=2] add @!tripper
+	execute @e[type=AreaEffectCloud,name=Razor] ~ ~ ~ scoreboard players tag @a[r=1,m=2] add @!tripper
 	//spinny
 	tp @e[type=ArmorStand,tag=razor] ~ ~ ~ ~55 ~
 	//particles
