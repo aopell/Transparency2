@@ -7,8 +7,8 @@
 	execute @a[score_heartStopper_min=1] ~ ~ ~ gamerule showDeathMessages false
 	execute @a[score_heartStopper_min=1] ~ ~ ~ gamerule keepInventory false
 	playsound entity.wither.death master @a[score_heartStopper_min=1] ~ ~ ~ 1000000 2
-	execute @a[score_heartStopper_min=1,tag=!invincible] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_heartStopper_min=1,tag=!invincible]"},{"text":"'s heart suddenly stopped"}]
-	execute @a[score_heartStopper_min=1,tag=invincible] ~ ~ ~ tellraw @a[score_heartStopper_min=1,tag=invincible] ["",{"text":"Your muscle milk saved you from a heart stopper!","color":"gold","italic":true}]
+	execute @a[score_heartStopper_min=1,tag=!invincible] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_heartStopper_min=1,tag=!invincible]"},{"text":" had a heart attack"}]
+	execute @a[score_heartStopper_min=1,tag=invincible] ~ ~ ~ tellraw @a[score_heartStopper_min=1,tag=invincible] ["",{"text":"You have amazing cardiovascular health!","color":"gold","bold":true,"italic":true}]
 	kill @a[score_heartStopper_min=1,tag=!invincible]
 	scoreboard players set @a @!heartStopper 0
 	gamerule keepInventory true
