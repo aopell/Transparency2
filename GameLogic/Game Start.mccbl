@@ -29,11 +29,11 @@ tp @a[team=] 0.0 65 0.0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=400,score_count=400] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
 	:: "5... 4..."
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=599] ~ ~ ~ title @a times 0 100 20
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=500] ~ ~ ~ title @a subtitle ["",{"text":"5","color":"red","italic":"true"}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=520,score_count=520] ~ ~ ~ title @a subtitle ["",{"text":"4","color":"red","italic":"true"}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=540,score_count=540] ~ ~ ~ title @a subtitle ["",{"text":"3","color":"red","italic":"true"}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=560,score_count=560] ~ ~ ~ title @a subtitle ["",{"text":"2","color":"red","italic":"true"}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ title @a subtitle ["",{"text":"1","color":"red","italic":"true"}]
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=500] ~ ~ ~ title @a subtitle ["",{"text":"5","color":"red"}]
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=520,score_count=520] ~ ~ ~ title @a subtitle ["",{"text":"4","color":"red"}]
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=540,score_count=540] ~ ~ ~ title @a subtitle ["",{"text":"3","color":"red"}]
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=560,score_count=560] ~ ~ ~ title @a subtitle ["",{"text":"2","color":"red"}]
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ title @a subtitle ["",{"text":"1","color":"red"}]
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=500] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=520,score_count=520] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=540,score_count=540] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
@@ -41,7 +41,7 @@ tp @a[team=] 0.0 65 0.0
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600] ~ ~ ~ title @a subtitle ["",{"text":""}]
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600] ~ ~ ~ title @a title ["",{"text":""}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=599] ~ ~ ~ title @a title [{"text":"Game starting in","color":"yellow","italic":"true"}]
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=599] ~ ~ ~ title @a title [{"text":"Game starting in","color":"yellow"}]
 	;;
 ;;
 :: "Pre-Start Actions"
@@ -53,7 +53,6 @@ tp @a[team=] 0.0 65 0.0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players operation @a @!lives = @!RespawnTokens @!gameSettings
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ spawnpoint @a[team=!Lobby] 0 1 20
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard objectives setdisplay sidebar @!lives
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ playsound entity.player.levelup master @a ~ ~ ~ 1000000 1 1
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ effect @a minecraft:resistance 5 4 true
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ effect @a minecraft:instant_health 5 4 true
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ gamemode 2 @a[team=!Lobby]
@@ -73,4 +72,5 @@ tp @a[team=] 0.0 65 0.0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Purple] 494 148 519 -90 0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=LBlue] 506 148 531 180 0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Pink] 519 148 531 180 0
+	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:entity.enderdragon.ambient master @p ~ ~ ~ 1 2
 ;;
