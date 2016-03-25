@@ -4,13 +4,13 @@
 :: "Mirror"
 //summon Item 3 1 20 {Item:{id:minecraft:stained_glass_pane,Damage:0,Count:1,tag:{display:{Name:"Mirror",Lore:["Swap position with another player","Place block to use"]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}
 	execute @a[score_mirror_min=1] ~ ~ ~ summon ArmorStand -3 1 20 {CustomName:"mirror",Invisible:1b,NoGravity:1b}
-	scoreboard players set @a @!mirrorFailure 1
+	scoreboard players tag @a add @!mirrorFailure
 	execute @a[score_mirror_min=1] ~ ~ ~ scoreboard players set @r[rm=1,m=2,score_health_min=1] @!mirrorRecip 1
-	execute @a[score_mirrorRecip_min=1] ~ ~ ~ scoreboard players set @a @!mirrorFailure 0
-	execute @a[score_mirror_min=1,score_mirrorFailure=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1]","italic":true},{"text":" was position swapped with ","color":"gold","italic":true},{"selector":"@a[score_mirrorRecip_min=1]","italic":true,"color":"none"}]
-	execute @a[score_mirror_min=1,score_mirrorFailure_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1,score_mirrorFailure_min=1]"},{"text":" broke a mirror","color":"red"}]
-	execute @a[score_mirror_min=1,score_mirrorFailure_min=1] ~ ~ ~ playsound minecraft:block.glass.break master @p
-	execute @a[score_mirror_min=1,score_mirrorFailure=0] ~ ~ ~ playsound minecraft:entity.guardian.hurt master @p ~ ~ ~ 5 1.4
+	execute @a[score_mirrorRecip_min=1] ~ ~ ~ scoreboard players tag @a[score_mirror_min=1] remove @!mirrorFailure
+	execute @a[score_mirror_min=1,tag=!mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1]"},{"text":" swaoed places with ","color":"gold"},{"selector":"@a[score_mirrorRecip_min=1]"}]
+	execute @a[score_mirror_min=1,tag=mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1,score_mirrorFailure_min=1]"},{"text":" broke a mirror","color":"red"}]
+	execute @a[score_mirror_min=1,tag=mirrorFailure] ~ ~ ~ playsound minecraft:block.glass.break master @p
+	execute @a[score_mirror_min=1,tag=!mirrorFailure] ~ ~ ~ playsound minecraft:entity.guardian.hurt master @p ~ ~ ~ 5 1.4
 	execute @a[score_mirror_min=1] ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:stained_glass_pane 0
 	execute @a[score_mirrorRecip_min=1] ~ ~ ~ playsound minecraft:entity.guardian.hurt master @p ~ ~ ~ 5 1.4
 	tp @e[type=ArmorStand,name=mirror,c=1] @a[score_mirror_min=1,c=1]
@@ -22,10 +22,14 @@
 ;;
 :: "Clear"
 //summon Item 3 1 20 {Item:{id:minecraft:glass_pane,Count:1,tag:{display:{Name:Clear Inventory,Lore:[Clears a random player's inventory,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}
+	scoreboard players tag @a add @!clearFailure
 	execute @e[score_clear_min=1] ~ ~ ~ scoreboard players set @r[rm=1,m=2] clear -1
+	execute @a[score_clear=-1] ~ ~ ~ scoreboard players tag @a[score_mirror_min=1] remove @!clearFailure
 	execute @e[score_clear_min=1] ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:glass_pane 0
 	clear @a[score_clear=-1]
-	execute @a[score_clear_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear=-1]","italic":true},{"text":"'s inventory was cleared","color":"gold","italic":true}]
-	execute @a[score_clear_min=1] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:entity.witch.throw master @p
+	execute @a[score_clear_min=1,tag=!clearFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear=-1]"},{"text":" lost their stuff","color":"gold"}]
+	execute @a[score_clear_min=1,tag=clearFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear_min=1]"},{"text":" hired a bad thief","color":"red"}]
+	execute @a[score_clear_min=1,tag=!clearFailure] ~ ~ ~ execute @a[score_clear=-1] ~ ~ ~ playsound minecraft:entity.witch.throw master @p
+	execute @a[score_clear_min=1,tag=clearFailure] ~ ~ ~ playsound minecraft:entity.shulker.ambient master @p
 	scoreboard players set @a clear 0
 ;;
