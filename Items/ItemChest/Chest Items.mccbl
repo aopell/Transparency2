@@ -2,7 +2,7 @@
 @CHAIN ON
 @VERSION 1.9
 :: "+n Tokens"
-//summon Item ~ ~ ~ {Item:{id:minecraft:emerald,Count:1,tag:{display:{Name:+3 Tokens,Lore:["Gives you three tokens"]}}},Invulnerable:1b,Age:5600}
+//summon Item ~ ~2 ~ {Item:{id:minecraft:emerald,Count:1,tag:{display:{Name:Token Boost,Lore:["Gives you some tokens"]}}},Invulnerable:1b,Age:5600}
 	scoreboard players operation @e[name=GK,type=!Player] @!livesToAdd = @!RespawnTokens @!gameSettings
 	scoreboard players operation @e[name=GK,type=!Player] @!livesToAdd /= @!ten @!ten
 	scoreboard players operation @a[score_plusThree_min=1] @!lives += @e[name=GK,type=!Player] @!livesToAdd
@@ -13,29 +13,29 @@
 	scoreboard players set @a @!plusThree 0
 ;;
 :: "Wither Spawn Egg"
-//summon Item ~ ~ ~ {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Spawn Wither,Lore:[Spawns a wither for 30 seconds,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Endermite,Silent:1b,NoAI:1b,Tags:[wither]}}},Invulnerable:1b,Age:5600}
+//summon Item ~ ~2 ~ {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Spawn Wither,Lore:[Spawns a wither for 30 seconds,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Endermite,Silent:1b,NoAI:1b,Tags:[wither]}}},Invulnerable:1b,Age:5600}
 	execute @e[type=Endermite,tag=wither] ~ ~ ~ summon WitherBoss ~ ~ ~
 	tp @e[type=Endermite,tag=wither] ~ ~-300 ~
 	scoreboard players add @e[type=WitherBoss] @!ticks 1
 	kill @e[type=WitherBoss,score_ticks_min=600]
 :: "Apple"
-//summon Item ~ ~ ~ {Item:{id:minecraft:golden_apple,Count:1,tag:{display:{Name:Apple of pacifism,Lore:["Makes other players unable to do damage","Eat to use"]}}},Invulnerable:1b,Age:5600}
+//summon Item ~ ~2 ~ {Item:{id:minecraft:golden_apple,Count:1,tag:{display:{Name:Apple of pacifism,Lore:["Makes other players unable to do damage","Eat to use"]}}},Invulnerable:1b,Age:5600}
 	execute @a[score_apple_min=1] ~ ~ ~ effect @a[score_apple=0] minecraft:weakness 15 9 true
 	execute @a[score_apple_min=1] ~ ~ ~ playsound entity.irongolem.death master @a[rm=1,m=2] ~ ~ ~ 1000000 0
 	execute @a[score_apple_min=1] ~ ~ ~ tellraw @a[rm=1,m=2] ["",{"text":"You cannot attack for 15 seconds!","color":"dark_red","italic":true}]
 	scoreboard players set @a @!apple 0
 ;;
 :: "Infinite Improbability Drive"
-//summon Item 3 1 20 {Item:{id:minecraft:end_crystal,Count:1,tag:{display:{Name:Infinite Improbability Drive,Lore:["Makes you feel like a bowl of petunias","Teleports you through every entity","Drop to use"]}}},Invulnerable:1b,Age:5600}
+//summon Item ~ ~2 ~ {Item:{id:minecraft:end_crystal,Count:1,tag:{display:{Name:Infinite Improbability Drive,Lore:["Makes you feel like a bowl of petunias","Teleports you through every entity","Drop to use"]}}},Invulnerable:1b,Age:5600}
 	scoreboard players tag @e[type=Item,tag=!justSpawned] add @!improb {Item:{id:minecraft:end_crystal}}
 	kill @e[tag=improb,type=Item]
 	scoreboard players add @a[score_improb_min=1] @!improb 1
 	scoreboard players set @a[score_improb_min=30] @!improb 0
-	execute @a[score_improb_min=1,score_improb=1] ~ ~ ~ playsound minecraft:entity.elder_guardian.curse master @p ~ ~ ~ 50 .2
+	execute @a[score_improb_min=1,score_improb=1] ~ ~ ~ playsound entity.elder_guardian.curse master @p ~ ~ ~ 50 .2
 	tp @a[score_improb_min=1] @r[512,128,512,128,type=!ArmorStand,tag=!noTP]
 ;;
 :: "Armaggeddon"
-//summon Item ~ ~1 ~ {Item:{id:minecraft:fire_charge,Count:1,tag:{display:{Name:Armaggeddon,Lore:["It's the end of the world as we know it","Kills everything and clears all inventories","Drop to use"]}}},Tags:[justSpawned],Invulnerable:1b,Age:5600}
+//summon Item ~ ~2 ~ {Item:{id:minecraft:fire_charge,Count:1,tag:{display:{Name:Armaggeddon,Lore:["It's the end of the world as we know it","Kills everything and clears all inventories","Drop to use"]}}},Tags:[justSpawned],Invulnerable:1b,Age:5600}
 	execute @a[score_arma_min=1] ~ ~ ~ clear @a[m=2]
 	execute @a[score_arma_min=1] ~ ~ ~ execute @e[512,128,512,200,team=!Lobby,type=!ArmorStand,tag=!arma] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Armaggeddon,Tags:[arma]}
 	execute @a[score_arma_min=1] ~ ~ ~ tellraw @a ["",{"text":"The world ended.","color":"gold","italic":true}]

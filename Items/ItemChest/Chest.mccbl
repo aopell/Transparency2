@@ -4,9 +4,9 @@
 :: "Spawn Logic"
 	scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!chestTimer 1
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ summon Bat -3 1 20 {Silent:1b,ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1},{Id:1,Amplifier:20,Duration:1000000,Ambient:1}],Passengers:[{id:"Zombie",NoAI:1b,ArmorItems:[{},{},{},{id:minecraft:chest}],CustomName:chest,ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1}],Silent:1b}],CustomName:chest,Invisible:1b}
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ spreadplayers 512 512 5 7 false @e[-3,1,20,5,name=chest]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ spreadplayers 512 512 5 7 false @e[-3,1,20,5,name=chest,type=Bat]
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ playsound entity.player.levelup master @a ~ ~ ~ 1000000 2
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ tellraw @a ["",{"text":"An item chest has spawned on the map! Puch it to obtain a rare item!","color":"gold","italic":true}]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ tellraw @a ["",{"text":"An item chest has spawned on the map! Punch it to obtain a rare item!","color":"gold","italic":true}]
 	scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] @!chestTimer 0
 ;;
 :: "Glass Logic"
