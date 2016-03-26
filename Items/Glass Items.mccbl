@@ -7,8 +7,8 @@
 	scoreboard players tag @a add @!mirrorFailure
 	execute @a[score_mirror_min=1] ~ ~ ~ scoreboard players set @r[rm=1,m=2,score_health_min=1] @!mirrorRecip 1
 	execute @a[score_mirrorRecip_min=1] ~ ~ ~ scoreboard players tag @a[score_mirror_min=1] remove @!mirrorFailure
-	execute @a[score_mirror_min=1,tag=!mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1]"},{"text":" swaoed places with ","color":"gold"},{"selector":"@a[score_mirrorRecip_min=1]"}]
-	execute @a[score_mirror_min=1,tag=mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1,score_mirrorFailure_min=1]"},{"text":" broke a mirror","color":"red"}]
+	execute @a[score_mirror_min=1,tag=!mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1]"},{"text":" swaped places with ","color":"gold"},{"selector":"@a[score_mirrorRecip_min=1]"}]
+	execute @a[score_mirror_min=1,tag=mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1,tag=mirrorFailure]"},{"text":" broke a mirror","color":"red"}]
 	execute @a[score_mirror_min=1,tag=mirrorFailure] ~ ~ ~ playsound minecraft:block.glass.break master @p
 	execute @a[score_mirror_min=1,tag=!mirrorFailure] ~ ~ ~ playsound minecraft:entity.guardian.hurt master @p ~ ~ ~ 5 1.4
 	execute @a[score_mirror_min=1] ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:stained_glass_pane 0

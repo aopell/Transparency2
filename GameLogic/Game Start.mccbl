@@ -47,7 +47,7 @@ tp @a[team=] 0.0 65 0.0
 :: "Pre-Start Actions"
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players tag @e[type=ArmorStand,name=GK,score_count_min=600] add @!gameInProgress
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=600] ~ ~ ~ clear @a[team=!Lobby]
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=600] ~ ~ ~ execute @e[tag=timeKeeper,score_doRandomTime_min=1] execute @r[type=ArmorStand,name=randTime,c=1] ~ ~ ~ blockdata ~ ~-1 ~ {auto:1b}
+	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=600] ~ ~ ~ execute @e[tag=timeKeeper,score_doRandomTime_min=1] execute @r[type=ArmorStand,name=randTime] ~ ~ ~ blockdata ~ ~-1 ~ {auto:1b}
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players reset * @!lives
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players set @a @!deaths 0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players operation @a @!lives = @!RespawnTokens @!gameSettings
