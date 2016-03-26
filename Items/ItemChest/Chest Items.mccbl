@@ -21,8 +21,8 @@
 :: "Apple"
 //summon Item ~ ~2 ~ {Item:{id:minecraft:golden_apple,Count:1,tag:{display:{Name:Apple of pacifism,Lore:["Makes other players unable to do damage","Eat to use"]}}},Invulnerable:1b,Age:5600}
 	execute @a[score_apple_min=1] ~ ~ ~ effect @a[score_apple=0] minecraft:weakness 15 9 true
-	execute @a[score_apple_min=1] ~ ~ ~ playsound entity.irongolem.death master @a[rm=1,m=2] ~ ~ ~ 1000000 0
-	execute @a[score_apple_min=1] ~ ~ ~ tellraw @a[rm=1,m=2] ["",{"text":"You cannot attack for 15 seconds!","color":"dark_red","italic":true}]
+	execute @a[score_apple_min=1] ~ ~ ~ playsound entity.irongolem.death master @a[score_apple=0] ~ ~ ~ 1000000 0
+	execute @a[score_apple_min=1] ~ ~ ~ tellraw @a[score_apple=0] ["",{"text":"You feel weak","color":"red"}]
 	scoreboard players set @a @!apple 0
 ;;
 :: "Infinite Improbability Drive"
@@ -43,32 +43,18 @@
 	scoreboard players set @a @!arma 0
 ;;
 :: "TNT Rain"
-	execute @a[score_useTNT_min=1] ~ ~ ~ summon AreaEffectCloud 495 200 495 {Duration:1000000,CustomName:TNTRain,Tags:[TNTRain]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ scoreboard players set @e[type=Item] @!useTNT 1 {Item:{id:minecraft:tnt,Count:1b}}
-	execute @a[score_useTNT_min=1] ~ ~ ~ kill @e[type=Item,score_useTNT_min=1]
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~ ~200 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~3 ~200 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~-3 ~200 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~ ~200 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~ ~200 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~3 ~200 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~-3 ~200 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~3 ~200 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~-3 ~200 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
 	scoreboard players set @a @!useTNT 0
-	execute @e[type=AreaEffectCloud,tag=TNTRain] ~ ~ ~ summon Item ~ ~ ~ {Item:{id:minecraft:tnt,Count:1},PickUpDelay:32767,Tags:[toBoom]}
-	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
-	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:slime -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
-	execute @e[type=Item,tag=toBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane -1 summon Creeper ~ ~ ~ {Fuse:1s,ignited:1b,CustomName:"TNT Rain"}
-
-	kill @e[495,200,530,1,type=AreaEffectCloud]
-	tp @e[495,200,500,dz=35,type=AreaEffectCloud] ~ ~ ~5
-	tp @e[530,200,495,dz=35,type=AreaEffectCloud] ~ ~ ~5
-
-	tp @e[495,200,495,dx=35,type=AreaEffectCloud] ~5 ~ ~
-
-	tp @e[495,200,500,dx=35,type=AreaEffectCloud] ~-5 ~ ~
+	scoreboard players tag @e[tag=rainBoom] add @!boomNow
+	execute @e[type=Item,tag=rainBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:air 0 scoreboard players tag @e[r=1] remove @!boomNow
+	execute @e[type=Item,tag=boomNow] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:"Raining TNT"} 
 	
-	tp @e[495,200,505,dx=35,type=AreaEffectCloud] ~5 ~ ~
-
-	tp @e[495,200,510,dx=35,type=AreaEffectCloud] ~-5 ~ ~
-
-	tp @e[495,200,515,dx=35,type=AreaEffectCloud] ~5 ~ ~
-
-	tp @e[495,200,520,dx=35,type=AreaEffectCloud] ~-5 ~ ~
-
-	tp @e[495,200,525,dx=35,type=AreaEffectCloud] ~5 ~ ~
-
-	tp @e[495,200,530,dx=35,type=AreaEffectCloud] ~-5 ~ ~
 ;;
