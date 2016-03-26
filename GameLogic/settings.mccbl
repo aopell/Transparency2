@@ -1,0 +1,41 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+scoreboard players test RespawnTokens gameSettings -1000000 -1
+?scoreboard players set RespawnTokens gameSettings 0
+:: "Armor Item"
+//summon ArmorStand ~ ~ ~ {Tags:[armorItem],Invisible:1b,Invincible:1b}
+	scoreboard players set @e[type=ArmorStand,name=GK,score_settingArmorItem_min=2] @!settingArmorItem 0
+	execute @e[type=ArmorStand,name=GK,score_settingArmorItem_min=1] ~ ~ ~ entitydata @e[tag=armorItem] {CustomName:Elytra}
+	execute @e[type=ArmorStand,name=GK,score_settingArmorItem=0] ~ ~ ~ entitydata @e[tag=armorItem] {CustomName:Chestplate}
+;;
+:: "Item Chest"
+//summon ArmorStand ~ ~ ~ {Tags:[itemChest],Invisible:1b,Invincible:1b}
+	scoreboard players set @e[type=ArmorStand,name=GK,score_settingItemChest_min=2] @!settingItemChest 0 
+	execute @e[type=ArmorStand,name=GK,score_settingItemChest=0] ~ ~ ~ scoreboard teams join @!settingOff @e[tag=itemChest]
+	execute @e[type=ArmorStand,name=GK,score_settingItemChest_min=1] ~ ~ ~ scoreboard teams join @!settingOn @e[tag=itemChest]
+	execute @e[type=ArmorStand,name=GK,score_settingItemChest_min=1] ~ ~ ~ entitydata @e[tag=itemChest] {CustomName:On}
+	execute @e[type=ArmorStand,name=GK,score_settingItemChest=0] ~ ~ ~ entitydata @e[tag=itemChest] {CustomName:Off}
+	execute @e[type=ArmorStand,name=GK,score_settingItemChest=0] ~ ~ ~ blockdata -7 1 -4 {auto:0b}
+	execute @e[type=ArmorStand,name=GK,score_settingItemChest_min=1] ~ ~ ~ blockdata -7 1 -4 {auto:1b}
+;;
+:: "Random Time"
+//summon ArmorStand ~ ~ ~ {Tags:[randTime],Invisible:1b,Invincible:1b}
+	scoreboard players set @e[type=ArmorStand,name=GK,score_settingRandTime_min=2] @!settingRandTime 0
+	execute @e[type=ArmorStand,name=GK,score_settingRandTime=0] ~ ~ ~ scoreboard teams join @!settingOff @e[tag=randTime]
+	execute @e[type=ArmorStand,name=GK,score_settingRandTime_min=1] ~ ~ ~ scoreboard teams join @!settingOn @e[tag=randTime]
+	execute @e[type=ArmorStand,name=GK,score_settingRandTime=0] ~ ~ ~ time set 6000
+	execute @e[type=ArmorStand,name=GK,score_settingRandTime_min=1] ~ ~ ~ entitydata @e[tag=randTime] {CustomName:On}
+	execute @e[type=ArmorStand,name=GK,score_settingRandTime=0] ~ ~ ~ entitydata @e[tag=randTime] {CustomName:Off}
+;;
+:: "Glowing Items"
+//summon ArmorStand ~ ~ ~ {Tags:[glowItems],Invisible:1b,Invincible:1b}
+	scoreboard players set @e[type=ArmorStand,name=GK,score_settingGlowItems_min=2] @!settingGlowItems 0
+	execute @e[type=ArmorStand,name=GK,score_settingGlowItems=0] ~ ~ ~ scoreboard teams join @!settingOff @e[tag=glowItems]
+	execute @e[type=ArmorStand,name=GK,score_settingGlowItems_min=1] ~ ~ ~ scoreboard teams join @!settingOn @e[tag=glowItems]
+	execute @e[type=ArmorStand,name=GK,score_settingGlowItems_min=1] ~ ~ ~ entitydata @e[tag=glowItems] {CustomName:On}
+	execute @e[type=ArmorStand,name=GK,score_settingGlowItems=0] ~ ~ ~ entitydata @e[tag=glowItems] {CustomName:Off}
+	execute @e[type=ArmorStand,name=GK,score_settingGlowItems=0] ~ ~ ~ blockdata -10 1 -4 {auto:0b}
+	execute @e[type=ArmorStand,name=GK,score_settingGlowItems_min=1] ~ ~ ~ blockdata -10 1 -4 {auto:1b}
+;;
+

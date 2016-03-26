@@ -23,7 +23,6 @@
 	;;
 	:: "Cleanup"
 		clear @a minecraft:bucket
-		//entitydata @e[type=Item,score_justSpawned_min=1] {Glowing:1b}
 		execute @a[m=2] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:anvil
 		//execute @e[type=Item,tag=chestItem] ~ ~ ~ setblock ~ ~-1 ~ minecraft:glass 0 keep
 	;;
