@@ -8,7 +8,7 @@
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @e[312,106,312,dx=400,dy=4,dz=400] add @!voidDie
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ kill @e[312,0,312,dx=400,dy=110,dz=400]
 	//... is out of the game
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ execute @a[score_lives=-1,team=!Lobby] ~ ~ ~ title @a subtitle ["",{"text":"is out of the game!","color":"dark_red","italic":false}]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ execute @a[score_lives=-1,team=!Lobby] ~ ~ ~ title @a subtitle ["",{"text":"is out of the game!","color":"dark_red"}]
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ execute @a[score_lives=-1,team=!Lobby] ~ ~ ~ title @a title ["",{"selector":"@a[score_lives=-1,team=!Lobby]"}]
 	
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard teams join @!Lobby @a[score_lives=-1]
@@ -22,7 +22,7 @@
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players remove @a[score_deaths_min=1] @!lives 1
 	//spare lives
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players add @a[score_deaths_min=1,score_spare=100,tag=!voidDie] @!lives 1
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tellraw @a[score_deaths_min=1,score_spare=100,tag=!voidDie] ["",{"text":"Your life was spared","color":"green","italic":true}]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tellraw @a[score_deaths_min=1,score_spare=100,tag=!voidDie] ["",{"text":"Your life was spared","color":"green"}]
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ playsound entity.guardian.death master @a[score_deaths_min=1,score_spare=100,tag=!voidDie] ~ ~ ~ 1000 2
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @a remove @!voidDie
 	//do some things

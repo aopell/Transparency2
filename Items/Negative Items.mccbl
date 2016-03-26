@@ -8,7 +8,7 @@
 	execute @a[score_heartStopper_min=1] ~ ~ ~ gamerule keepInventory false
 	playsound entity.wither.death master @a[score_heartStopper_min=1] ~ ~ ~ 1000000 2
 	execute @a[score_heartStopper_min=1,tag=!invincible] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_heartStopper_min=1,tag=!invincible]"},{"text":" had a heart attack"}]
-	execute @a[score_heartStopper_min=1,tag=invincible] ~ ~ ~ tellraw @a[score_heartStopper_min=1,tag=invincible] ["",{"text":"You have amazing cardiovascular health!","color":"gold","bold":true,"italic":true}]
+	execute @a[score_heartStopper_min=1,tag=invincible] ~ ~ ~ tellraw @a[score_heartStopper_min=1,tag=invincible] ["",{"text":"You have amazing cardiovascular health!","color":"green"}]
 	kill @a[score_heartStopper_min=1,tag=!invincible]
 	scoreboard players set @a @!heartStopper 0
 	gamerule keepInventory true
@@ -30,7 +30,7 @@
 	execute @e[tag=tripped] ~ ~ ~ particle @!iconcrack_423 ~ ~1 ~ 0.3 0.7 0.3 0 5
 	execute @e[tag=tripped] ~ ~ ~ particle @!iconcrack_367 ~ ~1 ~ 0.3 0.7 0.3 0 5
 	execute @e[tag=tripped] ~ ~ ~ particle crit ~ ~0.5 ~ 0.12 0.3 0.12 0 1
-	execute @e[tag=tripped] ~ ~ ~ playsound block.anvil.use master @a ~ ~ ~ 5 1.5
+	execute @e[tag=tripped] ~ ~ ~ playsound block.anvil.use master @a ~ ~ ~ 1 1.5
 	execute @e[tag=!tripped,name=Razor] ~ ~ ~ particle reddust ~ ~ ~ .75 .75 1 1
 	//kill the player
 	execute @a[tag=tripper] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Razor,r=2] add @!tripped
@@ -38,11 +38,12 @@
 	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped,score_razorCount_min=0,score_razorCount=1] ~ ~ ~ summon ArmorStand ~ ~.7 ~ {CustomName:Razor,Tags:[razor,tripped,noTP],Invisible:1b,NoBasePlate:1b,Invulnerable:1b,NoGravity:1b,Small:1b,ShowArms:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],DisabledSlots:2039583,Pose:{Head:[50f,193f,307f],LeftArm:[146f,99f,158f],RightArm:[187f,198f,101f]}}
 	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped,score_razorCount_min=0,score_razorCount=1] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:Razor,Tags:[razor,tripped,noTP],Invisible:1b,NoBasePlate:1b,Invulnerable:1b,NoGravity:1b,Small:1b,ShowArms:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],DisabledSlots:2039583,Pose:{Head:[113f,228f,307f],LeftArm:[96f,195f,191f],RightArm:[239f,85f,150f]}}
 	scoreboard players add @e[name=Razor,tag=tripped] @!razorCount 1
-	execute @a[tag=tripper,score_muscleMilkTimer=0] ~ ~ ~ gamerule showDeathMessages false
-	execute @a[tag=tripper,score_muscleMilkTimer=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=tripper,score_muscleMilkTimer=0,m=2]"},{"text":" was shredded to bits"}]
-	tellraw @a[tag=tripper,score_muscleMilkTimer_min=1] ["",{"text":"Your muscle milk saved you from a razr trap!","color":"gold","italic":true}]
-	execute @a[tag=tripper,score_muscleMilkTimer=0] ~ ~ ~ kill @a[tag=tripper,score_muscleMilkTimer=0,m=2]
-	execute @a[tag=tripper,score_muscleMilkTimer=0] ~ ~ ~ gamerule showDeathMessages true
+	execute @a[tag=tripper,tag=!invincible] ~ ~ ~ gamerule showDeathMessages false
+	execute @a[tag=tripper,tag=!invincible] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=tripper,score_muscleMilkTimer=0,m=2]"},{"text":" was shredded to bits"}]
+	tellraw @a[tag=tripper,tag=invincible] ["",{"text":"Your skin is stronger than steel!","color":"green"}]
+	execute @a[tag=tripper,tag=invincible] ~ ~ ~ playsound minecraft:entity.irongolem.hurt master @p ~ ~ ~ 2 1.7
+	execute @a[tag=tripper,tag=!invincible] ~ ~ ~ kill @a[tag=tripper,score_muscleMilkTimer=0,m=2]
+	execute @a[tag=tripper,tag=!invincible] ~ ~ ~ gamerule showDeathMessages true
 	scoreboard players tag @a remove @!tripper
 	//kill the razors
 	scoreboard players add @e[tag=tripped] @!ticks 1
