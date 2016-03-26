@@ -38,12 +38,12 @@
 	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped,score_razorCount_min=0,score_razorCount=1] ~ ~ ~ summon ArmorStand ~ ~.7 ~ {CustomName:Razor,Tags:[razor,tripped,noTP],Invisible:1b,NoBasePlate:1b,Invulnerable:1b,NoGravity:1b,Small:1b,ShowArms:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],DisabledSlots:2039583,Pose:{Head:[50f,193f,307f],LeftArm:[146f,99f,158f],RightArm:[187f,198f,101f]}}
 	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped,score_razorCount_min=0,score_razorCount=1] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:Razor,Tags:[razor,tripped,noTP],Invisible:1b,NoBasePlate:1b,Invulnerable:1b,NoGravity:1b,Small:1b,ShowArms:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],DisabledSlots:2039583,Pose:{Head:[113f,228f,307f],LeftArm:[96f,195f,191f],RightArm:[239f,85f,150f]}}
 	scoreboard players add @e[name=Razor,tag=tripped] @!razorCount 1
-	execute @a[tag=tripper,tag=!invincible] ~ ~ ~ gamerule showDeathMessages false
-	execute @a[tag=tripper,tag=!invincible] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=tripper,score_muscleMilkTimer=0,m=2]"},{"text":" was shredded to bits"}]
-	tellraw @a[tag=tripper,tag=invincible] ["",{"text":"Your skin is stronger than steel!","color":"green"}]
-	execute @a[tag=tripper,tag=invincible] ~ ~ ~ playsound minecraft:entity.irongolem.hurt master @p ~ ~ ~ 2 1.7
-	execute @a[tag=tripper,tag=!invincible] ~ ~ ~ kill @a[tag=tripper,score_muscleMilkTimer=0,m=2]
-	execute @a[tag=tripper,tag=!invincible] ~ ~ ~ gamerule showDeathMessages true
+	execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ gamerule showDeathMessages false
+	execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=tripper,score_muscleMilk=0,m=2]"},{"text":" was shredded to bits"}]
+	tellraw @a[tag=tripper,score_muscleMilk_min=1] ["",{"text":"Your skin is stronger than steel!","color":"green"}]
+	execute @a[tag=tripper,score_muscleMilk_min=1] ~ ~ ~ playsound minecraft:entity.irongolem.hurt master @p ~ ~ ~ 2 1.7
+	execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ kill @a[tag=tripper,score_muscleMilkTimer=0,m=2]
+	execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ gamerule showDeathMessages true
 	scoreboard players tag @a remove @!tripper
 	//kill the razors
 	scoreboard players add @e[tag=tripped] @!ticks 1
