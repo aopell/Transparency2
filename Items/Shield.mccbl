@@ -4,14 +4,14 @@
 :: "Shield giver"
 //summon Item 3 1 20 {Item:{id:minecraft:shield,Count:1,Damage:160,tag:{display:{Name:Shield,Lore:[A pretty basic shield,Able to block arrows,Hold in either hand to use]}}},Invulnerable:1b,Age:5600,Tags:[shield]}
 	clear @a[score_shield_min=1] minecraft:shield
-	replaceitem entity @a[score_shield_min=1,team=Orange] slot.weapon.offhand minecraft:shield 1 160 {BlockEntityTag:{Base:14}}
-	replaceitem entity @a[score_shield_min=1,team=LBlue] slot.weapon.offhand minecraft:shield 1 160 {BlockEntityTag:{Base:12}}
-	replaceitem entity @a[score_shield_min=1,team=Yellow] slot.weapon.offhand minecraft:shield 1 160 {BlockEntityTag:{Base:11}}
-	replaceitem entity @a[score_shield_min=1,team=Green] slot.weapon.offhand minecraft:shield 1 160 {BlockEntityTag:{Base:10}}
-	replaceitem entity @a[score_shield_min=1,team=Pink] slot.weapon.offhand minecraft:shield 1 160 {BlockEntityTag:{Base:9}}
-	replaceitem entity @a[score_shield_min=1,team=Purple] slot.weapon.offhand minecraft:shield 1 160 {BlockEntityTag:{Base:5}}
-	replaceitem entity @a[score_shield_min=1,team=Blue] slot.weapon.offhand minecraft:shield 1 160 {BlockEntityTag:{Base:4}}
-	replaceitem entity @a[score_shield_min=1,team=Red] slot.weapon.offhand minecraft:shield 1 160 {BlockEntityTag:{Base:1}}
+	replaceitem entity @a[score_shield_min=1,team=Orange] slot.weapon.offhand minecraft:shield 1 330 {BlockEntityTag:{Base:14}}
+	replaceitem entity @a[score_shield_min=1,team=LBlue] slot.weapon.offhand minecraft:shield 1 330 {BlockEntityTag:{Base:12}}
+	replaceitem entity @a[score_shield_min=1,team=Yellow] slot.weapon.offhand minecraft:shield 1 330 {BlockEntityTag:{Base:11}}
+	replaceitem entity @a[score_shield_min=1,team=Green] slot.weapon.offhand minecraft:shield 1 330 {BlockEntityTag:{Base:10}}
+	replaceitem entity @a[score_shield_min=1,team=Pink] slot.weapon.offhand minecraft:shield 1 330 {BlockEntityTag:{Base:9}}
+	replaceitem entity @a[score_shield_min=1,team=Purple] slot.weapon.offhand minecraft:shield 1 330 {BlockEntityTag:{Base:5}}
+	replaceitem entity @a[score_shield_min=1,team=Blue] slot.weapon.offhand minecraft:shield 1 330 {BlockEntityTag:{Base:4}}
+	replaceitem entity @a[score_shield_min=1,team=Red] slot.weapon.offhand minecraft:shield 1 330 {BlockEntityTag:{Base:1}}
 	scoreboard players set @a @!shield 0
 ;;
 :: "Shield Item color"
