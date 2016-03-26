@@ -19,7 +19,7 @@
 :: "Lightning"
 	scoreboard players remove @e[type=Item,tag=!disp] @!lightning 1 {Item:{id:minecraft:prismarine_shard},Invulnerable:0b}
 	execute @a[score_lightning_min=1] ~ ~ ~ execute @a[m=2,rm=1] ~ ~ ~ summon @!LightningBolt
-	execute @a[score_lightning_min=1] ~ ~ ~ tellraw @a ["",{"text":"Lightning struck ","color":"gold","italic":true,"clickEvent":{"action":"run_command","value":"/tp @p 0.0 60 0.0 90 0"}},{"selector":"@a[m=2,rm=1]","color":"none","italic":false}]
+	execute @a[score_lightning_min=1] ~ ~ ~ tellraw @a ["",{"text":"Lightning struck ","color":"gold"},{"selector":"@a[m=2,rm=1]","color":"none"}]
 	kill @e[type=Item,score_lightning=-1]
 	scoreboard players set @a @!lightning 0
 ;;
