@@ -6,7 +6,7 @@
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_inGame_min=0] @!inGame 0
 	//false void
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @e[312,106,312,dx=400,dy=4,dz=400] add @!voidDie
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ kill @e[312,0,312,dx=400,dy=110,dz=400]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ kill @e[tag=voidDie]
 	//... is out of the game
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ execute @a[score_lives=-1,team=!Lobby] ~ ~ ~ title @a subtitle ["",{"text":"is out of the game!","color":"dark_red"}]
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ execute @a[score_lives=-1,team=!Lobby] ~ ~ ~ title @a title ["",{"selector":"@a[score_lives=-1,team=!Lobby]"}]
@@ -18,26 +18,24 @@
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_inGame=0,m=3] @!inGame -1
 ;;
 :: "Respawn Logic"
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players add @a[m=2,score_deaths=0,team=!Lobby,score_tsd_min=1] @!spare 1 
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players remove @a[score_deaths_min=1] @!lives 1
 	//spare lives
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players add @a[score_deaths_min=1,score_spare=100,tag=!voidDie] @!lives 1
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tellraw @a[score_deaths_min=1,score_spare=100,tag=!voidDie] ["",{"text":"Your life was spared","color":"green"}]
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ playsound entity.guardian.death master @a[score_deaths_min=1,score_spare=100,tag=!voidDie] ~ ~ ~ 1000 2
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players add @a[score_deaths_min=1,score_spare_min=0,score_spare=60,tag=!voidDie] @!lives 1
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tellraw @a[score_deaths_min=1,score_spare_min=0,score_spare=60,tag=!voidDie] ["",{"text":"Your life was spared","color":"green"}]
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ playsound entity.guardian.death master @a[score_deaths_min=1,score_spare_min=0,score_spare=60,tag=!voidDie] ~ ~ ~ 1000 2
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @a remove @!voidDie
 	//do some things
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_deaths_min=1] @!muscleMilkTimer 0
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_deaths_min=1] @!muscleMilk 0
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players add @a[score_deaths_min=1] @!deathsAch 1
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_deaths_min=1] @!died 1
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_deaths_min=1] @!spare 0
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a @!deaths 0
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[team=Lobby] @!lives 0
 ;;
 :: "Inventory Items"
 	scoreboard players tag @a remove @!holdingBow
 	scoreboard players tag @a[m=2] add @!holdingBow {SelectedItem:{id:minecraft:bow}}
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_armorItem_min=0,score_armorItem=0] ~ ~ ~ replaceitem entity @a[m=2,team=!Lobby,tag=!invis] slot.armor.chest minecraft:chainmail_chestplate 1 0 {ench:[{id:2,lvl:4}],Unbreakable:1,HideFlags:4,display:{Name:"THE Chestplate",Lore:["Get out of your inventory! You're playing a game!"]}}
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_armorItem_min=1,score_armorItem=1] ~ ~ ~ replaceitem entity @a[m=2,team=!Lobby,tag=!invis] slot.armor.chest minecraft:elytra 1 0 {ench:[{id:2,lvl:4}],Unbreakable:1,HideFlags:4,display:{Name:"Glider thing",Lore:["Get out of your inventory! You're playing a game!"]}}
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_settingArmorItem_min=0,score_settingArmorItem=0] ~ ~ ~ replaceitem entity @a[m=2,team=!Lobby,tag=!invis] slot.armor.chest minecraft:chainmail_chestplate 1 0 {ench:[{id:2,lvl:4}],Unbreakable:1,HideFlags:4,display:{Name:"THE Chestplate",Lore:["Get out of your inventory! You're playing a game!"]}}
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_settingArmorItem_min=1,score_settingArmorItem=1] ~ ~ ~ replaceitem entity @a[m=2,team=!Lobby,tag=!invis] slot.armor.chest minecraft:elytra 1 0 {ench:[{id:2,lvl:4}],Unbreakable:1,HideFlags:4,display:{Name:"Glider thing",Lore:["Get out of your inventory! You're playing a game!"]}}
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ replaceitem entity @a[m=2,team=!Lobby,tag=!holdingBow] slot.hotbar.0 minecraft:bow 1 0 {ench:[{id:19,lvl:2},{id:48,lvl:2}],CanDestroy:[minecraft:glass],HideFlags:22,AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:0,Operation:2,UUIDMost:75315,UUIDLeast:166040}],display:{Name:"The Bop Bow",Lore:["Knocks people around and shoots things"]},Unbreakable:1}
 	:: "Head Glass"
 		execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ replaceitem entity @a[team=Red,tag=!invis] slot.armor.head minecraft:stained_glass 1 14
@@ -53,8 +51,8 @@
 	;;
 ;;
 //put players in right place
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ effect @a[0,1,20,3,score_died_min=1] minecraft:resistance 2 4 true
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ effect @a[0,1,20,3,score_died_min=1] minecraft:instant_health 5 4 true
+execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ effect @a[0,1,20,3,score_died_min=1] minecraft:resistance 3 4 true
+execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ effect @a[0,1,20,3,score_died_min=1] minecraft:instant_health 3 4 true
 execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @a[0,1,20,3,score_died_min=1] remove @!invis
 execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @a[0,1,20,3,score_died_min=1] remove @!spinning
 execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Red] 531 148 519 90 0

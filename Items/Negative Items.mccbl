@@ -42,7 +42,7 @@
 	execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=tripper,score_muscleMilk=0,m=2]"},{"text":" was shredded to bits"}]
 	tellraw @a[tag=tripper,score_muscleMilk_min=1] ["",{"text":"Your skin is stronger than steel!","color":"green"}]
 	execute @a[tag=tripper,score_muscleMilk_min=1] ~ ~ ~ playsound minecraft:entity.irongolem.hurt master @p ~ ~ ~ 2 1.7
-	execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ kill @a[tag=tripper,score_muscleMilkTimer=0,m=2]
+	execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ kill @a[tag=tripper,score_muscleMilk=0,m=2]
 	execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ gamerule showDeathMessages true
 	scoreboard players tag @a remove @!tripper
 	//kill the razors
