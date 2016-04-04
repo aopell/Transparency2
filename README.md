@@ -1,3 +1,5 @@
 # Transparency2
 Transparency minecraft map
-I don't like apples
+Apples are okay
+
+Created by Red4 Productions 
