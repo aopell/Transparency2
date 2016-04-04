@@ -1,0 +1,6 @@
+:FireBreath CLOCK 10 0 10
+LOOP 0 359 + 10 0.0 359.0 + 10.0
+	LOOP -90 89 + 5 -90.0 89.0 + 5.0
+		PARSE(@a[breathingFire,rym=|0|1|,ry=ADD(|0|1|;10),rxm=|0|0|,rx=ADD(|0|0|;5)] summon Arrow ~MUL(.9;COS(ADD(|1|1|;95))) ~ADD(1.56;MUL(-0.9;SIN(|1|0|))) ~MUL(.9;SIN(ADD(|1|1|;95))) {Motion:[MUL(0.9;COS(ADD(|1|1|;95))),MUL(-0.9;SIN(|1|0|)),MUL(0.9;SIN(ADD(|1|1|;95)))],Fire:1000000,Tags:["isFire"],damage:3})
+	END
+END

@@ -53,8 +53,7 @@
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=7,score_zPrize=7] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:fire_charge,Count:1,tag:{CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],display:{Name:Armaggeddon,Lore:["It's the end of the world as we know it","Kills everything and clears all inventories","Place to use"]}}},Tags:[justSpawned,chestItem],Invulnerable:1b,Age:5600}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=8,score_zPrize=8] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:diamond_sword,Damage:1561s,Count:1,tag:{display:{Name:"Insta-Kill Sword",Lore:["ded."]},AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:100000000,Operation:2,UUIDMost:39750,UUIDLeast:34525}],ench:[{id:61,lvl:5}],HideFlags:3}},Tags:[chestItem],Invulnerable:1b,Age:5600}
 	execute @e[name=chest,type=Zombie,score_punched_min=1,score_zPrize_min=9,score_zPrize=9] ~ ~ ~ summon Item ~ ~2 ~ {Item:{id:minecraft:tnt,Count:1,tag:{display:{Name:"TNT Rain",Lore:["Cloudy with a chance of...","BOOM","Drop to use"]}}},Tags:[chestItem],Invulnerable:1b,Age:5600}
-
-	//Add chestItem tag to all new chest items
+	//reset zPrize
 	scoreboard players set @e[name=chest,type=Zombie,score_zPrize_min=9] @!zPrize 1
 ;;
 :: "Death"
