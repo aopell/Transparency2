@@ -70,7 +70,7 @@ tp @a[team=] 0.0 65 0.0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Green] 506 148 494 0 0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Blue] 494 148 506 -90 0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Purple] 494 148 519 -90 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=LBlue] 506 148 531 180 0
+	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Cyan] 506 148 531 180 0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Pink] 519 148 531 180 0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:entity.enderdragon.ambient master @p ~ ~ ~ 1 2
 ;;

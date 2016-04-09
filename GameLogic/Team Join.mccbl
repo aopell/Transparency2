@@ -2,17 +2,17 @@
 @CHAIN ON
 @VERSION 1.9
 :: "Team Join Messages"
-execute @a[tag=onTeam,team=Lobby] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=onTeam,team=Lobby]"},{"text":" left their team.","color":"gray","bold":true}]
+execute @a[tag=onTeam,team=Lobby] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=onTeam,team=Lobby]"},{"text":" left their team.","color":"gray"}]
 scoreboard players tag @a[team=Lobby] remove @!onTeam
-execute @a[tag=!onTeam,team=Red] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Red]"},{"text":" joined the Red Team.","color":"red","bold":true}]
-execute @a[tag=!onTeam,team=Blue] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Blue]"},{"text":" joined the Blue Team.","color":"blue","bold":true}]
-execute @a[tag=!onTeam,team=Yellow] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Yellow]"},{"text":" joined the Yellow Team.","color":"yellow","bold":true}]
-execute @a[tag=!onTeam,team=Green] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Green]"},{"text":" joined the Green Team.","color":"green","bold":true}]
-execute @a[tag=!onTeam,team=LBlue] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=LBlue]"},{"text":" joined the Light Blue Team.","color":"aqua","bold":true}]
-execute @a[tag=!onTeam,team=Pink] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Pink]"},{"text":" joined the Pink Team.","color":"light_purple","bold":true}]
-execute @a[tag=!onTeam,team=Purple] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Purple]"},{"text":" joined the Purple Team.","color":"dark_purple","bold":true}]
-execute @a[tag=!onTeam,team=Orange] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Orange]"},{"text":" joined the Orange Team.","color":"gold","bold":true}]
-tellraw @a[tag=!onTeam,team=!Lobby] ["",{"text":"[Click here to leave your team]","color":"dark_aqua","clickEvent":{"action":"run_command","value":"/trigger leaveTeam set 1"}}]
+execute @a[tag=!onTeam,team=Red] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Red]"},{"text":" joined the Red Team.","color":"red"}]
+execute @a[tag=!onTeam,team=Blue] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Blue]"},{"text":" joined the Blue Team.","color":"blue"}]
+execute @a[tag=!onTeam,team=Yellow] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Yellow]"},{"text":" joined the Yellow Team.","color":"yellow"}]
+execute @a[tag=!onTeam,team=Green] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Green]"},{"text":" joined the Green Team.","color":"green"}]
+execute @a[tag=!onTeam,team=Cyan] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Cyan]"},{"text":" joined the Light Blue Team.","color":"aqua"}]
+execute @a[tag=!onTeam,team=Pink] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Pink]"},{"text":" joined the Pink Team.","color":"light_purple"}]
+execute @a[tag=!onTeam,team=Purple] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Purple]"},{"text":" joined the Purple Team.","color":"dark_purple"}]
+execute @a[tag=!onTeam,team=Orange] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Orange]"},{"text":" joined the Orange Team.","color":"gold"}]
+tellraw @a[tag=!onTeam,team=!Lobby] ["",{"text":"[Leave Team]","color":"dark_aqua","clickEvent":{"action":"run_command","value":"/trigger leaveTeam set 1"}}]
 scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 	:: "Leave Team"
 		scoreboard players enable @a[team=!Lobby,m=2] @!leaveTeam
@@ -24,7 +24,7 @@ scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Red @r[team=Lobby,m=!3,tag=Red]
 	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Blue @r[team=Lobby,m=!3,tag=Blue]
 	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Yellow @r[team=Lobby,m=!3,tag=Yellow]
-	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join LBlue @r[team=Lobby,m=!3,tag=LBlue]
+	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Cyan @r[team=Lobby,m=!3,tag=Cyan]
 	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Green @r[team=Lobby,m=!3,tag=Green]
 	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Pink @r[team=Lobby,m=!3,tag=Pink]
 	execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Purple @r[team=Lobby,m=!3,tag=Purple]
@@ -32,7 +32,7 @@ scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Red] 6 65 2
 	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Blue] -7 65 -3
 	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Yellow] 2 65 -7
-	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=LBlue] -3 65 6
+	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Cyan] -3 65 6
 	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Green] -3 65 -7
 	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Pink] 2 65 6
 	execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Purple] -7 65 2
@@ -41,15 +41,15 @@ scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 ;;
 :: "Team joining"
 	:: "Glass"
-		execute @e[-7,65,-7,dx=13,dz=13,type=ArmorStand] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ air
-		execute @a[team=Red] ~ ~ ~ execute @e[type=ArmorStand,name=Red] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 14
-		execute @a[team=Orange] ~ ~ ~ execute @e[type=ArmorStand,name=Orange] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 1
-		execute @a[team=Yellow] ~ ~ ~ execute @e[type=ArmorStand,name=Yellow] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 4
-		execute @a[team=Green] ~ ~ ~ execute @e[type=ArmorStand,name=Green] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 5
-		execute @a[team=Blue] ~ ~ ~ execute @e[type=ArmorStand,name=Blue] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 11
-		execute @a[team=Purple] ~ ~ ~ execute @e[type=ArmorStand,name=Purple] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 10
-		execute @a[team=LBlue] ~ ~ ~ execute @e[type=ArmorStand,name=LightBlue] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 3
-		execute @a[team=Pink] ~ ~ ~ execute @e[type=ArmorStand,name=Pink] ~ ~ ~ fill ~ ~1 ~ ~ ~2 ~ minecraft:stained_glass 6
+		execute @e[-7,65,-7,dx=13,dz=13,type=ArmorStand] ~ ~ ~ fill ~ ~ ~ ~ ~-1 ~ air
+		execute @a[team=Red] ~ ~ ~ execute @e[type=ArmorStand,name=Red] ~ ~ ~ fill ~ ~ ~ ~ ~-1 ~ minecraft:stained_glass 14
+		execute @a[team=Orange] ~ ~ ~ execute @e[type=ArmorStand,name=Orange] ~ ~ ~ fill ~ ~ ~ ~ ~-1 ~ minecraft:stained_glass 1
+		execute @a[team=Yellow] ~ ~ ~ execute @e[type=ArmorStand,name=Yellow] ~ ~ ~ fill ~ ~ ~ ~ ~-1 ~ minecraft:stained_glass 4
+		execute @a[team=Green] ~ ~ ~ execute @e[type=ArmorStand,name=Green] ~ ~ ~ fill ~ ~ ~ ~ ~-1 ~ minecraft:stained_glass 5
+		execute @a[team=Blue] ~ ~ ~ execute @e[type=ArmorStand,name=Blue] ~ ~ ~ fill ~ ~ ~ ~ ~-1 ~ minecraft:stained_glass 11
+		execute @a[team=Purple] ~ ~ ~ execute @e[type=ArmorStand,name=Purple] ~ ~ ~ fill ~ ~ ~ ~ ~-1 ~ minecraft:stained_glass 10
+		execute @a[team=Cyan] ~ ~ ~ execute @e[type=ArmorStand,name=Cyan] ~ ~ ~ fill ~ ~ ~ ~ ~-1 ~ minecraft:stained_glass 3
+		execute @a[team=Pink] ~ ~ ~ execute @e[type=ArmorStand,name=Pink] ~ ~ ~ fill ~ ~ ~ ~ ~-1 ~ minecraft:stained_glass 6
 	;;
 	:: "Red"
 		scoreboard teams join Red @p[6,65,2,dx=0,dy=0,dz=0,tag=Red]
@@ -75,8 +75,8 @@ scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 		scoreboard teams join Purple @p[-7,65,2,dx=0,dy=0,dz=0,tag=Purple]
 		tp @p[-7,65,2,dx=0,dy=0,dz=0] -7 67 2 90 0
 	;;	
-	:: "LBlue"
-		scoreboard teams join LBlue @p[-3,65,6,dx=0,dy=0,dz=0,tag=LBlue]
+	:: "Cyan"
+		scoreboard teams join Cyan @p[-3,65,6,dx=0,dy=0,dz=0,tag=Cyan]
 		tp @p[-3,65,6,dx=0,dy=0,dz=0] -3 67 6 90 0
 	;;
 	:: "Pink"
@@ -90,7 +90,7 @@ scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 		scoreboard players tag @a add Green
 		scoreboard players tag @a add Blue
 		scoreboard players tag @a add Purple
-		scoreboard players tag @a add LBlue
+		scoreboard players tag @a add Cyan
 		scoreboard players tag @a add Pink
 		execute @a[team=Red] ~ ~ ~ scoreboard players tag @a[team=!Red] remove Red
 		execute @a[team=Orange] ~ ~ ~ scoreboard players tag @a[team=!Orange] remove Orange
@@ -98,7 +98,7 @@ scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 		execute @a[team=Green] ~ ~ ~ scoreboard players tag @a[team=!Green] remove Green
 		execute @a[team=Blue] ~ ~ ~ scoreboard players tag @a[team=!Blue] remove Blue
 		execute @a[team=Purple] ~ ~ ~ scoreboard players tag @a[team=!Purple] remove Purple
-		execute @a[team=LBlue] ~ ~ ~ scoreboard players tag @a[team=!LBlue] remove LBlue
+		execute @a[team=Cyan] ~ ~ ~ scoreboard players tag @a[team=!Cyan] remove Cyan
 		execute @a[team=Pink] ~ ~ ~ scoreboard players tag @a[team=!Pink] remove Pink
 	;;
 ;;

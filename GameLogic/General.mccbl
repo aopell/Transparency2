@@ -40,7 +40,7 @@
 	:: "Effects"
 		effect @a minecraft:saturation 2 0 true
 		execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:slime 0 effect @p minecraft:jump_boost 1 5 true
-		execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane 9 effect @p minecraft:speed 1 10 true
+		execute @a ~ ~ ~ detect ~ ~-1 ~ minecraft:stained_glass_pane 3 effect @p minecraft:speed 1 10 true
 		effect @a minecraft:speed 1 0 true
 		effect @a[512,129,512,dx=1,dy=1,dz=1] minecraft:jump_boost 1 10 true
 		:: "String effects clear"
