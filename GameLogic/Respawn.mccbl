@@ -8,7 +8,7 @@
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @e[312,106,312,dx=400,dy=4,dz=400] add @!voidDie
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ kill @e[tag=voidDie]
 	//... is out of the game
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ execute @a[score_lives=-1,team=!Lobby] ~ ~ ~ title @a subtitle ["",{"text":"is out of the game!","color":"dark_red"}]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ execute @a[score_lives=-1,team=!Lobby] ~ ~ ~ title @a subtitle ["",{"text":"is out","color":"dark_red"}]
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ execute @a[score_lives=-1,team=!Lobby] ~ ~ ~ title @a title ["",{"selector":"@a[score_lives=-1,team=!Lobby]"}]
 	
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard teams join @!Lobby @a[score_lives=-1]
