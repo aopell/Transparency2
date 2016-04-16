@@ -74,7 +74,7 @@
 	clear @a[tag=invis] minecraft:stained_glass
 	effect @a[tag=invis] minecraft:invisibility 1 0 true
 	scoreboard players set @e[type=Chicken] @!punched 1 {HurtTime:1s}
-	execute @e[type=Chicken,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Jihadist Chicken}
+	execute @e[type=Chicken,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Self Destructing Chicken}
 	scoreboard players add @e[type=Chicken] @!ticks 1
 	kill @e[type=Chicken,score_ticks_min=600]
 ;;
