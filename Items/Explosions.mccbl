@@ -19,7 +19,8 @@
 :: "Lightning"
 	scoreboard players remove @e[type=Item,tag=!disp] @!lightning 1 {Item:{id:minecraft:prismarine_shard},Invulnerable:0b}
 	execute @a[score_lightning_min=1] ~ ~ ~ execute @a[m=2,rm=1] ~ ~ ~ summon @!LightningBolt
-	execute @a[score_lightning_min=1] ~ ~ ~ tellraw @a ["",{"text":"Lightning struck ","color":"gold"},{"selector":"@a[m=2,rm=1]","color":"none"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_lightning_min=1] ~ ~ ~ tellraw @a ["",{"text":"Lightning struck ","color":"gold"},{"selector":"@a[m=2,rm=1]","color":"gold"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_lightning_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[m=2,rm=1]","color":"gold"},{"text":" got a friendly reminder of their ability to conduct electricity","color":"gold"}]
 	kill @e[type=Item,score_lightning=-1]
 	scoreboard players set @a @!lightning 0
 ;;

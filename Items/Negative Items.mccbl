@@ -7,10 +7,10 @@
 	execute @a[score_heartStopper_min=1] ~ ~ ~ gamerule showDeathMessages false
 	execute @a[score_heartStopper_min=1] ~ ~ ~ gamerule keepInventory false
 	playsound entity.wither.death master @a[score_heartStopper_min=1] ~ ~ ~ 1000000 2
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_deathMessage=0] ~ ~ ~ execute @a[score_heartStopper_min=1,tag=!invincible] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_heartStopper_min=1,tag=!invincible]"},{"text":" had a heart attack"}]
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_deathMessage=0] ~ ~ ~ execute @a[score_heartStopper_min=1,tag=invincible] ~ ~ ~ tellraw @a[score_heartStopper_min=1,tag=invincible] ["",{"text":"You have amazing cardiovascular health!","color":"green"}]
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_deathMessage_min=1] ~ ~ ~ execute @a[score_heartStopper_min=1,tag=!invincible] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_heartStopper_min=1,tag=!invincible]"},{"text":"'s heart sttopped beating"}]
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_deathMessage_min=1] ~ ~ ~ execute @a[score_heartStopper_min=1,tag=invincible] ~ ~ ~ tellraw @a[score_heartStopper_min=1,tag=invincible] ["",{"text":"Pesky heart! You weren't using that anyway!","color":"green"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_heartStopper_min=1,tag=!invincible] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_heartStopper_min=1,tag=!invincible]"},{"text":" had a heart attack"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_heartStopper_min=1,tag=invincible] ~ ~ ~ tellraw @a[score_heartStopper_min=1,tag=invincible] ["",{"text":"You have amazing cardiovascular health!","color":"green"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_heartStopper_min=1,tag=!invincible] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_heartStopper_min=1,tag=!invincible]"},{"text":"'s heart sttopped beating"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_heartStopper_min=1,tag=invincible] ~ ~ ~ tellraw @a[score_heartStopper_min=1,tag=invincible] ["",{"text":"Pesky heart! You weren't using that anyway!","color":"green"}]
 	kill @a[score_heartStopper_min=1,tag=!invincible]
 	scoreboard players set @a @!heartStopper 0
 	gamerule keepInventory true
@@ -41,10 +41,10 @@
 	execute @e[type=AreaEffectCloud,name=Razor,tag=tripped,score_razorCount_min=0,score_razorCount=1] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:Razor,Tags:[razor,tripped,noTP],Invisible:1b,NoBasePlate:1b,Invulnerable:1b,NoGravity:1b,Small:1b,ShowArms:1b,ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}],HandItems:[{id:"minecraft:iron_sword",Count:1b},{id:"minecraft:iron_sword",Count:1b}],DisabledSlots:2039583,Pose:{Head:[113f,228f,307f],LeftArm:[96f,195f,191f],RightArm:[239f,85f,150f]}}
 	scoreboard players add @e[name=Razor,tag=tripped] @!razorCount 1
 	execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ gamerule showDeathMessages false
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_deathMessage_min=1] ~ ~ ~ execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=tripper,score_muscleMilk=0,m=2]"},{"text":" was shredded to bits"}]
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_deathMessage=0] ~ ~ ~ execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=tripper,score_muscleMilk=0,m=2]"},{"text":" was lacerated"}]
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_deathMessage=0] ~ ~ ~ tellraw @a[tag=tripper,score_muscleMilk_min=1] ["",{"text":"Your skin is stronger than steel!","color":"green"}]
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_deathMessage_min=1] ~ ~ ~ tellraw @a[tag=tripper,score_muscleMilk_min=1] ["",{"text":"Why would blades be able to stop you?","color":"green"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=tripper,score_muscleMilk=0,m=2]"},{"text":" was shredded to bits"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=tripper,score_muscleMilk=0,m=2]"},{"text":" was lacerated"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ tellraw @a[tag=tripper,score_muscleMilk_min=1] ["",{"text":"Your skin is stronger than steel!","color":"green"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ tellraw @a[tag=tripper,score_muscleMilk_min=1] ["",{"text":"Why would blades be able to stop you?","color":"green"}]
 	execute @a[tag=tripper,score_muscleMilk_min=1] ~ ~ ~ playsound minecraft:entity.irongolem.hurt master @p ~ ~ ~ 2 1.7
 	execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ kill @a[tag=tripper,score_muscleMilk=0,m=2]
 	execute @a[tag=tripper,score_muscleMilk=0] ~ ~ ~ gamerule showDeathMessages true

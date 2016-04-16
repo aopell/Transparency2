@@ -18,8 +18,8 @@
 :: "Not Lobby"
 	weather clear 1000000
 	:: "Custom message controller"
-		scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!deathMessage 1
-		scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress,score_deathMessage_min=2] @!deathMessage 0
+		scoreboard players add @e[type=ArmorStand,name=GK] @!deathMessage 1
+		scoreboard players set @e[type=ArmorStand,name=GK,score_deathMessage_min=2] @!deathMessage 0
 	;;
 	:: "Kill Items"
 		scoreboard players set @e[type=Item] @!toKill 1 {Item:{id:minecraft:bow}}
