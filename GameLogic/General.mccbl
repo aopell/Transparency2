@@ -17,6 +17,10 @@
 ;;
 :: "Not Lobby"
 	weather clear 1000000
+	:: "Custom message controller"
+		scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!deathMessage 1
+		scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress,score_deathMessage_min=2] @!deathMessage 0
+	;;
 	:: "Kill Items"
 		scoreboard players set @e[type=Item] @!toKill 1 {Item:{id:minecraft:bow}}
 		scoreboard players set @e[type=Item] @!toKill 1 {Item:{id:minecraft:stained_glass}}
@@ -25,8 +29,11 @@
 	;;
 	:: "Cleanup"
 		clear @a minecraft:bucket
-		execute @a[m=2] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:anvil
-		//execute @e[type=Item,tag=chestItem] ~ ~ ~ setblock ~ ~-1 ~ minecraft:glass 0 keep
+		execute @e[type=ArmorStand,name=GK,score_ticks_min=1,score_ticks=1] ~ ~ ~ execute @a[m=2,team=!Lobby] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:glass_pane 0
+		execute @e[type=ArmorStand,name=GK,score_ticks_min=5,score_ticks=5] ~ ~ ~ execute @a[m=2,team=!Lobby] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:anvil
+		execute @e[type=ArmorStand,name=GK,score_ticks_min=9,score_ticks=9] ~ ~ ~ execute @a[m=2,team=!Lobby] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:stained_glass_pane 0
+		execute @e[type=ArmorStand,name=GK,score_ticks_min=13,score_ticks=13] ~ ~ ~ execute @a[m=2,team=!Lobby] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:ice 0
+		execute @e[type=ArmorStand,name=GK,score_ticks_min=17,score_ticks=17] ~ ~ ~ execute @a[m=2,team=!Lobby] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:hopper
 	;;
 	:: "Item Spawner Particles"
 		scoreboard players set @e[type=AreaEffectCloud,name=ItemSpawner] @!hasItem 0

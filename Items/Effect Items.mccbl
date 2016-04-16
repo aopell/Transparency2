@@ -29,7 +29,6 @@
 //summon Item 3 1 20 {Item:{id:minecraft:ice,Count:1,tag:{display:{Name:"Freeze Frame",Lore:["Freezes everyone else","Place block to use"]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}
 	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ scoreboard players set @a[rm=1,m=2] @!freeze -1
 	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ tellraw @a[score_freeze=-1] ["",{"text":"You were frozen in your tracks","color":"aqua"}]
-	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:ice 0
 	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:entity.elder_guardian.hurt master @p ~ ~ ~ 10 .1
 	scoreboard players remove @a[score_freeze=-1] @!freeze 1
 	effect @a[score_freeze=-1,m=2] minecraft:slowness 1 127 true

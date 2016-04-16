@@ -27,7 +27,6 @@
 	//start spinnnn
 	execute @a[score_usedTop_min=1] ~ ~ ~ scoreboard players tag @r[rm=1,m=2,team=!Lobby,tag=!spinning] add @!spinning
 	execute @a[score_usedTop_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=spinning,score_topCount_min=0,score_topCount=5]"},{"text":" is feeling a bit dizzy","color":"gold"}]
-	execute @a[score_usedTop_min=1] ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:hopper
 	execute @a[score_usedTop_min=1] ~ ~ ~ playsound block.portal.ambient master @p ~ ~ ~ 1000 2
 	execute @a[score_topCount_min=1,score_topCount=1] ~ ~ ~ playsound block.portal.ambient master @p ~ ~ ~ 1000 2
 	scoreboard players reset @a @!usedTop

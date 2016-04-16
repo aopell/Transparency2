@@ -11,7 +11,6 @@
 	execute @a[score_mirror_min=1,tag=mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1,tag=mirrorFailure]"},{"text":" broke a mirror","color":"red"}]
 	execute @a[score_mirror_min=1,tag=mirrorFailure] ~ ~ ~ playsound minecraft:block.glass.break master @p
 	execute @a[score_mirror_min=1,tag=!mirrorFailure] ~ ~ ~ playsound minecraft:entity.guardian.hurt master @p ~ ~ ~ 5 1.4
-	execute @a[score_mirror_min=1] ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:stained_glass_pane 0
 	execute @a[score_mirrorRecip_min=1] ~ ~ ~ playsound minecraft:entity.guardian.hurt master @p ~ ~ ~ 5 1.4
 	tp @e[type=ArmorStand,name=mirror,c=1] @a[score_mirror_min=1,c=1]
 	tp @a[score_mirror_min=1,c=1] @a[score_mirrorRecip_min=1,c=1]
@@ -24,12 +23,11 @@
 //summon Item 3 1 20 {Item:{id:minecraft:glass_pane,Count:1,tag:{display:{Name:Clear Inventory,Lore:[Clears a random player's inventory,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}
 	scoreboard players tag @a add @!clearFailure
 	execute @e[score_clear_min=1] ~ ~ ~ scoreboard players set @r[rm=1,m=2] clear -1
-	execute @a[score_clear=-1] ~ ~ ~ scoreboard players tag @a[score_mirror_min=1] remove @!clearFailure
-	execute @e[score_clear_min=1] ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:glass_pane 0
+	execute @a[score_clear=-1] ~ ~ ~ scoreboard players tag @a[score_clear_min=1] remove @!clearFailure
 	clear @a[score_clear=-1]
-	execute @a[score_clear_min=1,tag=clearFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear=-1]"},{"text":" lost their stuff","color":"gold"}]
-	execute @a[score_clear_min=1,tag=!clearFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear_min=1]"},{"text":" hired a bad thief","color":"red"}]
-	execute @a[score_clear_min=1,tag=clearFailure] ~ ~ ~ execute @a[score_clear=-1] ~ ~ ~ playsound minecraft:entity.witch.throw master @p
-	execute @a[score_clear_min=1,tag=!clearFailure] ~ ~ ~ playsound minecraft:entity.shulker.ambient master @p
+	execute @a[score_clear_min=1,tag=!clearFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear=-1]"},{"text":" lost their stuff","color":"gold"}]
+	execute @a[score_clear_min=1,tag=clearFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear_min=1]"},{"text":" hired a bad thief","color":"red"}]
+	execute @a[score_clear_min=1,tag=!clearFailure] ~ ~ ~ execute @a[score_clear=-1] ~ ~ ~ playsound minecraft:entity.witch.throw master @p
+	execute @a[score_clear_min=1,tag=clearFailure] ~ ~ ~ playsound minecraft:entity.shulker.ambient master @p
 	scoreboard players set @a clear 0
 ;;

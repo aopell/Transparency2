@@ -1,11 +1,11 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
-scoreboard players add @e[type=ArmorStand,name=GK,score_timing_min=1] ticks 1
-scoreboard players add @e[type=ArmorStand,name=GK,score_seconds_min=59,score_ticks_min=20,score_timing_min=1] minutes 1
-scoreboard players add @e[type=ArmorStand,name=GK,score_ticks_min=20,score_timing_min=1] seconds 1
-scoreboard players set @e[type=ArmorStand,name=GK,score_seconds_min=60,score_ticks_min=20,score_timing_min=1] seconds 0
-scoreboard players set @e[type=ArmorStand,name=GK,score_ticks_min=20,score_timing_min=1] ticks 0
+scoreboard players add @e[type=ArmorStand,name=GK,score_timing_min=1] @!ticks 1
+scoreboard players add @e[type=ArmorStand,name=GK,score_seconds_min=59,score_ticks_min=20,score_timing_min=1] @!minutes 1
+scoreboard players add @e[type=ArmorStand,name=GK,score_ticks_min=20,score_timing_min=1] @!seconds 1
+scoreboard players set @e[type=ArmorStand,name=GK,score_seconds_min=60,score_ticks_min=20,score_timing_min=1] @!seconds 0
+scoreboard players set @e[type=ArmorStand,name=GK,score_ticks_min=20,score_timing_min=1] @!ticks 0
 scoreboard players operation @!Minutes @!timer = @e[type=ArmorStand,name=GK] @!minutes
 scoreboard players operation @!Seconds @!timer = @e[type=ArmorStand,name=GK] @!seconds
 scoreboard players operation @!Ticks @!timer = @e[type=ArmorStand,name=GK] @!ticks
