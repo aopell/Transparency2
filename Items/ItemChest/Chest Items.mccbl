@@ -43,18 +43,21 @@
 	scoreboard players set @a @!arma 0
 ;;
 :: "TNT Rain"
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~ ~200 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~3 ~200 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~-3 ~200 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~ ~200 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~ ~200 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~3 ~200 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~-3 ~200 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~3 ~200 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,m=2,team=!Lobby] ~ ~ ~ summon Item ~-3 ~200 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ scoreboard players set @e[type=Item] useTNT 1 {Item:{tag:{display:{Name:"TNT Rain"}}}}
+	kill @e[type=Item,score_useTNT_min=1]
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~ 255 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~3 255 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~-3 255 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~ 255 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~ 255 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~3 255 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~-3 255 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~3 255 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~-3 255 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	tellraw @a[score_useTNT_min=1] ["",{"text":"Look to the skies","color":"red"}]
 	scoreboard players set @a @!useTNT 0
 	scoreboard players tag @e[tag=rainBoom] add @!boomNow
 	execute @e[type=Item,tag=rainBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:air 0 scoreboard players tag @e[r=1] remove @!boomNow
-	execute @e[type=Item,tag=boomNow] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:"Raining TNT"} 
+	execute @e[type=Item,tag=boomNow] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,powered:1b,CustomName:"Raining TNT"} 
 	
 ;;
