@@ -1,10 +1,39 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
+:: "End Game Vote"
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ scoreboard players reset @e @!endGame
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ scoreboard players reset @e @!endGameVote
+	
+	scoreboard players enable @a[score_endGameVote=0] @!endGameVote
+	scoreboard players enable @a[score_endGameVote=0] @!endGame
+	
+	scoreboard players tag @a[score_endGameVote=0] remove @!endGame
+	//messages
+	execute @a[score_endGameVote_min=1] ~ ~ ~ title @a title ["",{"text":"End Game?","color":"red"}]
+	execute @a[score_endGameVote_min=1] ~ ~ ~ title @a subtitle ["",{"text":"Vote in chat"}]
+	execute @a[score_endGameVote_min=1,tag=!endGame] ~ ~ ~ tellraw @a ["",{"text":"End game?","color":"gold","hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Please vote","color":"aqua"}]}}},{"text":"\n\n","color":"none"},{"text":"[Yes]","color":"green","clickEvent":{"action":"run_command","value":"/trigger endGame set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"End the game","color":"green"}]}}},{"text":" ","color":"none"},{"text":"[No]","color":"red","clickEvent":{"action":"run_command","value":"/trigger endGame set -1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Keep the game going","color":"red"}]}}},{"text":"\n\n","color":"none"}]
+	execute @a[score_endGameVote_min=1,tag=!endGame] ~ ~ ~ execute @a[score_endGameVote=0] ~ ~ ~ trigger @!endGameVote set 1
+	scoreboard players tag @a[score_endGameVote_min=1] add @!endGame
+	//wait
+	execute @r[score_endGameVote_min=1,type=Player] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!endGameVote 1
+	//calculate
+	execute @a[score_endGame_min=1] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!endGame 1
+	execute @a[score_endGame=-1] ~ ~ ~ scoreboard players remove @e[type=ArmorStand,name=GK,tag=gameInProgress] @!endGame 1
+	//finalize
+	//fail
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=0,score_endGame=0] ~ ~ ~ tellraw @a ["",{"text":"Draw!\n","color":"gold"},{"text":"[Try Again]","color":"red","clickEvent":{"action":"run_command","value":"/trigger endGameVote set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Start another vote","color":"aqua"}]}}}]
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=-10,score_endGame=-1] ~ ~ ~ tellraw @a ["",{"text":"Vote failed!\nContinuing...","color":"red"}]
+	//success
+	scoreboard players tag @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] remove @!gameInProgress
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ tp @a 0.0 65 0.0
+	//general
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300] ~ ~ ~ scoreboard players reset @e @!endGame
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300] ~ ~ ~ scoreboard players reset @e @!endGameVote
+;;
 scoreboard players set @e[type=ArmorStand,name=GK] @!win 0
 execute @a[score_inGame_min=1] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!win 1
 
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players tag @e[type=ArmorStand,name=GK] remove @!gameInProgress
 //I won
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[tag=onTeam,score_inGame_min=1] ~ ~ ~ title @a subtitle [{"text":"wins"}]
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[tag=onTeam,score_inGame_min=1] ~ ~ ~ title @a title [{"selector":"@p"}]
@@ -15,12 +44,13 @@ execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players add @a[tag=onTeam,score_inGame_min=1] @!wins 1
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[tag=onTeam,score_inGame_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@p"},{"text":" has won ","color":"gold","bold":true},{"score":{"name":"@p","objective":"wins"},"color":"red","bold":true},{"text":" total games","color":"gold","bold":true}]
 //finalize finish
+execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players tag @e[type=ArmorStand,name=GK] remove @!gameInProgress
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @a @!inGame -1
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard teams leave @a
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard objectives setdisplay sidebar @!gameSettings
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ tp @a 0 65 0
+execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ tp @a 0.0 65 0.0
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ gamerule keepInventory true
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Mine]
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Razor]
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_count_min=600,score_counting_min=0] @!count 0
+execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!count 0
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!win 0
