@@ -32,9 +32,9 @@
 	//finalize
 	//fail
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=0,score_endGame=0] ~ ~ ~ tellraw @a ["",{"text":"Draw!\n","color":"gold"},{"text":"[Try Again]","color":"red","clickEvent":{"action":"run_command","value":"/trigger endGameVote set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Start another vote","color":"aqua"}]}}}]
-	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame=-1] ~ ~ ~ tellraw @a ["",{"text":"The majority has spoken\n\nContinuing game","color":"red"}]
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame=-1] ~ ~ ~ tellraw @a ["",{"text":"The majority have spoken\n\nContinuing game","color":"red"}]
 	//success
-	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ tellraw @a ["",{"text":"The majority has spoken\n\nGame over","color":"green"}]
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ tellraw @a ["",{"text":"The majority have spoken\n\nGame over","color":"green"}]
 	scoreboard players tag @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] remove @!gameInProgress
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ tp @a 0.0 65 0.0
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ scoreboard players set @a @!inGame -1

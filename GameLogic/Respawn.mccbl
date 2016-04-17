@@ -51,16 +51,24 @@
 	;;
 ;;
 //put players in right place
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ effect @a[0,1,20,3,score_died_min=1] minecraft:resistance 3 4 true
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ effect @a[0,1,20,3,score_died_min=1] minecraft:instant_health 3 4 true
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @a[0,1,20,3,score_died_min=1] remove @!invis
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @a[0,1,20,3,score_died_min=1] remove @!spinning
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Red] 531 148 519 90 0
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Orange] 531 148 506 90 0
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Yellow] 519 148 494 0 0
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Green] 506 148 494 0 0
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Blue] 494 148 506 -90 0
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Purple] 494 148 519 -90 0
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Cyan] 506 148 531 180 0
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Pink] 519 148 531 180 0
-execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_tsd_min=1] @!died 0
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ effect @a[score_tsd_min=1,score_tsd=1,score_died_min=1] minecraft:resistance 3 4 true
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ effect @a[score_tsd_min=1,score_tsd=1,score_died_min=1] minecraft:instant_health 3 4 true
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @a[score_tsd_min=1,score_tsd=1,score_died_min=1] remove @!invis
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @a[score_tsd_min=1,score_tsd=1,score_died_min=1] remove @!spinning
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[score_tsd_min=1,score_tsd=1,score_died_min=1,team=Red] @e[type=ArmorStand,team=Red,tag=respawn]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[score_tsd_min=1,score_tsd=1,score_died_min=1,team=Orange] @e[type=ArmorStand,team=Orange,tag=respawn]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[score_tsd_min=1,score_tsd=1,score_died_min=1,team=Yellow] @e[type=ArmorStand,team=Yellow,tag=respawn]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[score_tsd_min=1,score_tsd=1,score_died_min=1,team=Green] @e[type=ArmorStand,team=Green,tag=respawn]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[score_tsd_min=1,score_tsd=1,score_died_min=1,team=Blue] @e[type=ArmorStand,team=Blue,tag=respawn]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[score_tsd_min=1,score_tsd=1,score_died_min=1,team=Purple] @e[type=ArmorStand,team=Purple,tag=respawn]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[score_tsd_min=1,score_tsd=1,score_died_min=1,team=Cyan] @e[type=ArmorStand,team=Cyan,tag=respawn]
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[score_tsd_min=1,score_tsd=1,score_died_min=1,team=Pink] @e[type=ArmorStand,team=Pink,tag=respawn]
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Red] 531 148 519 90 0
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Orange] 531 148 506 90 0
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Yellow] 519 148 494 0 0
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Green] 506 148 494 0 0
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Blue] 494 148 506 -90 0
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Purple] 494 148 519 -90 0
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Cyan] 506 148 531 180 0
+	//execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[0,1,20,3,score_died_min=1,team=Pink] 519 148 531 180 0
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_tsd_min=1] @!died 0

@@ -31,7 +31,7 @@
 	scoreboard players remove @e[type=Item,tag=isLeech] @!mine 1
 	entitydata @e[type=Item,tag=isLeech,score_mine=-1] {PickupDelay:32767}
 	//summon the leech
-	execute @e[type=Item,tag=isLeech,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,RadiusOnUse:0f,Duration:1000000,Particle:take,CustomName:Leech,Tags:[noTP,isLeech,fresh],Age:-1000000}
+	execute @e[type=Item,tag=isLeech,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,RadiusOnUse:0f,Duration:1000000,Particle:townaura,CustomName:Leech,Tags:[noTP,isLeech,fresh],Age:-1000000}
 	//team the leech
 	execute @e[type=Item,score_mine=-60,tag=Red] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Leech,tag=fresh] add Red
 	execute @e[type=Item,score_mine=-60,tag=Orange] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Leech,tag=fresh] add Orange
@@ -61,14 +61,14 @@
 	scoreboard players remove @a[score_leechTime_min=1] @!leechTime 1
 	//custom message
 	execute @a[tag=leeched,score_health_min=1,score_health=6] ~ ~ ~ gamerule showDeathMessages false
-	effect @a[tag=leeched] minecraft:instant_damage 1 0 true
-	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_health=0,tag=leeched] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_health=0,tag=leeched]"},{"text":" lost too much blood"}]
-	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_health=0,tag=leeched] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_health=0,tag=leeched]"},{"text":" tried alternative medicine"}]
-	scoreboard players add @a[tag=leeched] @!leechCount 1
-	execute @a[tag=leeched,score_health=0] ~ ~ ~ gamerule showDeathMessages true
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[tag=leeched,score_health_min=1,score_health=6,score_muscleMilk=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=leeched,score_health_min=1,score_health=6]"},{"text":" lost too much blood"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[tag=leeched,score_health_min=1,score_health=6,score_muscleMilk=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=leeched,score_health_min=1,score_health=6]"},{"text":" tried alternative medicine"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk_min=1] ~ ~ ~ tellraw @p ["",{"text":"Blood? Who needs it!","color":"green"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk_min=1] ~ ~ ~ tellraw @p ["",{"text":"Alternative medicine does nothing!","color":"green"}]
+	kill @a[tag=leeched,score_health_min=1,score_health=6,score_muscleMilk=0]
+	effect @a[tag=leeched,score_muscleMilk=0] minecraft:instant_damage 1 0 true
+	gamerule showDeathMessages true
 	//extra
-	execute @e[type=AreaEffectCloud,name=Leech] ~ ~ ~ particle townaura ~ ~ ~ 0.05 0 0.05 0 1
-	scoreboard players tag @a[score_leechCount_min=2] remove @!leeched
-	scoreboard players set @a[tag=!leeched] @!leechCount 0
+	scoreboard players tag @a remove @!leeched
 ;;
 
