@@ -17,10 +17,15 @@
 	kill @e[score_grenade_min=1,type=AreaEffectCloud]
 ;;
 :: "Lightning"
+	scoreboard players tag add @a @!lightningFailure
 	scoreboard players remove @e[type=Item,tag=!disp] @!lightning 1 {Item:{id:minecraft:prismarine_shard},Invulnerable:0b}
-	execute @a[score_lightning_min=1] ~ ~ ~ execute @a[m=2,rm=1] ~ ~ ~ summon @!LightningBolt
-	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_lightning_min=1] ~ ~ ~ tellraw @a ["",{"text":"Lightning struck ","color":"gold"},{"selector":"@a[m=2,rm=1]","color":"gold"}]
-	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_lightning_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[m=2,rm=1]","color":"gold"},{"text":" got a friendly reminder of their ability to conduct electricity","color":"gold"}]
 	kill @e[type=Item,score_lightning=-1]
+	execute @a[score_lightning_min=1] ~ ~ ~ execute @a[score_lightning=0] ~ ~ ~ summon @!LightningBolt
+	execute @a[score_lightning_min=1] ~ ~ ~ execute @a[score_lightning=0] ~ ~ ~ scoreboard players tag @a[score_lightning_min=1] remove @!lightningFailure
+	execute @a[score_lightning_min=1,tag=lightningFailure] ~ ~ ~ summon @!LightningBolt 400 0 400
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_lightning_min=1,tag=!lightningFailure] ~ ~ ~ tellraw @a ["",{"text":"Lightning struck ","color":"gold"},{"selector":"@a[m=2,rm=1]","color":"gold"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_lightning_min=1,tag=!lightningFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[m=2,rm=1]","color":"gold"},{"text":" got a friendly reminder of their ability to conduct electricity","color":"gold"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_lightning_min=1,tag=lightningFailure] ~ ~ ~ tellraw @a ["",{"text":"Lightning stikes in the distance","color":"red"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_lightning_min=1,tag=lightningFailure] ~ ~ ~ tellraw @a ["",{"text":"A thunderstorm rolls through","color":"red"}]
 	scoreboard players set @a @!lightning 0
 ;;
