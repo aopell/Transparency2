@@ -28,14 +28,13 @@
 	execute @a[score_wins_min=15,tag=!hasTrail_win15] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_wins_min=15,tag=!hasTrail_win15]"},{"text":" unlocked "},{"text":"[ Champion ]","color":"green","hoverEvent":{"action":"show_text","value":"Win 15 games"}}]
 	scoreboard players tag @a[score_wins_min=15] add @!hasTrail_win15
 	//final
-	scoreboard players add @a[tag=hasTrail_parkour] @!unlockedTrails 1
 	scoreboard players add @a[tag=hasTrail_deaths] @!unlockedTrails 1
 	scoreboard players add @a[tag=hasTrail_win5] @!unlockedTrails 1
 	scoreboard players add @a[tag=hasTrail_win15] @!unlockedTrails 1
 	scoreboard players add @a[tag=hasTrail_parkour1] @!unlockedTrails 1
 	scoreboard players add @a[tag=hasTrail_parkour2] @!unlockedTrails 1
 	scoreboard players add @a[tag=hasTrail_parkour3] @!unlockedTrails 1
-	scoreboard players tag @a[score_unlockedTrails_min=7] add @!hasTrail_god
+	scoreboard players tag @a[score_unlockedTrails_min=6] add @!hasTrail_god
 ;;
 :: "Selector"
 	scoreboard players enable @a @!changeTrail
@@ -115,6 +114,9 @@
 		execute @a[score_selectedTrail_min=99,score_selectedTrail=99,team=Lobby] ~ ~ ~ particle reddust ~ ~0.7 ~ 0.1 0.95 0 1 0
 		execute @a[score_selectedTrail_min=99,score_selectedTrail=99,team=Lobby] ~ ~ ~ particle reddust ~ ~0.5 ~ 0.1 0.22 0.95 1 0
 		execute @a[score_selectedTrail_min=99,score_selectedTrail=99,team=Lobby] ~ ~ ~ particle reddust ~ ~0.3 ~ 0.95 0 0.9 1 0
+	;;
+	:: "Champion - Cape"
+		execute @a[score_selectedTrail_min=4,score_selectedTrail=4,team=Lobby] ~ ~ ~ particle magicCrit ~ ~1.2 ~ 0.1 0 0.1 0 10
 	;;
 	:: "Victor - Waveform"
 		execute @a[score_selectedTrail_min=3,score_selectedTrail=3,team=Lobby] ~ ~ ~ particle endRod ~ ~1 ~ 0 .25 0 0 10
