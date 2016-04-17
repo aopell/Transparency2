@@ -27,8 +27,10 @@
 ;;
 :: "Freeze"
 //summon Item 3 1 20 {Item:{id:minecraft:ice,Count:1,tag:{display:{Name:"Freeze Frame",Lore:["Freezes everyone else","Place block to use"]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}
+	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:ice 0
 	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ scoreboard players set @a[rm=1,m=2] @!freeze -1
-	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ tellraw @a[score_freeze=-1] ["",{"text":"You were frozen in your tracks","color":"aqua"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ tellraw @a[score_freeze=-1] ["",{"text":"You were frozen in your tracks","color":"aqua"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ tellraw @a[score_freeze=-1] ["",{"text":"You are unable to move","color":"aqua"}]
 	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:entity.elder_guardian.hurt master @p ~ ~ ~ 10 .1
 	scoreboard players remove @a[score_freeze=-1] @!freeze 1
 	effect @a[score_freeze=-1,m=2] minecraft:slowness 1 127 true
@@ -49,7 +51,8 @@
 //summon Item 3 1 20 {Item:{id:minecraft:firework,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:4,Trail:1b}]},display:{Name:"Firework",Lore:["Makes you feel like a plastic bag","Launches other players into the air","Place on ground to use"]}},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]},Invulnerable:1b,Age:5600}
 	execute @a[score_firework_min=1] ~ ~ ~ effect @e[score_firework=0,team=!Lobby,type=!ArmorStand] minecraft:levitation 1 127 true
 	execute @a[score_firework_min=1] ~ ~ ~ playsound entity.firework.launch master @a[score_firework=0] ~ ~ ~ 1000000
-	execute @a[score_firework_min=1] ~ ~ ~ tellraw @a[rm=1,m=2] ["",{"text":"You were launched into the air","color":"gold"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_firework_min=1] ~ ~ ~ tellraw @a[rm=1,m=2] ["",{"text":"You were launched into the air","color":"gold"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_firework_min=1] ~ ~ ~ tellraw @a[rm=1,m=2] ["",{"text":"The ground disappears beneath you","color":"gold"}]
 	scoreboard players set @a @!firework 0
 ;;
 :: "Bouncin' Bunny"

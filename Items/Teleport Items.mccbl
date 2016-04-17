@@ -26,6 +26,7 @@
 :: "Spinning top"
 //summon Item 3 1 20 {Item:{id:minecraft:hopper,Count:1,tag:{display:{Name:"Spinning Top",Lore:["You spin me right round, baby","Makes a player spin around in circles","Place block to use"]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}
 	scoreboard players set @a[tag=!spinning] @!topCount 0
+	execute @a[score_usedTop_min=1] ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:hopper
 	//start spinnnn
 	execute @a[score_usedTop_min=1] ~ ~ ~ scoreboard players tag @r[rm=1,m=2,team=!Lobby,tag=!spinning] add @!spinning
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_usedTop_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=spinning,score_topCount_min=0,score_topCount=5]"},{"text":" is feeling a bit dizzy","color":"gold"}]
