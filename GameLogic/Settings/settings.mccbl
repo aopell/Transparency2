@@ -57,14 +57,14 @@ scoreboard players test @!RespawnTokens @!gameSettings -1000000 -1
 	execute @e[type=ArmorStand,name=GK,score_settingItems_min=1] ~ ~ ~ blockdata -14 1 -5 {auto:1b}
 ;;
 :: "Estimated Length"
-	scoreboard players set @!Players @!gameSettings 0
-	execute @a[team=Lobby,m=!3] ~ ~ ~ scoreboard players add @!Players @!gameSettings 1 
-	scoreboard players operation @!Players @!calc = @!Players @!gameSettings
+	scoreboard players set @!Players @!calc 0
+	execute @a[team=Lobby,m=!3] ~ ~ ~ scoreboard players add @!Players @!calc 1 
+	scoreboard players operation @!Players @!gameSettings = @!Players @!calc
 	scoreboard players operation @!Players @!calc += @!Thirty @!calc
 	scoreboard players operation @!Tokens @!calc = @!RespawnTokens @!gameSettings
 	scoreboard players operation @!Tokens @!calc *= @!Twenty @!calc
+	scoreboard players operation @!Tokens @!calc /= @!Players @!calc
 	scoreboard players operation @!GameLength @!gameSettings = @!Tokens @!calc
-	scoreboard players operation @!GameLength @!gameSettings /= @!Players @!calc
 
 ;;
 
