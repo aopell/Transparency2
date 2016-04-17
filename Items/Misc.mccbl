@@ -1,0 +1,70 @@
+@TYPE REPEAT
+@CHAIN ON
+@VERSION 1.9
+:: "Anvil"
+//summon Item 3 1 20 {Item:{id:minecraft:anvil,Count:1,tag:{display:{Name:Falling Anvils,Lore:[Creates a 5x5 area of falling anvils,The anvils spawn above where item is dropped,Drop on the ground to use]}}},Invulnerable:1b,Age:5600}
+	scoreboard players remove @e[type=Item,tag=!disp] minecraft:anvil 1 {Item:{id:minecraft:anvil},Invulnerable:0b}
+	entitydata @e[type=Item,score_anvil=-1] {PickupDelay:32767}
+	execute @e[type=Item,score_anvil=-30] ~ ~ ~ fill ~-2 255 ~-2 ~2 255 ~2 minecraft:anvil 8
+	kill @e[type=Item,score_anvil=-30]
+;;
+:: "Bat"
+//summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Air Strike,Lore:[Drops a constant stream of Instant Damage Potions,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire],EntityTag:{id:Bat,Invulnerable:1b}}},Invulnerable:1b,Age:5600}
+	scoreboard players add @e[type=Bat] @!ticks 1
+	execute @e[type=Bat,name=!chest] ~ ~ ~ summon ThrownPotion ~ ~-0.25 ~ {CustomName:Airstrike,Potion:{id:minecraft:splash_potion,Count:1,tag:{Potion:minecraft:harming}}}
+	kill @e[type=Bat,score_ticks_min=600,name=!chest]
+;;
+:: "Leech"
+	//team the items
+	scoreboard players tag @e[type=Item] add @!isLeech {Item:{id:minecraft:dye},Invulnerable:0b}
+	execute @a[score_dropLeech_min=1,team=Red] ~ ~ ~ scoreboard teams join Red @e[Type=Item,tag=isLeech,team=]
+	execute @a[score_dropLeech_min=1,team=Orange] ~ ~ ~ scoreboard teams join Orange @e[Type=Item,tag=isLeech,team=]
+	execute @a[score_dropLeech_min=1,team=Yellow] ~ ~ ~ scoreboard teams join Yellow @e[Type=Item,tag=isLeech,team=]
+	execute @a[score_dropLeech_min=1,team=Green] ~ ~ ~ scoreboard teams join Green @e[Type=Item,tag=isLeech,team=]
+	execute @a[score_dropLeech_min=1,team=Blue] ~ ~ ~ scoreboard teams join Blue @e[Type=Item,tag=isLeech,team=]
+	execute @a[score_dropLeech_min=1,team=Purple] ~ ~ ~ scoreboard teams join Purple @e[Type=Item,tag=isLeech,team=]
+	execute @a[score_dropLeech_min=1,team=Cyan] ~ ~ ~ scoreboard teams join Cyan @e[Type=Item,tag=isLeech,team=]
+	execute @a[score_dropLeech_min=1,team=Pink] ~ ~ ~ scoreboard teams join Pink @e[Type=Item,tag=isLeech,team=]
+	scoreboard players set @a @!dropLeech 0
+	
+	scoreboard players remove @e[type=Item,tag=isLeech] @!mine 1
+	entitydata @e[type=Item,tag=isLeech,score_mine=-1] {PickupDelay:32767}
+	//summon the leech
+	execute @e[type=Item,tag=isLeech,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,RadiusOnUse:0f,Duration:1000000,Particle:take,CustomName:Leech,Tags:[noTP,isLeech],Age:-1000000}
+	//team the leech
+	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Red] ~ ~ ~ scoreboard teams join Red @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
+	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Orange] ~ ~ ~ scoreboard teams join Orange @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
+	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Yellow] ~ ~ ~ scoreboard teams join Yellow @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
+	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Green] ~ ~ ~ scoreboard teams join Green @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
+	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Blue] ~ ~ ~ scoreboard teams join Blue @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
+	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Purple] ~ ~ ~ scoreboard teams join Purple @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
+	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Cyan] ~ ~ ~ scoreboard teams join Cyan @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
+	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Pink] ~ ~ ~ scoreboard teams join Pink @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
+	//kill it
+	kill @e[type=Item,tag=isLeech,score_mine=-60]
+	//trip
+	execute @a[m=2] ~ ~ ~ execute @e[type=AreaEffectCloud,name=Leech,r=1] ~ ~ ~ scoreboard players set @e[type=AreaEffectCloud,name=Leech,r=0] @!mine 1
+	execute @e[score_mine_min=1,tag=isLeech] ~ ~ ~ scoreboard players tag @a[r=1] add @!leeched
+	execute @e[score_mine_min=1,tag=isLeech,team=Red] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Red] @!leechTime 1
+	execute @e[score_mine_min=1,tag=isLeech,team=Orange] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Orange] @!leechTime 1
+	execute @e[score_mine_min=1,tag=isLeech,team=Yellow] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Yellow] @!leechTime 1
+	execute @e[score_mine_min=1,tag=isLeech,team=Green] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Green] @!leechTime 1
+	execute @e[score_mine_min=1,tag=isLeech,team=Blue] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Blue] @!leechTime 1
+	execute @e[score_mine_min=1,tag=isLeech,team=Purple] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Purple] @!leechTime 1
+	execute @e[score_mine_min=1,tag=isLeech,team=Cyan] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Cyan] @!leechTime 1
+	execute @e[score_mine_min=1,tag=isLeech,team=Pink] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Pink] @!leechTime 1
+	kill @e[type=AreaEffectCloud,score_mine_min=1]
+	//effect applier
+	effect @a[tag=leeched] minecraft:instant_damage 1 0 true
+	effect @a[score_leechTime_min=1] minecraft:instant_health 1 0 true
+	scoreboard players remove @a @!leechTime 1
+	//custom message
+	execute @a[tag=leeched] ~ ~ ~ gamerule showDeathMessages false
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_health=0,tag=leeched] ~ ~ ~ tellraw @a ["",{"selector":"@p"},{"text":" lost too much blood"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_health=0,tag=leeched] ~ ~ ~ tellraw @a ["",{"selector":"@p"},{"text":" tried alternative medicine"}]
+	gamerule showDeathMessages true
+	//extra
+	execute @e[type=AreaEffectCloud,name=Leech] ~ ~ ~ particle townaura ~ ~ ~ 0.05 0 0.05 0 1
+	scoreboard players tag @a remove @!leeched
+;;
+
