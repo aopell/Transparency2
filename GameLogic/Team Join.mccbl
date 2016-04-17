@@ -21,23 +21,23 @@ scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 	;;
 ;;
 :: "Randomize Teams"
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ gamemode 2 @a[m=!3]
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Red @r[team=Lobby,m=!3,tag=Red]
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Blue @r[team=Lobby,m=!3,tag=Blue]
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Yellow @r[team=Lobby,m=!3,tag=Yellow]
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Cyan @r[team=Lobby,m=!3,tag=Cyan]
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Green @r[team=Lobby,m=!3,tag=Green]
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Pink @r[team=Lobby,m=!3,tag=Pink]
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Purple @r[team=Lobby,m=!3,tag=Purple]
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Orange @r[team=Lobby,m=!3,tag=Orange]
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Red] 6 65 2
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Blue] -7 65 -3
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Yellow] 2 65 -7
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Cyan] -3 65 6
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Green] -3 65 -7
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Pink] 2 65 6
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Purple] -7 65 2
-	execute @e[tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Orange] 6 65 -3
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ gamemode 2 @a[m=!3]
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Red @r[team=Lobby,m=!3,tag=Red]
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Blue @r[team=Lobby,m=!3,tag=Blue]
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Yellow @r[team=Lobby,m=!3,tag=Yellow]
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Cyan @r[team=Lobby,m=!3,tag=Cyan]
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Green @r[team=Lobby,m=!3,tag=Green]
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Pink @r[team=Lobby,m=!3,tag=Pink]
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Purple @r[team=Lobby,m=!3,tag=Purple]
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ scoreboard teams join Orange @r[team=Lobby,m=!3,tag=Orange]
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Red] 6 65 2
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Blue] -7 65 -3
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Yellow] 2 65 -7
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Cyan] -3 65 6
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Green] -3 65 -7
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Pink] 2 65 6
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Purple] -7 65 2
+	execute @e[type=ArmorStand,name=GK,tag=!gameInProgress] ~ ~ ~ execute @e[tag=randomizeTeams] ~ ~ ~ tp @r[team=Orange] 6 65 -3
 	scoreboard players tag @e[tag=randomizeTeams] remove @!randomizeTeams
 ;;
 :: "Team joining"
