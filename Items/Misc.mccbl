@@ -16,55 +16,59 @@
 ;;
 :: "Leech"
 	//team the items
+	scoreboard players set @e[type=Item,tag=!isLeech] @!mine 0 {Item:{id:minecraft:dye},Invulnerable:0b}
 	scoreboard players tag @e[type=Item] add @!isLeech {Item:{id:minecraft:dye},Invulnerable:0b}
-	execute @a[score_dropLeech_min=1,team=Red] ~ ~ ~ scoreboard teams join Red @e[Type=Item,tag=isLeech,team=]
-	execute @a[score_dropLeech_min=1,team=Orange] ~ ~ ~ scoreboard teams join Orange @e[Type=Item,tag=isLeech,team=]
-	execute @a[score_dropLeech_min=1,team=Yellow] ~ ~ ~ scoreboard teams join Yellow @e[Type=Item,tag=isLeech,team=]
-	execute @a[score_dropLeech_min=1,team=Green] ~ ~ ~ scoreboard teams join Green @e[Type=Item,tag=isLeech,team=]
-	execute @a[score_dropLeech_min=1,team=Blue] ~ ~ ~ scoreboard teams join Blue @e[Type=Item,tag=isLeech,team=]
-	execute @a[score_dropLeech_min=1,team=Purple] ~ ~ ~ scoreboard teams join Purple @e[Type=Item,tag=isLeech,team=]
-	execute @a[score_dropLeech_min=1,team=Cyan] ~ ~ ~ scoreboard teams join Cyan @e[Type=Item,tag=isLeech,team=]
-	execute @a[score_dropLeech_min=1,team=Pink] ~ ~ ~ scoreboard teams join Pink @e[Type=Item,tag=isLeech,team=]
+	execute @a[score_dropLeech_min=1,team=Red] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Red
+	execute @a[score_dropLeech_min=1,team=Orange] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Orange
+	execute @a[score_dropLeech_min=1,team=Yellow] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Yellow
+	execute @a[score_dropLeech_min=1,team=Green] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Green
+	execute @a[score_dropLeech_min=1,team=Blue] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Blue
+	execute @a[score_dropLeech_min=1,team=Purple] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Purple
+	execute @a[score_dropLeech_min=1,team=Cyan] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Cyan
+	execute @a[score_dropLeech_min=1,team=Pink] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Pink
 	scoreboard players set @a @!dropLeech 0
 	
 	scoreboard players remove @e[type=Item,tag=isLeech] @!mine 1
 	entitydata @e[type=Item,tag=isLeech,score_mine=-1] {PickupDelay:32767}
 	//summon the leech
-	execute @e[type=Item,tag=isLeech,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,RadiusOnUse:0f,Duration:1000000,Particle:take,CustomName:Leech,Tags:[noTP,isLeech],Age:-1000000}
+	execute @e[type=Item,tag=isLeech,score_mine=-60] ~ ~ ~ summon AreaEffectCloud ~ ~ ~ {Radius:0.5f,RadiusOnUse:0f,Duration:1000000,Particle:take,CustomName:Leech,Tags:[noTP,isLeech,fresh],Age:-1000000}
 	//team the leech
-	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Red] ~ ~ ~ scoreboard teams join Red @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
-	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Orange] ~ ~ ~ scoreboard teams join Orange @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
-	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Yellow] ~ ~ ~ scoreboard teams join Yellow @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
-	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Green] ~ ~ ~ scoreboard teams join Green @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
-	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Blue] ~ ~ ~ scoreboard teams join Blue @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
-	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Purple] ~ ~ ~ scoreboard teams join Purple @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
-	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Cyan] ~ ~ ~ scoreboard teams join Cyan @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
-	execute @a[type=Item,tag=isLeech,score_mine=-60,team=Pink] ~ ~ ~ scoreboard teams join Pink @e[Type=AreaEffectCloud,name=Leech,team=,tag=isLeech]
+	execute @e[type=Item,score_mine=-60,tag=Red] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Leech,tag=fresh] add Red
+	execute @e[type=Item,score_mine=-60,tag=Orange] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Leech,tag=fresh] add Orange
+	execute @e[type=Item,score_mine=-60,tag=Yellow] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Leech,tag=fresh] add Yellow
+	execute @e[type=Item,score_mine=-60,tag=Green] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Leech,tag=fresh] add Green
+	execute @e[type=Item,score_mine=-60,tag=Blue] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Leech,tag=fresh] add Blue
+	execute @e[type=Item,score_mine=-60,tag=Purple] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Leech,tag=fresh] add Purple
+	execute @e[type=Item,score_mine=-60,tag=Cyan] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Leech,tag=fresh] add Cyan
+	execute @e[type=Item,score_mine=-60,tag=Pink] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Leech,tag=fresh] add Pink
+	scoreboard players tag @e[tag=fresh] remove @!fresh
 	//kill it
 	kill @e[type=Item,tag=isLeech,score_mine=-60]
 	//trip
 	execute @a[m=2] ~ ~ ~ execute @e[type=AreaEffectCloud,name=Leech,r=1] ~ ~ ~ scoreboard players set @e[type=AreaEffectCloud,name=Leech,r=0] @!mine 1
 	execute @e[score_mine_min=1,tag=isLeech] ~ ~ ~ scoreboard players tag @a[r=1] add @!leeched
-	execute @e[score_mine_min=1,tag=isLeech,team=Red] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Red] @!leechTime 1
-	execute @e[score_mine_min=1,tag=isLeech,team=Orange] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Orange] @!leechTime 1
-	execute @e[score_mine_min=1,tag=isLeech,team=Yellow] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Yellow] @!leechTime 1
-	execute @e[score_mine_min=1,tag=isLeech,team=Green] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Green] @!leechTime 1
-	execute @e[score_mine_min=1,tag=isLeech,team=Blue] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Blue] @!leechTime 1
-	execute @e[score_mine_min=1,tag=isLeech,team=Purple] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Purple] @!leechTime 1
-	execute @e[score_mine_min=1,tag=isLeech,team=Cyan] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Cyan] @!leechTime 1
-	execute @e[score_mine_min=1,tag=isLeech,team=Pink] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Pink] @!leechTime 1
+	execute @e[score_mine_min=1,tag=Red] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Red] @!leechTime 1
+	execute @e[score_mine_min=1,tag=Orange] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Orange] @!leechTime 1
+	execute @e[score_mine_min=1,tag=Yellow] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Yellow] @!leechTime 1
+	execute @e[score_mine_min=1,tag=Green] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Green] @!leechTime 1
+	execute @e[score_mine_min=1,tag=Blue] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Blue] @!leechTime 1
+	execute @e[score_mine_min=1,tag=Purple] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Purple] @!leechTime 1
+	execute @e[score_mine_min=1,tag=Cyan] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Cyan] @!leechTime 1
+	execute @e[score_mine_min=1,tag=Pink] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Pink] @!leechTime 1
 	kill @e[type=AreaEffectCloud,score_mine_min=1]
 	//effect applier
-	effect @a[tag=leeched] minecraft:instant_damage 1 0 true
 	effect @a[score_leechTime_min=1] minecraft:instant_health 1 0 true
-	scoreboard players remove @a @!leechTime 1
+	scoreboard players remove @a[score_leechTime_min=1] @!leechTime 1
 	//custom message
-	execute @a[tag=leeched] ~ ~ ~ gamerule showDeathMessages false
-	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_health=0,tag=leeched] ~ ~ ~ tellraw @a ["",{"selector":"@p"},{"text":" lost too much blood"}]
-	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_health=0,tag=leeched] ~ ~ ~ tellraw @a ["",{"selector":"@p"},{"text":" tried alternative medicine"}]
-	gamerule showDeathMessages true
+	execute @a[tag=leeched,score_health_min=1,score_health=6] ~ ~ ~ gamerule showDeathMessages false
+	effect @a[tag=leeched] minecraft:instant_damage 1 0 true
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_health=0,tag=leeched] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_health=0,tag=leeched]"},{"text":" lost too much blood"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_health=0,tag=leeched] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_health=0,tag=leeched]"},{"text":" tried alternative medicine"}]
+	scoreboard players add @a[tag=leeched] @!leechCount 1
+	execute @a[tag=leeched,score_health=0] ~ ~ ~ gamerule showDeathMessages true
 	//extra
 	execute @e[type=AreaEffectCloud,name=Leech] ~ ~ ~ particle townaura ~ ~ ~ 0.05 0 0.05 0 1
-	scoreboard players tag @a remove @!leeched
+	scoreboard players tag @a[score_leechCount_min=2] remove @!leeched
+	scoreboard players set @a[tag=!leeched] @!leechCount 0
 ;;
 
