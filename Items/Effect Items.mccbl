@@ -27,7 +27,7 @@
 ;;
 :: "Freeze"
 //summon Item 3 1 20 {Item:{id:minecraft:ice,Count:1,tag:{display:{Name:"Freeze Frame",Lore:["Freezes everyone else","Place block to use"]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}
-	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:ice 0
+	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ execute @a ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:ice 0
 	execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ scoreboard players set @a[rm=1,m=2] @!freeze -1
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ tellraw @a[score_freeze=-1] ["",{"text":"You were frozen in your tracks","color":"aqua"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_freeze_min=1,score_freeze=1,m=2] ~ ~ ~ tellraw @a[score_freeze=-1] ["",{"text":"You are unable to move","color":"aqua"}]

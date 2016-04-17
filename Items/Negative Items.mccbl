@@ -9,7 +9,7 @@
 	playsound entity.wither.death master @a[score_heartStopper_min=1] ~ ~ ~ 1000000 2
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_heartStopper_min=1,tag=!invincible] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_heartStopper_min=1,tag=!invincible]"},{"text":" had a heart attack"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_heartStopper_min=1,tag=invincible] ~ ~ ~ tellraw @a[score_heartStopper_min=1,tag=invincible] ["",{"text":"You have amazing cardiovascular health!","color":"green"}]
-	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_heartStopper_min=1,tag=!invincible] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_heartStopper_min=1,tag=!invincible]"},{"text":"'s heart sttopped beating"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_heartStopper_min=1,tag=!invincible] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_heartStopper_min=1,tag=!invincible]"},{"text":"'s heart stopped beating"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_heartStopper_min=1,tag=invincible] ~ ~ ~ tellraw @a[score_heartStopper_min=1,tag=invincible] ["",{"text":"Pesky heart! You weren't using that anyway!","color":"green"}]
 	kill @a[score_heartStopper_min=1,tag=!invincible]
 	scoreboard players set @a @!heartStopper 0
