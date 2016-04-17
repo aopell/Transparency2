@@ -5,6 +5,7 @@
 //summon Item ~ ~2 ~ {Item:{id:minecraft:emerald,Count:1,tag:{display:{Name:Token Boost,Lore:["Gives you some tokens"]}}},Invulnerable:1b,Age:5600}
 	scoreboard players operation @e[name=GK,type=!Player] @!livesToAdd = @!RespawnTokens @!gameSettings
 	scoreboard players operation @e[name=GK,type=!Player] @!livesToAdd /= @!ten @!ten
+	scoreboard players operation @e[name=GK,type=!Player] @!livesToAdd > @!one @!one
 	scoreboard players operation @a[score_plusThree_min=1] @!lives += @e[name=GK,type=!Player] @!livesToAdd
 	scoreboard players operation @!LivesToAdd @!livesToAdd = @e[name=GK,type=!Player] @!livesToAdd
 	execute @a[score_plusThree_min=1,m=2] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_plusThree_min=1]"},{"text":" has gained ","color":"green"},{"score":{"name":"LivesToAdd","objective":"livesToAdd"},"color":"red"},{"text":" tokens!","color":"green"}]
@@ -39,6 +40,7 @@
 //summon Item ~ ~2 ~ {Item:{id:minecraft:fire_charge,Count:1,tag:{display:{Name:Armaggeddon,Lore:["It's the end of the world as we know it","Kills everything and clears all inventories","Drop to use"]}}},Tags:[justSpawned],Invulnerable:1b,Age:5600}
 	execute @a[score_arma_min=1] ~ ~ ~ clear @a[m=2]
 	execute @a[score_arma_min=1] ~ ~ ~ execute @e[512,128,512,200,team=!Lobby,type=!ArmorStand,tag=!arma] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Armaggeddon,Tags:[arma]}
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_arma_min=1] ~ ~ ~ title @a times 0 40 10
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_arma_min=1] ~ ~ ~ title @a title ["",{"text":"The world ended","color":"red"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_arma_min=1] ~ ~ ~ title @a title ["",{"text":"There's nothing left","color":"red"}]
 	execute @a[score_arma_min=1] ~ ~ ~ kill @a[m=2,team=!Lobby]
@@ -47,20 +49,20 @@
 :: "TNT Rain"
 	execute @a[score_useTNT_min=1] ~ ~ ~ scoreboard players set @e[type=Item] @!useTNT 1 {Item:{tag:{display:{Name:"TNT Rain"}}}}
 	kill @e[type=Item,score_useTNT_min=1]
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~ 255 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~3 255 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~-3 255 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~ 255 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~ 255 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~3 255 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~-3 255 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~3 255 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
-	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~-3 255 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom]}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~ 255 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~3 255 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~-3 255 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~ 255 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~ 255 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~3 255 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~-3 255 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~3 255 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
+	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~-3 255 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ tellraw @a[score_useTNT_min=1] ["",{"text":"Look to the skies","color":"red"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ tellraw @a[score_useTNT_min=1] ["",{"text":"Tactical air strike incoming ","color":"red"}]
 	scoreboard players set @a @!useTNT 0
 	scoreboard players tag @e[tag=rainBoom] add @!boomNow
 	execute @e[type=Item,tag=rainBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:air 0 scoreboard players tag @e[r=1] remove @!boomNow
 	execute @e[type=Item,tag=boomNow] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,powered:1b,CustomName:"Raining TNT"} 
-	
+	kill @e[type=Item,tag=boomNow]
 ;;
