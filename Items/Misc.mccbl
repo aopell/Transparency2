@@ -65,13 +65,13 @@
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk=0] ~ ~ ~ tellraw @p ["",{"selector":"@a[score_leechTime_min=1]","color":"red"},{"text":" took your health","color":"red"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk=0] ~ ~ ~ tellraw @a[score_leechTime_min=1,score_leechTime=1] ["",{"selector":"@a[tag=leeched,score_muscleMilk=0]","color":"green"},{"text":" gives you their health","color":"green"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk=0] ~ ~ ~ tellraw @a[score_leechTime_min=1,score_leechTime=1] ["",{"selector":"@a[tag=leeched,score_muscleMilk=0]","color":"green"},{"text":" donates blood to you","color":"green"}]
-	//death
+	
 	//effect applier
 	execute @a[tag=leechedM] ~ ~ ~ scoreboard players remove @a[score_leechTime_min=1] @!leechTime 1
 	
 	effect @a[score_leechTime_min=1] minecraft:instant_health 1 0 true
 	scoreboard players remove @a[score_leechTime_min=1] @!leechTime 1
-	
+	//death
 	execute @a[tag=leeched,score_health_min=1,score_health=6] ~ ~ ~ gamerule showDeathMessages false
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[tag=leeched,score_health_min=1,score_health=6,score_muscleMilk=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=leeched,score_health_min=1,score_health=6]"},{"text":" lost too much blood"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[tag=leeched,score_health_min=1,score_health=6,score_muscleMilk=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=leeched,score_health_min=1,score_health=6]"},{"text":" tried alternative medicine"}]
