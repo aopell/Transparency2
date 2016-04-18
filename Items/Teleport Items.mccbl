@@ -13,7 +13,7 @@
 ;;
 :: "Sticky Arm"
 //summon Item 3 1 20 {Item:{id:minecraft:fishing_rod,Count:1,Damage:64,tag:{display:{Name:Sticky Arm,Lore:["Reaches out and grabs all players","Teleports a player to you","Right click while holding to use"]}}},Invulnerable:1b,Age:5600}
-	execute @a[score_fishing_min=1] ~ ~ ~ scoreboard players tag @r[m=2,rm=1] add @!beingPulled
+	execute @a[score_fishing_min=1] ~ ~ ~ scoreboard players tag @r[m=2,score_fishing=0,score_tsd_min=60] add @!beingPulled
 	execute @a[score_fishing_min=1] ~ ~ ~ tp @a[tag=beingPulled] @a[score_fishing_min=1]
 	execute @a[score_fishing_min=1] ~ ~ ~ playsound entity.slime.squish master @p ~ ~ ~ 1000000 2
 	execute @a[tag=beingPulled] ~ ~ ~ playsound entity.slime.squish master @p ~ ~ ~ 1000000 2
