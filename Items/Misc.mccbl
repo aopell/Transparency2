@@ -3,7 +3,7 @@
 @VERSION 1.9
 :: "Anvil"
 //summon Item 3 1 20 {Item:{id:minecraft:anvil,Count:1,tag:{display:{Name:Falling Anvils,Lore:[Creates a 5x5 area of falling anvils,The anvils spawn above where item is dropped,Drop on the ground to use]}}},Invulnerable:1b,Age:5600}
-	scoreboard players remove @e[type=Item,tag=!disp] minecraft:anvil 1 {Item:{id:minecraft:anvil},Invulnerable:0b}
+	scoreboard players remove @e[type=Item,tag=!disp] @!anvil 1 {Item:{id:minecraft:anvil},Invulnerable:0b}
 	entitydata @e[type=Item,score_anvil=-1] {PickupDelay:32767}
 	execute @e[type=Item,score_anvil=-30] ~ ~ ~ fill ~-2 255 ~-2 ~2 255 ~2 minecraft:anvil 8
 	kill @e[type=Item,score_anvil=-30]
@@ -47,6 +47,7 @@
 	//trip
 	execute @a[m=2] ~ ~ ~ execute @e[type=AreaEffectCloud,name=Leech,r=1] ~ ~ ~ scoreboard players set @e[type=AreaEffectCloud,name=Leech,r=0] @!mine 1
 	execute @e[score_mine_min=1,tag=isLeech] ~ ~ ~ scoreboard players tag @a[r=1] add @!leeched
+	execute @e[score_mine_min=1,tag=isLeech,score_muscleMilk_min=1] ~ ~ ~ scoreboard players tag @a[r=1] add @!leechedM
 	execute @e[score_mine_min=1,tag=Red] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Red] @!leechTime 1
 	execute @e[score_mine_min=1,tag=Orange] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Orange] @!leechTime 1
 	execute @e[score_mine_min=1,tag=Yellow] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Yellow] @!leechTime 1
@@ -57,12 +58,19 @@
 	execute @e[score_mine_min=1,tag=Pink] ~ ~ ~ execute @a[tag=leeched] ~ ~ ~ scoreboard players add @a[team=Pink] @!leechTime 1
 	kill @e[type=AreaEffectCloud,score_mine_min=1]
 	//effect applier
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk_min=1] ~ ~ ~ tellraw @a[score_leechTime_min=1,score_leechTime=1] ["",{"selector":"@a[tag=leeched,score_muscleMilk=0]","color":"red"},{"text":" crushed your leech","color":"red"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk_min=1] ~ ~ ~ tellraw @a[score_leechTime_min=1,score_leechTime=1] ["",{"selector":"@a[tag=leeched,score_muscleMilk=0]","color":"red"},{"text":"'s skin was too tough for your leech","color":"red"}]
+	execute @a[tag=leechedM] ~ ~ ~ scoreboard players remove @a[score_leechTime_min=1] @!leechTime 1
 	effect @a[score_leechTime_min=1] minecraft:instant_health 1 0 true
 	scoreboard players remove @a[score_leechTime_min=1] @!leechTime 1
 	//custom message
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk=0] ~ ~ ~ tellraw @a[score_leechTime_min=1,score_leechTime=1] ["",{"selector":"@a[tag=leeched,score_muscleMilk=0]","color":"green"},{"text":" gives you their health","color":"green"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk=0] ~ ~ ~ tellraw @a[score_leechTime_min=1,score_leechTime=1] ["",{"selector":"@a[tag=leeched,score_muscleMilk=0]","color":"green"},{"text":" donates blood to you","color":"green"}]
+	//death
 	execute @a[tag=leeched,score_health_min=1,score_health=6] ~ ~ ~ gamerule showDeathMessages false
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[tag=leeched,score_health_min=1,score_health=6,score_muscleMilk=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=leeched,score_health_min=1,score_health=6]"},{"text":" lost too much blood"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[tag=leeched,score_health_min=1,score_health=6,score_muscleMilk=0] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=leeched,score_health_min=1,score_health=6]"},{"text":" tried alternative medicine"}]
+	//muscle milk
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk_min=1] ~ ~ ~ tellraw @p ["",{"text":"Blood? Who needs it!","color":"green"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk_min=1] ~ ~ ~ tellraw @p ["",{"text":"Alternative medicine does nothing!","color":"green"}]
 	kill @a[tag=leeched,score_health_min=1,score_health=6,score_muscleMilk=0]
@@ -70,5 +78,6 @@
 	gamerule showDeathMessages true
 	//extra
 	scoreboard players tag @a remove @!leeched
+	scoreboard players tag @a remove @!leechedM
 ;;
 
