@@ -42,6 +42,7 @@
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ gamerule keepInventory true
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Mine]
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Razor]
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Leech]
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!win 0
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!timing 0
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ effect @a clear
@@ -75,5 +76,6 @@ execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ effect @a 
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ gamerule keepInventory true
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Mine]
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Razor]
+execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Leech]
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!count 0
 execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!win 0

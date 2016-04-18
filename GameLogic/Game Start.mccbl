@@ -29,12 +29,12 @@ tp @a[team=] 0.0 65 0.0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=400,score_count=400] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
 	:: "5... 4..."
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=599] ~ ~ ~ title @a times 0 100 20
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=599] ~ ~ ~ title @a title [{"text":"Game starting in","color":"gold"}]
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=500] ~ ~ ~ title @a subtitle ["",{"text":"5","color":"red"}]
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=520,score_count=520] ~ ~ ~ title @a subtitle ["",{"text":"4","color":"red"}]
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=540,score_count=540] ~ ~ ~ title @a subtitle ["",{"text":"3","color":"red"}]
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=560,score_count=560] ~ ~ ~ title @a subtitle ["",{"text":"2","color":"red"}]
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ title @a subtitle ["",{"text":"1","color":"red"}]
+		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=599] ~ ~ ~ title @a title [{"text":"Game starting in","color":"gold"}]
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=500] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=520,score_count=520] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=540,score_count=540] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
@@ -63,6 +63,7 @@ tp @a[team=] 0.0 65 0.0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!seconds 0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!minutes 0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!timing 1
+	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tellraw @a ["",{"text":"Click the timer to start a vote to end the game","color":"gold"}]
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=!Lobby] 0 1 20
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Red] 531 148 519 90 0
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Orange] 531 148 506 90 0
