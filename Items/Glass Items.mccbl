@@ -6,7 +6,7 @@
 	execute @a[score_mirror_min=1] ~ ~ ~ execute @a ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:stained_glass_pane 0
 	execute @a[score_mirror_min=1] ~ ~ ~ summon ArmorStand -3 1 20 {CustomName:"mirror",Invisible:1b,NoGravity:1b}
 	scoreboard players tag @a add @!mirrorFailure
-	execute @a[score_mirror_min=1] ~ ~ ~ scoreboard players set @r[score_mirror=1,m=2,score_health_min=1,score_tsd_min=60] @!mirrorRecip 1
+	execute @a[score_mirror_min=1] ~ ~ ~ scoreboard players set @r[score_mirror=0,m=2,score_tsd_min=60] @!mirrorRecip 1
 	execute @a[score_mirrorRecip_min=1] ~ ~ ~ scoreboard players tag @a[score_mirror_min=1] remove @!mirrorFailure
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_mirror_min=1,tag=!mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1]"},{"text":" swaped places with ","color":"gold"},{"selector":"@a[score_mirrorRecip_min=1]"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_mirror_min=1,tag=!mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1]"},{"text":" switched with ","color":"gold"},{"selector":"@a[score_mirrorRecip_min=1]"}]

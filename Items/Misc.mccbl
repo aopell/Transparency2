@@ -65,7 +65,9 @@
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk=0] ~ ~ ~ tellraw @p ["",{"selector":"@a[score_leechTime_min=1]","color":"red"},{"text":" took your health","color":"red"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk=0] ~ ~ ~ tellraw @a[score_leechTime_min=1,score_leechTime=1] ["",{"selector":"@a[tag=leeched,score_muscleMilk=0]","color":"green"},{"text":" gives you their health","color":"green"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[tag=leeched,score_muscleMilk=0] ~ ~ ~ tellraw @a[score_leechTime_min=1,score_leechTime=1] ["",{"selector":"@a[tag=leeched,score_muscleMilk=0]","color":"green"},{"text":" donates blood to you","color":"green"}]
-	
+	playsound minecraft:entity.squid.hurt master @a[tag=leeched,score_muscleMilk=0] ~ ~ ~ 1 1.7 1
+	playsound minecraft:entity.squid.death master  @a[score_leechTime_min=1,score_leechTime=1] ~ ~ ~ 1 2 1
+	playsound minecraft:entity.squid.death master  @a[tag=leeched,score_health_min=1,score_health=6,score_muscleMilk=0] ~ ~ ~ 1 0 1
 	//effect applier
 	execute @a[tag=leechedM] ~ ~ ~ scoreboard players remove @a[score_leechTime_min=1] @!leechTime 1
 	
