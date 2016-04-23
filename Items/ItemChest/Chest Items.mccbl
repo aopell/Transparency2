@@ -19,6 +19,7 @@
 	tp @e[type=Endermite,tag=wither] ~ ~-300 ~
 	scoreboard players add @e[type=WitherBoss] @!ticks 1
 	kill @e[type=WitherBoss,score_ticks_min=600]
+;;
 :: "Apple"
 //summon Item ~ ~2 ~ {Item:{id:minecraft:golden_apple,Count:1,tag:{display:{Name:Apple of pacifism,Lore:["Makes other players unable to do damage","Eat to use"]}}},Invulnerable:1b,Age:5600}
 	execute @a[score_apple_min=1] ~ ~ ~ effect @a[score_apple=0] minecraft:weakness 15 9 true
@@ -29,8 +30,7 @@
 ;;
 :: "Infinite Improbability Drive"
 //summon Item ~ ~2 ~ {Item:{id:minecraft:end_crystal,Count:1,tag:{display:{Name:Infinite Improbability Drive,Lore:["Makes you feel like a bowl of petunias","Teleports you through every entity","Drop to use"]}}},Invulnerable:1b,Age:5600}
-	scoreboard players tag @e[type=Item,tag=!justSpawned] add @!improb {Item:{id:minecraft:end_crystal}}
-	kill @e[tag=improb,type=Item]
+	scoreboard players tag @e[type=Item,tag=!justSpawned] add @!toKill {Item:{id:minecraft:end_crystal}}
 	scoreboard players add @a[score_improb_min=1] @!improb 1
 	scoreboard players set @a[score_improb_min=30] @!improb 0
 	execute @a[score_improb_min=1,score_improb=1] ~ ~ ~ playsound entity.elder_guardian.curse master @p ~ ~ ~ 50 .2
@@ -47,8 +47,7 @@
 	scoreboard players set @a @!arma 0
 ;;
 :: "TNT Rain"
-	execute @a[score_useTNT_min=1] ~ ~ ~ scoreboard players set @e[type=Item] @!useTNT 1 {Item:{tag:{display:{Name:"TNT Rain"}}}}
-	kill @e[type=Item,score_useTNT_min=1]
+	scoreboard players tag @e[type=Item] add @!toKill {Item:{id:minecraft:tnt},Invulnerable:0b}
 	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[r=50,type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~ 255 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
 	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[r=50,type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~3 255 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
 	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[r=50,type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~-3 255 ~ {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
@@ -59,10 +58,19 @@
 	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[r=50,type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~3 255 ~-3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
 	execute @a[score_useTNT_min=1] ~ ~ ~ execute @e[r=50,type=!ArmorStand,tag=!rainBoom] ~ ~ ~ summon Item ~-3 255 ~3 {PickupDelay:32767,Item:{Count:1,id:minecraft:tnt},Tags:[rainBoom],Invulnerable:1b}
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ tellraw @a[score_useTNT_min=1] ["",{"text":"Look to the skies","color":"red"}]
-	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ tellraw @a[score_useTNT_min=1] ["",{"text":"Tactical air strike incoming ","color":"red"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ tellraw @a[score_useTNT_min=1] ["",{"text":"Tactical air strike incoming","color":"red"}]
 	scoreboard players set @a @!useTNT 0
 	scoreboard players tag @e[tag=rainBoom] add @!boomNow
 	execute @e[type=Item,tag=rainBoom] ~ ~ ~ detect ~ ~-1 ~ minecraft:air 0 scoreboard players tag @e[r=1] remove @!boomNow
 	execute @e[type=Item,tag=boomNow] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,powered:1b,CustomName:"Raining TNT"} 
 	kill @e[type=Item,tag=boomNow]
+;;
+:: "Detonator"
+	scoreboard players tag @e[type=Item] add @!toKill {Item:{id:minecraft:nether_star},Invulnerable:0b}
+	execute @a[score_detonate_min=1] ~ ~ ~ scoreboard players set @e[type=AreaEffectCloud,name=Mine] @!mine 1
+	execute @a[score_detonate_min=1] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=Razor] add @!tripped
+	execute @a[score_detonate_min=1] ~ ~ ~ scoreboard players set @e[type=AreaEffectCloud,name=Leech] @!mine 1
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_detonate_min=1] ~ ~ ~ tellraw @a ["",{"text":"Where did all the traps go?","color":"red"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_detonate_min=1] ~ ~ ~ tellraw @a ["",{"text":"All the traps are gone!","color":"red"}]
+	scoreboard players set @a @!detonate 0
 ;;
