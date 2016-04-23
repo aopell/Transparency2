@@ -26,9 +26,11 @@
 ;;
 :: "Mad Cow"
 //summon Item 3 1 20 {Item:{id:minecraft:spawn_egg,Count:1,tag:{display:{Name:Mad Cow,Lore:[Summons a VERY mad cow,Place to use]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime],EntityTag:{id:MushroomCow,Tags:[justSpawned]}}},Invulnerable:1b,Age:5600}
-	execute @e[type=MushroomCow,tag=justSpawned] ~ ~ ~ summon Zombie ~ ~ ~ {CustomName:Mad Cow,CustomNameVisible:1b,Invulnerable:1b,Anger:32767,Silent:1b,IsBaby:1b,Tags:[isCow],Passengers:[{id:MushroomCow,Invulnerable:1b}]}
-	execute @e[type=MushroomCow,tag=justSpawned] ~ ~ ~ summon Zombie ~ ~ ~ {CustomName:Mad Cow,CustomNameVisible:1b,Invulnerable:1b,Anger:32767,Silent:1b,IsBaby:1b,Tags:[isCow],Passengers:[{id:MushroomCow,Invulnerable:1b}]}
-	execute @e[type=MushroomCow,tag=justSpawned] ~ ~ ~ summon Zombie ~ ~ ~ {CustomName:Mad Cow,CustomNameVisible:1b,Invulnerable:1b,Anger:32767,Silent:1b,IsBaby:1b,Tags:[isCow],Passengers:[{id:MushroomCow,Invulnerable:1b}]}
+	scoreboard players set @e[tag=isCow] @!punched 1 {HurtTime:1s}
+	execute @e[tag=isCow,score_punched_min=1] ~ ~ ~ summon Creeper ~ ~ ~ {ignited:1b,Fuse:1s,CustomName:Furious Cow}
+	execute @e[type=MushroomCow,tag=justSpawned] ~ ~ ~ summon Zombie ~ ~ ~ {CustomName:Mad Cow,CustomNameVisible:1b,Invulnerable:1b,noAI:1b,Anger:32767,Silent:1b,IsBaby:1b,Tags:[isCow],Passengers:[{id:MushroomCow,Invulnerable:1b,Tags:[isCow]}]}
+	execute @e[type=MushroomCow,tag=justSpawned] ~ ~ ~ summon Zombie ~ ~ ~ {CustomName:Mad Cow,CustomNameVisible:1b,Invulnerable:1b,noAI:1b,Anger:32767,Silent:1b,IsBaby:1b,Tags:[isCow],Passengers:[{id:MushroomCow,Invulnerable:1b,Tags:[isCow]}]}
+	execute @e[type=MushroomCow,tag=justSpawned] ~ ~ ~ summon Zombie ~ ~ ~ {CustomName:Mad Cow,CustomNameVisible:1b,Invulnerable:1b,noAI:1b,Anger:32767,Silent:1b,IsBaby:1b,Tags:[isCow],Passengers:[{id:MushroomCow,Invulnerable:1b,Tags:[isCow]}]}
 	tp @e[type=MushroomCow,tag=justSpawned] ~ ~-64 ~
 	scoreboard players add @e[type=Zombie,tag=isCow] @!ticks 1
 	scoreboard players add @e[type=MushroomCow,tag=!justSpawned] @!ticks 1
@@ -36,7 +38,6 @@
 	effect @e[type=Zombie,tag=isCow] minecraft:invisibility 30 0 true
 	effect @e[type=Zombie,tag=isCow] minecraft:strength 5 127
 	execute @e[type=Zombie,tag=isCow] ~ ~ ~ particle angryVillager ~ ~ ~ .3 .3 .3 1 4
-	entitydata @e[type=Zombie,score_ticks_min=60] {NoAI:0b}
-	kill @e[type=MushroomCow,score_ticks_min=660]
-	kill @e[type=Zombie,score_ticks_min=660]
+	entitydata @e[tag=isCow,score_ticks_min=40] {NoAI:0b,Invulnerable:0b}
+	tp @e[tag=isCow,score_ticks_min=600] ~ ~-100 ~
 ;;
