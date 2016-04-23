@@ -12,10 +12,11 @@ execute @a[tag=!onTeam,team=Cyan] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTe
 execute @a[tag=!onTeam,team=Pink] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Pink]"},{"text":" has chosen Pink","color":"light_purple"}]
 execute @a[tag=!onTeam,team=Purple] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Purple]"},{"text":" has chosen Purple","color":"dark_purple"}]
 execute @a[tag=!onTeam,team=Orange] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=!onTeam,team=Orange]"},{"text":" has chosen Orange","color":"gold"}]
-tellraw @a[tag=!onTeam,team=!Lobby] ["",{"text":"[Drop Out]","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger leaveTeam set 1"}}]
+tellraw @a[tag=!onTeam,team=!Lobby] ["",{"text":"[Drop out]","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger leaveTeam set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Leave your color","color":"aqua"}]}}}]
 scoreboard players tag @a[-15,65,-15,dx=33,dy=10,dz=33,team=!Lobby] add @!onTeam
 	:: "Leave Team"
 		scoreboard players enable @a[team=!Lobby] @!leaveTeam
+		scoreboard players set @a[score_inGame_min=1] @!leaveTeam 0
 		scoreboard teams leave @a[score_leaveTeam_min=1]
 		scoreboard players set @a @!leaveTeam 0
 	;;
