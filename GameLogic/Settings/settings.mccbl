@@ -43,8 +43,8 @@ scoreboard players test @!RespawnTokens @!gameSettings -1000000 -1
 	execute @e[type=ArmorStand,name=GK,score_settingGlowItems_min=1] ~ ~ ~ scoreboard teams join @!settingOn @e[tag=glowItems]
 	execute @e[type=ArmorStand,name=GK,score_settingGlowItems_min=1] ~ ~ ~ entitydata @e[tag=glowItems] {CustomName:"[On]"}
 	execute @e[type=ArmorStand,name=GK,score_settingGlowItems=0] ~ ~ ~ entitydata @e[tag=glowItems] {CustomName:"[Off]"}
-	execute @e[type=ArmorStand,name=GK,score_settingGlowItems=0] ~ ~ ~ blockdata -10 1 -4 {auto:0b}
-	execute @e[type=ArmorStand,name=GK,score_settingGlowItems_min=1] ~ ~ ~ blockdata -10 1 -4 {auto:1b}
+	execute @e[type=ArmorStand,name=GK,score_settingGlowItems=0] ~ ~ ~ blockdata -11 1 -5 {auto:0b}
+	execute @e[type=ArmorStand,name=GK,score_settingGlowItems_min=1] ~ ~ ~ blockdata -11 1 -5 {auto:1b}
 ;;
 :: "Items"
 //summon ArmorStand ~ ~ ~ {Tags:[items],Invisible:1b,Invincible:1b}

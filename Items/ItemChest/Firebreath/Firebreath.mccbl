@@ -3,20 +3,20 @@
 @VERSION 1.9
 :: "Firebreath"
 	blockdata 2 1 -31 {auto:0b}
+	execute @a[tag=breathingFire] ~ ~ ~ blockdata 2 1 -31 {auto:1b}
 	scoreboard players tag @a remove @!breathingFire
 	scoreboard players tag @a remove @!dragonBreath
-	scoreboard players tag @a add @!dragonBreath {Inventory:[{id:minecraft:skull}]}
-	scoreboard players tag @a add @!breathingFire {SelectedItem:{id:minecraft:skull}}
+	scoreboard players tag @a add @!dragonBreath {Inventory:[{id:minecraft:skull,Damage:5s}]}
+	scoreboard players tag @a add @!breathingFire {SelectedItem:{id:minecraft:skull,Damage:5s}}
 	execute @a[tag=dragonBreath] ~ ~ ~ particle flame ~ ~1.2 ~ .1 0 .1 0 3
-	execute @a[tag=breathingFire] ~ ~ ~ blockdata 2 1 -31 {auto:1b}
 	effect @a[tag=dragonBreath] minecraft:fire_resistance 1 4 true
 	scoreboard players add @a[tag=breathingFire] @!fireBreath 1
 	xp 49L @a[tag=dragonBreath,score_fireBreath=1,score_fireBreath_min=1]
 	xp 1 @a[tag=breathingFire]
 	scoreboard players set @a[tag=dragonBreath,lm=50] @!fireBreath 0
 	scoreboard players set @a[tag=!dragonBreath] @!fireBreath 0
-	scoreboard players tag @e[type=Item] add @!isHead {Item:{id:minecraft:skull}}
-	execute @a[score_dropHead_min=1] ~ ~ ~ kill @e[type=Item,tag=isHead]
+	scoreboard players tag @e[type=Item] add @!isHead {Item:{id:minecraft:skull,Damage:5s},Invulnerable:0b}
+	kill @e[type=Item,tag=isHead]
 	scoreboard players set @a @!dropHead 0
 	clear @a[tag=breathingFire,lm=50] minecraft:skull 5 1
 	xp -51L @a[tag=!dragonBreath]

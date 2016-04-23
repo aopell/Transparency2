@@ -8,9 +8,9 @@ scoreboard players set @a[x=4,y=76,z=-7,r=1,m=2,score_parkourLevel=1] @!parkourL
 scoreboard players set @a[x=-12,y=81,z=-12,r=1,m=2,score_parkourLevel=1,score_parkourLevel_min=1] @!parkourLevel 2
 //Iron
 scoreboard players set @a[x=-37,y=91,z=-13,r=1,m=2,score_parkourLevel=2,score_parkourLevel=2] @!parkourLevel 3
-tp @a[x=-37,y=91,z=-13,r=1] -1 98 0
+tp @a[x=-37,y=91,z=-13,r=1] 0.0 98 0.0
 //CheckPoints
 tp @a[score_parkourLevel_min=1,x=-1,y=65,z=-15,r=1] 4 76 -7
 tp @a[score_parkourLevel_min=2,x=14,y=65,z=-1,r=1] -12 81 -12
-tp @a[score_parkourLevel_min=3,x=0,y=65,z=14,r=1] -1 98 0
+tp @a[score_parkourLevel_min=3,x=0,y=65,z=14,r=1] 0.0 98 0.0
 ;;
