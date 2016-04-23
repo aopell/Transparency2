@@ -15,8 +15,7 @@
 	xp 1 @a[tag=breathingFire]
 	scoreboard players set @a[tag=dragonBreath,lm=50] @!fireBreath 0
 	scoreboard players set @a[tag=!dragonBreath] @!fireBreath 0
-	scoreboard players tag @e[type=Item] add @!isHead {Item:{id:minecraft:skull,Damage:5s},Invulnerable:0b}
-	kill @e[type=Item,tag=isHead]
+	scoreboard players tag @e[type=Item] add @!toKill {Item:{id:minecraft:skull,Damage:5s},Invulnerable:0b}
 	scoreboard players set @a @!dropHead 0
 	clear @a[tag=breathingFire,lm=50] minecraft:skull 5 1
 	xp -51L @a[tag=!dragonBreath]

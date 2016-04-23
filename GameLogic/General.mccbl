@@ -22,11 +22,11 @@
 		scoreboard players set @e[type=ArmorStand,name=GK,score_deathMessage_min=2] @!deathMessage 0
 	;;
 	:: "Kill Items"
-		scoreboard players set @e[type=Item] @!toKill 1 {Item:{id:minecraft:bow}}
-		scoreboard players set @e[type=Item] @!toKill 1 {Item:{id:minecraft:stained_glass}}
-		scoreboard players set @e[type=Item] @!toKill 1 {Item:{id:minecraft:chainmail_chestplate}}
-		scoreboard players set @e[type=Item] @!toKill 1 {Item:{id:minecraft:elytra}}
-		kill @e[score_toKill_min=1]
+		scoreboard players tag @e[type=Item] add @!toKill {Item:{id:minecraft:bow}}
+		scoreboard players tag @e[type=Item] add @!toKill {Item:{id:minecraft:stained_glass}}
+		scoreboard players tag @e[type=Item] add @!toKill {Item:{id:minecraft:chainmail_chestplate}}
+		scoreboard players tag @e[type=Item] add @!toKill {Item:{id:minecraft:elytra}}
+		kill @e[tag=toKill]
 	;;
 	:: "Cleanup"
 		clear @a minecraft:bucket

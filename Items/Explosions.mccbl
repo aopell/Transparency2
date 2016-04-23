@@ -18,8 +18,7 @@
 ;;
 :: "Lightning"
 	scoreboard players tag add @a @!lightningFailure
-	scoreboard players remove @e[type=Item,tag=!disp] @!lightning 1 {Item:{id:minecraft:prismarine_shard},Invulnerable:0b}
-	kill @e[type=Item,score_lightning=-1]
+	scoreboard players tag @e[type=Item] add @!toKill {Item:{id:minecraft:prismarine_shard},Invulnerable:0b}
 	execute @a[score_lightning_min=1] ~ ~ ~ execute @a[score_lightning=0] ~ ~ ~ summon @!LightningBolt
 	execute @a[score_lightning_min=1] ~ ~ ~ execute @a[score_lightning=0] ~ ~ ~ scoreboard players tag @a[score_lightning_min=1] remove @!lightningFailure
 	execute @a[score_lightning_min=1,tag=lightningFailure] ~ ~ ~ summon @!LightningBolt 400 0 400
