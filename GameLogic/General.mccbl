@@ -33,10 +33,10 @@
 		execute @e[type=ArmorStand,name=GK,score_ticks_min=5,score_ticks=5] ~ ~ ~ execute @a[m=2,team=!Lobby] ~ ~ ~ fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air 0 replace minecraft:anvil
 	;;
 	:: "Item Spawner Particles"
-		scoreboard players set @e[type=AreaEffectCloud,name=ItemSpawner] @!hasItem 0
-		execute @e[type=Item,score_justSpawned_min=1] ~ ~ ~ scoreboard players set @e[type=AreaEffectCloud,name=ItemSpawner,r=1] @!hasItem 1
-		execute @e[type=AreaEffectCloud,name=ItemSpawner,score_hasItem=0] ~ ~ ~ particle portal ~ ~-1.1 ~ 0 0 0 .25 5 force
-		execute @e[type=AreaEffectCloud,name=ItemSpawner,score_hasItem_min=1] ~ ~ ~ particle reddust ~ ~-1.1 ~ 0.25 0.25 0.25 .25 5 force
+		scoreboard players tag @e[type=AreaEffectCloud,name=ItemSpawner] remove @!hasItem
+		execute @e[type=Item,tag=justSpawned] ~ ~ ~ scoreboard players tag @e[type=AreaEffectCloud,name=ItemSpawner,r=1] add @!hasItem
+		execute @e[type=AreaEffectCloud,name=ItemSpawner,tag=!hasItem] ~ ~ ~ particle portal ~ ~-1.1 ~ 0 0 0 .25 5 force
+		execute @e[type=AreaEffectCloud,name=ItemSpawner,tag=hasItem] ~ ~ ~ particle reddust ~ ~-1.1 ~ 0.25 0.25 0.25 .25 5 force
 	;;
 	:: "Saftey Features"
 		execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ gamemode 3 @a[m=2,team=Lobby]
