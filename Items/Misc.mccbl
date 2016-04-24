@@ -16,8 +16,8 @@
 ;;
 :: "Leech"
 	//team the items
-	scoreboard players set @e[type=Item,tag=!isLeech] @!mine 0 {Item:{id:minecraft:dye},Invulnerable:0b}
-	scoreboard players tag @e[type=Item] add @!isLeech {Item:{id:minecraft:dye},Invulnerable:0b}
+	execute @a[score_dropLeech_min=1] ~ ~ ~ scoreboard players set @e[type=Item,tag=!isLeech] @!mine 0 {Item:{id:minecraft:dye},Invulnerable:0b}
+	scoreboard players tag @e[type=Item,score_mine=0] add @!isLeech {Item:{id:minecraft:dye},Invulnerable:0b}
 	execute @a[score_dropLeech_min=1,team=Red] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Red
 	execute @a[score_dropLeech_min=1,team=Orange] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Orange
 	execute @a[score_dropLeech_min=1,team=Yellow] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Yellow
@@ -26,6 +26,7 @@
 	execute @a[score_dropLeech_min=1,team=Purple] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Purple
 	execute @a[score_dropLeech_min=1,team=Cyan] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Cyan
 	execute @a[score_dropLeech_min=1,team=Pink] ~ ~ ~ scoreboard players tag @e[type=Item,tag=isLeech,score_mine_min=-1] add Pink
+	scoreboard players tag @e[type=Item,tag=!isLeech] add @!toKill {Item:{id:minecraft:dye},Invulnerable:0b}
 	scoreboard players set @a @!dropLeech 0
 	
 	scoreboard players remove @e[type=Item,tag=isLeech] @!mine 1
