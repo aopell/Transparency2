@@ -13,7 +13,7 @@
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ spawnpoint @a[tag=!inGame,m=3] 512 150 512
 ;;
 :: "Respawn Logic"
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @e[312,106,312,dx=400,dy=4,dz=400] add @!voidDie
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @e[256,106,245,dx=512,dy=4,dz=512] add @!voidDie
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ kill @e[tag=voidDie]
 	
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players remove @a[score_deaths_min=1] @!lives 1
