@@ -47,7 +47,7 @@
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1,score_seconds_min=10] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1,score_seconds_min=0,score_seconds=9] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"text":"0","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!count -1
-	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ execute ~ ~ ~ playsound minecraft:entity.ghast.scream master @p ~ ~ ~ 1 0
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:entity.ghast.scream master @p ~ ~ ~ 1000000 0 1
 	//general
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300] ~ ~ ~ scoreboard players set @e @!endGame 0
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300] ~ ~ ~ scoreboard players set @e @!endGameM 0
@@ -80,5 +80,5 @@
 	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Razor]
 	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Leech]
 	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!count -1
-	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:entity.wither.death master @p ~ ~ ~ 1 0
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:entity.wither.death master @p ~ ~ ~ 1000000 0 1
 ;;
