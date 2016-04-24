@@ -8,23 +8,23 @@ tp @a[team=] 0.0 65 0.0
 	execute @a[team=!Lobby] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK] @!onTeam 1
 	:: "Stop Counting"
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress] @!counting 0
-		execute @e[type=ArmorStand,name=GK,score_onTeam=0] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_gameInProgress_min=0] @!count 0
+		execute @e[type=ArmorStand,name=GK,score_onTeam=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!count 0
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress] @!count 0
 	;;
 	:: "Skip Countdown"
 		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=100] ~ ~ ~ scoreboard players enable @a @!skipCount
-		execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!count 500
-		execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ tellraw @a ["",{"text":"Countdown skipped","color":"gold"}]
+		execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_count=500] @!count 500
+		execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count=500] ~ ~ ~ tellraw @a ["",{"text":"Countdown skipped","color":"gold"}]
 		execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ scoreboard players set @a @!skipCount 5
 	;;
 ;;
 :: "Counting"
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_counting=0,score_count=0] @!counting 1
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,score_counting=1,tag=!gameInProgress] @!count 1
+	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=1] ~ ~ ~ playsound block.portal.travel master @a ~ ~ ~ 1000000 2
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=1] ~ ~ ~ tellraw @a ["",{"text":"The game starts in","color":"gold"},{"text":" [30] ","color":"red","clickEvent":{"action":"run_command","value":"/trigger skipCount set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Skip countdown","color":"aqua"}]}}},{"text":"seconds","color":"gold"}]
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=300,score_count=300] ~ ~ ~ tellraw @a ["",{"text":"15 ","color":"red"},{"text":"seconds to game start","color":"gold"}]
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=400,score_count=400] ~ ~ ~ tellraw @a ["",{"text":"10 ","color":"red"},{"text":"seconds","color":"gold"}]
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=1] ~ ~ ~ playsound block.portal.travel master @a ~ ~ ~ 1000000 2
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=300,score_count=300] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
 	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=400,score_count=400] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1000000 1 1
 	:: "5... 4..."

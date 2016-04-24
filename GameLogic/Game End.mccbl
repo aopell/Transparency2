@@ -32,50 +32,53 @@
 	//finalize
 	//fail
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=0,score_endGame=0] ~ ~ ~ tellraw @a ["",{"text":"Draw!\n","color":"gold"},{"text":"[Try Again]","color":"red","clickEvent":{"action":"run_command","value":"/trigger endGameVote set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Start another vote","color":"aqua"}]}}}]
-	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame=-1] ~ ~ ~ tellraw @a ["",{"text":"The majority have spoken\n\nContinuing game","color":"red"}]
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame=-1] ~ ~ ~ tellraw @a ["",{"text":"The majority have spoken\nContinuing game","color":"red"}]
 	//success
-	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ tellraw @a ["",{"text":"The majority have spoken\n\nGame over","color":"green"}]
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ tellraw @a ["",{"text":"The majority have spoken\nGame over","color":"green"}]
 	scoreboard players tag @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] remove @!gameInProgress
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ tp @a 0.0 65 0.0
-	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ scoreboard players set @a @!inGame -1
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ scoreboard objectives setdisplay sidebar @!gameSettings
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ gamerule keepInventory true
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Mine]
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Razor]
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Leech]
-	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!win 0
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!timing 0
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ effect @a clear
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1,score_seconds_min=10] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1,score_seconds_min=0,score_seconds=9] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"text":"0","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
-
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!count -1
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ execute ~ ~ ~ playsound minecraft:entity.ghast.scream master @p ~ ~ ~ 1 0
 	//general
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300] ~ ~ ~ scoreboard players set @e @!endGame 0
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300] ~ ~ ~ scoreboard players set @e @!endGameM 0
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300] ~ ~ ~ scoreboard players set @e @!endGameVote 0
 ;;
-scoreboard players set @e[type=ArmorStand,name=GK] @!win 0
-execute @a[score_inGame_min=1] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!win 1
-
-//I won
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[tag=onTeam,score_inGame_min=1] ~ ~ ~ title @a subtitle [{"text":"wins"}]
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[tag=onTeam,score_inGame_min=1] ~ ~ ~ title @a title [{"selector":"@p"}]
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[tag=onTeam,score_inGame_min=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!timing 0
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1,score_seconds_min=10] ~ ~ ~ execute @a[tag=onTeam,score_inGame_min=1] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1,score_seconds_min=0,score_seconds=9] ~ ~ ~ execute @a[tag=onTeam,score_inGame_min=1] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"text":"0","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[tag=onTeam,score_inGame_min=1] ~ ~ ~ title @a times 0 100 20
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players add @a[tag=onTeam,score_inGame_min=1] @!wins 1
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a[tag=onTeam,score_inGame_min=1] ~ ~ ~ tellraw @a ["",{"selector":"@p"},{"text":" has won ","color":"green"},{"score":{"name":"@p","objective":"wins"},"color":"red"},{"text":" total games","color":"green"}]
-//finalize finish
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players tag @e[type=ArmorStand,name=GK] remove @!gameInProgress
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @a @!inGame -1
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard teams leave @a
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard objectives setdisplay sidebar @!gameSettings
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ tp @a 0.0 65 0.0
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ effect @a clear
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ gamerule keepInventory true
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Mine]
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Razor]
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Leech]
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!count 0
-execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!win 0
+:: "Normal End"
+	//determine win
+	scoreboard players set @e[type=ArmorStand,name=GK] @!win 0
+	execute @a[tag=inGame] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!win 1
+	
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players add @a[tag=inGame] @!wins 1
+	//Win title
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ title @a times 0 100 20
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ title @a subtitle [{"text":"wins"}]
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ title @a title [{"selector":"@a[tag=inGame]"}]
+	//timer
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1,score_seconds_min=10] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1,score_seconds_min=0,score_seconds=9] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"text":"0","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
+	//wins message
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=inGame]"},{"text":" has won ","color":"green"},{"score":{"name":"@a[tag=inGame]","objective":"wins"},"color":"red"},{"text":" total games","color":"green"}]
+	//finalize finish
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!timing 0
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players tag @e[type=ArmorStand,name=GK] remove @!gameInProgress
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard teams leave @a
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard objectives setdisplay sidebar @!gameSettings
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ tp @a 0.0 65 0.0
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ effect @a clear
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ gamerule keepInventory true
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Mine]
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Razor]
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Leech]
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!count -1
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:entity.wither.death master @p ~ ~ ~ 1 0
+;;
