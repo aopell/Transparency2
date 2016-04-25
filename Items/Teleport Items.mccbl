@@ -25,23 +25,20 @@
 ;;
 :: "Spinning top"
 //summon Item 3 1 20 {Item:{id:minecraft:hopper,Count:1,tag:{display:{Name:"Spinning Top",Lore:["You spin me right round, baby","Makes a player spin around in circles","Place block to use"]},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]}},Invulnerable:1b,Age:5600}
-	scoreboard players tag @a add @!topFailure
-	scoreboard players set @a[tag=!spinning] @!topCount 0
 	execute @a[score_usedTop_min=1] ~ ~ ~ execute @a ~ ~ ~ fill ~-7 ~-7 ~-7 ~7 ~7 ~7 minecraft:air 0 replace minecraft:hopper
 	//start spinnnn
-	execute @a[score_usedTop_min=1] ~ ~ ~ scoreboard players tag @r[score_usedTop=0,m=2,team=!Lobby] add @!toSpin
-	execute @a[score_usedTop_min=1] ~ ~ ~ scoreboard players tag @a[tag=toSpin] add @!spinning
-	execute @a[tag=toSpin] ~ ~ ~ scoreboard players tag @a[score_usedTop_min=1] remove @!topFailure
-	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_usedTop_min=1,tag=!topFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=spinning,score_topCount_min=0,score_topCount=5]"},{"text":" is feeling a bit dizzy","color":"none"}]
-	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_usedTop_min=1,tag=!topFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=spinning,score_topCount_min=0,score_topCount=5]"},{"text":" ","color":"none"}]
-	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ @a[score_usedTop_min=1,tag=topFailure] ~ ~ ~ tellraw @p ["",{"selector":@a[score_usedTop_min=1,tag=topFailure]"},{"text":" broke their toy","color":"red"}]
-	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ @a[score_usedTop_min=1,tag=topFailure] ~ ~ ~ tellraw @p ["",{"selector":"@a[score_usedTop_min=1,tag=topFailure]"},{"text":" doesn't know how to spin a top","color":"red"}]
+	execute @a[score_usedTop_min=1] ~ ~ ~ scoreboard players set @r[score_usedTop=0,m=2,team=!Lobby] @!topCount 1
+	scoreboard players tag @a add @!topFailure
+	execute @a[score_topCount_min=1,score_topCount=1] ~ ~ ~ scoreboard players tag @a remove @!topFailure
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_usedTop_min=1,tag=!topFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_topCount_min=1,score_topCount=1]"},{"text":" is feeling a bit dizzy","color":"none"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_usedTop_min=1,tag=!topFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_topCount_min=1,score_topCount=1]"},{"text":" is spinning 'round and 'round","color":"none"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_usedTop_min=1,tag=topFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_usedTop_min=1,tag=topFailure]"},{"text":" broke their toy","color":"red"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_usedTop_min=1,tag=topFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_usedTop_min=1,tag=topFailure]"},{"text":" doesn't know how to spin a top","color":"red"}]
 	execute @a[score_usedTop_min=1] ~ ~ ~ playsound block.portal.ambient master @p ~ ~ ~ 1000 2
 	execute @a[score_topCount_min=1,score_topCount=1] ~ ~ ~ playsound block.portal.ambient master @p ~ ~ ~ 1000 2
-	scoreboard players reset @a @!usedTop
+	scoreboard players set @a @!usedTop 0
 	//spinnnnnnnnnnn
-	tp @a[tag=spinning] ~ ~ ~ ~4 ~
-	scoreboard players tag @a remove @!toSpin
-	scoreboard players tag @a[score_topCount_min=140] remove @!spinning
-	scoreboard players set @a[tag=!spinning] @!topCount 0
+	tp @a[score_topCount_min=1] ~ ~ ~ ~4 ~
+	scoreboard players add @a[score_topCount_min=1] @!topCount 1
+	scoreboard players set @a[score_topCount_min=140] @!topCount 0
 ;;

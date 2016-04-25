@@ -19,11 +19,11 @@
 :: "Lightning"
 	scoreboard players tag add @a @!lightningFailure
 	scoreboard players tag @e[type=Item] add @!toKill {Item:{id:minecraft:prismarine_shard},Invulnerable:0b}
-	execute @a[score_lightning_min=1] ~ ~ ~ execute @a[score_lightning=0] ~ ~ ~ summon @!LightningBolt
-	execute @a[score_lightning_min=1] ~ ~ ~ execute @a[score_lightning=0] ~ ~ ~ scoreboard players tag @a[score_lightning_min=1] remove @!lightningFailure
+	execute @a[score_lightning_min=1] ~ ~ ~ execute @a[score_lightning=0,m=2] ~ ~ ~ summon @!LightningBolt
+	execute @a[score_lightning_min=1] ~ ~ ~ execute @a[score_lightning=0,m=2] ~ ~ ~ scoreboard players tag @a[score_lightning_min=1] remove @!lightningFailure
 	execute @a[score_lightning_min=1,tag=lightningFailure] ~ ~ ~ summon @!LightningBolt 400 0 400
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_lightning_min=1,tag=!lightningFailure] ~ ~ ~ tellraw @a ["",{"text":"Lightning struck ","color":"gold"},{"selector":"@a[score_lightning=0]","color":"gold"}]
-	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_lightning_min=1,tag=!lightningFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_lightning=0]","color":"gold"},{"text":" faced the wrath of zeus","color":"gold"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_lightning_min=1,tag=!lightningFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_lightning=0]","color":"gold"},{"text":" faced the wrath of Zeus","color":"gold"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_lightning_min=1,tag=lightningFailure] ~ ~ ~ tellraw @a ["",{"text":"Lightning stikes in the distance","color":"red"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_lightning_min=1,tag=lightningFailure] ~ ~ ~ tellraw @a ["",{"text":"A thunderstorm rolls through","color":"red"}]
 	scoreboard players set @a @!lightning 0

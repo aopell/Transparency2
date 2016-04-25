@@ -49,7 +49,7 @@
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ effect @a[score_tsd_min=1,score_tsd=1,score_died_min=1] minecraft:resistance 3 4
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ effect @a[score_tsd_min=1,score_tsd=1,score_died_min=1] minecraft:instant_health 3 4 true
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @a[score_tsd_min=1,score_tsd=1,score_died_min=1] remove @!invis
-	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players tag @a[score_tsd_min=1,score_tsd=1,score_died_min=1] remove @!spinning
+	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ scoreboard players set @a[score_tsd_min=1,score_tsd=1,score_died_min=1] @!topCount 0
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[score_tsd_min=1,score_tsd=1,score_died_min=1,team=Red] 531 148 519 90 0
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[score_tsd_min=1,score_tsd=1,score_died_min=1,team=Orange] 531 148 506 90 0
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress] ~ ~ ~ tp @a[score_tsd_min=1,score_tsd=1,score_died_min=1,team=Yellow] 519 148 494 0 0
