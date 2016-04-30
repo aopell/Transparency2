@@ -98,13 +98,13 @@
 ;;
 :: "Actual Trails"
 	:: "Sad Face"
-		execute @a[score_sadFaceCount_min=2,score_sadFaceCount=2,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby] ~ ~ ~ particle depthsuspend ~ ~0.333 ~ 0.05 0.05 0.05 0 50
-		execute @a[score_sadFaceCount_min=2,score_sadFaceCount=2,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby] ~ ~ ~ particle depthsuspend ~ ~0.666 ~ 0.05 0.05 0.05 0 50
-		execute @a[score_sadFaceCount_min=2,score_sadFaceCount=2,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby] ~ ~ ~ particle depthsuspend ~ ~1.666 ~ 0.05 0.05 0.05 0 50
-		execute @a[score_sadFaceCount_min=3,score_sadFaceCount=4,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby] ~ ~ ~ particle depthsuspend ~ ~1 ~ 0.05 0.05 0.05 0 50
-		execute @a[score_sadFaceCount_min=5,score_sadFaceCount=5,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby] ~ ~ ~ particle depthsuspend ~ ~0.333 ~ 0.05 0.05 0.05 0 50
-		execute @a[score_sadFaceCount_min=5,score_sadFaceCount=5,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby] ~ ~ ~ particle depthsuspend ~ ~0.666 ~ 0.05 0.05 0.05 0 50
-		execute @a[score_sadFaceCount_min=5,score_sadFaceCount=5,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby] ~ ~ ~ particle depthsuspend ~ ~1.666 ~ 0.05 0.05 0.05 0 50
+		execute @a[score_sadFaceCount_min=2,score_sadFaceCount=2,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby,m=2] ~ ~ ~ particle depthsuspend ~ ~0.333 ~ 0.05 0.05 0.05 0 50
+		execute @a[score_sadFaceCount_min=2,score_sadFaceCount=2,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby,m=2] ~ ~ ~ particle depthsuspend ~ ~0.666 ~ 0.05 0.05 0.05 0 50
+		execute @a[score_sadFaceCount_min=2,score_sadFaceCount=2,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby,m=2] ~ ~ ~ particle depthsuspend ~ ~1.666 ~ 0.05 0.05 0.05 0 50
+		execute @a[score_sadFaceCount_min=3,score_sadFaceCount=4,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby,m=2] ~ ~ ~ particle depthsuspend ~ ~1 ~ 0.05 0.05 0.05 0 50
+		execute @a[score_sadFaceCount_min=5,score_sadFaceCount=5,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby,m=2] ~ ~ ~ particle depthsuspend ~ ~0.333 ~ 0.05 0.05 0.05 0 50
+		execute @a[score_sadFaceCount_min=5,score_sadFaceCount=5,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby,m=2] ~ ~ ~ particle depthsuspend ~ ~0.666 ~ 0.05 0.05 0.05 0 50
+		execute @a[score_sadFaceCount_min=5,score_sadFaceCount=5,score_selectedTrail_min=2,score_selectedTrail=2,team=Lobby,m=2] ~ ~ ~ particle depthsuspend ~ ~1.666 ~ 0.05 0.05 0.05 0 50
 		scoreboard players set @a[score_sadFaceCount_min=7] @!sadFaceCount 0
 	;;
 	:: "Almighty - Rainbow"
@@ -116,18 +116,18 @@
 		execute @a[score_selectedTrail_min=99,score_selectedTrail=99,team=Lobby] ~ ~ ~ particle reddust ~ ~0.3 ~ 0.95 0 0.9 1 0
 	;;
 	:: "Champion - Cape"
-		execute @a[score_selectedTrail_min=4,score_selectedTrail=4,team=Lobby] ~ ~ ~ particle magicCrit ~ ~1.2 ~ 0.1 0 0.1 0 10
+		execute @a[score_selectedTrail_min=4,score_selectedTrail=4,team=Lobby,m=2] ~ ~ ~ particle magicCrit ~ ~1.2 ~ 0.1 0 0.1 0 10
 	;;
 	:: "Victor - Waveform"
-		execute @a[score_selectedTrail_min=3,score_selectedTrail=3,team=Lobby] ~ ~ ~ particle endRod ~ ~1 ~ 0 .25 0 0 10
+		execute @a[score_selectedTrail_min=3,score_selectedTrail=3,team=Lobby,m=2] ~ ~ ~ particle endRod ~ ~1 ~ 0 .25 0 0 10
 	;;
 	:: "One Small Step - Rainbow Feet"
-		execute @a[score_selectedTrail_min=7,score_selectedTrail=7,team=Lobby] ~ ~ ~ particle reddust ~ ~ ~ 0.24 0 0.24 1 7
+		execute @a[score_selectedTrail_min=7,score_selectedTrail=7,team=Lobby,m=2] ~ ~ ~ particle reddust ~ ~ ~ 0.24 0 0.24 1 7
 	;;
 	:: "Stepping Stone - Enchant"
-		execute @a[score_selectedTrail_min=6,score_selectedTrail=6,team=Lobby] ~ ~ ~ particle enchantmenttable ~ ~.1 ~ 0.2 0.1 0.2 0 10 force
+		execute @a[score_selectedTrail_min=6,score_selectedTrail=6,team=Lobby,m=2] ~ ~ ~ particle enchantmenttable ~ ~.1 ~ 0.2 0.1 0.2 0 10 force
 	;;
-	:: "Happy Feet - Bubble"
-		execute @a[score_selectedTrail_min=5,score_selectedTrail=5,team=Lobby] ~ ~ ~ particle bubble ~ ~0.05 ~ 0.24 0 0.24 1 50
+	:: "Happy Feet - Dust"
+		execute @a[score_selectedTrail_min=5,score_selectedTrail=5,team=Lobby,m=2] ~ ~ ~ particle depthsuspend ~ ~ ~ .2 0.05 .2 1 20
 	;;
 ;;

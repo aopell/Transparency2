@@ -13,7 +13,7 @@
 	execute @a[score_endGameVote_min=1] ~ ~ ~ title @a times 0 20 0
 	execute @a[score_endGameVote_min=1] ~ ~ ~ title @a title ["",{"text":"End Game?","color":"red"}]
 	execute @a[score_endGameVote_min=1] ~ ~ ~ title @a subtitle ["",{"text":"Vote in chat"}]
-	execute @a[score_endGameVote_min=1,tag=!endGame] ~ ~ ~ tellraw @a ["",{"text":"End game?","color":"gold","hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Please vote","color":"aqua"}]}}},{"text":"\n\n","color":"none"},{"text":"[Yes]","color":"green","clickEvent":{"action":"run_command","value":"/trigger endGame set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"End the game","color":"green"}]}}},{"text":" ","color":"none"},{"text":"[No]","color":"red","clickEvent":{"action":"run_command","value":"/trigger endGame set -1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Keep the game going","color":"red"}]}}},{"text":"\n\n","color":"none"}]
+	execute @a[score_endGameVote_min=1,tag=!endGame] ~ ~ ~ tellraw @a ["",{"text":"End game?","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Please vote","color":"aqua"}]}}},{"text":"\n\n","color":"none"},{"text":"[Yes]","color":"green","clickEvent":{"action":"run_command","value":"/trigger endGame set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"End the game","color":"green"}]}}},{"text":" ","color":"none"},{"text":"[No]","color":"red","clickEvent":{"action":"run_command","value":"/trigger endGame set -1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Keep the game going","color":"red"}]}}},{"text":"\n\n","color":"none"}]
 	execute @a[score_endGameVote_min=1,tag=!endGame] ~ ~ ~ execute @a[score_endGameVote=0] ~ ~ ~ trigger @!endGameVote set 1
 	
 	tellraw @a[score_endGame_min=1] ["",{"text":"Voted to end the game","color":"green"}]
@@ -31,7 +31,7 @@
 	execute @a[score_endGameM=-1] ~ ~ ~ scoreboard players remove @e[type=ArmorStand,name=GK,tag=gameInProgress] @!endGame 1
 	//finalize
 	//fail
-	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=0,score_endGame=0] ~ ~ ~ tellraw @a ["",{"text":"Draw!\n","color":"gold"},{"text":"[Try Again]","color":"red","clickEvent":{"action":"run_command","value":"/trigger endGameVote set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Start another vote","color":"aqua"}]}}}]
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=0,score_endGame=0] ~ ~ ~ tellraw @a ["",{"text":"Draw!\n","color":"aqua"},{"text":"[Try Again]","color":"red","clickEvent":{"action":"run_command","value":"/trigger endGameVote set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Start another vote","color":"aqua"}]}}}]
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame=-1] ~ ~ ~ tellraw @a ["",{"text":"The majority have spoken\nContinuing game","color":"red"}]
 	//success
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ tellraw @a ["",{"text":"The majority have spoken\nGame over","color":"green"}]
@@ -44,8 +44,8 @@
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ kill @e[type=AreaEffectCloud,name=Leech]
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!timing 0
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ effect @a clear
-	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1,score_seconds_min=10] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
-	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1,score_seconds_min=0,score_seconds=9] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"text":"0","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1,score_seconds_min=10] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"aqua"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
+	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1,score_seconds_min=0,score_seconds=9] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"aqua"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"text":"0","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!count -1
 	execute @e[type=ArmorStand,name=GK,score_endGameVote_min=300,score_endGame_min=1] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:entity.ghast.scream master @p ~ ~ ~ 1000000 0 1
 	//general
@@ -64,8 +64,8 @@
 	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ title @a subtitle [{"text":"wins"}]
 	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ title @a title [{"selector":"@a[tag=inGame]"}]
 	//timer
-	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1,score_seconds_min=10] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
-	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1,score_seconds_min=0,score_seconds=9] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"gold"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"text":"0","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1,score_seconds_min=10] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"aqua"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
+	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1,score_seconds_min=0,score_seconds=9] ~ ~ ~ tellraw @a ["",{"text":"Game Length: ","color":"aqua"},{"score":{"name":"Minutes","objective":"timer"},"color":"red","bold":false},{"text":":","color":"red"},{"text":"0","color":"red"},{"score":{"name":"Seconds","objective":"timer"},"color":"red"}]
 	//wins message
 	execute @e[type=ArmorStand,name=GK,score_win_min=1,score_win=1] ~ ~ ~ tellraw @a ["",{"selector":"@a[tag=inGame]"},{"text":" has won ","color":"green"},{"score":{"name":"@a[tag=inGame]","objective":"wins"},"color":"red"},{"text":" total games","color":"green"}]
 	//finalize finish

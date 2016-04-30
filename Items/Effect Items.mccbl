@@ -51,8 +51,8 @@
 //summon Item 3 1 20 {Item:{id:minecraft:firework,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:4,Trail:1b}]},display:{Name:"Firework",Lore:["Makes you feel like a plastic bag","Launches other players into the air","Place on ground to use"]}},CanPlaceOn:[minecraft:stained_glass,minecraft:stained_glass_pane,minecraft:slime,minecraft:tripwire]},Invulnerable:1b,Age:5600}
 	execute @a[score_firework_min=1] ~ ~ ~ effect @e[score_firework=0,team=!Lobby,type=!ArmorStand] minecraft:levitation 1 127 true
 	execute @a[score_firework_min=1] ~ ~ ~ playsound entity.firework.launch master @a[score_firework=0] ~ ~ ~ 1000000
-	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_firework_min=1] ~ ~ ~ tellraw @a[rm=1,m=2] ["",{"text":"You were launched into the air","color":"gold"}]
-	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_firework_min=1] ~ ~ ~ tellraw @a[rm=1,m=2] ["",{"text":"The ground disappears beneath you","color":"gold"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_firework_min=1] ~ ~ ~ tellraw @a[rm=1,m=2] ["",{"text":"You were launched into the air","color":"aqua"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_firework_min=1] ~ ~ ~ tellraw @a[rm=1,m=2] ["",{"text":"The ground disappears beneath you","color":"aqua"}]
 	scoreboard players set @a @!firework 0
 ;;
 :: "Bouncin' Bunny"

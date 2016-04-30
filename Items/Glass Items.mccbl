@@ -8,8 +8,8 @@
 	scoreboard players tag @a add @!mirrorFailure
 	execute @a[score_mirror_min=1] ~ ~ ~ scoreboard players set @r[score_mirror=0,m=2,score_tsd_min=60] @!mirrorRecip 1
 	execute @a[score_mirrorRecip_min=1] ~ ~ ~ scoreboard players tag @a[score_mirror_min=1] remove @!mirrorFailure
-	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_mirror_min=1,tag=!mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1]"},{"text":" swaped places with ","color":"gold"},{"selector":"@a[score_mirrorRecip_min=1]"}]
-	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_mirror_min=1,tag=!mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1]"},{"text":" switched with ","color":"gold"},{"selector":"@a[score_mirrorRecip_min=1]"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_mirror_min=1,tag=!mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1]"},{"text":" swaped places with ","color":"aqua"},{"selector":"@a[score_mirrorRecip_min=1]"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_mirror_min=1,tag=!mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1]"},{"text":" switched with ","color":"aqua"},{"selector":"@a[score_mirrorRecip_min=1]"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_mirror_min=1,tag=mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1,tag=mirrorFailure]"},{"text":" broke a mirror","color":"red"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_mirror_min=1,tag=mirrorFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_mirror_min=1,tag=mirrorFailure]"},{"text":" gets 7 years of bad luck","color":"red"}]
 	execute @a[score_mirror_min=1,tag=mirrorFailure] ~ ~ ~ playsound minecraft:block.glass.break master @p
@@ -29,9 +29,9 @@
 	execute @e[score_clear_min=1] ~ ~ ~ scoreboard players set @r[score_clear=0,m=2] clear -1
 	execute @a[score_clear=-1] ~ ~ ~ scoreboard players tag @a[score_clear_min=1] remove @!clearFailure
 	clear @a[score_clear=-1]
-	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_clear_min=1,tag=!clearFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear=-1]"},{"text":" lost their stuff","color":"gold"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_clear_min=1,tag=!clearFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear=-1]"},{"text":" lost their stuff","color":"aqua"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage_min=1] ~ ~ ~ execute @a[score_clear_min=1,tag=clearFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear_min=1]"},{"text":" hired a lousy thief","color":"red"}]
-	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_clear_min=1,tag=!clearFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear=-1]"},{"text":"'s things are gone","color":"gold"}]
+	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_clear_min=1,tag=!clearFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear=-1]"},{"text":"'s things are gone","color":"aqua"}]
 	execute @e[type=ArmorStand,name=GK,score_deathMessage=0] ~ ~ ~ execute @a[score_clear_min=1,tag=clearFailure] ~ ~ ~ tellraw @a ["",{"selector":"@a[score_clear_min=1]"},{"text":" forgot to write the name of their target","color":"red"}]
 	execute @a[score_clear_min=1,tag=!clearFailure] ~ ~ ~ execute @a[score_clear=-1] ~ ~ ~ playsound minecraft:entity.witch.throw master @p
 	execute @a[score_clear_min=1,tag=clearFailure] ~ ~ ~ playsound minecraft:entity.shulker.ambient master @p ~ ~ ~ 1 0
