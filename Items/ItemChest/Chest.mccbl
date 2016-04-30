@@ -1,8 +1,10 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
+testfor @e[type=ArmorStand,name=GK,score_settingItemChest_min=1]
 :: "Spawn Logic"
-	scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!chestTimer 1
+	//change to repeat
+	?scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!chestTimer 1
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ summon Bat 512.0 130 512.0 {Silent:1b,ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1},{Id:1,Amplifier:20,Duration:1000000,Ambient:1}],Passengers:[{id:"Zombie",NoAI:1b,ArmorItems:[{},{},{},{id:minecraft:chest}],CustomName:chest,ActiveEffects:[{Id:14,Amplifier:1,Duration:1000000,Ambient:1}],Silent:1b}],CustomName:chest,Invisible:1b}
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ spreadplayers 512 512 5 7 false @e[name=chest,type=Bat]
 	execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_chestTimer_min=900] ~ ~ ~ playsound entity.player.levelup master @a ~ ~ ~ 1000000 2

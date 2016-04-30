@@ -1,9 +1,7 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
-scoreboard players test @!RespawnTokens @!gameSettings -1000000 -1
-?scoreboard players set @!RespawnTokens @!gameSettings 0
-
+testfor @a[m=1] {SelectedItemSlot:4,SelectedItem:{id:minecraft:written_book,tag:{title:Settings}}}
 //replaceitem entity @a[team=Lobby,m=1] slot.hotbar.7 written_book 1 0 {pages:["[\"\",{\"text\":\"Game Settings\",\"color\":\"blue\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"\",\"extra\":[{\"text\":\"op only\",\"color\":\"dark_gray\"}]}}},{\"text\":\"\n\nRespawn Tokens: \",\"color\":\"light_purple\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"\",\"extra\":[{\"text\":\"Amount of times a player can respawn\",\"color\":\"aqua\"}]}}},{\"score\":{\"name\":\"RespawnTokens\",\"objective\":\"gameSettings\"},\"color\":\"red\"},{\"text\":\"\n[-01]\",\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/scoreboard players remove RespawnTokens gameSettings 1\"}},{\"text\":\"  [+01]\",\"color\":\"dark_green\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/scoreboard players add RespawnTokens gameSettings 1\"}},{\"text\":\"\n[-05]\",\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/scoreboard players remove RespawnTokens gameSettings 5\"}},{\"text\":\"  [+05]\",\"color\":\"dark_green\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/scoreboard players add RespawnTokens gameSettings 5\"}},{\"text\":\"\n[-10]\",\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/scoreboard players remove RespawnTokens gameSettings 10\"}},{\"text\":\"  [+10]\",\"color\":\"dark_green\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/scoreboard players add RespawnTokens gameSettings 10\"}},{\"text\":\"\n[-25]\",\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/scoreboard players remove RespawnTokens gameSettings 25\"}},{\"text\":\"  [+25]\",\"color\":\"dark_green\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/scoreboard players add RespawnTokens gameSettings 25\"}},{\"text\":\"\n\nArmor Item: \",\"color\":\"light_purple\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"\",\"extra\":[{\"text\":\"What players wear\",\"color\":\"aqua\"}]}}},{\"selector\":\"@e[type=ArmorStand,tag=armorItem]\",\"color\":\"black\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/scoreboard players add @e[name=GK,type=ArmorStand] settingArmorItem 1\"}},{\"text\":\"\nRandom Time: \",\"color\":\"light_purple\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"\",\"extra\":[{\"text\":\"Randomizes the time of day\",\"color\":\"aqua\"}]}}},{\"selector\":\"@e[type=ArmorStand,tag=randTime]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/scoreboard players add @e[name=GK,type=ArmorStand] settingRandTime 1\"},\"color\":\"none\"},{\"text\":\"\nItem Chest: \",\"color\":\"light_purple\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"\",\"extra\":[{\"text\":\"A bonus chest that drops special items\",\"color\":\"aqua\"}]}}},{\"selector\":\"@e[type=ArmorStand,tag=itemChest]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/scoreboard players add @e[name=GK,type=ArmorStand] settingItemChest 1\"},\"color\":\"none\"},{\"text\":\"\nGlowing Items: \",\"color\":\"light_purple\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"\",\"extra\":[{\"text\":\"Adds the glowing effect to all items\",\"color\":\"aqua\"}]}}},{\"selector\":\"@e[type=ArmorStand,tag=glowItems]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/scoreboard players add @e[name=GK,type=ArmorStand] settingGlowItems 1\"},\"color\":\"none\"}]"],title:Settings,author:Transparency}
 
 //replaceitem entity @a[team=Lobby,m=2] slot.hotbar.7 air
@@ -13,7 +11,7 @@ scoreboard players test @!RespawnTokens @!gameSettings -1000000 -1
 
 :: "Armor Item"
 //summon ArmorStand ~ ~ ~ {Tags:[armorItem],Invisible:1b,Invincible:1b}
-	scoreboard players set @e[type=ArmorStand,name=GK,score_settingArmorItem_min=2] @!settingArmorItem 0
+	?scoreboard players set @e[type=ArmorStand,name=GK,score_settingArmorItem_min=2] @!settingArmorItem 0
 	execute @e[type=ArmorStand,name=GK,score_settingArmorItem_min=1] ~ ~ ~ entitydata @e[tag=armorItem] {CustomName:"[Elytra]"}
 	execute @e[type=ArmorStand,name=GK,score_settingArmorItem=0] ~ ~ ~ entitydata @e[tag=armorItem] {CustomName:"[Chestplate]"}
 ;;
@@ -24,8 +22,6 @@ scoreboard players test @!RespawnTokens @!gameSettings -1000000 -1
 	execute @e[type=ArmorStand,name=GK,score_settingItemChest_min=1] ~ ~ ~ scoreboard teams join @!settingOn @e[tag=itemChest]
 	execute @e[type=ArmorStand,name=GK,score_settingItemChest_min=1] ~ ~ ~ entitydata @e[tag=itemChest] {CustomName:"[On]"}
 	execute @e[type=ArmorStand,name=GK,score_settingItemChest=0] ~ ~ ~ entitydata @e[tag=itemChest] {CustomName:"[Off]"}
-	execute @e[type=ArmorStand,name=GK,score_settingItemChest=0] ~ ~ ~ blockdata -7 1 -4 {auto:0b}
-	execute @e[type=ArmorStand,name=GK,score_settingItemChest_min=1] ~ ~ ~ blockdata -7 1 -4 {auto:1b}
 ;;
 :: "Time"
 //summon ArmorStand ~ ~ ~ {Tags:[randTime],Invisible:1b,Invincible:1b}
@@ -49,8 +45,6 @@ scoreboard players test @!RespawnTokens @!gameSettings -1000000 -1
 	execute @e[type=ArmorStand,name=GK,score_settingGlowItems_min=1] ~ ~ ~ scoreboard teams join @!settingOn @e[tag=glowItems]
 	execute @e[type=ArmorStand,name=GK,score_settingGlowItems_min=1] ~ ~ ~ entitydata @e[tag=glowItems] {CustomName:"[On]"}
 	execute @e[type=ArmorStand,name=GK,score_settingGlowItems=0] ~ ~ ~ entitydata @e[tag=glowItems] {CustomName:"[Off]"}
-	execute @e[type=ArmorStand,name=GK,score_settingGlowItems=0] ~ ~ ~ blockdata -11 1 -5 {auto:0b}
-	execute @e[type=ArmorStand,name=GK,score_settingGlowItems_min=1] ~ ~ ~ blockdata -11 1 -5 {auto:1b}
 ;;
 :: "Items"
 //summon ArmorStand ~ ~ ~ {Tags:[items],Invisible:1b,Invincible:1b}
@@ -59,8 +53,6 @@ scoreboard players test @!RespawnTokens @!gameSettings -1000000 -1
 	execute @e[type=ArmorStand,name=GK,score_settingItems_min=1] ~ ~ ~ scoreboard teams join @!settingOn @e[tag=items]
 	execute @e[type=ArmorStand,name=GK,score_settingItems_min=1] ~ ~ ~ entitydata @e[tag=items] {CustomName:"[On]"}
 	execute @e[type=ArmorStand,name=GK,score_settingItems=0] ~ ~ ~ entitydata @e[tag=items] {CustomName:"[Off]"}
-	execute @e[type=ArmorStand,name=GK,score_settingItems=0] ~ ~ ~ blockdata -14 1 -5 {auto:0b}
-	execute @e[type=ArmorStand,name=GK,score_settingItems_min=1] ~ ~ ~ blockdata -14 1 -5 {auto:1b}
 ;;
 :: "Estimated Length"
 	scoreboard players set @!Players @!calc 0
@@ -71,6 +63,5 @@ scoreboard players test @!RespawnTokens @!gameSettings -1000000 -1
 	scoreboard players operation @!Tokens @!calc *= @!Twenty @!calc
 	scoreboard players operation @!Tokens @!calc /= @!Players @!calc
 	scoreboard players operation @!GameLength @!gameSettings = @!Tokens @!calc
-
 ;;
 

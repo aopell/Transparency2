@@ -1,7 +1,8 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
-scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!itemTimer 1
+testfor @e[type=ArmorStand,name=GK,score_settingItems_min=1]
+//change to repeat
+?scoreboard players add @e[type=ArmorStand,name=GK,tag=gameInProgress] @!itemTimer 1
 execute @e[type=ArmorStand,name=GK,tag=gameInProgress,score_itemTimer_min=100] ~ ~ ~ execute @r[type=ArmorStand,name=Item,c=3] ~ ~ ~ blockdata ~ ~-1 ~ {auto:1b}
 scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress,score_itemTimer_min=100] @!itemTimer 0
-entitydata @e[type=Item,tag=justSpawned] {Glowing:1b}
