@@ -84,14 +84,14 @@
 	execute @a[score_setTrail=-1] ~ ~ ~ scoreboard players operation @p @!selectedTrail = @p @!setTrail
 	//Confirmation Messages
 	tellraw @a[score_setTrail_min=-1,score_setTrail=-1] ["",{"text":"Trail disabled","color":"red"}]
-	tellraw @a[score_setTrail_min=1,score_setTrail=1] ["",{"text":"Happy Feet","color":"green"},{"text":" equipped","color":"gold"}]
-	tellraw @a[score_setTrail_min=2,score_setTrail=2] ["",{"text":":(","color":"green"},{"text":" equipped","color":"gold"}]
-	tellraw @a[score_setTrail_min=3,score_setTrail=3] ["",{"text":"Victor","color":"green"},{"text":" equipped","color":"gold"}]
-	tellraw @a[score_setTrail_min=4,score_setTrail=4] ["",{"text":"Champion","color":"green"},{"text":" equipped","color":"gold"}]
-	tellraw @a[score_setTrail_min=5,score_setTrail=5] ["",{"text":"Baby Steps","color":"green"},{"text":" equipped","color":"gold"}]
-	tellraw @a[score_setTrail_min=6,score_setTrail=6] ["",{"text":"Stepping Stone","color":"green"},{"text":" equipped","color":"gold"}]
-	tellraw @a[score_setTrail_min=7,score_setTrail=7] ["",{"text":"One Small Step","color":"green"},{"text":" equipped","color":"gold"}]
-	tellraw @a[score_setTrail_min=99,score_setTrail=99] ["",{"text":"Almighty","color":"green"},{"text":" equipped","color":"gold"}]	
+	tellraw @a[score_setTrail_min=1,score_setTrail=1] ["",{"text":"Happy Feet","color":"green"},{"text":" equipped","color":"aqua"}]
+	tellraw @a[score_setTrail_min=2,score_setTrail=2] ["",{"text":":(","color":"green"},{"text":" equipped","color":"aqua"}]
+	tellraw @a[score_setTrail_min=3,score_setTrail=3] ["",{"text":"Victor","color":"green"},{"text":" equipped","color":"aqua"}]
+	tellraw @a[score_setTrail_min=4,score_setTrail=4] ["",{"text":"Champion","color":"green"},{"text":" equipped","color":"aqua"}]
+	tellraw @a[score_setTrail_min=5,score_setTrail=5] ["",{"text":"Baby Steps","color":"green"},{"text":" equipped","color":"aqua"}]
+	tellraw @a[score_setTrail_min=6,score_setTrail=6] ["",{"text":"Stepping Stone","color":"green"},{"text":" equipped","color":"aqua"}]
+	tellraw @a[score_setTrail_min=7,score_setTrail=7] ["",{"text":"One Small Step","color":"green"},{"text":" equipped","color":"aqua"}]
+	tellraw @a[score_setTrail_min=99,score_setTrail=99] ["",{"text":"Almighty","color":"green"},{"text":" equipped","color":"aqua"}]	
 	
 	scoreboard players set @a @!setTrail 0
 	scoreboard players set @a @!changeTrail 0
