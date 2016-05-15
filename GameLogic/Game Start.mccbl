@@ -1,76 +1,78 @@
 @TYPE REPEAT
 @CHAIN ON
 @VERSION 1.9
+#define GKPlayers @e[type=ArmorStand,name=GK,score_onTeam_min=2]
 tp @a[team=] 0.0 65 0.0
 :: "Logic"
 	scoreboard players set @e[type=ArmorStand,name=GK] @!counting 0
 	scoreboard players set @e[type=ArmorStand,name=GK] @!onTeam 0
 	execute @a[team=!Lobby] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK] @!onTeam 1
 	:: "Stop Counting"
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress] @!counting 0
+		execute #GKPlayers# ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress] @!counting 0
 		execute @e[type=ArmorStand,name=GK,score_onTeam=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!count 0
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress] @!count 0
+		execute #GKPlayers# ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,tag=gameInProgress] @!count 0
 	;;
 	:: "Skip Countdown"
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=100] ~ ~ ~ scoreboard players enable @a @!skipCount
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=100] ~ ~ ~ scoreboard players enable @a @!skipCount
 		execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_count=500] @!count 500
 		execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count=500] ~ ~ ~ tellraw @a ["",{"text":"Countdown skipped","color":"aqua"}]
 		execute @a[score_skipCount_min=1,score_skipCount=1] ~ ~ ~ scoreboard players set @a @!skipCount 5
 	;;
 ;;
 :: "Counting"
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_counting=0,score_count=0] @!counting 1
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,score_counting=1,tag=!gameInProgress] @!count 1
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=1] ~ ~ ~ playsound block.portal.travel master @a ~ ~ ~ 10000 2
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=1] ~ ~ ~ tellraw @a ["",{"text":"The game starts in","color":"aqua"},{"text":" [30] ","color":"red","clickEvent":{"action":"run_command","value":"/trigger skipCount set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Skip countdown","color":"aqua"}]}}},{"text":"seconds","color":"aqua"}]
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=300,score_count=300] ~ ~ ~ tellraw @a ["",{"text":"15 ","color":"red"},{"text":"seconds to game start","color":"aqua"}]
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=400,score_count=400] ~ ~ ~ tellraw @a ["",{"text":"10 ","color":"red"},{"text":"seconds","color":"aqua"}]
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=300,score_count=300] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=400,score_count=400] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
+	execute #GKPlayers# ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK,score_counting=0,score_count=0] @!counting 1
+	execute #GKPlayers# ~ ~ ~ scoreboard players add @e[type=ArmorStand,name=GK,score_counting=1,tag=!gameInProgress] @!count 1
+	execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=1] ~ ~ ~ playsound block.portal.travel master @a ~ ~ ~ 10000 2
+	execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=1] ~ ~ ~ tellraw @a ["",{"text":"The game starts in","color":"aqua"},{"text":" [30] ","color":"red","clickEvent":{"action":"run_command","value":"/trigger skipCount set 1"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"Skip countdown","color":"aqua"}]}}},{"text":"seconds","color":"aqua"}]
+	execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=300,score_count=300] ~ ~ ~ tellraw @a ["",{"text":"15 ","color":"red"},{"text":"seconds to game start","color":"aqua"}]
+	execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=400,score_count=400] ~ ~ ~ tellraw @a ["",{"text":"10 ","color":"red"},{"text":"seconds","color":"aqua"}]
+	execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=300,score_count=300] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
+	execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=400,score_count=400] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
 	:: "5... 4..."
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=599] ~ ~ ~ title @a times 0 100 20
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=500] ~ ~ ~ title @a subtitle ["",{"text":"5","color":"red"}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=520,score_count=520] ~ ~ ~ title @a subtitle ["",{"text":"4","color":"red"}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=540,score_count=540] ~ ~ ~ title @a subtitle ["",{"text":"3","color":"red"}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=560,score_count=560] ~ ~ ~ title @a subtitle ["",{"text":"2","color":"red"}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ title @a subtitle ["",{"text":"1","color":"red"}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=599] ~ ~ ~ title @a title [{"text":"Game starting in","color":"aqua"}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=500] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=520,score_count=520] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=540,score_count=540] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=560,score_count=560] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600] ~ ~ ~ title @a subtitle ["",{"text":""}]
-		execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600] ~ ~ ~ title @a clear
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=599] ~ ~ ~ title @a times 0 100 20
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=500] ~ ~ ~ title @a subtitle ["",{"text":"5","color":"red"}]
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=520,score_count=520] ~ ~ ~ title @a subtitle ["",{"text":"4","color":"red"}]
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=540,score_count=540] ~ ~ ~ title @a subtitle ["",{"text":"3","color":"red"}]
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=560,score_count=560] ~ ~ ~ title @a subtitle ["",{"text":"2","color":"red"}]
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ title @a subtitle ["",{"text":"1","color":"red"}]
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=599] ~ ~ ~ title @a title [{"text":"Game starting in","color":"aqua"}]
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=500,score_count=500] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=520,score_count=520] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=540,score_count=540] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=560,score_count=560] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=580,score_count=580] ~ ~ ~ playsound item.flintandsteel.use master @a ~ ~ ~ 1 1 1
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600] ~ ~ ~ title @a subtitle ["",{"text":""}]
+		execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600] ~ ~ ~ title @a clear
 	;;
 ;;
+#define GKCount @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress]
 :: "Pre-Start Actions"
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ scoreboard players tag @e[type=ArmorStand,name=GK,score_count_min=600] add @!gameInProgress
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=600] ~ ~ ~ clear @a[team=!Lobby]
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=599,score_count=600,score_settingRandTime=0] ~ ~ ~ execute @r[type=ArmorStand,name=randTime] ~ ~ ~ blockdata ~ ~-1 ~ {auto:1b}
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players reset * @!lives
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players set @a @!deaths 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players operation @a @!lives = @!RespawnTokens @!gameSettings
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ spawnpoint @a 512.0 255 512.0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard objectives setdisplay sidebar @!lives
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ effect @a minecraft:resistance 5 4 true
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ effect @a minecraft:instant_health 5 4 true
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ gamemode 2 @a[team=!Lobby]
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ gamemode 3 @a[team=Lobby]
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players set @a @!spare 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[m=3] 512 150 512
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!ticks 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!seconds 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!minutes 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!timing 1
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tellraw @a ["",{"text":"Click the timer to start a vote to end the game","color":"aqua"}]
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Red] 531 148 519 90 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Orange] 531 148 506 90 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Yellow] 519 148 494 0 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Green] 506 148 494 0 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Blue] 494 148 506 -90 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Purple] 494 148 519 -90 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Cyan] 506 148 531 180 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ tp @a[team=Pink] 519 148 531 180 0
-	execute @e[type=ArmorStand,name=GK,score_onTeam_min=2] ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=600,score_count=600,tag=gameInProgress] ~ ~ ~ execute @a ~ ~ ~ playsound entity.enderdragon.ambient master @p ~ ~ ~ 1 2
+	execute #GKPlayers# ~ ~ ~ scoreboard players tag @e[type=ArmorStand,name=GK,score_count_min=600] add @!gameInProgress
+	execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=1,score_count=600] ~ ~ ~ clear @a[team=!Lobby]
+	execute #GKPlayers# ~ ~ ~ execute @e[type=ArmorStand,name=GK,score_count_min=599,score_count=600,score_settingRandTime=0] ~ ~ ~ execute @r[type=ArmorStand,name=randTime] ~ ~ ~ blockdata ~ ~-1 ~ {auto:1b}
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ scoreboard players reset * @!lives
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ scoreboard players set @a @!deaths 0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ scoreboard players operation @a @!lives = @!RespawnTokens @!gameSettings
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ spawnpoint @a 512.0 255 512.0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ scoreboard objectives setdisplay sidebar @!lives
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ effect @a minecraft:resistance 5 4 true
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ effect @a minecraft:instant_health 5 4 true
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ gamemode 2 @a[team=!Lobby]
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ gamemode 3 @a[team=Lobby]
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ scoreboard players set @a @!spare 0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ tp @a[m=3] 512 150 512
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!ticks 0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!seconds 0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!minutes 0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ scoreboard players set @e[type=ArmorStand,name=GK] @!timing 1
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ tellraw @a ["",{"text":"Click the timer to start a vote to end the game","color":"aqua"}]
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ tp @a[team=Red] 531 148 519 90 0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ tp @a[team=Orange] 531 148 506 90 0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ tp @a[team=Yellow] 519 148 494 0 0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ tp @a[team=Green] 506 148 494 0 0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ tp @a[team=Blue] 494 148 506 -90 0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ tp @a[team=Purple] 494 148 519 -90 0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ tp @a[team=Cyan] 506 148 531 180 0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ tp @a[team=Pink] 519 148 531 180 0
+	execute #GKPlayers# ~ ~ ~ execute #GKCount# ~ ~ ~ execute @a ~ ~ ~ playsound entity.enderdragon.ambient master @p ~ ~ ~ 1 2
 ;;
